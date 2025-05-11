@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateThemeButton(theme) {
-        if (theme === 'dark') {
+        if (theme === 'light') {
             themeIcon.className = 'fas fa-sun';
             themeText.textContent = 'Light Mode';
         } else {
