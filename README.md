@@ -52,7 +52,8 @@ BioBloom is a comprehensive agricultural technology platform designed to help fa
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/biobloom.git
+git clone https://github.com/yourusername/Bloom.git
+cd Bloom
 ```
 
 2. Install NPM packages
