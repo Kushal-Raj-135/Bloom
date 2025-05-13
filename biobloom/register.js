@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirm-password');
-    const togglePassword = document.querySelector('.toggle-password');
-    const toggleConfirmPassword = document.querySelectorAll('.toggle-password')[1];
+    const togglePassword = document.getElementById('toggle-password');
+    const toggleConfirmPassword = document.getElementById('toggle-confirm-password');
     const googleRegisterBtn = document.querySelector('.social-btn.google');
     const githubRegisterBtn = document.getElementById('github-register');
     const termsCheckbox = document.getElementById('terms');
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = inputElement.type === 'password' ? 'text' : 'password';
         inputElement.type = type;
         toggleButton.innerHTML = type === 'password' 
-            ? '<i class="fas fa-eye"></i>' 
-            : '<i class="fas fa-eye-slash"></i>';
+            ? '<i class="fas fa-eye-slash"></i>' 
+            : '<i class="fas fa-eye"></i>';
     }
 
     // Add event listeners only if elements exist
