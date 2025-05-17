@@ -1,90 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoFarm Assistant - Sustainable Farming Solutions</title>
-    <link rel="stylesheet" href="biobloom/styles.css">
-    <link rel="stylesheet" href="biobloom/aqi-styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoFarm Assistant - Sustainable Farming Solutions</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="biobloom/favicon.ico" type="image/x-icon" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap"
+  />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="biobloom/styles.css" />
+  <link rel="stylesheet" href="biobloom/aqi-styles.css" />
+
+  <!-- Preload Important Assets -->
+  <link rel="preload" href="biobloom/logo.png" as="image" />
+
+  <!-- Icons and Libraries -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+    crossorigin="anonymous"
+    defer
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="biobloom/logo.png" alt="EcoFarm Logo" class="logoo">
+  <header>
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="biobloom/logo.png" alt="EcoFarm Logo" class="logoo" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Products</a>
+            <div class="dropdown-menu">
+              <a href="/crop" id="crop-link">Crop Rotation Assistant</a>
+              <a href="https://biofuel-one.vercel.app/" target="_blank">Biofuel</a>
+              <a href="https://biobloom1.vercel.app/" target="_blank">Smart Farm</a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="/" class="active">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Products</a>
-                        <div class="dropdown-menu">
-                            <a href="/crop" id="crop-link">Crop Rotation Assistant</a>
-                            <a href="https://biofuel-one.vercel.app/" target="_blank">Biofuel</a>
-                            <a href="https://biobloom1.vercel.app/" target="_blank">Smart Farm</a>
-                        </div>
-                    </li>
-                    <li><a href="#info-section">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                </ul>
-            </nav>
+          </li>
+          <li><a href="#info-section">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="container">
+        <h1>Welcome to EcoFarm Assistant</h1>
+        <p>Your hub for sustainable and smart farming solutions.</p>
+      </div>
+    </section>
+    <!-- Dynamic content will be loaded here -->
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="biobloom/logo.png" alt="EcoFarm Logo" />
         </div>
-    </header>
-
-    <main>
-        <!-- Dynamic content will be loaded here -->
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="biobloom/logo.png" alt="EcoFarm Logo">
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#info-section">About</a></li>
-                        <li><a href="#products">Products</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact" id="contact">
-                    <h4>Contact Us</h4>
-                    <p>Email: info@biobloom.in</p>
-                    <p>Phone: +1 (555) 123-4567</p>
-    
-                    <!-- Social Media Icons -->
-                    <div class="social-icons">
-                        <a href="https://instagram.com" target="_blank" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://facebook.com" target="_blank" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 BioBloom Solutions. All rights reserved.</p>
-            </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#info-section">About</a></li>
+            <li><a href="#products">Products</a></li>
+          </ul>
         </div>
-    </footer>
+        <div class="footer-contact" id="contact">
+          <h4>Contact Us</h4>
+          <p>Email: info@biobloom.in</p>
+          <p>Phone: +1 (555) 123-4567</p>
+          <div class="social-icons">
+            <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 BioBloom Solutions. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Scripts -->
-    <script src="biobloom/router.js"></script>
-    <script src="biobloom/script.js"></script>
-    <script src="biobloom/crop/crop-rotation.js"></script>
+  <!-- Scripts -->
+  <script src="biobloom/router.js" defer></script>
+  <script src="biobloom/script.js" defer></script>
+  <script src="biobloom/crop/crop-rotation.js" defer></script>
 </body>
-</html> 
+</html>
