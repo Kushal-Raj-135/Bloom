@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioBloom - AgriReVive Solutions</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../language/language-styles.css">
+    <link rel="stylesheet" href="../footer-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-minimap@3.6.1/dist/Control.MiniMap.min.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-minimap@3.6.1/dist/Control.MiniMap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../logo.png" alt="BioBloom Logo" class="logoo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html" class="nav-link active" data-translate="home">Home</a></li>
+                    <li><a href="#info-section" class="nav-link" data-translate="about">About</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link" data-translate="products">Products</a>
+                        <div class="dropdown-menu">
+                            <a href="../crop/crop-rotation.html" class="nav-link" data-translate="crop_rotation">CropShiftX</a>
+                            <a href="biofuel.html" class="nav-link" data-translate="agrirevive">AgriReVive</a>
+                            <a href="../agrisensex/agri.html" class="nav-link" data-translate="agrisensex">AgriSenseX</a>
+                            <a href="../graintrust/auth/index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
+                            <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="nav-link" data-translate="bio_guardian">BioGuardian</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact" class="nav-link" data-translate="contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-right">
+                    <!-- Auth buttons for logged out users -->
+                    <div class="auth-buttons">
+                        <a href="../login.html" class="nav-link" data-translate="login">Login</a>
+                        <a href="../register.html" class="nav-link" data-translate="register">Register</a>
+                    </div>
+                    
+                    <!-- User menu for logged in users -->
+                    <div class="user-menu" style="display: none;">
+                        <div class="dropdown">
+                            <a href="#" class="user-dropdown-toggle nav-link">
+                                <i class="fas fa-user-circle"></i>
+                                <span class="user-name">User</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu user-dropdown-menu">
+                                <a href="../profile.html" class="nav-link" data-translate="profile">Profile</a>
+                                <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Language selector -->
+                    <div class="language-selector">
+                        <select id="languageDropdown" class="language-dropdown">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                            <option value="kn">ಕನ್ನಡ</option>
+                        </select>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <h1>AI-Powered Agricultural Waste Management</h1>
+            <p>Transform your agricultural waste into valuable resources while protecting the environment</p>
+        </section>
+
+        <section id="waste-input" class="input-section">
+            <h2>Waste Input Details</h2>
+            <form id="wasteForm" class="waste-form">
+                <div class="form-group">
+                    <label for="cropType">Crop Type:</label>
+                    <input 
+                        type="text" 
+                        id="cropType" 
+                        name="cropType"
+                        class="crop-type"
+                        placeholder="Enter crop type (e.g., wheat, rice, corn)"
+                        required
+                    >
+                    <span class="input-helper">Please enter the type of crop you're managing</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="wasteQuantity">Waste Quantity (in kg):</label>
+                    <input type="number" id="wasteQuantity" required min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <div class="location-input-container">
+                        <input type="text" id="location" name="location" readonly placeholder="Click to select location" required>
+                        <button type="button" id="openMapBtn" class="map-btn">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
+                    <small id="locationDetails" class="coordinates-display"></small>
+                </div>
+
+                <button type="submit" class="submit-btn">Get AI Recommendations</button>
+            </form>
+        </section>
+
+        <section id="recommendations" class="recommendations-section" style="display: none;">
+            <div class="ai-confidence">
+                <div class="confidence-meter">
+                    <div class="confidence-label"></div>
+                    <div class="confidence-value" id="confidenceValue"></div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidenceFill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendations-container">
+                <div class="recommendations-header">
+                    <h2>🌿 Sustainable Waste Management Solutions</h2>
+                    <div class="waste-summary">
+                        <p>Analysis for: <strong id="wasteSummary"></strong></p>
+                    </div>
+                </div>
+
+                <div class="recommendations-grid">
+                    <!-- Biofuel Card -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="method-icon">⚡</div>
+                            <h3>Biofuel Production</h3>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="description">
+                                <p>Convert agricultural waste into clean, renewable biofuel through advanced processing techniques.</p>
+                            </div>
+                            <div class="processing-section">
+                                <h4>📋 Processing Steps</h4>
+                                <ul class="steps-list">
+                                    <li>Waste collection and sorting</li>
+                                    <li>Pre-treatment and size reduction</li>
+                                    <li>Anaerobic digestion process</li>
+                                    <li>Biogas purification</li>
+                                    <li>Biofuel storage and distribution</li>
+                                </ul>
+                            </div>
+                            <div class="equipment-section">
+                                <h4>🔧 Required Equipment</h4>
+                                <ul class="equipment-list">
+                                    <li>Waste collection system</li>
+                                    <li>Shredding equipment</li>
+                                    <li>Anaerobic digester</li>
+                                    <li>Biogas purification unit</li>
+                                    <li>Storage tanks</li>
+                                </ul>
+                            </div>
+                            <div class="environmental-impact-block biofuel-impact">
+                                <h4>Environmental Impact</h4>
+                                <div class="impact-metrics-grid">
+                                    <div class="impact-metric">
+                                        <span class="metric-label">AQI Improvement</span>
+                                        <span class="metric-value">15.0%</span>
+                                    </div>
+                                    <div class="impact-metric">
+                                        <span class="metric-label">Carbon Reduction</span>
+                                        <span class="metric-value">2.5 tons</span>
+                                    </div>
+                                    <div class="impact-metric">
+                                        <span class="metric-label">Economic Benefit</span>
+                                        <span class="metric-value">₹41,500</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Composting Card -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="method-icon">🌱</div>
+                            <h3>Composting</h3>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="description">
+                                <p>Transform agricultural waste into nutrient-rich compost for sustainable farming.</p>
+                            </div>
+                            <div class="processing-section">
+                                <h4>📋 Processing Steps</h4>
+                                <ul class="steps-list">
+                                    <li>Waste collection and sorting</li>
+                                    <li>Initial composting setup</li>
+                                    <li>Regular turning and monitoring</li>
+                                    <li>Maturation period</li>
+                                    <li>Compost screening and packaging</li>
+                                </ul>
+                            </div>
+                            <div class="equipment-section">
+                                <h4>🔧 Required Equipment</h4>
+                                <ul class="equipment-list">
+                                    <li>Composting bins</li>
+                                    <li>Temperature probes</li>
+                                    <li>Turning equipment</li>
+                                    <li>Screening machine</li>
+                                    <li>Packaging system</li>
+                                </ul>
+                            </div>
+                            <div class="environmental-impact-block composting-impact">
+                                <h4>Environmental Impact</h4>
+                                <div class="impact-metrics-grid">
+                                    <div class="impact-metric">
+                                        <span class="metric-label">AQI Improvement</span>
+                                        <span class="metric-value">12.5%</span>
+                                    </div>
+                                    <div class="impact-metric">
+                                        <span class="metric-label">Carbon Reduction</span>
+                                        <span class="metric-value">1.8 tons</span>
+                                    </div>
+                                    <div class="impact-metric">
+                                        <span class="metric-label">Economic Benefit</span>
+                                        <span class="metric-value">₹28,750</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recycling Card -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="method-icon">♻️</div>
+                            <h3>Material Recycling</h3>
+                        </div>
+                        <div class="recommendation-content">
+                            <div class="description">
+                                <p>Recycle agricultural waste into valuable materials for various industries.</p>
+                            </div>
+                            <div class="processing-section">
+                                <h4>📋 Processing Steps</h4>
+                                <ul class="steps-list">
+                                    <li>Waste collection and sorting</li>
+                                    <li>Material separation</li>
+                                    <li>Cleaning and processing</li>
+                                    <li>Quality control</li>
+                                    <li>Distribution to industries</li>
+                                </ul>
+                            </div>
+                            <div class="equipment-section">
+                                <h4>🔧 Required Equipment</h4>
+                                <ul class="equipment-list">
+                                    <li>Sorting conveyor</li>
+                                    <li>Cleaning system</li>
+                                    <li>Processing machinery</li>
+                                    <li>Quality control tools</li>
+                                    <li>Packaging equipment</li>
+                                </ul>
+                            </div>
+                            <div class="environmental-impact-block recycling-impact">
+                                <h4>Environmental Impact</h4>
+                                <div class="impact-metrics-grid">
+                                    <div class="impact-metric">
+                                        <span class="metric-label">AQI Improvement</span>
+                                        <span class="metric-value">10.0%</span>
+                                    </div>
+                                    <div class="impact-metric">
+                                        <span class="metric-label">Carbon Reduction</span>
+                                        <span class="metric-value">1.2 tons</span>
+                                    </div>
+                                    <div class="impact-metric">
+                                        <span class="metric-label">Economic Benefit</span>
+                                        <span class="metric-value">₹22,500</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="download-pdf-btn" onclick="generatePDFReport()">
+                <i class="fas fa-file-pdf"></i>
+                Download PDF Report
+            </button>
+        </section>
+
+        <section id="impact" class="impact-section">
+            <h2>Environmental Impact</h2>
+            <div class="impact-metrics">
+                <div class="metric-card">
+                    <h3>Current AQI</h3>
+                    <div id="currentAqi" class="metric-value">Loading...</div>
+                </div>
+                <div class="metric-card">
+                    <h3>AQI Improvement</h3>
+                    <div id="aqiMetric" class="metric-value">0%</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Carbon Reduction</h3>
+                    <div id="carbonMetric" class="metric-value">0 kg</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Economic Benefit</h3>
+                    <div id="economicMetric" class="metric-value">$0</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../logo.png" alt="BioBloom Logo" class="footer-logo-img">
+                </div>
+                
+                <div class="footer-links">
+                    <h4 data-translate="quick_links">Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html" data-translate="home">Home</a></li>
+                        <li><a href="#info-section" data-translate="about">About</a></li>
+                        <li><a href="#products" data-translate="products">Products</a></li>
+                        <li><a href="#contact" data-translate="contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact" id="contact">
+                    <h4 data-translate="contact_us">Contact Us</h4>
+                    <p data-translate="email_contact">Email: info@biobloom.com</p>
+                    <p data-translate="phone_contact">Phone: +91 1234567890</p>
+                    <p>Address: HSR Layout, Bengaluru</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BioBloom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Map Modal -->
+    <div id="mapModal" class="map-modal">
+        <div class="map-modal-content">
+            <div class="map-modal-header">
+                <h3>Select Location</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="map-search-container">
+                <input type="text" id="mapSearchInput" placeholder="Search location...">
+                <button id="currentLocationBtn" title="Use current location">
+                    <i class="fas fa-crosshairs"></i>
+                </button>
+            </div>
+            <div id="locationMap" class="modal-map">
+                <div class="map-loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading map...</p>
+                </div>
+            </div>
+            <div class="map-modal-footer">
+                <button id="confirmLocation" class="submit-btn" disabled>Confirm Location</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add loading indicator styles -->
+    <style>
+        .map-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4ade80;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <!-- Load dependencies first -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    
+    <!-- Load core functionality -->
+    <script src="../language/translations.js"></script>
+    <script src="../app.js"></script>
+    <script src="../userMenu.js"></script>
+    <script src="../api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

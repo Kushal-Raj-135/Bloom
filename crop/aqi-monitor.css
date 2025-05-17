@@ -1,0 +1,365 @@
+/* Main container styles */
+.aqi-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styles */
+.card {
+    background: var(--card-background, #fff);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Location info styles */
+.location-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.location-info h2 {
+    font-size: 1.5rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.refresh-btn {
+    padding: 0.5rem 1rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+    background: #45a049;
+    transform: translateY(-1px);
+}
+
+/* AQI display styles */
+.aqi-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#aqi-gauge {
+    width: 100%;
+    height: 200px;
+    margin: 20px 0;
+}
+
+.aqi-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#aqi-number {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#aqi-status {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+#aqi-description {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Ensure the gauge canvas is visible */
+#aqi-gauge svg {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+}
+
+/* Hide any unwanted text elements from the gauge */
+#aqi-gauge text {
+    display: none !important;
+}
+
+/* Style the gauge pointer */
+#aqi-gauge .pointer {
+    transform-origin: center bottom;
+    transition: transform 0.5s ease-out;
+}
+
+/* AQI status colors with enhanced styling */
+.aqi-good {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.aqi-moderate {
+    color: #FFC107;
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.aqi-unhealthy {
+    color: #FF9800;
+    background: rgba(255, 152, 0, 0.1);
+}
+
+.aqi-very-unhealthy {
+    color: #F44336;
+    background: rgba(244, 67, 54, 0.1);
+}
+
+.aqi-hazardous {
+    color: #9C27B0;
+    background: rgba(156, 39, 176, 0.1);
+}
+
+/* Pollutant details enhancement */
+.pollutant-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.pollutant-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.pollutant-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pollutant-item .label {
+    font-size: 0.9rem;
+    color: #666;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.pollutant-item .value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    display: block;
+}
+
+/* Last updated styles */
+.last-updated {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Activities card styles */
+.activities-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.weather-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.weather-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.weather-item i {
+    font-size: 1.5rem;
+    color: #4CAF50;
+}
+
+.activities-list {
+    flex-grow: 1;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.activity-item:hover {
+    transform: translateY(-2px);
+}
+
+.activity-item i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: #2196F3;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.activity-content p {
+    margin: 0;
+    color: #666;
+    line-height: 1.4;
+}
+
+.activity-placeholder {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+}
+
+.activity-placeholder i {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+/* Health advisory styles */
+.health-advisory {
+    background: #fff3e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.health-advisory h3 {
+    color: #f57c00;
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.health-advisory p {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Warning Styles */
+.warning-high {
+    border-left: 4px solid #F44336;
+    background-color: #FFF5F5;
+}
+
+.warning-high i {
+    color: #F44336;
+}
+
+.warning-medium {
+    border-left: 4px solid #FF9800;
+    background-color: #FFF8E1;
+}
+
+.warning-medium i {
+    color: #FF9800;
+}
+
+/* Pollutant Values */
+.pollutant-item {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.aqi-gauge.loading {
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .aqi-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .pollutant-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .weather-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .aqi-gauge {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .gauge-value {
+        font-size: 2.5rem;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .activity-item i {
+        margin-bottom: 0.5rem;
+    }
+    
+    .pollutant-grid {
+        grid-template-columns: 1fr;
+    }
+} 

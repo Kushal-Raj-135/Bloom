@@ -52,8 +52,7 @@ BioBloom is a comprehensive agricultural technology platform designed to help fa
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/Bloom.git
-cd Bloom
+git clone https://github.com/yourusername/biobloom.git
 ```
 
 2. Install NPM packages
@@ -120,9 +119,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Kushal Raj G S - https://www.linkedin.com/in/kushal-raj-g-s/
+Your Name - [@yourusername](https://twitter.com/yourusername)
 
-Project Link: https://github.com/Kushal-Raj-135/Bloom
+Project Link: [https://github.com/yourusername/biobloom](https://github.com/yourusername/biobloom)
 
 ## Acknowledgments
 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Monitor - BioBloom</title>
+    <link rel="stylesheet" href="aqi-monitor.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section class="section">
+            <h1>
+                <i class="fas fa-wind"></i>
+                Air Quality Monitor
+            </h1>
+            
+            <div class="aqi-container">
+                <!-- Location and AQI Card -->
+                <div class="card aqi-card">
+                    <div class="location-info">
+                        <h2>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="location-name">Detecting location...</span>
+                        </h2>
+                        <button id="refresh-btn" class="refresh-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                    </div>
+
+                    <div class="aqi-display">
+                        <div class="aqi-gauge">
+                            <div class="gauge-value">
+                                <span id="aqi-value">--</span>
+                                <span class="unit">AQI</span>
+                            </div>
+                            <div id="aqi-status" class="aqi-status">Calculating...</div>
+                        </div>
+
+                        <div class="pollutant-details">
+                            <div class="pollutant-item">
+                                <span class="label">PM2.5</span>
+                                <span id="pm25-value" class="value">--</span>
+                            </div>
+                            <div class="pollutant-item">
+                                <span class="label">PM10</span>
+                                <span id="pm10-value" class="value">--</span>
+                            </div>
+                            <div class="pollutant-item">
+                                <span class="label">O3</span>
+                                <span id="o3-value" class="value">--</span>
+                            </div>
+                            <div class="pollutant-item">
+                                <span class="label">NO2</span>
+                                <span id="no2-value" class="value">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="last-updated">
+                        Last updated: <span id="update-time">--</span>
+                    </div>
+                </div>
+
+                <!-- Farm Activities Card -->
+                <div class="card activities-card">
+                    <h2>
+                        <i class="fas fa-tasks"></i>
+                        Recommended Farm Activities
+                    </h2>
+                    
+                    <div class="weather-info">
+                        <div class="weather-item">
+                            <i class="fas fa-temperature-high"></i>
+                            <span id="temperature">--°C</span>
+                        </div>
+                        <div class="weather-item">
+                            <i class="fas fa-tint"></i>
+                            <span id="humidity">--%</span>
+                        </div>
+                        <div class="weather-item">
+                            <i class="fas fa-wind"></i>
+                            <span id="wind-speed">-- km/h</span>
+                        </div>
+                    </div>
+
+                    <div class="activities-list" id="activities-list">
+                        <div class="activity-placeholder">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading activity recommendations...</p>
+                        </div>
+                    </div>
+
+                    <div class="health-advisory">
+                        <h3>
+                            <i class="fas fa-heart"></i>
+                            Health Advisory
+                        </h3>
+                        <p id="health-message">Loading health advisory...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="aqi-monitor.js"></script>
+</body>
+</html> 
