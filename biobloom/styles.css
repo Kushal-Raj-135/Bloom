@@ -2330,6 +2330,45 @@ input[type="tel"] {
     }
 }
 
+/* Register-Form Styling */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+}
+
+/* Style for the login/register text section */
+.login-link {
+    text-align: center; /* Center the whole line */
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Make sure the <p> and <a> appear in the same line */
+.login-link p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* Style the "Login here" or "Register here" link */
+.login-link a {
+    color: var(--primary-color); /* green or brand color */
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px; /* Adds slight spacing between text and link */
+}
+
+/* Optional: underline on hover */
+.login-link a:hover {
+    text-decoration: underline;
+}
+
 /* Auth Forms Styling */
 .login-section {
     min-height: calc(100vh - 80px);
@@ -2407,6 +2446,7 @@ input[type="tel"] {
     font-size: 1rem;
     color: var(--text-color);
     background: transparent;
+    padding-left: 15px; 
 }
 
 .input-group input:focus {
@@ -2463,6 +2503,7 @@ input[type="tel"] {
 
 .forgot-password:hover {
     color: var(--primary-dark);
+    text-decoration: underline;
 }
 
 .login-btn {
