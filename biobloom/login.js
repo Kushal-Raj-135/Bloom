@@ -34,15 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Toggle password visibility
-    if (togglePasswordBtn) {
-        togglePasswordBtn.addEventListener('click', () => {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            togglePasswordBtn.querySelector('i').classList.toggle('fa-eye');
-            togglePasswordBtn.querySelector('i').classList.toggle('fa-eye-slash');
-        });
-    }
+    togglePasswordBtn.addEventListener('click', () => {
+    const icon = togglePasswordBtn.querySelector('i');
+    const isHidden = passwordInput.type === 'password';
+
+    // Toggle input type
+    passwordInput.type = isHidden ? 'text' : 'password';
+
+    // Toggle icon classes
+    icon.classList.toggle('fa-eye-slash', !isHidden);
+    icon.classList.toggle('fa-eye', isHidden);
+});
 
     // Input validation
     function validateEmail(email) {
