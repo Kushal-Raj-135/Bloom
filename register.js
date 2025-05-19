@@ -11,11 +11,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const githubRegisterBtn = document.getElementById('github-register');
     const termsCheckbox = document.getElementById('terms');
     
-    // Get error elements
-    const fullnameError = document.getElementById('fullname-error');
-    const emailError = document.getElementById('email-error');
-    const passwordError = document.getElementById('password-error');
-    const confirmPasswordError = document.getElementById('confirm-password-error');
+    // Add validation event listeners
+    if (nameInput) {
+        nameInput.addEventListener('blur', () => validateField(nameInput, validateName, true));
+        nameInput.addEventListener('input', () => validateField(nameInput, validateName, true));
+    }
+    
+    if (emailInput) {
+        emailInput.addEventListener('blur', () => validateField(emailInput, validateEmail, true));
+        emailInput.addEventListener('input', () => validateField(emailInput, validateEmail, true));
+    }
+    
+    if (passwordInput) {
+        passwordInput.addEventListener('blur', () => validateField(passwordInput, validatePassword, true));
+        passwordInput.addEventListener('input', () => validateField(passwordInput, validatePassword, true));
+        
+        // Also revalidate confirm password when the main password changes
+        passwordInput.addEventListener('input', () => {
+            if (confirmPasswordInput && confirmPasswordInput.value) {
+                validateField(confirmPasswordInput, 
+                    value => validatePasswordMatch(passwordInput.value, value), 
+                    true);
+            }
+        });
+    }
+    
+    if (confirmPasswordInput) {
+        confirmPasswordInput.addEventListener('blur', () => 
+            validateField(confirmPasswordInput, 
+                value => validatePasswordMatch(passwordInput.value, value), 
+                true));
+        confirmPasswordInput.addEventListener('input', () => 
+            validateField(confirmPasswordInput, 
+                value => validatePasswordMatch(passwordInput.value, value), 
+                true));
+    }
+    
+    if (termsCheckbox) {
+        termsCheckbox.addEventListener('change', () => {
+            if (!termsCheckbox.checked) {
+                showError(termsCheckbox, document.getElementById('terms-error') || termsCheckbox, 'You must agree to the Terms and Conditions');
+            } else {
+                clearError(termsCheckbox, document.getElementById('terms-error') || termsCheckbox);
+            }
+        });
+    }
 
     // Check if user is already logged in
     const storedToken = localStorage.getItem('token');
@@ -45,99 +85,45 @@ document.addEventListener('DOMContentLoaded', () => {
             togglePasswordVisibility(confirmPasswordInput, toggleConfirmPassword));
     }
 
-    // Input validation functions
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    function validatePassword(password) {
-        // Password must be at least 8 characters long and contain at least one number and one letter
-        const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-        return re.test(password);
-    }
-
-    function validateFullname(name) {
-        return name.trim().length >= 2 && /^[a-zA-Z\s]*$/.test(name);
-    }
-
-    function showError(element, message) {
-        if (!element) return;
-        element.textContent = message;
-        element.style.display = 'block';
-    }
-
-    function hideError(element) {
-        if (!element) return;
-        element.style.display = 'none';
-    }
-
-    function showToast(message, type = 'success') {
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.textContent = message;
-        document.body.appendChild(toast);
-
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
-    }
-
-    // Real-time validation
-    if (nameInput) {
-        nameInput.addEventListener('input', () => {
-            if (!validateFullname(nameInput.value)) {
-                showError(fullnameError, 'Please enter a valid name (letters and spaces only)');
-            } else {
-                hideError(fullnameError);
-            }
-        });
-    }
-
-    if (emailInput) {
-        emailInput.addEventListener('input', () => {
-            if (!validateEmail(emailInput.value)) {
-                showError(emailError, 'Please enter a valid email address');
-            } else {
-                hideError(emailError);
-            }
-        });
-    }
-
-    if (passwordInput) {
-        passwordInput.addEventListener('input', () => {
-            if (!validatePassword(passwordInput.value)) {
-                showError(passwordError, 'Password must be at least 8 characters with letters and numbers');
-            } else {
-                hideError(passwordError);
-            }
-            
-            if (confirmPasswordInput && confirmPasswordInput.value && 
-                confirmPasswordInput.value !== passwordInput.value) {
-                showError(confirmPasswordError, 'Passwords do not match');
-            } else {
-                hideError(confirmPasswordError);
-            }
-        });
-    }
-
-    if (confirmPasswordInput) {
-        confirmPasswordInput.addEventListener('input', () => {
-            if (confirmPasswordInput.value !== passwordInput.value) {
-                showError(confirmPasswordError, 'Passwords do not match');
-            } else {
-                hideError(confirmPasswordError);
-            }
-        });
-    }
-
     // Handle form submission
     if (registerForm) {
         registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-
-            if (passwordInput.value !== confirmPasswordInput.value) {
-                showError(confirmPasswordError, 'Passwords do not match');
+            
+            let isValid = true;
+            
+            // Validate all fields
+            if (nameInput) {
+                isValid = validateField(nameInput, validateName, true) && isValid;
+            }
+            
+            if (emailInput) {
+                isValid = validateField(emailInput, validateEmail, true) && isValid;
+            }
+            
+            if (passwordInput) {
+                isValid = validateField(passwordInput, validatePassword, true) && isValid;
+            }
+            
+            if (confirmPasswordInput && passwordInput) {
+                isValid = validateField(
+                    confirmPasswordInput, 
+                    value => validatePasswordMatch(passwordInput.value, value), 
+                    true
+                ) && isValid;
+            }
+            
+            // Validate terms checkbox
+            if (termsCheckbox && !termsCheckbox.checked) {
+                showError(termsCheckbox, document.getElementById('terms-error') || termsCheckbox, 'You must agree to the Terms and Conditions');
+                isValid = false;
+            } else if (termsCheckbox) {
+                clearError(termsCheckbox, document.getElementById('terms-error') || termsCheckbox);
+            }
+            
+            // If validation fails, stop form submission
+            if (!isValid) {
+                showToast('Please fix the errors in the form', 'error');
                 return;
             }
 
@@ -210,15 +196,4 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast('GitHub registration coming soon!', 'info');
         });
     }
-
-    // Check terms and conditions
-    if (termsCheckbox) {
-        termsCheckbox.addEventListener('change', () => {
-            if (!termsCheckbox.checked) {
-                showError(confirmPasswordError, 'Please accept the Terms & Conditions');
-            } else {
-                hideError(confirmPasswordError);
-            }
-        });
-    }
-}); 
+});

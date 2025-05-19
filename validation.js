@@ -36,7 +36,7 @@ function validateEmail(email) {
 
 function validatePhone(phone) {
     if (!phone || phone.trim() === '') {
-        return { valid: true }; // Phone is optional
+        return { valid: true }; 
     }
     
     const phoneRegex = /^(\+\d{1,3}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
@@ -52,7 +52,7 @@ function validatePhone(phone) {
 
 function validateLocation(location) {
     if (!location || location.trim() === '') {
-        return { valid: true }; // Location is optional
+        return { valid: true }; 
     }
     
     if (location.trim().length < 3) {
@@ -67,7 +67,7 @@ function validateLocation(location) {
 
 function validateBio(bio) {
     if (!bio || bio.trim() === '') {
-        return { valid: true }; // Bio is optional
+        return { valid: true }; 
     }
     
     if (bio.trim().length > 200) {
@@ -88,7 +88,7 @@ function validatePassword(password, isRequired = false) {
                 message: 'Password is required'
             };
         }
-        return { valid: true }; // Password is optional for profile update
+        return { valid: true };
     }
     
     if (password.length < 8) {
@@ -114,14 +114,34 @@ function validatePassword(password, isRequired = false) {
     return { valid: true };
 }
 
+// Function to validate password confirmation
+function validatePasswordMatch(password, confirmPassword) {
+    if (!confirmPassword || confirmPassword.trim() === '') {
+        return {
+            valid: false,
+            message: 'Please confirm your password'
+        };
+    }
+    
+    if (password !== confirmPassword) {
+        return {
+            valid: false,
+            message: 'Passwords do not match'
+        };
+    }
+    
+    return { valid: true };
+}
+
 // Function to show error message
 function showError(inputElement, errorMessage) {
+    if (!inputElement) return;
+    
     const errorElement = document.getElementById(`${inputElement.id}-error`);
     if (errorElement) {
         errorElement.textContent = errorMessage;
         errorElement.style.display = 'block';
         
-        // Add invalid class to input
         inputElement.classList.add('invalid');
         inputElement.classList.remove('valid');
     }
@@ -129,19 +149,21 @@ function showError(inputElement, errorMessage) {
 
 // Function to clear error message
 function clearError(inputElement) {
+    if (!inputElement) return;
+    
     const errorElement = document.getElementById(`${inputElement.id}-error`);
     if (errorElement) {
         errorElement.textContent = '';
         errorElement.style.display = 'none';
         
-        // Add valid class to input
         inputElement.classList.add('valid');
         inputElement.classList.remove('invalid');
     }
 }
 
-// Function to validate a form field
 function validateField(inputElement, validationFunction, isRequired = false) {
+    if (!inputElement) return false;
+    
     const value = inputElement.value.trim();
     const validation = validationFunction(value, isRequired);
     
@@ -152,4 +174,40 @@ function validateField(inputElement, validationFunction, isRequired = false) {
         clearError(inputElement);
         return true;
     }
+}
+
+// Simple toast notification
+function showToast(message, type = 'success') {
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    
+    // Apply inline styles directly
+    toast.style.position = 'fixed';
+    toast.style.top = '20px';
+    toast.style.right = '20px';
+    toast.style.padding = '12px 24px';
+    toast.style.borderRadius = '4px';
+    toast.style.color = 'white';
+    toast.style.fontSize = '14px';
+    toast.style.maxWidth = '300px';
+    toast.style.zIndex = '9999';
+    toast.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    
+    // Set color based on type
+    if (type === 'success') {
+        toast.style.backgroundColor = '#28a745';
+    } else if (type === 'error') {
+        toast.style.backgroundColor = '#dc3545';
+    } else if (type === 'info') {
+        toast.style.backgroundColor = '#17a2b8';
+    }
+    
+    // Add to document
+    document.body.appendChild(toast);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        document.body.removeChild(toast);
+    }, 3000);
 }

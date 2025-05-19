@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const profilePicture = document.getElementById('profile-picture');
     const pictureInput = document.getElementById('picture-input'); 
     
-    // Make sure all elements exist before adding event listeners
     if (nameInput) {
         nameInput.addEventListener('blur', () => validateField(nameInput, validateName, true));
         nameInput.addEventListener('input', () => validateField(nameInput, validateName, true));
@@ -44,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         newPasswordInput.addEventListener('input', () => validateField(newPasswordInput, validatePassword));
     }
 
-    // If current password is filled, validate it when the form is submitted
     if (currentPasswordInput) {
         currentPasswordInput.addEventListener('blur', () => {
             if (newPasswordInput && newPasswordInput.value.trim() !== '') {
@@ -53,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Check if user is logged in - fixed error handling
     let token, user;
     try {
         token = localStorage.getItem('token');
@@ -64,21 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {
         user = {};
     }
 
-    // For local testing without login
-    if (!token || !user || Object.keys(user).length === 0) {
-        console.log('No user logged in, using demo data for testing');
-        // Create dummy user for testing
-        user = {
-            name: 'Demo User',
-            email: 'test@example.com',
-            phone: '',
-            location: '',
-            bio: ''
-        };
-        // Don't redirect to login for local testing
-        // window.location.href = '/login';
-        // return;
-    }
+    // // For local testing without login
+    // if (!token || !user || Object.keys(user).length === 0) {
+    //     console.log('No user logged in, using demo data for testing');
+    //     // Create dummy user for testing
+    //     user = {
+    //         name: 'Demo User',
+    //         email: 'test@example.com',
+    //         phone: '',
+    //         location: '',
+    //         bio: ''
+    //     };
+    // }
 
     // Populate form with user data
     if (nameInput) nameInput.value = user.name || '';
@@ -102,11 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 bioInput.value = bioInput.value.substring(0, 200);
             }
         });
-        // Initialize character count
+
         charCount.textContent = `${bioInput.value.length}/200`;
     }
 
-    // Handle profile picture upload
     if (pictureInput && profilePicture) {
         pictureInput.addEventListener('change', async (e) => {
             const file = e.target.files[0];
@@ -123,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // For local testing, show the image without uploading
+   
             const reader = new FileReader();
             reader.onload = function(e) {
                 profilePicture.src = e.target.result;
@@ -154,13 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
             togglePasswordVisibility(newPasswordInput, toggleNewPassword));
     }
 
-    // Handle form submission
     if (profileForm) {
         profileForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             let isValid = true;
             
-            // Required fields
             if (nameInput) {
                 isValid = validateField(nameInput, validateName, true) && isValid;
             }
@@ -168,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = validateField(emailInput, validateEmail, true) && isValid;
             }
             
-            // Optional fields
+
             if (phoneInput) {
                 isValid = validateField(phoneInput, validatePhone) && isValid;
             }
@@ -184,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = validateField(currentPasswordInput, validatePassword, true) && isValid;
                 isValid = validateField(newPasswordInput, validatePassword) && isValid;
             }
-            
+           
             // If validation fails, stop form submission
             if (!isValid) {
                 showToast('Please fix the errors in the form', 'error');
@@ -226,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 showToast('Profile updated successfully! (Local testing mode)', 'success');
 
-                // Uncomment this in production
                 /*
                 // Real API call for production
                 const response = await fetch('/api/auth/update-profile', {
@@ -281,19 +271,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Toast notification helper
-    function showToast(message, type = 'success') {
-        const existingToast = document.querySelector('.toast');
-        if (existingToast) {
-            existingToast.remove();
-        }
+    // Override toast notification for profile page
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.textContent = message;
+    
+    toast.style.position = 'fixed';
+    toast.style.top = '20px';
+    toast.style.right = '20px';
+    toast.style.padding = '12px 24px';
+    toast.style.borderRadius = '4px';
+    toast.style.color = 'white';
+    toast.style.fontSize = '14px';
+    toast.style.maxWidth = '300px';
+    toast.style.zIndex = '9999';
+    toast.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
 
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.textContent = message;
-        document.body.appendChild(toast);
-
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
+    if (type === 'success') {
+        toast.style.backgroundColor = '#28a745';
+    } else if (type === 'error') {
+        toast.style.backgroundColor = '#dc3545';
+    } else if (type === 'info') {
+        toast.style.backgroundColor = '#17a2b8';
     }
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        if (toast.parentNode) {
+            document.body.removeChild(toast);
+        }
+    }, 3000);
+}
 });
