@@ -2799,3 +2799,56 @@ input[type="tel"] {
         width: 100%;
     }
 }
+/* Form validation styles */
+.input-group input.valid,
+.input-group textarea.valid {
+    border-color: #28a745 !important;
+    background-color: #f8fff9;
+}
+
+.input-group input.invalid,
+.input-group textarea.invalid {
+    border-color: #dc3545 !important;
+    background-color: #fff8f8;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Toast notification styles */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    max-width: 300px;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInOut 3s ease;
+}
+
+.toast.success {
+    background-color: #28a745;
+}
+
+.toast.error {
+    background-color: #dc3545;
+}
+
+.toast.info {
+    background-color: #17a2b8;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}

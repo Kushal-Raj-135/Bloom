@@ -2,13 +2,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-    const emailError = document.getElementById('email-error');
-    const passwordError = document.getElementById('password-error');
     const togglePasswordBtn = document.querySelector('.toggle-password');
     const rememberMe = document.getElementById('remember');
     const loginBtn = document.querySelector('.login-btn');
     const googleLoginBtn = document.getElementById('google-login');
     const githubLoginBtn = document.getElementById('github-login');
+
+    // Add validation event listeners
+    if (emailInput) {
+        emailInput.addEventListener('blur', () => validateField(emailInput, validateEmail, true));
+        emailInput.addEventListener('input', () => validateField(emailInput, validateEmail, true));
+    }
+    
+    if (passwordInput) {
+        passwordInput.addEventListener('blur', () => {
+            // For login, we just need to check if password is not empty
+            if (!passwordInput.value.trim()) {
+                showError(passwordInput, 'Password is required');
+                return false;
+            } else {
+                clearError(passwordInput);
+                return true;
+            }
+        });
+        
+        passwordInput.addEventListener('input', () => {
+            if (!passwordInput.value.trim()) {
+                showError(passwordInput, 'Password is required');
+                return false;
+            } else {
+                clearError(passwordInput);
+                return true;
+            }
+        });
+    }
 
     // Check for remembered credentials
     const rememberedEmail = localStorage.getItem('rememberedEmail');
@@ -44,61 +71,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Input validation
-    function validateEmail(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    function validatePassword(password) {
-        return password.length >= 6;
-    }
-
-    function showError(element, message) {
-        element.textContent = message;
-        element.style.display = 'block';
-    }
-
-    function hideError(element) {
-        element.style.display = 'none';
-    }
-
-    if (emailInput) {
-        emailInput.addEventListener('input', () => {
-            if (!validateEmail(emailInput.value)) {
-                showError(emailError, 'Please enter a valid email address');
-            } else {
-                hideError(emailError);
-            }
-        });
-    }
-
-    if (passwordInput) {
-        passwordInput.addEventListener('input', () => {
-            if (!validatePassword(passwordInput.value)) {
-                showError(passwordError, 'Password must be at least 6 characters long');
-            } else {
-                hideError(passwordError);
-            }
-        });
-    }
-
     // Form submission
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const email = emailInput.value;
-            const password = passwordInput.value;
-
-            // Validate inputs
-            if (!validateEmail(email)) {
-                showError(emailError, 'Please enter a valid email address');
-                return;
+            let isValid = true;
+            
+            // Validate email
+            if (emailInput) {
+                isValid = validateField(emailInput, validateEmail, true) && isValid;
             }
-
-            if (!validatePassword(password)) {
-                showError(passwordError, 'Password must be at least 6 characters long');
+            
+            // Validate password (just check if not empty for login)
+            if (passwordInput) {
+                if (!passwordInput.value.trim()) {
+                    showError(passwordInput, 'Password is required');
+                    isValid = false;
+                } else {
+                    clearError(passwordInput);
+                }
+            }
+            
+            if (!isValid) {
+                showToast('Please fix the errors in the form', 'error');
                 return;
             }
 
@@ -106,14 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
             loginBtn.classList.add('loading');
             loginBtn.disabled = true;
 
-            // For demo purposes, use mock login instead of API call
-            mockLogin(email, password);
+            mockLogin(emailInput.value, passwordInput.value);
         });
     }
 
     // Mock login function for demo purposes
     function mockLogin(email, password) {
-        // In a real app, this would be an API call
         setTimeout(() => {
             const mockUser = {
                 id: '12345',
@@ -142,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 1500);
-        }, 1000); // Simulate network delay
+        }, 1000);
     }
 
     // Google login button click handler
@@ -169,17 +163,5 @@ document.addEventListener('DOMContentLoaded', () => {
         githubLoginBtn.addEventListener('click', () => {
             showToast('GitHub login coming soon!', 'info');
         });
-    }
-
-    // Toast notification helper
-    function showToast(message, type = 'success') {
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.textContent = message;
-        document.body.appendChild(toast);
-
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
     }
 });
