@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('myChart').getContext('2d');
+    // no error handling for missing canvas
+     const ctx = document.getElementById('myChart')?.getContext('2d');
+    if (!ctx) {
+    console.error('Chart canvas not found!');
+    return;
+}
 
     // Create gradient fills
     const traditionalGradient = ctx.createLinearGradient(0, 0, 0, 400);
