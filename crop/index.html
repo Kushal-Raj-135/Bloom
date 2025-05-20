@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Rotation Agent</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="aqi-monitor.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
+</head>
+<body>
+    <main>
+        <section class="section">
+            <h1>Crop Rotation Agent</h1>
+            <div class="tool-container">
+                <div class="input-section card">
+                    <h2>Enter Your Farm Details</h2>
+                    <form id="crop-form">
+                        <div class="form-group">
+                            <label for="previous-crop">Select Your Crop:</label>
+                            <select id="previous-crop" required>
+                                <option value="">Select a crop</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="soil-type">Soil Type:</label>
+                            <select id="soil-type" required>
+                                <option value="">Select soil type</option>
+                                <option value="clay">Clay</option>
+                                <option value="sandy">Sandy</option>
+                                <!-- Add more soil types -->
+                            </select>
+                            <small class="helper-text">This will be auto-filled based on your crop selection</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="region">Region/Climate:</label>
+                            <select id="region" required>
+                                <option value="">Select region</option>
+                                <option value="tropical">Tropical</option>
+                                <option value="temperate">Temperate</option>
+                                <!-- Add more regions -->
+                            </select>
+                            <small class="helper-text">This will be auto-filled based on your crop selection</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="farm-size">Farm Size (acres):</label>
+                            <input type="number" id="farm-size" min="1" required>
+                        </div>
+                        <button type="submit" class="custom-btn">Get Recommendations</button>
+                    </form>
+                </div>
+                <div class="results-section">
+                    <div class="card recommendation-card">
+                        <h2>Your Recommendations</h2>
+                        <div id="recommendations"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-section">
+                <div class="card map-card">
+                    <h2><i class="fas fa-map-marked-alt"></i> Farm Map</h2>
+                    <div class="map-container">
+                        <div class="map-search">
+                            <input type="text" id="location-search" placeholder="Search location...">
+                            <button id="search-current-location" title="Current Location" style="margin-left:5px;"><i class="fas fa-crosshairs"></i></button>
+                            <div class="search-results"></div>
+                        </div>
+                        <div class="map-controls">
+                            <button id="current-location" title="Current Location">
+                                <i class="fas fa-crosshairs"></i>
+                            </button>
+                            <button id="add-field" title="Add Field">
+                                <i class="fas fa-draw-polygon"></i>
+                            </button>
+                            <button id="measure-area" title="Measure Area">
+                                <i class="fas fa-ruler-combined"></i>
+                            </button>
+                            <button id="toggle-satellite" title="Toggle Satellite View">
+                                <i class="fas fa-satellite"></i>
+                            </button>
+                            <button id="toggle-fullscreen" title="Toggle Fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                        <div id="farm-map"></div>
+                        <div class="map-legend">
+                            <!-- Legend items for different field types -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="data.js"></script>
+    <script src="agent.js"></script>
+    <script src="aqi-monitor.js"></script>
+    <script src="map.js"></script>
+</body>
+</html> 

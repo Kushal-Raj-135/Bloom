@@ -119,9 +119,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Kushal Raj G S - https://www.linkedin.com/in/kushal-raj-g-s/
+Your Name - [@yourusername](https://twitter.com/yourusername)
 
-Project Link: https://github.com/Kushal-Raj-135/Bloom
+Project Link: [https://github.com/yourusername/biobloom](https://github.com/yourusername/biobloom)
 
 ## Acknowledgments
 
