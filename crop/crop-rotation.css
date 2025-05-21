@@ -95,6 +95,9 @@ main {
     margin: 0 auto;
     width: 100%;
 }
+.container p{
+margin-bottom: 10px;
+}
 
 .section {
     margin-top: 2rem;
@@ -535,6 +538,11 @@ h1 {
         gap: 1rem;
         flex-direction: column;
         align-items: flex-start;
+    }
+    .results-section .recommendation-card{
+        display: flex;
+        flex-direction: column;
+        
     }
 }
 
