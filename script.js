@@ -103,7 +103,7 @@ async function updateLanguage(newLanguage) {
 }
 
 // Import API functions
-import { api } from './api.js';
+//import { api } from './api.js';
 
 // Function to handle crop recommendations form submission
 async function handleRecommendationsSubmit(event) {
@@ -741,4 +741,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize the app
     initApp();
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    if (menuToggle && mainNav && menuOverlay) {
+        menuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+            this.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        menuOverlay.addEventListener('click', function() {
+            mainNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            menuToggle.textContent = '☰';
+        });
+    }
+
+    // Close menu when clicking menu items
+    const menuItems = document.querySelectorAll('nav a:not(.dropdown-toggle)');
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                mainNav.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                menuToggle.textContent = '☰';
+            }
+        });
+    });
 });

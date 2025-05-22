@@ -1753,7 +1753,6 @@ select.auto-filled {
 }
 
 #edit-profile-form input:focus {
-    outline: none;
     border-color: #2196F3;
     box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
 }
@@ -2799,56 +2798,182 @@ input[type="tel"] {
         width: 100%;
     }
 }
-/* Form validation styles */
-.input-group input.valid,
-.input-group textarea.valid {
-    border-color: #28a745 !important;
-    background-color: #f8fff9;
-}
 
-.input-group input.invalid,
-.input-group textarea.invalid {
-    border-color: #dc3545 !important;
-    background-color: #fff8f8;
-}
-
-.error-message {
-    color: #dc3545;
-    font-size: 0.8rem;
-    margin-top: 5px;
+/* Desktop styles - Hide menu toggle and overlay */
+.menu-toggle, .menu-overlay {
     display: none;
 }
 
-/* Toast notification styles */
-.toast {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 12px 24px;
-    border-radius: 4px;
-    color: white;
-    font-size: 14px;
-    max-width: 300px;
-    z-index: 9999;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: fadeInOut 3s ease;
-}
+/* Mobile navigation improvements */
+@media (max-width: 768px) {
+    /* Show menu toggle on mobile only */
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1002;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        background: #f0f7f0;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
 
-.toast.success {
-    background-color: #28a745;
-}
+    /* Improved mobile navigation */
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
+        transition: right 0.3s ease;
+        z-index: 1001;
+        padding: 80px 0 20px;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
 
-.toast.error {
-    background-color: #dc3545;
-}
+    nav.active {
+        right: 0;
+    }
 
-.toast.info {
-    background-color: #17a2b8;
-}
+    /* Improved dropdown styling */
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        padding: 0;
+        box-shadow: none;
+        background: #f8f9fa;
+        display: none;
+    }
 
-@keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(-20px); }
-    10% { opacity: 1; transform: translateY(0); }
-    90% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-20px); }
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        padding: 12px 25px !important;
+        color: #333;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Improved mobile menu items */
+    nav ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    nav ul li a {
+        padding: 15px 20px;
+        display: block;
+        color: #333;
+        text-decoration: none;
+    }
+
+    /* Improved auth buttons */
+    .auth-buttons {
+        padding: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    .auth-buttons a {
+        display: block;
+        padding: 12px 20px;
+        margin-bottom: 10px;
+        background: #4CAF50;
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    /* Language selector adjustments */
+    .language-selector {
+        padding: 0 20px 20px;
+    }
+
+    .language-dropdown {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    /* Menu overlay */
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    .menu-overlay.active {
+        display: block;
+    }
+
+    /* Logo adjustments */
+    .logo {
+        position: relative;
+        z-index: 1002;
+    }
+
+    .logoo {
+        max-width: 120px;
+        height: auto;
+    }
+
+    /* Content adjustments */
+    .hero-content {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Product cards adjustment */
+    .product-cards {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .product-card {
+        margin-bottom: 20px;
+    }
+
+    /* AQI section adjustments */
+    .aqi-container {
+        padding: 15px;
+    }
+
+    .aqi-scale {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Footer adjustments */
+    .footer-content {
+        padding: 20px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }

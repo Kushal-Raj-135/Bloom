@@ -14,7 +14,7 @@ const handleResponse = async (response) => {
 };
 
 // API functions
-export const api = {
+const api = {
     // Authentication
     login: async (email, password) => {
         const response = await fetch(`${API_BASE_URL}/login`, {
@@ -23,6 +23,7 @@ export const api = {
             body: JSON.stringify({ email, password })
         });
         return handleResponse(response);
+        window.api = api;
     },
 
     register: async (name, email, password) => {
