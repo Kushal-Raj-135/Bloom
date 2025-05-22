@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - BioBloom Solutions</title>
+    <!-- Core styles -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="aqi-styles.css">
-    <link rel="stylesheet" href="language/language-styles.css">
+    <!-- Auth-specific responsive styles -->
+    <link rel="stylesheet" href="auth-pages.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
@@ -14,60 +15,16 @@
 <body>
     <header>
         <div class="container">
+            <!-- Simplified header for auth pages - just logo -->
             <div class="logo">
-                <img src="logo.png" alt="BioBloom Logo" class="logoo">
+                <a href="index.html">
+                    <img src="logo.png" alt="BioBloom Logo" class="logoo">
+                </a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="/" class="nav-link" data-translate="home">Home</a></li>
-                    <li><a href="#info-section" class="nav-link" data-translate="about">About</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link" data-translate="products">Products</a>
-                        <div class="dropdown-menu">
-                            <a href="crop/crop-rotation.html" class="nav-link" data-translate="crop_rotation">Crop Rotation Assistant</a>
-                            <a href="https://biofuel-one.vercel.app/" target="_blank" class="nav-link" data-translate="biofuel">Biofuel</a>
-                            <a href="#smart-farm" class="nav-link" data-translate="smart_farm">Smart Farm</a>
-                        </div>
-                    </li>
-                    <li><a href="#contact" class="nav-link" data-translate="contact">Contact</a></li>
-                </ul>
-                
-                <div class="nav-right">
-                    <!-- Auth buttons for logged out users -->
-                    <div class="auth-buttons">
-                        <a href="login.html" class="nav-link active" data-translate="login">Login</a>
-                        <a href="register.html" class="nav-link" data-translate="register">Register</a>
-                    </div>
-                    
-                    <!-- User menu for logged in users -->
-                    <div class="user-menu" style="display: none;">
-                        <div class="dropdown">
-                            <a href="#" class="user-dropdown-toggle nav-link">
-                                <i class="fas fa-user-circle"></i>
-                                <span class="user-name">User</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu user-dropdown-menu">
-                                <a href="profile.html" class="nav-link" data-translate="profile">Profile</a>
-                                <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Language selector -->
-                    <div class="language-selector">
-                        <select id="languageDropdown" class="language-dropdown">
-                            <option value="en">English</option>
-                            <option value="hi">हिंदी</option>
-                            <option value="kn">ಕನ್ನಡ</option>
-                        </select>
-                    </div>
-                </div>
-            </nav>
         </div>
     </header>
 
-        <main>
+    <main>
         <section class="login-section">
             <div class="container">
                 <div class="login-container">
@@ -103,7 +60,7 @@
                                 <span class="checkmark"></span>
                                 <span data-translate="remember_me">Remember me</span>
                             </label>
-                            <a href="/forgot-password" class="forgot-password" data-translate="forgot_password">Forgot Password?</a>
+                            <a href="forgot-password.html" class="forgot-password" data-translate="forgot_password">Forgot Password?</a>
                         </div>
                         <button type="submit" class="custom-btn login-btn">
                             <span class="btn-text" data-translate="login">Login</span>
@@ -122,13 +79,16 @@
                                 </button>
                             </div>
                         </div>
-                        <p class="auth-link" data-translate="dont_have_account">Don't have an account? <a href="register.html" data-translate="register_here">Register here</a></p>
+                        <div class="login-link">
+                            <p data-translate="dont_have_account">Don't have an account?</p>
+                            <a href="register.html" data-translate="register_here">Register here</a>
+                        </div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
-    
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -168,10 +128,10 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="language/translations.js"></script>
     <script src="app.js"></script>
-    <script src="login.js"></script>
-    <script src="userMenu.js"></script>
     <script src="validation.js"></script>
+    <script src="login.js"></script>
 </body>
-</html> 
+</html>

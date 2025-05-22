@@ -1,0 +1,221 @@
+# Node.js Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Package Lock Files (choose one approach)
+# Option 1: Keep package-lock.json (recommended for npm)
+# package-lock.json
+
+# Option 2: Ignore package-lock.json (if using yarn)
+# package-lock.json
+
+# Runtime Data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage Directory Used by Tools like Istanbul
+coverage/
+*.lcov
+
+# NYC Test Coverage
+.nyc_output
+
+# Grunt Intermediate Storage
+.grunt
+
+# Bower Dependency Directory
+bower_components
+
+# Node-waf Configuration
+.lock-wscript
+
+# Compiled Binary Addons
+build/Release
+
+# Dependency Directories
+jspm_packages/
+
+# TypeScript Cache
+*.tsbuildinfo
+
+# Optional npm Cache Directory
+.npm
+
+# Optional ESLint Cache
+.eslintcache
+
+# Microbundle Cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL History
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity File
+.yarn-integrity
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# Parcel-bundler Cache
+.cache
+.parcel-cache
+
+# Next.js Build Output
+.next
+
+# Nuxt.js Build / Generate Output
+.nuxt
+dist
+
+# Gatsby Files
+.cache/
+public
+
+# Vuepress Build Output
+.vuepress/dist
+
+# Serverless Directories
+.serverless/
+
+# FuseBox Cache
+.fusebox/
+
+# DynamoDB Local Files
+.dynamodb/
+
+# TernJS Port File
+.tern-port
+
+# Stores VSCode Versions Used for Testing VSCode Extensions
+.vscode-test
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+
+# Build Directories
+build/
+dist/
+out/
+
+# Database Files
+*.sqlite
+*.sqlite3
+*.db
+
+# Uploaded Files
+uploads/
+public/uploads/
+
+# SSL Certificates
+*.pem
+*.key
+*.crt
+*.csr
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# Archive Files
+*.zip
+*.tar.gz
+*.rar
+
+# Local Configuration Files
+config/local.js
+config/local.json
+
+# PM2 Process Files
+ecosystem.config.js
+
+# Docker
+.dockerignore
+Dockerfile.dev
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Vercel
+.vercel
+
+# Project Specific
+# Add any specific files or directories for your BioBloom project
+temp/
+*.test.js
+test-results/
+
+# Blockchain/Solidity (for your graintrust module)
+artifacts/
+cache/
+typechain/
+
+# Documentation Build
+docs/build/
+
+# Storybook
+storybook-static/

@@ -5,39 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile - BioBloom Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav-styles.css">
+    <link rel="stylesheet" href="profile-responsive.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
-    <style>
-    /* Override toast styles specifically for profile page */
-    .toast {
-        position: fixed !important;
-        top: 20px !important;
-        right: 20px !important;
-        padding: 12px 24px !important;
-        border-radius: 4px !important;
-        color: white !important;
-        font-size: 14px !important;
-        max-width: 300px !important;
-        z-index: 9999 !important;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-        background-color: transparent !important;
-        width: auto !important;
-        height: auto !important;
-    }
-    
-    .toast.success {
-        background-color: #28a745 !important;
-    }
-    
-    .toast.error {
-        background-color: #dc3545 !important;
-    }
-    
-    .toast.info {
-        background-color: #17a2b8 !important;
-    }
-</style>
 </head>
 <body>
     <header>
@@ -47,19 +19,31 @@
                     <img src="logo.png" alt="BioBloom Logo" class="logoo">
                 </a>
             </div>
-            <nav>
+            <div class="menu-toggle" id="menuToggle">
+                ☰
+            </div>
+            <nav id="mainNav">
                 <ul>
-                    <li><a href="/" class="nav-link" data-translate="home">Home</a></li>
-                    <li><a href="#info-section" class="nav-link" data-translate="about">About</a></li>
+                    <!-- Back Button -->
+                    <li class="back-button-item">
+                        <a href="index.html" class="nav-link back-button" title="Back to Home">
+                            <i class="fas fa-arrow-left"></i>
+                            <span class="back-text">Back</span>
+                        </a>
+                    </li>
+                    <li><a href="index.html" class="nav-link" data-translate="home">Home</a></li>
+                    <li><a href="index.html#info-section" class="nav-link" data-translate="about">About</a></li>
                     <li class="dropdown">
-                        <a href="#" class="nav-link" data-translate="products">Products</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-translate="products">Products</a>
                         <div class="dropdown-menu">
-                            <a href="crop/crop-rotation.html" class="nav-link" data-translate="crop_rotation">Crop Rotation Assistant</a>
-                            <a href="https://biofuel-one.vercel.app/" target="_blank" class="nav-link" data-translate="biofuel">Biofuel</a>
-                            <a href="#smart-farm" class="nav-link" data-translate="smart_farm">Smart Farm</a>
+                            <a href="crop/crop-rotation.html" class="nav-link" data-translate="crop_rotation">CropShiftX</a>
+                            <a href="agrirevive/biofuel.html" class="nav-link" data-translate="agrirevive">AgriReVive</a>
+                            <a href="agrisensex/agri.html" class="nav-link" data-translate="agrisensex">AgriSenseX</a>
+                            <a href="graintrust/auth/index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
+                            <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="nav-link" data-translate="bio_guardian">BioGuardian</a>
                         </div>
                     </li>
-                    <li><a href="#contact" class="nav-link" data-translate="contact">Contact</a></li>
+                    <li><a href="index.html#contact" class="nav-link" data-translate="contact">Contact</a></li>
                 </ul>
                 
                 <div class="nav-right">
@@ -94,6 +78,7 @@
                     </div>
                 </div>
             </nav>
+            <div class="menu-overlay" id="menuOverlay"></div>
         </div>
     </header>
 
@@ -200,7 +185,7 @@
                                 <span class="btn-text">Save Changes</span>
                                 <div class="spinner"></div>
                             </button>
-                            <a href="/" class="custom-btn cancel-btn">
+                            <a href="index.html" class="custom-btn cancel-btn">
                                 <i class="fas fa-times"></i>
                                 <span class="btn-text">Cancel</span>
                             </a>
@@ -215,14 +200,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="logo.png" alt="EcoFarm Logo">
+                    <img src="logo.png" alt="BioBloom Logo">
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/#info-section">About</a></li>
-                        <li><a href="/#products">Products</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#info-section">About</a></li>
+                        <li><a href="index.html#products">Products</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact" id="contact">
@@ -250,10 +235,309 @@
         </div>
     </footer>
 
+    <!-- Load external scripts -->
     <script src="language/translations.js"></script>
     <script src="app.js"></script>
     <script src="validation.js"></script>
-    <script src="profile.js"></script>
     <script src="userMenu.js"></script>
+    
+    <script>
+        // COMPLETELY OVERRIDE ANY EXISTING showToast FUNCTIONS
+        window.showToast = null; // Clear any existing function
+        
+        // SELF-CONTAINED PROFILE FUNCTIONALITY
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize form elements
+            const profileForm = document.getElementById('profile-form');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const locationInput = document.getElementById('location');
+            const bioInput = document.getElementById('bio');
+            const charCount = document.querySelector('.char-count');
+            const currentPasswordInput = document.getElementById('current-password');
+            const newPasswordInput = document.getElementById('new-password');
+            const toggleCurrentPassword = document.getElementById('toggle-current-password');
+            const toggleNewPassword = document.getElementById('toggle-new-password');
+            const profilePicture = document.getElementById('profile-picture');
+            const pictureInput = document.getElementById('picture-input');
+
+            // Load user data
+            let token, user;
+            try {
+                token = localStorage.getItem('token') || sessionStorage.getItem('token');
+                const userString = localStorage.getItem('user') || sessionStorage.getItem('user');
+                user = userString ? JSON.parse(userString) : {};
+            } catch (error) {
+                console.error('Error reading user data:', error);
+                token = null;
+                user = {};
+            }
+
+            // Demo data if no user logged in
+            if (!token || !user || Object.keys(user).length === 0) {
+                user = {
+                    name: 'Demo User',
+                    email: 'demo@example.com',
+                    phone: '',
+                    location: '',
+                    bio: ''
+                };
+            }
+
+            // Populate form fields
+            if (nameInput) nameInput.value = user.name || '';
+            if (emailInput) {
+                emailInput.value = user.email || '';
+                emailInput.readOnly = true;
+            }
+            if (phoneInput) phoneInput.value = user.phone || '';
+            if (locationInput) locationInput.value = user.location || '';
+            if (bioInput) bioInput.value = user.bio || '';
+
+            // Bio character count
+            if (bioInput && charCount) {
+                const updateCharCount = () => {
+                    const count = bioInput.value.length;
+                    charCount.textContent = `${count}/200`;
+                    if (count > 200) {
+                        bioInput.value = bioInput.value.substring(0, 200);
+                        charCount.textContent = '200/200';
+                    }
+                };
+                bioInput.addEventListener('input', updateCharCount);
+                updateCharCount();
+            }
+
+            // Password visibility toggles
+            if (toggleCurrentPassword && currentPasswordInput) {
+                toggleCurrentPassword.addEventListener('click', () => {
+                    const type = currentPasswordInput.type === 'password' ? 'text' : 'password';
+                    currentPasswordInput.type = type;
+                    toggleCurrentPassword.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+
+            if (toggleNewPassword && newPasswordInput) {
+                toggleNewPassword.addEventListener('click', () => {
+                    const type = newPasswordInput.type === 'password' ? 'text' : 'password';
+                    newPasswordInput.type = type;
+                    toggleNewPassword.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+
+            // Profile picture upload
+            if (pictureInput && profilePicture) {
+                pictureInput.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+
+                    if (!file.type.startsWith('image/')) {
+                        createSmallToast('Please select an image file', 'error');
+                        return;
+                    }
+
+                    if (file.size > 5 * 1024 * 1024) {
+                        createSmallToast('Image size should be less than 5MB', 'error');
+                        return;
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePicture.src = e.target.result;
+                        createSmallToast('Profile picture updated (preview only)', 'info');
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            // Form submission
+            if (profileForm) {
+                profileForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const submitButton = profileForm.querySelector('button[type="submit"]');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        const originalHTML = submitButton.innerHTML;
+                        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+                    }
+
+                    try {
+                        // Simulate API call
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        
+                        // Update user data
+                        const updatedUser = {
+                            ...user,
+                            name: nameInput ? nameInput.value.trim() : user.name,
+                            phone: phoneInput ? phoneInput.value.trim() : user.phone,
+                            location: locationInput ? locationInput.value.trim() : user.location,
+                            bio: bioInput ? bioInput.value.trim() : user.bio
+                        };
+                        
+                        localStorage.setItem('user', JSON.stringify(updatedUser));
+                        if (sessionStorage.getItem('user')) {
+                            sessionStorage.setItem('user', JSON.stringify(updatedUser));
+                        }
+
+                        createSmallToast('Profile updated successfully!', 'success');
+
+                        // Clear password fields
+                        if (currentPasswordInput) currentPasswordInput.value = '';
+                        if (newPasswordInput) newPasswordInput.value = '';
+
+                        // Redirect after delay
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 2000);
+
+                    } catch (error) {
+                        console.error('Profile update error:', error);
+                        createSmallToast('An error occurred while updating profile', 'error');
+                    } finally {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = '<i class="fas fa-save"></i><span class="btn-text">Save Changes</span>';
+                        }
+                    }
+                });
+            }
+        });
+
+        // GUARANTEED SMALL TOAST FUNCTION - USES INLINE STYLES ONLY
+        function createSmallToast(message, type = 'success') {
+            console.log('Creating small toast:', message, type);
+            
+            // Remove any existing toasts
+            const existingToasts = document.querySelectorAll('[data-custom-toast="true"]');
+            existingToasts.forEach(toast => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            });
+
+            // Create toast with inline styles (bypasses all CSS)
+            const toast = document.createElement('div');
+            toast.setAttribute('data-custom-toast', 'true');
+            
+            // FORCE SMALL SIZE WITH INLINE STYLES
+            let backgroundColor = '#28a745';
+            if (type === 'error') backgroundColor = '#dc3545';
+            if (type === 'info') backgroundColor = '#17a2b8';
+            
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${backgroundColor};
+                color: white;
+                padding: 10px 16px;
+                border-radius: 6px;
+                font-size: 14px;
+                font-weight: 500;
+                font-family: 'Poppins', sans-serif;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                z-index: 999999;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                max-width: 280px;
+                min-width: 200px;
+                transform: translateX(350px);
+                transition: transform 0.3s ease;
+                opacity: 1;
+                visibility: visible;
+                margin: 0;
+                border: none;
+                width: auto;
+                height: auto;
+            `;
+            
+            // Create message span with inline styles
+            const messageSpan = document.createElement('span');
+            messageSpan.textContent = message;
+            messageSpan.style.cssText = `
+                flex: 1;
+                color: white;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1.4;
+                margin: 0;
+                padding: 0;
+            `;
+            
+            // Create close button with inline styles
+            const closeButton = document.createElement('button');
+            closeButton.innerHTML = '×';
+            closeButton.setAttribute('aria-label', 'Close notification');
+            closeButton.style.cssText = `
+                background: none;
+                border: none;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                cursor: pointer;
+                padding: 0;
+                margin: 0;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: background-color 0.2s ease;
+                opacity: 0.9;
+                flex-shrink: 0;
+            `;
+            
+            // Close button hover and click
+            closeButton.addEventListener('mouseenter', () => {
+                closeButton.style.background = 'rgba(255, 255, 255, 0.2)';
+                closeButton.style.opacity = '1';
+            });
+            
+            closeButton.addEventListener('mouseleave', () => {
+                closeButton.style.background = 'none';
+                closeButton.style.opacity = '0.9';
+            });
+            
+            closeButton.addEventListener('click', () => {
+                toast.style.transform = 'translateX(350px)';
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 300);
+            });
+            
+            // Assemble toast
+            toast.appendChild(messageSpan);
+            toast.appendChild(closeButton);
+            
+            // Add to page
+            document.body.appendChild(toast);
+            
+            // Show animation
+            setTimeout(() => {
+                toast.style.transform = 'translateX(0)';
+            }, 50);
+            
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.style.transform = 'translateX(350px)';
+                    setTimeout(() => {
+                        if (toast.parentNode) {
+                            toast.parentNode.removeChild(toast);
+                        }
+                    }, 300);
+                }
+            }, 4000);
+        }
+
+        // Override any existing showToast function
+        window.showToast = createSmallToast;
+    </script>
 </body>
-</html> 
+</html>

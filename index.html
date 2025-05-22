@@ -13,26 +13,28 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body>    
     <header>
         <div class="container">
             <div class="logo">
-                <img src="logo.png" alt="BioBloom Logo" class="logoo">
+                <a href="index.html">
+                    <img src="logo.png" alt="BioBloom Logo" class="logoo">
+                </a>
             </div>
-            <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+            <div class="menu-toggle" id="menuToggle">
                 ☰
             </div>
-            <nav>
+            <nav id="mainNav">
                 <ul>
-                    <li><a href="/" class="nav-link active" data-translate="home">Home</a></li>
+                    <li><a href="index.html" class="nav-link active" data-translate="home">Home</a></li>
                     <li><a href="#info-section" class="nav-link" data-translate="about">About</a></li>
                     <li class="dropdown">
-                        <a href="#" class="nav-link" data-translate="products">Products</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-translate="products">Products</a>
                         <div class="dropdown-menu">
                             <a href="crop/crop-rotation.html" class="nav-link" data-translate="crop_rotation">CropShiftX</a>
                             <a href="agrirevive/biofuel.html" class="nav-link" data-translate="agrirevive">AgriReVive</a>
                             <a href="agrisensex/agri.html" class="nav-link" data-translate="agrisensex">AgriSenseX</a>
-                            <a href="graintrust\auth\index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
+                            <a href="graintrust/auth/index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
                             <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="nav-link" data-translate="bio_guardian">BioGuardian</a>
                         </div>
                     </li>
@@ -71,6 +73,7 @@
                     </div>
                 </div>
             </nav>
+            <div class="menu-overlay" id="menuOverlay"></div>
         </div>
     </header>
 
@@ -319,9 +322,9 @@
                 <p>&copy; 2025 BioBloom Solutions. All rights reserved.</p>
             </div>
         </div>
-    </footer>
-
-    <!-- Load dependencies first -->
+    </footer>    
+    
+    <!-- Load third-party scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
@@ -329,7 +332,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
-    <!-- Load core functionality -->
+    <!-- Load core functionality in correct order -->
     <script src="language/translations.js"></script>
     <script src="app.js"></script>
     <script src="userMenu.js"></script>
@@ -341,4 +344,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
