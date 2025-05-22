@@ -90,9 +90,6 @@ body {
   display: block;
   border-radius: 2px;
 }
- nav ul li{
-    display: flex;
- }
 
 /* Sidebar Navigation */
 @media (max-width: 768px) {
