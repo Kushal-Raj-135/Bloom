@@ -741,6 +741,10 @@ nav li {
 .recommendations-note p {
   margin: 5px 0;
 }
+.recommendation-card .impact-metrics-grid {
+    display: flex;
+    flex-direction: column;
+}
 
 @media (max-width: 768px) {
   .aqi-container {
