@@ -1,16 +1,25 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const cors = require('cors');
-const path = require('path');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const session = require('express-session');
-const { MongoClient } = require('mongodb');
-const authRoutes = require('./routes/auth');
-const crypto = require('crypto');
-require('dotenv').config();
+import express from 'express';
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import cors from 'cors';
+import path from 'path';
+import passport from 'passport';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import session from 'express-session';
+import { MongoClient } from 'mongodb';
+import crypto from 'crypto';
+
+// Import routes
+import authRoutes from './routes/auth.js'; 
+import dotenv from 'dotenv';
+dotenv.config();
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;

@@ -1,12 +1,15 @@
-const express = require('express');
+import express from 'express';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import { MongoClient } from 'mongodb';
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const { MongoClient } = require('mongodb');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const mongoURI = process.env.MONGODB_URI;
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -271,4 +274,4 @@ router.post('/update-profile', async (req, res) => {
     }
 });
 
-module.exports = router; 
+export default router;

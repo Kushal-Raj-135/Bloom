@@ -705,7 +705,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ).join('')}
             </select>
         `;
-        header.appendChild(languageSelector);
+        // header.appendChild(languageSelector);
 
         // Add language change listener
         document.getElementById('language-select').addEventListener('change', (e) => {
