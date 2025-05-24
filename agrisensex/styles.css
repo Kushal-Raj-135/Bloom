@@ -302,6 +302,43 @@ nav li {
         height: auto;
         padding: 15px;
     }
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 15px;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    nav {
+        display: none; 
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+    }
+    nav.active {
+        display: flex;
+    }
+}
 
     .nav-left {
         margin-bottom: 1rem;
