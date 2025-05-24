@@ -65,6 +65,9 @@ npm install
 PORT=your_port
 MONGODB_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
+SESSION_SECRET=some_secret_value
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
 4. Start the server
