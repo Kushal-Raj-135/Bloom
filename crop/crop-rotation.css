@@ -87,6 +87,73 @@ body::before {
 .nav-links a.active {
     color: var(--primary-color);
 }
+header .container {
+  position: relative; /* Add this */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Hide the checkbox */
+.menu-toggle {
+    display: none;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  right: 20px; 
+  z-index: 1000; 
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    padding-bottom: 2px;
+    background: #292929;
+    display: block;
+    border-radius: 2px;
+}
+
+/* Responsive menu toggle*/
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    .menu-toggle:checked + .hamburger + nav {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-right {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 
 /* Main Content Styles */
 main {
