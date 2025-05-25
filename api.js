@@ -1,4 +1,3 @@
-// API configuration
 const API_BASE_URL = 'http://localhost:3000/api';
 
 // Helper function to get auth token
@@ -35,14 +34,14 @@ export const api = {
     },
 
     // Crop Recommendations
-    getRecommendations: async (data) => {
+    getRecommendations: async (formData) => {
         const response = await fetch(`${API_BASE_URL}/recommendations`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${getAuthToken()}`
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(formData)
         });
         return handleResponse(response);
     },
@@ -79,59 +78,24 @@ export const api = {
         return handleResponse(response);
     },
 
-    // Get crop recommendations
-    async getRecommendations(formData) {
-        try {
-            const response = await fetch('/api/recommendations', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to get recommendations');
-            }
-
-            return await response.json();
-        } catch (error) {
-            console.error('Error getting recommendations:', error);
-            throw error;
-        }
+    // Get AQI recommendations (mock logic)
+    getAQIRecommendations: async (aqiValue) => {
+        return {
+            status: aqiValue <= 50 ? "Good" : 
+                    aqiValue <= 100 ? "Moderate" : 
+                    aqiValue <= 150 ? "Unhealthy for Sensitive Groups" : 
+                    aqiValue <= 200 ? "Unhealthy" : "Very Unhealthy",
+            recommendations: [
+                "Consider using dust reduction techniques",
+                "Monitor air quality regularly",
+                "Plan activities based on AQI levels"
+            ]
+        };
     },
 
-    // Get AQI recommendations
-    async getAQIRecommendations(aqiValue) {
-        try {
-            // For now, return mock data
-            return {
-                status: aqiValue <= 50 ? "Good" : 
-                        aqiValue <= 100 ? "Moderate" : 
-                        aqiValue <= 150 ? "Unhealthy for Sensitive Groups" : 
-                        aqiValue <= 200 ? "Unhealthy" : "Very Unhealthy",
-                recommendations: [
-                    "Consider using dust reduction techniques",
-                    "Monitor air quality regularly",
-                    "Plan activities based on AQI levels"
-                ]
-            };
-        } catch (error) {
-            console.error('Error getting AQI recommendations:', error);
-            throw error;
-        }
-    },
-
-    async getAQIData() {
-        try {
-            const response = await fetch('/api/aqi');
-            if (!response.ok) {
-                throw new Error('Failed to get AQI data');
-            }
-            return await response.json();
-        } catch (error) {
-            console.error('Error getting AQI data:', error);
-            throw error;
-        }
+    // Fetch real AQI data
+    getAQIData: async () => {
+        const response = await fetch(`${API_BASE_URL}/aqi`);
+        return handleResponse(response);
     }
-}; 
+};
