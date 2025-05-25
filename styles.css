@@ -38,6 +38,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+    margin-top: 50px;
 }
 
 .logo {
@@ -2349,6 +2350,7 @@ input[type="tel"] {
     max-width: 450px;
     margin: 0 auto;
     animation: fadeIn 0.5s ease-out;
+    margin-top: 10px;
 }
 
 .login-header {
