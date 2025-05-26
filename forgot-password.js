@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('forgot-password-form');
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('email-error');
+    
+    if (!form || !emailInput || !emailError) {
+    console.warn('Required elements not found in the DOM.');
+    return;
+}
     const submitButton = form.querySelector('button[type="submit"]');
     const btnText = submitButton.querySelector('.btn-text');
     const spinner = submitButton.querySelector('.spinner');
@@ -91,6 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             showToast('An error occurred. Please try again.', 'error');
+            console.error(error);
+
         } finally {
             setLoading(false);
         }
