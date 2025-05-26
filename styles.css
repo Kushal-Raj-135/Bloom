@@ -1753,6 +1753,7 @@ select.auto-filled {
 }
 
 #edit-profile-form input:focus {
+    outline: none;
     border-color: #2196F3;
     box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
 }
@@ -2798,182 +2799,226 @@ input[type="tel"] {
         width: 100%;
     }
 }
-
-/* Desktop styles - Hide menu toggle and overlay */
-.menu-toggle, .menu-overlay {
-    display: none;
+/* Fix hamburger button position - move it up */
+.universal-hamburger-btn {
+    position: relative !important;
+    top: -5px !important; /* Move up by 5px */
+    margin-top: 0 !important;
+    align-self: flex-start !important;
 }
 
-/* Mobile navigation improvements */
+/* Better alignment for header container */
+.universal-header .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 60px !important;
+    padding: 8px 20px !important;
+}
+
+/* Fix auth buttons visibility logic */
+.auth-buttons {
+    display: flex !important;
+}
+
+.user-menu {
+    display: none !important;
+}
+
+/* When user is logged in - hide auth buttons, show user menu */
+.auth-buttons.hide-auth {
+    display: none !important;
+}
+
+.user-menu.show-user {
+    display: block !important;
+}
+
+/* Mobile specific hamburger position */
 @media (max-width: 768px) {
-    /* Show menu toggle on mobile only */
-    .menu-toggle {
-        display: flex;
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1002;
-        width: 40px;
-        height: 40px;
-        align-items: center;
-        justify-content: center;
-        background: #f0f7f0;
-        border-radius: 50%;
-        font-size: 24px;
-        cursor: pointer;
-        transition: all 0.3s ease;
+    .universal-hamburger-btn {
+        top: -3px !important; /* Less movement on mobile */
+        right: 0 !important;
+        position: relative !important;
     }
+    
+    .universal-header .container {
+        padding: 10px 15px !important;
+        align-items: center !important;
+    }
+}
 
-    /* Improved mobile navigation */
-    nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background: white;
-        transition: right 0.3s ease;
-        z-index: 1001;
-        padding: 80px 0 20px;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-        overflow-y: auto;
-    }
+/* Force hide auth buttons when user is logged in */
+.universal-header .auth-buttons,
+.universal-header #desktop-auth-buttons {
+    display: none !important;
+    visibility: hidden !important;
+}
 
-    nav.active {
-        right: 0;
-    }
+/* Force show user menu */
+.universal-header .user-menu,
+.universal-header #desktop-user-menu {
+    display: block !important;
+    visibility: visible !important;
+}
 
-    /* Improved dropdown styling */
-    .dropdown-menu {
-        position: static;
-        width: 100%;
-        padding: 0;
-        box-shadow: none;
-        background: #f8f9fa;
-        display: none;
-    }
+/* Override conflicting nav-right styles */
+.universal-header .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+}
 
-    .dropdown-menu.show {
-        display: block;
-    }
+/* Fix hamburger button position */
+.universal-header .universal-hamburger-btn {
+    position: relative !important;
+    top: -8px !important;
+    right: 0 !important;
+    margin: 0 !important;
+    order: 999 !important;
+}
 
-    .dropdown-menu a {
-        padding: 12px 25px !important;
-        color: #333;
-        border-bottom: 1px solid #eee;
-    }
+/* Fix header container conflicts */
+.universal-header .container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 20px !important;
+}
 
-    /* Improved mobile menu items */
-    nav ul {
-        padding: 0;
-        margin: 0;
+/* Mobile fixes */
+@media (max-width: 768px) {
+    .universal-header .universal-hamburger-btn {
+        display: flex !important;
+        top: -5px !important;
     }
+    
+    .universal-header .universal-nav,
+    .universal-header .nav-right {
+        display: none !important;
+    }
+}
 
-    nav ul li {
-        display: block;
-        margin: 0;
-        border-bottom: 1px solid #eee;
-    }
+/* Ensure user dropdown works */
+.universal-header .user-dropdown-menu {
+    z-index: 9999 !important;
+}
 
-    nav ul li a {
-        padding: 15px 20px;
-        display: block;
-        color: #333;
-        text-decoration: none;
-    }
+/* Final override for stubborn styles */
+body .universal-header .auth-buttons {
+    display: none !important;
+}
 
-    /* Improved auth buttons */
-    .auth-buttons {
-        padding: 20px;
-        border-top: 1px solid #eee;
-    }
+body .universal-header .user-menu {
+    display: block !important;
+}
+/* Fix header layout - logo left, hamburger right */
+.universal-header .container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 20px !important;
+}
 
-    .auth-buttons a {
-        display: block;
-        padding: 12px 20px;
-        margin-bottom: 10px;
-        background: #4CAF50;
-        color: white;
-        text-align: center;
-        border-radius: 5px;
-    }
+/* Logo stays on left */
+.universal-header .universal-logo {
+    order: 1 !important;
+    flex: none !important;
+}
 
-    /* Language selector adjustments */
-    .language-selector {
-        padding: 0 20px 20px;
-    }
+/* Navigation in middle (desktop only) */
+.universal-header .universal-nav {
+    order: 2 !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
 
-    .language-dropdown {
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-    }
+/* User menu/auth buttons */
+.universal-header .nav-right {
+    order: 3 !important;
+    flex: none !important;
+}
 
-    /* Menu overlay */
-    .menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-    }
+/* Hamburger button on FAR RIGHT */
+.universal-header .universal-hamburger-btn {
+    order: 4 !important;
+    margin-left: auto !important;
+    flex: none !important;
+    position: relative !important;
+    top: -5px !important;
+}
 
-    .menu-overlay.active {
-        display: block;
+/* Mobile - Logo left, Hamburger right */
+@media (max-width: 768px) {
+    .universal-header .container {
+        justify-content: space-between !important;
     }
+    
+    .universal-header .universal-logo {
+        order: 1 !important;
+    }
+    
+    .universal-header .universal-hamburger-btn {
+        order: 2 !important;
+        display: flex !important;
+        margin-left: auto !important;
+        top: -3px !important;
+    }
+    
+    .universal-header .universal-nav,
+    .universal-header .nav-right {
+        display: none !important;
+    }
+}
+/* Force hamburger to right side with maximum specificity */
+html body .universal-header .container .universal-hamburger-btn,
+.universal-header .container #universal-hamburger-btn {
+    position: absolute !important;
+    right: 20px !important;
+    top: 15px !important;
+    margin: 0 !important;
+    left: auto !important;
+    transform: none !important;
+    z-index: 1001 !important;
+}
 
-    /* Logo adjustments */
-    .logo {
-        position: relative;
-        z-index: 1002;
-    }
+/* Force container to relative positioning */
+html body .universal-header .container {
+    position: relative !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding: 10px 20px !important;
+}
 
-    .logoo {
-        max-width: 120px;
-        height: auto;
-    }
+/* Keep logo on left */
+html body .universal-header .universal-logo {
+    position: relative !important;
+    left: 0 !important;
+    order: 1 !important;
+}
 
-    /* Content adjustments */
-    .hero-content {
-        padding: 20px;
-        text-align: center;
+/* Mobile specific */
+@media (max-width: 768px) {
+    html body .universal-header .container .universal-hamburger-btn,
+    .universal-header .container #universal-hamburger-btn {
+        display: flex !important;
+        position: absolute !important;
+        right: 15px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 1001 !important;
     }
+    
+    html body .universal-header .container {
+        min-height: 60px !important;
+        padding: 8px 15px !important;
+    }
+}
 
-    .hero-image img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    /* Product cards adjustment */
-    .product-cards {
-        padding: 20px;
-        gap: 20px;
-    }
-
-    .product-card {
-        margin-bottom: 20px;
-    }
-
-    /* AQI section adjustments */
-    .aqi-container {
-        padding: 15px;
-    }
-
-    .aqi-scale {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    /* Footer adjustments */
-    .footer-content {
-        padding: 20px;
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+/* Override any JS positioning */
+.universal-hamburger-btn[style] {
+    position: absolute !important;
+    right: 20px !important;
+    top: 15px !important;
 }

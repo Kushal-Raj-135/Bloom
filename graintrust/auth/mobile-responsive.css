@@ -1,0 +1,407 @@
+/* Mobile Responsive Enhancements for GrainTrust */
+
+/* Back Button Styles */
+.back-btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  gap: 8px;
+}
+
+.back-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transform: translateX(-2px);
+}
+
+.back-arrow {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.back-text {
+  white-space: nowrap;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  gap: 4px;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Fix register button styles */
+.register-btn {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+  padding: 8px 16px !important;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+  border: 1px solid var(--primary-color);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.register-btn:hover {
+  background-color: #40a9ff !important;
+  border-color: #40a9ff;
+  transform: translateY(-1px);
+}
+
+/* Hero Content Container */
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Enhanced Mobile Styles */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 12px 20px;
+  }
+  
+  .hero {
+    padding: 100px 20px 60px;
+  }
+  
+  .hero h2 {
+    font-size: 42px;
+  }
+  
+  .features {
+    padding: 60px 20px;
+  }
+  
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Header Responsive */
+  .header-container {
+    position: relative;
+    padding: 12px 16px;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-menu ul {
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+    margin: 0;
+  }
+  
+  .nav-menu ul li {
+    margin: 0;
+    width: 100%;
+  }
+  
+  .nav-menu ul li a {
+    display: block;
+    padding: 12px 16px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  
+  /* Back button mobile */
+  .back-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .back-text {
+    display: none;
+  }
+  
+  .back-arrow {
+    font-size: 18px;
+  }
+  
+  /* Hero Section Mobile */
+  .hero {
+    padding: 80px 16px 50px;
+    text-align: center;
+  }
+  
+  .hero h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  
+  .hero h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  
+  /* Overview Container Mobile */
+  .overview-container {
+    margin: 0 0 24px 0;
+    padding: 0 16px;
+  }
+  
+  .overview-container.show {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .overview-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  /* Hero Image Mobile */
+  #heroImage {
+    max-width: 100%;
+    width: 90%;
+    margin-top: 0;
+  }
+  
+  #heroImage:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Features Mobile */
+  .features {
+    padding: 50px 16px;
+  }
+  
+  .section-title h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  
+  .section-title p {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
+  
+  .feature-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+  
+  .feature-card h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .feature-card p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens */
+  .header-container {
+    padding: 10px 12px;
+  }
+  
+  .logo h1 {
+    font-size: 16px;
+  }
+  
+  .logo img {
+    height: 28px;
+  }
+  
+  .back-btn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+  .hero {
+    padding: 70px 12px 40px;
+  }
+  
+  .hero h2 {
+    font-size: 28px;
+  }
+  
+  .hero h3 {
+    font-size: 16px;
+  }
+  
+  .hero p {
+    font-size: 15px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+  
+  .features {
+    padding: 40px 12px;
+  }
+  
+  .section-title h3 {
+    font-size: 24px;
+  }
+  
+  .overview-container.show {
+    padding: 12px;
+  }
+  
+  .overview-text {
+    font-size: 14px;
+  }
+}
+
+/* Landscape orientation fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: 60px 16px 40px;
+  }
+  
+  .hero h2 {
+    font-size: 28px;
+  }
+  
+  .hero h3 {
+    font-size: 16px;
+  }
+  
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .btn {
+    width: auto;
+    min-width: 140px;
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  #heroImage {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Focus styles for accessibility */
+.back-btn:focus,
+.mobile-menu-toggle:focus,
+.btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for better UX */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-content,
+.features-container {
+  transition: padding 0.3s ease;
+}
+
+/* Loading animation mobile adjustments */
+@media (max-width: 768px) {
+  #ant-motion-load ul {
+    transform: scale(0.8);
+  }
+}

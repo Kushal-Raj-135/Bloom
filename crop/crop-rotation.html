@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../aqi-styles.css">
     <link rel="stylesheet" href="../language/language-styles.css">
+    <!-- Hamburger Menu Integration -->
+    <link rel="stylesheet" href="../universal-hamburger.css">
     <link rel="stylesheet" href="crop-rotation.css">
     <link rel="stylesheet" href="aqi-monitor.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
@@ -14,12 +16,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header class="universal-header">
         <div class="container">
-            <div class="logo">
-                <img src="../logo.png" alt="BioBloom Logo" class="logoo">
-            </div>
-            <nav>
+            <!-- Logo -->
+            <a href="../index.html" class="universal-logo">
+                <img src="../logo.png" alt="BioBloom Logo">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="universal-nav">
                 <ul>
                     <li><a href="../index.html" class="nav-link" data-translate="home">Home</a></li>
                     <li><a href="../index.html#info-section" class="nav-link" data-translate="about">About</a></li>
@@ -33,136 +38,332 @@
                     </li>
                     <li><a href="../index.html#contact" class="nav-link" data-translate="contact">Contact</a></li>
                 </ul>
+            </nav>
+            
+            <!-- Desktop Right Side -->
+            <div class="nav-right">
+                <!-- Auth buttons for logged out users -->
+                <div class="auth-buttons">
+                    <a href="../login.html" class="nav-link" data-translate="login">Login</a>
+                    <a href="../register.html" class="nav-link" data-translate="register">Register</a>
+                </div>
                 
-                <div class="nav-right">
-                    <!-- Auth buttons for logged out users -->
-                    <div class="auth-buttons">
-                        <a href="../login.html" class="nav-link" data-translate="login">Login</a>
-                        <a href="../register.html" class="nav-link" data-translate="register">Register</a>
-                    </div>
-                    
-                    <!-- User menu for logged in users -->
-                    <div class="user-menu" style="display: none;">
-                        <div class="dropdown">
-                            <a href="#" class="user-dropdown-toggle nav-link">
-                                <i class="fas fa-user-circle"></i>
-                                <span class="user-name">User</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu user-dropdown-menu">
-                                <a href="../profile.html" class="nav-link" data-translate="profile">Profile</a>
-                                <a href="../edit-profile.html" class="nav-link" data-translate="edit_profile">Edit Profile</a>
-                                <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
-                            </div>
+                <!-- User menu for logged in users -->
+                <div class="user-menu" style="display: none;">
+                    <div class="dropdown">
+                        <a href="#" class="user-dropdown-toggle nav-link">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="user-name">Demo User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu user-dropdown-menu">
+                            <a href="../profile.html" class="nav-link" data-translate="profile">Profile</a>
+                            <!--<a href="../edit-profile.html" class="nav-link" data-translate="edit_profile">Edit Profile</a>-->
+                            <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
                         </div>
                     </div>
-                    
-                    <!-- Language selector -->
-                    <div class="language-selector">
-                        <select id="languageDropdown" class="language-dropdown">
-                            <option value="en">English</option>
-                            <option value="hi">हिंदी</option>
-                            <option value="kn">ಕನ್ನಡ</option>
-                        </select>
-                    </div>
                 </div>
-            </nav>
+                
+                <!-- Desktop Language selector -->
+                <div class="language-selector">
+                    <select id="universal-language-dropdown" class="language-dropdown">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Hamburger Button (only visible on mobile) -->
+            <button id="universal-hamburger-btn" class="universal-hamburger-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="universal-mobile-overlay" class="universal-mobile-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="universal-mobile-menu" class="universal-mobile-menu">
+        <!-- Mobile Header -->
+        <div class="universal-mobile-header">
+            <div class="universal-logo">
+                <img src="../logo.png" alt="BioBloom Logo">
+            </div>
+            <button id="universal-mobile-close" class="universal-mobile-close" aria-label="Close menu">
+                ×
+            </button>
+        </div>
+
+        <!-- Mobile Content -->
+        <div class="universal-mobile-content">
+            <!-- Mobile Navigation -->
+            <ul class="universal-mobile-nav">
+                <li class="universal-mobile-nav-item">
+                    <a href="../index.html" class="universal-mobile-nav-link" data-translate="home">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="universal-mobile-nav-item">
+                    <a href="../index.html#info-section" class="universal-mobile-nav-link" data-translate="about">
+                        <i class="fas fa-info-circle"></i>
+                        About
+                    </a>
+                </li>
+                
+                <!-- Products Dropdown for Mobile -->
+                <li id="universal-products-dropdown" class="universal-mobile-nav-item universal-products-dropdown">
+                    <button class="universal-dropdown-toggle" data-translate="products">
+                        <span>
+                            <i class="fas fa-leaf"></i>
+                            Products
+                        </span>
+                        <i class="universal-dropdown-arrow fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="universal-products-submenu">
+                        <li>
+                            <a href="crop-rotation.html" class="universal-mobile-nav-link active" data-translate="crop_rotation">
+                                CropShiftX
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../biofuel/biofuel.html" class="universal-mobile-nav-link" data-translate="agrirevive">
+                                AgriReVive
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../index.html#smart-farm" class="universal-mobile-nav-link" data-translate="smart_farm">
+                                Smart Farm
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="universal-mobile-nav-item">
+                    <a href="../index.html#contact" class="universal-mobile-nav-link" data-translate="contact">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+            <!-- User Section (for logged in users) -->
+            <div id="universal-user-section" class="universal-user-section" style="display: none;">
+                <div class="universal-user-info">
+                    <div class="universal-user-avatar">
+                        <span>U</span>
+                    </div>
+                    <div class="universal-user-details">
+                        <h4>User Name</h4>
+                        <p>user@example.com</p>
+                    </div>
+                </div>
+                <div class="universal-user-actions">
+                    <a href="../profile.html" class="universal-user-action" data-translate="profile">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a>
+                    <!--<a href="../edit-profile.html" class="universal-user-action" data-translate="edit_profile">
+                        <i class="fas fa-edit"></i>
+                        Edit Profile
+                    </a>-->
+                    <a href="#" class="universal-user-action universal-logout-btn" data-translate="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+
+            <!-- Auth Section (for non-logged in users) -->
+            <div id="universal-auth-section" class="universal-auth-section">
+                <div class="universal-auth-actions">
+                    <a href="../login.html" class="universal-auth-action login" data-translate="login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="../register.html" class="universal-auth-action register" data-translate="register">
+                        <i class="fas fa-user-plus"></i>
+                        Register
+                    </a>
+                </div>
+            </div>
+
+            <!-- Language Section -->
+            <div class="universal-language-section">
+                <div class="universal-language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="universal-mobile-language-dropdown" class="universal-mobile-language-dropdown">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main>
         <section id="crop-rotation-tool" class="section active">
             <div class="container">
-                <h1 class="section-title" data-translate="crop_rotation_title"><i class="fas fa-sync-alt"></i> Crop Rotation Assistant</h1>
-                <p class="text-center text-muted mb-5" data-translate="cropshift_subtitle">Smart AI-Powered Crop Rotation Assistant for Sustainable Farming</p>
-                <div class="tool-container">
-                    <div class="input-section card">
-                        <h2 data-translate="enter_farm_details"><i class="fas fa-clipboard-list"></i> Enter Your Farm Details</h2>
-                        <form id="crop-form">
-                            <div class="form-group">
-                                <label for="previous-crop" data-translate="select_crop">Select Your Crop:</label>
-                                <select id="previous-crop" required>
-                                    <option value="" data-translate="select_crop_option">Select a crop</option>
-                                    <option value="rice" data-translate="rice">Rice (Dhan)</option>
-                                    <option value="wheat" data-translate="wheat">Wheat (Gehun)</option>
-                                    <option value="sugarcane" data-translate="sugarcane">Sugarcane (Ganna)</option>
-                                    <option value="pulses" data-translate="pulses">Pulses (Dal)</option>
-                                    <option value="cotton" data-translate="cotton">Cotton (Kapas)</option>
-                                    <option value="groundnut" data-translate="groundnut">Groundnut (Moongfali)</option>
-                                    <option value="maize" data-translate="maize">Maize (Makka)</option>
-                                    <option value="sorghum" data-translate="sorghum">Sorghum (Jowar)</option>
-                                    <option value="pearl-millet" data-translate="pearl_millet">Pearl Millet (Bajra)</option>
-                                    <option value="chickpea" data-translate="chickpea">Chickpea (Chana)</option>
-                                    <option value="mustard" data-translate="mustard">Mustard (Sarson)</option>
-                                    <option value="moong" data-translate="moong">Green Gram (Moong)</option>
-                                </select>
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <h1 class="section-title" data-translate="crop_rotation_title">
+                        <i class="fas fa-sync-alt"></i> 
+                        Crop Rotation Assistant
+                    </h1>
+                    <p class="hero-subtitle" data-translate="cropshift_subtitle">
+                        Smart AI-Powered Crop Rotation Assistant for Sustainable Farming
+                    </p>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="main-content">
+                    <!-- Input Section -->
+                    <div class="input-panel">
+                        <div class="panel-header">
+                            <h2 data-translate="enter_farm_details">
+                                <i class="fas fa-clipboard-list"></i> 
+                                Enter Your Farm Details
+                            </h2>
+                        </div>
+                        
+                        <form id="crop-form" class="modern-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="previous-crop" data-translate="select_crop">Select Your Crop:</label>
+                                    <div class="select-wrapper">
+                                        <select id="previous-crop" required>
+                                            <option value="" data-translate="select_crop_option">Select a crop</option>
+                                            <option value="rice" data-translate="rice">Rice (Dhan)</option>
+                                            <option value="wheat" data-translate="wheat">Wheat (Gehun)</option>
+                                            <option value="sugarcane" data-translate="sugarcane">Sugarcane (Ganna)</option>
+                                            <option value="pulses" data-translate="pulses">Pulses (Dal)</option>
+                                            <option value="cotton" data-translate="cotton">Cotton (Kapas)</option>
+                                            <option value="groundnut" data-translate="groundnut">Groundnut (Moongfali)</option>
+                                            <option value="maize" data-translate="maize">Maize (Makka)</option>
+                                            <option value="sorghum" data-translate="sorghum">Sorghum (Jowar)</option>
+                                            <option value="pearl-millet" data-translate="pearl_millet">Pearl Millet (Bajra)</option>
+                                            <option value="chickpea" data-translate="chickpea">Chickpea (Chana)</option>
+                                            <option value="mustard" data-translate="mustard">Mustard (Sarson)</option>
+                                            <option value="moong" data-translate="moong">Green Gram (Moong)</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="soil-type" data-translate="soil_type">Soil Type:</label>
-                                <select id="soil-type" required>
-                                    <option value="" data-translate="select_soil_type">Select soil type</option>
-                                    <option value="clay" data-translate="clay">Clay</option>
-                                    <option value="sandy" data-translate="sandy">Sandy</option>
-                                    <option value="loamy" data-translate="loamy">Loamy</option>
-                                    <option value="silty" data-translate="silty">Silty</option>
-                                    <option value="peaty" data-translate="peaty">Peaty</option>
-                                </select>
-                                <small class="helper-text" data-translate="soil_helper">This will be auto-filled based on your crop selection</small>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="soil-type" data-translate="soil_type">Soil Type:</label>
+                                    <div class="select-wrapper">
+                                        <select id="soil-type" required>
+                                            <option value="" data-translate="select_soil_type">Select soil type</option>
+                                            <option value="clay" data-translate="clay">Clay</option>
+                                            <option value="sandy" data-translate="sandy">Sandy</option>
+                                            <option value="loamy" data-translate="loamy">Loamy</option>
+                                            <option value="silty" data-translate="silty">Silty</option>
+                                            <option value="peaty" data-translate="peaty">Peaty</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                    <small class="helper-text" data-translate="soil_helper">This will be auto-filled based on your crop selection</small>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="region" data-translate="region">Region/Climate:</label>
-                                <select id="region" required>
-                                    <option value="" data-translate="select_region">Select region</option>
-                                    <option value="tropical" data-translate="tropical">Tropical</option>
-                                    <option value="subtropical" data-translate="subtropical">Subtropical</option>
-                                    <option value="temperate" data-translate="temperate">Temperate</option>
-                                    <option value="arid" data-translate="arid">Arid</option>
-                                    <option value="mediterranean" data-translate="mediterranean">Mediterranean</option>
-                                </select>
-                                <small class="helper-text" data-translate="region_helper">This will be auto-filled based on your crop selection</small>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="region" data-translate="region">Region/Climate:</label>
+                                    <div class="select-wrapper">
+                                        <select id="region" required>
+                                            <option value="" data-translate="select_region">Select region</option>
+                                            <option value="tropical" data-translate="tropical">Tropical</option>
+                                            <option value="subtropical" data-translate="subtropical">Subtropical</option>
+                                            <option value="temperate" data-translate="temperate">Temperate</option>
+                                            <option value="arid" data-translate="arid">Arid</option>
+                                            <option value="mediterranean" data-translate="mediterranean">Mediterranean</option>
+                                        </select>
+                                        <i class="fas fa-chevron-down select-icon"></i>
+                                    </div>
+                                    <small class="helper-text" data-translate="region_helper">This will be auto-filled based on your crop selection</small>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="farm-size" data-translate="farm_size">Farm Size (acres):</label>
-                                <input type="number" id="farm-size" min="1" required>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="farm-size" data-translate="farm_size">Farm Size (acres):</label>
+                                    <div class="input-wrapper">
+                                        <input type="number" id="farm-size" min="1" required>
+                                        <i class="fas fa-expand-arrows-alt input-icon"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <button type="submit" class="custom-btn" data-translate="get_recommendations"><i class="fas fa-check-circle"></i> Get Recommendations</button>
+
+                            <button type="submit" class="submit-btn" data-translate="get_recommendations">
+                                <i class="fas fa-check-circle"></i> 
+                                Get Recommendations
+                            </button>
                         </form>
                     </div>
 
-                    <div class="results-section">
-                        <div class="card recommendation-card">
-                            <h2 data-translate="your_recommendations"><i class="fas fa-lightbulb"></i> Your Recommendations</h2>
+                    <!-- Results Section -->
+                    <div class="results-panel">
+                        <div class="panel-header">
+                            <h2 data-translate="your_recommendations">
+                                <i class="fas fa-lightbulb"></i> 
+                                Your Recommendations
+                            </h2>
+                        </div>
+                        
+                        <div class="results-container">
                             <div class="results-placeholder">
-                                <i class="fas fa-seedling placeholder-icon"></i>
-                                <p data-translate="fill_form">Fill out the form to get personalized recommendations for your farm.</p>
+                                <div class="placeholder-content">
+                                    <i class="fas fa-seedling placeholder-icon"></i>
+                                    <h3>Ready to Help!</h3>
+                                    <p data-translate="fill_form">Fill out the form to get personalized recommendations for your farm.</p>
+                                </div>
                             </div>
+                            
                             <div class="results-content" style="display: none;">
                                 <div class="recommendation-item">
                                     <div id="next-crop-recommendation"></div>
                                 </div>
-                                <button onclick="downloadResults()" class="custom-btn" data-translate="download_report"><i class="fas fa-download"></i> Download Report</button>
+                                <button onclick="downloadResults()" class="download-btn" data-translate="download_report">
+                                    <i class="fas fa-download"></i> 
+                                    Download Report
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Move AQI Monitor to its own block -->
+                <!-- AQI Monitor Section -->
                 <div class="aqi-section">
-                    <h2 class="section-title" data-translate="air_quality_monitor"><i class="fas fa-wind"></i> Air Quality Monitor</h2>
-                    <div class="card aqi-monitor-card">
-                        <div class="location-info">
-                            <h2>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span id="location-name" data-translate="detecting_location">Detecting location...</span>
-                            </h2>
-                            <button id="refresh-btn" class="refresh-btn" data-translate="refresh">
-                                <i class="fas fa-sync-alt"></i>
-                                Refresh
-                            </button>
+                    <div class="panel-header">
+                        <h2 class="section-title" data-translate="air_quality_monitor">
+                            <i class="fas fa-wind"></i> Air Quality Monitor
+                        </h2>
+                    </div>
+                    
+                    <div class="aqi-container">
+                        <div class="aqi-header">
+                            <div class="location-info">
+                                <h3>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span id="location-name" data-translate="detecting_location">Detecting location...</span>
+                                </h3>
+                                <button id="refresh-btn" class="refresh-btn" data-translate="refresh">
+                                    <i class="fas fa-sync-alt"></i>
+                                    Refresh
+                                </button>
+                            </div>
                         </div>
 
                         <div class="aqi-display">
-                            <div class="aqi-info">
+                            <div class="aqi-gauge-container">
                                 <div class="aqi-gauge">
                                     <div class="gauge-status" id="aqi-status" data-translate="loading">Loading...</div>
                                     <div class="gauge-ring" data-level="unhealthy-sensitive">
@@ -175,65 +376,78 @@
                                 <div id="aqi-description" class="aqi-description"></div>
                             </div>
 
-                            <div class="pollutant-details">
-                                <div class="pollutant-item">
-                                    <span class="label">PM2.5</span>
-                                    <span id="pm25-value" class="value">--</span>
+                            <div class="environmental-info">
+                                <div class="pollutant-grid">
+                                    <div class="pollutant-item">
+                                        <span class="label">PM2.5</span>
+                                        <span id="pm25-value" class="value">--</span>
+                                    </div>
+                                    <div class="pollutant-item">
+                                        <span class="label">PM10</span>
+                                        <span id="pm10-value" class="value">--</span>
+                                    </div>
+                                    <div class="pollutant-item">
+                                        <span class="label">O3</span>
+                                        <span id="o3-value" class="value">--</span>
+                                    </div>
+                                    <div class="pollutant-item">
+                                        <span class="label">NO2</span>
+                                        <span id="no2-value" class="value">--</span>
+                                    </div>
                                 </div>
-                                <div class="pollutant-item">
-                                    <span class="label">PM10</span>
-                                    <span id="pm10-value" class="value">--</span>
-                                </div>
-                                <div class="pollutant-item">
-                                    <span class="label">O3</span>
-                                    <span id="o3-value" class="value">--</span>
-                                </div>
-                                <div class="pollutant-item">
-                                    <span class="label">NO2</span>
-                                    <span id="no2-value" class="value">--</span>
+
+                                <div class="weather-grid">
+                                    <div class="weather-item">
+                                        <i class="fas fa-temperature-high"></i>
+                                        <span id="temperature">--°C</span>
+                                    </div>
+                                    <div class="weather-item">
+                                        <i class="fas fa-tint"></i>
+                                        <span id="humidity">--%</span>
+                                    </div>
+                                    <div class="weather-item">
+                                        <i class="fas fa-wind"></i>
+                                        <span id="wind-speed">-- km/h</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="last-updated">
-                            <span data-translate="last_updated">Last updated:</span> <span id="update-time">--</span>
-                        </div>
+                        <div class="additional-info">
+                            <div class="last-updated">
+                                <span data-translate="last_updated">Last updated:</span> 
+                                <span id="update-time">--</span>
+                            </div>
 
-                        <div class="weather-info">
-                            <div class="weather-item">
-                                <i class="fas fa-temperature-high"></i>
-                                <span id="temperature">--°C</span>
+                            <div class="activities-section">
+                                <div class="activities-list" id="activities-list">
+                                    <div class="activity-placeholder">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        <p data-translate="loading_recommendations">Loading activity recommendations...</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="weather-item">
-                                <i class="fas fa-tint"></i>
-                                <span id="humidity">--%</span>
-                            </div>
-                            <div class="weather-item">
-                                <i class="fas fa-wind"></i>
-                                <span id="wind-speed">-- km/h</span>
-                            </div>
-                        </div>
 
-                        <div class="activities-list" id="activities-list">
-                            <div class="activity-placeholder">
-                                <i class="fas fa-spinner fa-spin"></i>
-                                <p data-translate="loading_recommendations">Loading activity recommendations...</p>
+                            <div class="health-advisory">
+                                <h3 data-translate="health_advisory">
+                                    <i class="fas fa-heart"></i>
+                                    Health Advisory
+                                </h3>
+                                <p id="health-message" data-translate="loading_health_advisory">Loading health advisory...</p>
                             </div>
-                        </div>
-
-                        <div class="health-advisory">
-                            <h3 data-translate="health_advisory">
-                                <i class="fas fa-heart"></i>
-                                Health Advisory
-                            </h3>
-                            <p id="health-message" data-translate="loading_health_advisory">Loading health advisory...</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Chart Section -->
                 <div class="chart-section">
+                    <div class="panel-header">
+                        <h2 data-translate="aqi_impact_analysis">
+                            <i class="fas fa-chart-line"></i>
+                            AQI Impact Analysis
+                        </h2>
+                    </div>
                     <div class="chart-container">
-                        <h2 data-translate="aqi_impact_analysis"><i class="fas fa-chart-line"></i>AQI Impact Analysis</h2>
                         <canvas id="aqiComparisonChart"></canvas>
                     </div>
                 </div>
@@ -285,6 +499,138 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.6.1/justgage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    
+    <!-- Universal Hamburger Menu Integration -->
+    <script src="../universal-hamburger.js"></script>
+    <script>
+        // Coordination script for desktop and mobile user detection
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create backward compatibility reference for existing language system
+            const universalLangDropdown = document.getElementById('universal-language-dropdown');
+            if (universalLangDropdown) {
+                window.languageDropdown = universalLangDropdown;
+                universalLangDropdown.setAttribute('data-legacy-id', 'languageDropdown');
+            }
+
+            // Coordinate desktop user state with universal hamburger menu
+            function updateDesktopUserState() {
+                const desktopAuthButtons = document.getElementById('desktop-auth-buttons');
+                const desktopUserMenu = document.getElementById('desktop-user-menu');
+                
+                // Check if user is logged in using the same detection as universal hamburger
+                const isLoggedIn = checkUserLoginStatus();
+                
+                if (isLoggedIn) {
+                    // Show user menu, hide auth buttons
+                    if (desktopAuthButtons) desktopAuthButtons.style.display = 'none';
+                    if (desktopUserMenu) desktopUserMenu.style.display = 'block';
+                    
+                    // Update user name if available
+                    const userData = getUserData();
+                    if (userData && userData.name) {
+                        const userNameElement = desktopUserMenu.querySelector('.user-name');
+                        if (userNameElement) {
+                            userNameElement.textContent = userData.name;
+                        }
+                    }
+                } else {
+                    // Show auth buttons, hide user menu
+                    if (desktopAuthButtons) desktopAuthButtons.style.display = 'flex';
+                    if (desktopUserMenu) desktopUserMenu.style.display = 'none';
+                }
+            }
+
+            // Check user login status using multiple methods
+            function checkUserLoginStatus() {
+                // Method 1: Check localStorage/sessionStorage
+                const storageKeys = ['userData', 'user', 'currentUser', 'loggedInUser'];
+                for (const key of storageKeys) {
+                    const userData = localStorage.getItem(key) || sessionStorage.getItem(key);
+                    if (userData) {
+                        try {
+                            const parsed = JSON.parse(userData);
+                            if (parsed && (parsed.isLoggedIn !== false)) {
+                                return true;
+                            }
+                        } catch (e) {
+                            // Continue checking
+                        }
+                    }
+                }
+
+                // Method 2: Check global window object
+                const globalUserKeys = ['currentUser', 'user', 'userData', 'authUser'];
+                for (const key of globalUserKeys) {
+                    if (window[key] && window[key].isLoggedIn !== false) {
+                        return true;
+                    }
+                }
+
+                // Method 3: Check for existing user menu visibility (from other scripts)
+                const existingUserMenu = document.querySelector('.user-menu[style*="block"]');
+                if (existingUserMenu) {
+                    return true;
+                }
+
+                return false;
+            }
+
+            // Get user data from available sources
+            function getUserData() {
+                // Try storage first
+                const storageKeys = ['userData', 'user', 'currentUser'];
+                for (const key of storageKeys) {
+                    const userData = localStorage.getItem(key) || sessionStorage.getItem(key);
+                    if (userData) {
+                        try {
+                            const parsed = JSON.parse(userData);
+                            if (parsed && parsed.name) {
+                                return parsed;
+                            }
+                        } catch (e) {
+                            // Continue
+                        }
+                    }
+                }
+
+                // Try global objects
+                const globalUserKeys = ['currentUser', 'user', 'userData'];
+                for (const key of globalUserKeys) {
+                    if (window[key] && window[key].name) {
+                        return window[key];
+                    }
+                }
+
+                return null;
+            }
+
+            // Initial update
+            updateDesktopUserState();
+
+            // Listen for user state changes from universal hamburger menu
+            document.addEventListener('userLoggedIn', function(event) {
+                setTimeout(updateDesktopUserState, 100);
+            });
+
+            document.addEventListener('userLoggedOut', function(event) {
+                setTimeout(updateDesktopUserState, 100);
+            });
+
+            // Watch for storage changes
+            window.addEventListener('storage', function(event) {
+                const userKeys = ['user', 'userData', 'currentUser'];
+                if (userKeys.includes(event.key)) {
+                    setTimeout(updateDesktopUserState, 100);
+                }
+            });
+
+            // Periodic check for user state changes (fallback)
+            setInterval(updateDesktopUserState, 5000);
+
+            console.log('🔗 Desktop-Mobile user state coordination initialized');
+        });
+    </script>
     <script src="../language/translations.js"></script>
     <script src="../app.js"></script>
     <script src="../userMenu.js"></script>
@@ -292,4 +638,4 @@
     <script src="aqi-chart.js"></script>
     <script src="aqi-monitor.js"></script>
 </body>
-</html> 
+</html>

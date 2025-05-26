@@ -774,3 +774,119 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+// Add this JavaScript to fix the auth buttons visibility
+
+document.addEventListener('DOMContentLoaded', function() {
+    function updateAuthButtonsVisibility() {
+        const authButtons = document.getElementById('desktop-auth-buttons');
+        const userMenu = document.getElementById('desktop-user-menu');
+        
+        // Check if user is logged in (multiple methods)
+        const isLoggedIn = checkIfUserLoggedIn();
+        
+        console.log('User logged in status:', isLoggedIn);
+        
+        if (isLoggedIn) {
+            // Hide auth buttons, show user menu
+            if (authButtons) {
+                authButtons.style.display = 'none';
+                authButtons.classList.add('hide-auth');
+            }
+            if (userMenu) {
+                userMenu.style.display = 'block';
+                userMenu.classList.add('show-user');
+            }
+        } else {
+            // Show auth buttons, hide user menu
+            if (authButtons) {
+                authButtons.style.display = 'flex';
+                authButtons.classList.remove('hide-auth');
+            }
+            if (userMenu) {
+                userMenu.style.display = 'none';
+                userMenu.classList.remove('show-user');
+            }
+        }
+    }
+    
+    function checkIfUserLoggedIn() {
+        // Method 1: Check URL for demo user
+        if (window.location.search.includes('demo=true')) {
+            return true;
+        }
+        
+        // Method 2: Check localStorage
+        if (localStorage.getItem('userData') || localStorage.getItem('user') || localStorage.getItem('token')) {
+            return true;
+        }
+        
+        // Method 3: Check if Demo User is visible in the header
+        const demoUserElement = document.querySelector('[data-user="demo"]') || 
+                               document.querySelector('.nav-link:contains("Demo User")') ||
+                               document.querySelector('*:contains("Demo User")');
+        if (demoUserElement) {
+            return true;
+        }
+        
+        // Method 4: Check if user menu is already visible
+        const userMenu = document.getElementById('desktop-user-menu');
+        if (userMenu && userMenu.style.display !== 'none') {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    // Initial check
+    updateAuthButtonsVisibility();
+    
+    // Check periodically
+    setInterval(updateAuthButtonsVisibility, 2000);
+    
+    // Listen for storage changes
+    window.addEventListener('storage', updateAuthButtonsVisibility);
+});
+document.addEventListener('DOMContentLoaded', function() {
+    function fixHamburgerPosition() {
+        const hamburgerBtn = document.getElementById('universal-hamburger-btn');
+        const header = document.querySelector('.universal-header');
+        const container = header?.querySelector('.container');
+        
+        if (hamburgerBtn && container) {
+            // Force positioning
+            hamburgerBtn.style.position = 'absolute';
+            hamburgerBtn.style.right = '20px';
+            hamburgerBtn.style.top = '50%';
+            hamburgerBtn.style.transform = 'translateY(-50%)';
+            hamburgerBtn.style.left = 'auto';
+            hamburgerBtn.style.margin = '0';
+            hamburgerBtn.style.zIndex = '1001';
+            
+            // Make container relative
+            container.style.position = 'relative';
+            container.style.display = 'flex';
+            container.style.justifyContent = 'space-between';
+            container.style.alignItems = 'center';
+            
+            console.log('✅ Hamburger position fixed via JS');
+        }
+    }
+    
+    // Fix immediately
+    fixHamburgerPosition();
+    
+    // Fix after short delay in case other scripts interfere
+    setTimeout(fixHamburgerPosition, 100);
+    setTimeout(fixHamburgerPosition, 500);
+    
+    // Watch for changes and reapply fix
+    const observer = new MutationObserver(fixHamburgerPosition);
+    const headerContainer = document.querySelector('.universal-header .container');
+    if (headerContainer) {
+        observer.observe(headerContainer, {
+            attributes: true,
+            childList: true,
+            subtree: true
+        });
+    }
+});

@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="https://gw.alipayobjects.com/zos/rmsportal/XPHxlVUyZBsQhXBPheZl.png" type="image/x-icon">
   <link href="styles.css" rel="stylesheet">
+  <link href="mobile-responsive.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,75 +28,90 @@
   </div>
 
   <!-- Header -->
-<header>
+  <header>
     <div class="header-container">
+      <!-- Back Button -->
+      <button class="back-btn" id="backBtn" onclick="navigateToBloom()">
+        <span class="back-arrow">←</span>
+        <span class="back-text">Back to Bloom</span>
+      </button>
+      
       <div class="logo">
-        <img src="./images/logo.png">
+        <img src="./images/logo.png" alt="GrainTrust Logo">
         <h1 style="font-weight: 600;">GrainTrust</h1>
       </div>
-      <nav>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <nav class="nav-menu" id="navMenu">
         <ul>
-          
           <li>
             <a href="./components/html/Register.html" class="register-btn">Register as Company</a>
-            
-
           </li>
           <li>
-            <a href="./components/html/drugAuth.html" >Product Authenticate</a>
+            <a href="./components/html/drugAuth.html">Product Authenticate</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
+
   <!-- Hero Section -->
   <section class="hero">
-    <h2>GrainTrust</h2>
-    <h3>--Safe Farming, Secure Future--</h3> 
-    <br>
-    <p>Authenticate, Trust, and Protect Every Crop!</p>
-    <div class="cta-buttons">
-      <button class="btn btn-primary" id="overviewBtn">Overview</button>
-      <a href="./components/html/Register2.html" class="btn btn-secondary">Register New Product</a>
+    <div class="hero-content">
+      <h2>GrainTrust</h2>
+      <h3>--Safe Farming, Secure Future--</h3> 
+      <br>
+      <p>Authenticate, Trust, and Protect Every Crop!</p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary" id="overviewBtn">Overview</button>
+        <a href="./components/html/Register2.html" class="btn btn-secondary">Register New Product</a>
+      </div>
+      
+      <!-- Overview Text Container -->
+      <div class="overview-container" id="overviewContainer">
+        <p class="overview-text" id="overviewText"></p>
+      </div>
+      
+      <div class="hero-image-container">
+        <img src="./images/img2.jpeg" alt="Hero Illustration" id="heroImage">
+      </div>
     </div>
-    
-    <!-- Overview Text Container -->
-    <div class="overview-container" id="overviewContainer">
-      <p class="overview-text" id="overviewText"></p>
-    </div>
-    
-    <img src="./images/img2.jpeg" alt="Hero Illustration" id="heroImage">
   </section>
 
   <!-- Features Section -->
   <section class="features">
-    <div class="section-title">
-      <h3>Why Choose GrainTrust</h3>
-      <p>Our platform offers everything you need to ensure farming products authenticity and crop safety</p>
-    </div>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🔍</div>
-        <h4>Instant Verification</h4>
-        <p>Quickly authenticate farming products with our simple scanning technology.</p>
+    <div class="features-container">
+      <div class="section-title">
+        <h3>Why Choose GrainTrust</h3>
+        <p>Our platform offers everything you need to ensure farming products authenticity and crop safety</p>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔗</div>
-        <h4>Blockchain Security</h4>
-        <p>Tamper-proof records using decentralized blockchain technology.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h4>Instant Verification</h4>
+          <p>Quickly authenticate farming products with our simple scanning technology.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h4>Blockchain Security</h4>
+          <p>Tamper-proof records using decentralized blockchain technology.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h4>Mobile App</h4>
+          <p>Easy-to-use app for verification anytime, anywhere.</p>
+        </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">📱</div>
-        <h4>Mobile App</h4>
-        <p>Easy-to-use app for verification anytime, anywhere.</p>
-      </div>
-      
     </div>
   </section>
 
-  
-
-  <script src="script.js">
-  </script>
+  <script src="script.js"></script>
+  <script src="mobile-navigation.js"></script>
 </body>
 </html>

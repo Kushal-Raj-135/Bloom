@@ -9,74 +9,213 @@
     <link rel="stylesheet" href="language/language-styles.css">
     <link rel="stylesheet" href="product-cards.css">
     <link rel="stylesheet" href="nav-styles.css">
+    
+    <!-- universal hamburger files -->
+    <link rel="stylesheet" href="universal-hamburger.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
 </head>
-<body>    
-    <header>
+<body>
+    <!--universal hamburger header -->
+    <header class="universal-header">
         <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="logo.png" alt="BioBloom Logo" class="logoo">
-                </a>
-            </div>
-            <div class="menu-toggle" id="menuToggle">
-                ☰
-            </div>
-            <nav id="mainNav">
+            <!-- Logo -->
+            <a href="index.html" class="universal-logo">
+                <img src="logo.png" alt="BioBloom Logo" class="logoo">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="universal-nav">
                 <ul>
-                    <li><a href="index.html" class="nav-link active" data-translate="home">Home</a></li>
+                    <li><a href="/" class="nav-link active" data-translate="home">Home</a></li>
                     <li><a href="#info-section" class="nav-link" data-translate="about">About</a></li>
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-translate="products">Products</a>
+                        <a href="#" class="nav-link" data-translate="products">Products</a>
                         <div class="dropdown-menu">
                             <a href="crop/crop-rotation.html" class="nav-link" data-translate="crop_rotation">CropShiftX</a>
                             <a href="agrirevive/biofuel.html" class="nav-link" data-translate="agrirevive">AgriReVive</a>
                             <a href="agrisensex/agri.html" class="nav-link" data-translate="agrisensex">AgriSenseX</a>
-                            <a href="graintrust/auth/index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
+                            <a href="graintrust\auth\index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
                             <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="nav-link" data-translate="bio_guardian">BioGuardian</a>
                         </div>
                     </li>
                     <li><a href="#contact" class="nav-link" data-translate="contact">Contact</a></li>
                 </ul>
+            </nav>
+            
+            <!-- Desktop Right Side -->
+            <div class="nav-right">
+                <!-- Auth buttons for logged out users -->
+                <div class="auth-buttons" id="desktop-auth-buttons" style="display: none;">
+                    <a href="login.html" class="nav-link" data-translate="login">Login</a>
+                    <a href="register.html" class="nav-link" data-translate="register">Register</a>
+                </div>
                 
-                <div class="nav-right">
-                    <!-- Auth buttons for logged out users -->
-                    <div class="auth-buttons">
-                        <a href="login.html" class="nav-link" data-translate="login">Login</a>
-                        <a href="register.html" class="nav-link" data-translate="register">Register</a>
-                    </div>
-                    
-                    <!-- User menu for logged in users -->
-                    <div class="user-menu" style="display: none;">
-                        <div class="dropdown">
-                            <a href="#" class="user-dropdown-toggle nav-link">
-                                <i class="fas fa-user-circle"></i>
-                                <span class="user-name">User</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu user-dropdown-menu">
-                                <a href="profile.html" class="nav-link" data-translate="profile">Profile</a>
-                                <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
-                            </div>
+                <!-- User menu for logged in users -->
+                <div class="user-menu" id="desktop-user-menu" style="display: block;">
+                    <div class="dropdown">
+                        <a href="#" class="user-dropdown-toggle nav-link">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="user-name">Current User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu user-dropdown-menu">
+                            <a href="profile.html" class="nav-link" data-translate="profile">Profile</a>
+                            <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
                         </div>
                     </div>
-                    
-                    <!-- Language selector -->
-                    <div class="language-selector">
-                        <select id="languageDropdown" class="language-dropdown">
-                            <option value="en">English</option>
-                            <option value="hi">हिंदी</option>
-                            <option value="kn">ಕನ್ನಡ</option>
-                        </select>
-                    </div>
                 </div>
-            </nav>
-            <div class="menu-overlay" id="menuOverlay"></div>
+                
+                <!-- Desktop Language selector -->
+                <div class="language-selector">
+                    <select id="languageDropdown" class="language-dropdown">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Hamburger Button (only visible on mobile) -->
+            <button id="universal-hamburger-btn" class="universal-hamburger-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="universal-mobile-overlay" class="universal-mobile-overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="universal-mobile-menu" class="universal-mobile-menu">
+        <!-- Mobile Header -->
+        <div class="universal-mobile-header">
+            <div class="universal-logo">
+                <img src="logo.png" alt="BioBloom Logo" class="logoo">
+            </div>
+            <button id="universal-mobile-close" class="universal-mobile-close" aria-label="Close menu">
+                ×
+            </button>
+        </div>
+
+        <!-- Mobile Content -->
+        <div class="universal-mobile-content">
+            <!-- Mobile Navigation -->
+            <ul class="universal-mobile-nav">
+                <li class="universal-mobile-nav-item">
+                    <a href="/" class="universal-mobile-nav-link active" data-translate="home">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="universal-mobile-nav-item">
+                    <a href="#info-section" class="universal-mobile-nav-link" data-translate="about">
+                        <i class="fas fa-info-circle"></i>
+                        About
+                    </a>
+                </li>
+                
+                <!-- Products Dropdown for Mobile -->
+                <li id="universal-products-dropdown" class="universal-mobile-nav-item universal-products-dropdown">
+                    <button class="universal-dropdown-toggle" data-translate="products">
+                        <span>
+                            <i class="fas fa-leaf"></i>
+                            Products
+                        </span>
+                        <i class="universal-dropdown-arrow fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="universal-products-submenu">
+                        <li>
+                            <a href="crop/crop-rotation.html" class="universal-mobile-nav-link" data-translate="crop_rotation">
+                                CropShiftX
+                            </a>
+                        </li>
+                        <li>
+                            <a href="agrirevive/biofuel.html" class="universal-mobile-nav-link" data-translate="agrirevive">
+                                AgriReVive
+                            </a>
+                        </li>
+                        <li>
+                            <a href="agrisensex/agri.html" class="universal-mobile-nav-link" data-translate="agrisensex">
+                                AgriSenseX
+                            </a>
+                        </li>
+                        <li>
+                            <a href="graintrust\auth\index.html" class="universal-mobile-nav-link" data-translate="grain_trust">
+                                GrainTrust
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="universal-mobile-nav-link" data-translate="bio_guardian">
+                                BioGuardian
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="universal-mobile-nav-item">
+                    <a href="#contact" class="universal-mobile-nav-link" data-translate="contact">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+            <!-- User Section (for logged in users) -->
+            <div id="universal-user-section" class="universal-user-section" style="display: none;">
+                <div class="universal-user-info">
+                    <div class="universal-user-avatar">
+                        <span>U</span>
+                    </div>
+                    <div class="universal-user-details">
+                        <h4>User Name</h4>
+                        <p>user@example.com</p>
+                    </div>
+                </div>
+                <div class="universal-user-actions">
+                    <a href="profile.html" class="universal-user-action" data-translate="profile">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a>
+                    <a href="#" class="universal-user-action universal-logout-btn" data-translate="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+
+            <!-- Auth Section (for non-logged in users) -->
+            <div id="universal-auth-section" class="universal-auth-section">
+                <div class="universal-auth-actions">
+                    <a href="login.html" class="universal-auth-action login" data-translate="login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="register.html" class="universal-auth-action register" data-translate="register">
+                        <i class="fas fa-user-plus"></i>
+                        Register
+                    </a>
+                </div>
+            </div>
+
+            <!-- Language Section -->
+            <div class="universal-language-section">
+                <div class="universal-language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="universal-mobile-language-dropdown" class="universal-mobile-language-dropdown">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--main content-->
     <main id="main-content">
         <section class="hero" id="home">
             <div class="container">
@@ -322,9 +461,9 @@
                 <p>&copy; 2025 BioBloom Solutions. All rights reserved.</p>
             </div>
         </div>
-    </footer>    
-    
-    <!-- Load third-party scripts -->
+    </footer>
+
+    <!-- scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
@@ -332,15 +471,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
-    <!-- Load core functionality in correct order -->
     <script src="language/translations.js"></script>
     <script src="app.js"></script>
     <script src="userMenu.js"></script>
     <script src="api.js"></script>
-    
-    <!-- Load feature-specific scripts -->
     <script src="chart.js"></script>
     <script src="aqi.js"></script>
     <script src="script.js"></script>
+    <script>
+//user state
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('desktop-auth-buttons').style.display = 'none';
+    document.getElementById('desktop-user-menu').style.display = 'block';
+    document.querySelector('.user-name').textContent = 'Current User';
+});
+</script>
+    
+    <!-- universal hamburger JS file -->
+    <script src="universal-hamburger.js"></script>
 </body>
 </html>

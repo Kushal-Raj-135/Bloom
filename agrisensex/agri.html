@@ -4,53 +4,273 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Farm - AI Precision Farming</title>
+    
+    <!-- CRITICAL: Universal Hamburger Menu CSS FIRST to prevent conflicts -->
+    <link rel="stylesheet" href="../universal-hamburger.css">
+    
+    <!-- Your existing stylesheets AFTER hamburger CSS -->
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../language/language-styles.css">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- External libraries -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
+    
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
-        /* Update main content spacing */
+        /* ===== CRITICAL CSS OVERRIDES TO FIX AGRISENSEX CONFLICTS ===== */
+        
+        /* Hide original header to prevent conflicts */
+        header:not(.universal-header) {
+            display: none !important;
+        }
+
+        /* Ensure universal header works correctly */
+        .universal-header {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 100 !important;
+            padding: 0.5rem 0 !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        /* CRITICAL: Fix hamburger menu positioning to slide from RIGHT */
+        .universal-mobile-menu {
+            position: fixed !important;
+            top: 0 !important;
+            right: -100% !important; /* Start from right side */
+            width: 320px !important;
+            max-width: 85vw !important;
+            height: 100% !important;
+            background: white !important;
+            z-index: 1000 !important;
+            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            overflow-y: auto !important;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            transform: none !important; /* Remove any transform that might center it */
+            left: auto !important; /* Ensure left is not set */
+        }
+
+        /* Active state slides to position 0 */
+        .universal-mobile-menu.active {
+            right: 0 !important;
+            transform: none !important;
+        }
+
+        /* Fix overlay positioning */
+        .universal-mobile-overlay {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.5) !important;
+            z-index: 999 !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: all 0.3s ease !important;
+            backdrop-filter: blur(2px) !important;
+        }
+
+        .universal-mobile-overlay.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+
+        /* Fix hamburger button */
+        .universal-hamburger-btn {
+            display: none !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 40px !important;
+            height: 40px !important;
+            background: none !important;
+            border: none !important;
+            cursor: pointer !important;
+            padding: 0 !important;
+            z-index: 1001 !important;
+            position: relative !important;
+            transition: all 0.3s ease !important;
+            border-radius: 6px !important;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .universal-hamburger-btn {
+                display: flex !important;
+            }
+
+            .universal-nav > ul,
+            .nav-right {
+                display: none !important;
+            }
+
+            .universal-header .container {
+                padding: 1rem !important;
+                gap: 1rem !important;
+            }
+
+            /* Ensure mobile menu doesn't get squashed */
+            .universal-mobile-menu {
+                min-width: 280px !important;
+            }
+        }
+
+        /* Fix main content spacing */
+        main {
+            margin-top: 0 !important; /* Remove extra margin since header is sticky */
+            padding: 2rem;
+        }
+
+        /* Remove conflicting z-index from agrisensex elements */
+        .section {
+            z-index: auto !important;
+        }
+
+        .card {
+            z-index: auto !important;
+        }
+
+        /* Fix navigation items display */
+        .universal-mobile-nav {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            flex: 1 !important;
+        }
+
+        .universal-mobile-nav-item {
+            border-bottom: 1px solid #f8f9fa !important;
+        }
+
+        .universal-mobile-nav-link {
+            display: block !important;
+            padding: 18px 20px !important;
+            color: #2c3e50 !important;
+            text-decoration: none !important;
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        /* Prevent CSS from agrisensex interfering */
+        .universal-mobile-menu * {
+            box-sizing: border-box !important;
+        }
+
+        /* Fix products dropdown */
+        .universal-products-dropdown .universal-dropdown-toggle {
+            width: 100% !important;
+            padding: 18px 20px !important;
+            background: none !important;
+            border: none !important;
+            text-align: left !important;
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            color: #2c3e50 !important;
+            cursor: pointer !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+        }
+
+        .universal-products-submenu {
+            background: #f8f9fa !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+            transition: max-height 0.3s ease !important;
+        }
+
+        .universal-products-dropdown.open .universal-products-submenu {
+            max-height: 250px !important;
+        }
+
+        /* Fix close button */
+        .universal-mobile-close {
+            background: none !important;
+            border: none !important;
+            font-size: 24px !important;
+            color: #666 !important;
+            cursor: pointer !important;
+            padding: 8px !important;
+            border-radius: 50% !important;
+            transition: all 0.3s ease !important;
+            width: 40px !important;
+            height: 40px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .universal-mobile-close:hover {
+            background: #f5f5f5 !important;
+            color: #e74c3c !important;
+            transform: rotate(90deg) !important;
+        }
+
+        /* Fix for smaller screens */
+        @media (max-width: 480px) {
+            .universal-mobile-menu {
+                width: 100% !important;
+                max-width: 100vw !important;
+                right: -100% !important;
+            }
+
+            .universal-mobile-menu.active {
+                right: 0 !important;
+            }
+        }
+
+        /* AgriSenseX specific spacing adjustments */
         .main-content {
             padding-top: 20px;
             margin-top: 0;
         }
 
-        /* Update dashboard layout */
         .dashboard {
             margin-top: 0;
             padding-top: 0;
         }
 
-        /* Update weather card spacing */
         .weather-card {
             margin-top: 0;
         }
 
-        /* Update sensor card spacing */
         .sensor-card {
             margin-top: 0;
         }
 
-        /* Update bioengineering section spacing */
         .bioengineering-section {
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Universal Hamburger Menu Header -->
+    <header class="universal-header">
         <div class="container">
-            <div class="logo">
-                <img src="../logo.png" alt="BioBloom Logo" class="logoo">
-            </div>
-            <nav>
+            <!-- Logo (single logo, no duplication) -->
+            <a href="../index.html" class="universal-logo">
+                <img src="../logo.png" alt="BioBloom Logo">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="universal-nav">
                 <ul>
                     <li><a href="../index.html" class="nav-link" data-translate="home">Home</a></li>
                     <li><a href="#info-section" class="nav-link" data-translate="about">About</a></li>
@@ -58,48 +278,189 @@
                         <a href="#" class="nav-link active" data-translate="products">Products</a>
                         <div class="dropdown-menu">
                             <a href="../crop/crop-rotation.html" class="nav-link" data-translate="crop_rotation">CropShiftX</a>
-                            <a href="../biofuel/biofuel.html" class="nav-link" data-translate="agrirevive">AgriReVive</a>
-                            <a href="agri.html" class="nav-link active" data-translate="smart_farm">AgriSenseX</a>
+                            <a href="../agrirevive/biofuel.html" class="nav-link" data-translate="agrirevive">AgriReVive</a>
+                            <a href="agri.html" class="nav-link active" data-translate="agrisensex">AgriSenseX</a>
+                            <a href="../graintrust/auth/index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
+                            <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="nav-link" data-translate="bio_guardian">BioGuardian</a>
                         </div>
                     </li>
                     <li><a href="#contact" class="nav-link" data-translate="contact">Contact</a></li>
                 </ul>
+            </nav>
+            
+            <!-- Desktop Right Side -->
+            <div class="nav-right">
+                <!-- Auth buttons for logged out users -->
+                <div class="auth-buttons">
+                    <a href="../login.html" class="nav-link" data-translate="login">Login</a>
+                    <a href="../register.html" class="nav-link" data-translate="register">Register</a>
+                </div>
                 
-                <div class="nav-right">
-                    <!-- Auth buttons for logged out users -->
-                    <div class="auth-buttons">
-                        <a href="../login.html" class="nav-link" data-translate="login">Login</a>
-                        <a href="../register.html" class="nav-link" data-translate="register">Register</a>
-                    </div>
-                    
-                    <!-- User menu for logged in users -->
-                    <div class="user-menu" style="display: none;">
-                        <div class="dropdown">
-                            <a href="#" class="user-dropdown-toggle nav-link">
-                                <i class="fas fa-user-circle"></i>
-                                <span class="user-name">User</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu user-dropdown-menu">
-                                <a href="../profile.html" class="nav-link" data-translate="profile">Profile</a>
-                                <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
-                            </div>
+                <!-- User menu for logged in users -->
+                <div class="user-menu" style="display: none;">
+                    <div class="dropdown">
+                        <a href="#" class="user-dropdown-toggle nav-link">
+                            <i class="fas fa-user-circle"></i>
+                            <span class="user-name">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu user-dropdown-menu">
+                            <a href="../profile.html" class="nav-link" data-translate="profile">Profile</a>
+                            <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
                         </div>
                     </div>
-                    
-                    <!-- Language selector -->
-                    <div class="language-selector">
-                        <select id="languageDropdown" class="language-dropdown">
-                            <option value="en">English</option>
-                            <option value="hi">हिंदी</option>
-                            <option value="kn">ಕನ್ನಡ</option>
-                        </select>
-                    </div>
                 </div>
-            </nav>
+                
+                <!-- Desktop Language selector -->
+                <div class="language-selector">
+                    <select id="universal-language-dropdown" class="language-dropdown">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Hamburger Button (only visible on mobile) -->
+            <button id="universal-hamburger-btn" class="universal-hamburger-btn" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="universal-mobile-overlay" class="universal-mobile-overlay"></div>
+
+    <!-- Mobile Menu (FIXED - No duplicate logo, slides from right) -->
+    <div id="universal-mobile-menu" class="universal-mobile-menu">
+        <!-- Mobile Header (FIXED - Single logo only) -->
+        <div class="universal-mobile-header">
+            <div class="universal-logo">
+                <img src="../logo.png" alt="BioBloom Logo">
+                <!-- NO TEXT - prevents duplicate logo -->
+            </div>
+            <button id="universal-mobile-close" class="universal-mobile-close" aria-label="Close menu">
+                ×
+            </button>
+        </div>
+
+        <!-- Mobile Content -->
+        <div class="universal-mobile-content">
+            <!-- Mobile Navigation -->
+            <ul class="universal-mobile-nav">
+                <li class="universal-mobile-nav-item">
+                    <a href="../index.html" class="universal-mobile-nav-link" data-translate="home">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="universal-mobile-nav-item">
+                    <a href="#info-section" class="universal-mobile-nav-link" data-translate="about">
+                        <i class="fas fa-info-circle"></i>
+                        About
+                    </a>
+                </li>
+                
+                <!-- Products Dropdown for Mobile -->
+                <li id="universal-products-dropdown" class="universal-mobile-nav-item universal-products-dropdown">
+                    <button class="universal-dropdown-toggle" data-translate="products">
+                        <span>
+                            <i class="fas fa-leaf"></i>
+                            Products
+                        </span>
+                        <i class="universal-dropdown-arrow fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="universal-products-submenu">
+                        <li>
+                            <a href="../crop/crop-rotation.html" class="universal-mobile-nav-link" data-translate="crop_rotation">
+                                CropShiftX
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../agrirevive/biofuel.html" class="universal-mobile-nav-link" data-translate="agrirevive">
+                                AgriReVive
+                            </a>
+                        </li>
+                        <li>
+                            <a href="agri.html" class="universal-mobile-nav-link active" data-translate="agrisensex">
+                                AgriSenseX
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../graintrust/auth/index.html" class="universal-mobile-nav-link" data-translate="grain_trust">
+                                GrainTrust
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="universal-mobile-nav-link" data-translate="bio_guardian">
+                                BioGuardian
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="universal-mobile-nav-item">
+                    <a href="#contact" class="universal-mobile-nav-link" data-translate="contact">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+            <!-- User Section (for logged in users) -->
+            <div id="universal-user-section" class="universal-user-section" style="display: none;">
+                <div class="universal-user-info">
+                    <div class="universal-user-avatar">
+                        <span>U</span>
+                    </div>
+                    <div class="universal-user-details">
+                        <h4>User Name</h4>
+                        <p>user@example.com</p>
+                    </div>
+                </div>
+                <div class="universal-user-actions">
+                    <a href="../profile.html" class="universal-user-action" data-translate="profile">
+                        <i class="fas fa-user"></i>
+                        Profile
+                    </a>
+                    <a href="#" class="universal-user-action universal-logout-btn" data-translate="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+
+            <!-- Auth Section (for non-logged in users) -->
+            <div id="universal-auth-section" class="universal-auth-section">
+                <div class="universal-auth-actions">
+                    <a href="../login.html" class="universal-auth-action login" data-translate="login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="../register.html" class="universal-auth-action register" data-translate="register">
+                        <i class="fas fa-user-plus"></i>
+                        Register
+                    </a>
+                </div>
+            </div>
+
+            <!-- Language Section -->
+            <div class="universal-language-section">
+                <div class="universal-language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="universal-mobile-language-dropdown" class="universal-mobile-language-dropdown">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- main content -->
     <main>
         <!-- Dashboard Section -->
         <section id="dashboard" class="section active">
@@ -312,6 +673,7 @@
         </section>
     </main>
 
+    <!-- footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -353,5 +715,8 @@
     <script src="../language/translations.js"></script>
     <script src="../language/language.js"></script>
     <script src="app.js"></script>
+    
+    <!-- Universal Hamburger Menu JavaScript (load last) -->
+    <script src="../universal-hamburger.js"></script>
 </body>
-</html> 
+</html>
