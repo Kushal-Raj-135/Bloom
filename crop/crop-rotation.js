@@ -28,6 +28,7 @@ const cropNameMap = {
     'tur dal': 'Pigeonpea (Arhar/Tur Dal)'
 };
 
+
 // Crop rotation database
 const cropData = {
     wheat: {
@@ -622,6 +623,7 @@ function getLocalCropName(cropName) {
     return cropNameMap[cropName.toLowerCase()] || cropName;
 }
 
+
 // Auto-fill soil type and region based on crop selection
 function autoFillDetails() {
     const cropSelect = document.getElementById('previous-crop');
@@ -673,8 +675,21 @@ async function handleFormSubmit(event) {
         `;
 
         // Get recommendations from Groq
-        const recommendations = await getGroqRecommendations(formData);
+         const response = await fetch('/recommendations', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+         if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+        }
+
+        const result = await response.json();
+        const recommendations = result.recommendation;
         console.log('Received recommendations:', recommendations);
+
         
         // Display the recommendations
         recommendationDiv.innerHTML = formatRecommendations(recommendations);
@@ -797,107 +812,6 @@ function formatRecommendations(data) {
     return formattedHtml;
 }
 
-// Function to get recommendations from Groq AI
-async function getGroqRecommendations(cropInfo) {
-    // Use a constant API key for now - this should be replaced with your actual API key
-    const GROQ_API_KEY = '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';
-    const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-
-    const prompt = `As an agricultural expert in India, provide a detailed 3-year crop rotation plan for the following farm, using local crop names that farmers will understand. IMPORTANT: Do NOT recommend the same crop as the current crop in the rotation plan. Each year should have a different crop to maintain soil health and prevent pest cycles.
-
-Current Farm Details:
-- Current Crop: ${getLocalCropName(cropInfo.previousCrop)}
-- Soil Type: ${cropInfo.soilType}
-- Region/Climate: ${cropInfo.region}
-- Farm Size: ${cropInfo.farmSize} acres
-
-Rules for recommendations:
-1. NEVER recommend the current crop (${getLocalCropName(cropInfo.previousCrop)}) in the rotation plan
-2. Each year must have a different crop
-3. Consider crop families that complement each other
-4. Focus on crops that improve soil health after the current crop
-5. Consider local market demand and climate suitability
-
-Please provide recommendations using common local names for crops (e.g., use "Arhar/Tur Dal" instead of just "Pigeonpea", "Lobia/Chawli" instead of just "Cowpea") in the following format:
-
-3-YEAR ROTATION PLAN:
-
-Year 1:
-[Recommended crop with local name - MUST be different from current crop]
-- Benefits: [List specific benefits of this crop]
-- Reasoning: [Explain why this crop is recommended after the current crop]
-- Soil Impact: [How this crop affects soil health]
-- Management Tips: [Key cultivation practices]
-
-Year 2:
-[Recommended crop with local name - MUST be different from Year 1 crop]
-- Benefits: [List specific benefits of this crop]
-- Reasoning: [Explain why this crop follows Year 1's crop]
-- Soil Impact: [How this crop affects soil health]
-- Management Tips: [Key cultivation practices]
-
-Year 3:
-[Recommended crop with local name - MUST be different from Years 1 and 2 crops]
-- Benefits: [List specific benefits of this crop]
-- Reasoning: [Explain why this crop completes the rotation]
-- Soil Impact: [How this crop affects soil health]
-- Management Tips: [Key cultivation practices]
-
-ORGANIC FERTILIZER RECOMMENDATIONS:
-[List specific organic fertilizers for each crop in the rotation]
-[Include application timing and rates]
-[Traditional and modern organic alternatives]
-
-Additional Recommendations:
-1. Organic Fertilizer Strategy: [Specific recommendations]
-2. Soil Health Management: [Detailed practices]
-3. Climate-Specific Considerations: [Based on the region]
-4. Expected Outcomes: [Benefits of this rotation cycle]`;
-
-    try {
-        console.log("Sending request to Groq AI...");
-        const response = await fetch(GROQ_API_URL, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${GROQ_API_KEY}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                model: "llama-3.3-70b-versatile",
-                messages: [
-                    {
-                        role: "system",
-                        content: "You are an expert agricultural advisor specializing in crop rotation. Focus on sustainable farming methods and consider local climate, soil types, and traditional farming knowledge."
-                    },
-                    {
-                        role: "user",
-                        content: prompt
-                    }
-                ],
-                temperature: 0.7,
-                max_tokens: 2000
-            })
-        });
-
-        console.log("Response status:", response.status);
-        const responseText = await response.text();
-        console.log("Raw response:", responseText);
-
-        if (!response.ok) {
-            throw new Error(`Failed to get AI recommendations: ${response.status} ${responseText}`);
-        }
-
-        const data = JSON.parse(responseText);
-        if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-            throw new Error('Invalid response format from Groq AI');
-        }
-
-        return data.choices[0].message.content;
-    } catch (error) {
-        console.error('Error getting AI recommendations:', error);
-        return `Unable to get AI recommendations at the moment. Please try again later.`;
-    }
-}
 
 // Function to download results as PDF
 function downloadResults() {
