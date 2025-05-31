@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BioBloom - Sustainable Farming Solutions</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="aqi-styles.css">
-  <link rel="stylesheet" href="language/language-styles.css">
-  <link rel="stylesheet" href="product-cards.css">
-  <link rel="stylesheet" href="nav-styles.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/aqi-styles.css">
+  <link rel="stylesheet" href="../assets/language/language-styles.css">
+  <link rel="stylesheet" href="../assets/css/product-cards.css">
+  <link rel="stylesheet" href="../assets/css/nav-styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
@@ -18,8 +18,8 @@
     crossorigin="anonymous"></script>
   <script>
     $(function () {
-      $("#includeHeader").load("components/header.html");
-      $("#includeFooter").load("components/footer.html")
+      $("#includeHeader").load("../components/header.html");
+      $("#includeFooter").load("../components/footer.html")
     });
   </script>
 
@@ -27,6 +27,7 @@
 
 <body>
   <header id="includeHeader"></header>
+  
   <main id="main-content">
     <section class="hero" id="home">
       <div class="container">
@@ -55,7 +56,7 @@
             <h3 data-translate="crop_rotation_title">CropShiftX</h3>
             <p data-translate="crop_rotation_desc">AI-powered crop rotation assistant that helps farmers optimize their
               planting schedules and improve soil health through intelligent crop rotation recommendations.</p>
-            <a href="crop/crop-rotation.html" class="btn">Learn More</a>
+            <a href="../crop/crop-rotation.html" class="btn">Learn More</a>
           </div>
 
           <div class="product-card">
@@ -63,7 +64,7 @@
             <h3 data-translate="agrirevive_title">AgriReVive</h3>
             <p data-translate="agrirevive_desc">Innovative biofuel production system that converts agricultural waste
               into clean energy, reducing carbon emissions and providing alternative fuel solutions.</p>
-            <a href="biofuel/biofuel.html" class="btn">Learn More</a>
+            <a href="../biofuel/biofuel.html" class="btn">Learn More</a>
           </div>
 
           <div class="product-card">
@@ -267,15 +268,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <!-- Load core functionality -->
-  <script src="language/translations.js"></script>
-  <script src="app.js"></script>
-  <script src="userMenu.js"></script>
-  <script type="module" src="api.js"></script>
+  <script src="../assets/language/translations.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/userMenu.js"></script>
+  <script type="module" src="../assets/js/api.js" defer></script>
+
+
 
   <!-- Load feature-specific scripts -->
   <!-- <script src="chart.js"></script> -->
-  <script src="aqi.js"></script>
-  <script type="module" src="script.js"></script>
+  <script src="../assets/js/aqi.js"></script>
+  <script type="module" src="../assets/js/script.js"></script>
 </body>
 
 </html>

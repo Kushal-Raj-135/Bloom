@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if user is already logged in
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
-        window.location.href = 'index.html';
+        window.location.href = '../';
         return;
     }
 
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast('Registration successful! Please login.', 'success');
 
                 setTimeout(() => {
-                    window.location.href = 'login.html';
+                    window.location.href = '../auth/login.html';
                 }, 2000);
 
             } catch (error) {
