@@ -471,8 +471,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Clear all authentication-related elements
         Array.from(nav.children).forEach(child => {
             if (child.classList.contains('user-menu') || 
-                child.querySelector('a[href="login.html"]') ||
-                child.querySelector('a[href="register.html"]')) {
+                child.querySelector('a[href="../auth/login.html"]') ||
+                child.querySelector('a[href="../auth/register.html"]')) {
                 child.remove();
             }
         });
@@ -519,9 +519,9 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             // Add login/register links
             const loginLink = document.createElement('li');
-            loginLink.innerHTML = '<a href="login.html">Login</a>';
+            loginLink.innerHTML = '<a href="../auth/login.html">Login</a>';
             const registerLink = document.createElement('li');
-            registerLink.innerHTML = '<a href="register.html">Register</a>';
+            registerLink.innerHTML = '<a href="../auth/register.html">Register</a>';
             nav.appendChild(loginLink);
             nav.appendChild(registerLink);
         }
@@ -531,14 +531,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function handleLogout() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        window.location.href = 'index.html';
+        window.location.href = '../';
     }
 
     // Show profile
     function showProfile() {
         const user = JSON.parse(localStorage.getItem('user'));
         if (!user) {
-            window.location.href = 'login.html';
+            window.location.href = '../auth/login.html';
             return;
         }
 
@@ -611,7 +611,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function openEditProfile() {
         closeProfile(); // Close the profile modal
-        window.location.href = 'edit-profile.html';
+        window.location.href = '../accounts/profile.html';
     }
 
     // Close profile
@@ -631,7 +631,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const user = JSON.parse(localStorage.getItem('user'));
             if (!user) {
-                window.location.href = 'login.html';
+                window.location.href = '../auth/login.html';
                 return;
             }
 
@@ -667,7 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // Redirect back to main page after a short delay
             setTimeout(() => {
-                window.location.href = 'index.html';
+                window.location.href = '../';
             }, 2000);
         } catch (error) {
             console.error('Error saving profile changes:', error);

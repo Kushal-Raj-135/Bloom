@@ -1,86 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crop Rotation Assistant - BioBloom Solutions</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../aqi-styles.css">
-    <link rel="stylesheet" href="../language/language-styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/aqi-styles.css">
+    <link rel="stylesheet" href="../assets/language/language-styles.css">
     <link rel="stylesheet" href="crop-rotation.css">
     <link rel="stylesheet" href="aqi-monitor.css">
-    <link rel="stylesheet" href="../nav-styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/nav-styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#includeHeader").load("../components/header.html");
+            $("#includeFooter").load("../components/footer.html")
+        });
+    </script>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="../logo.png" alt="BioBloom Logo" class="logoo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/" class="nav-link " data-translate="home">Home</a></li>
-                    <li><a href="../index.html#info-section" class="nav-link" data-translate="about">About</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link active" data-translate="products">Products</a>
-                        <div class="dropdown-menu">
-                            <a href="crop-rotation.html" class="nav-link" data-translate="crop_rotation">CropShiftX</a>
-                            <a href="../agrirevive/biofuel.html" class="nav-link" data-translate="agrirevive">AgriReVive</a>
-                            <a href="../agrisensex/agri.html" class="nav-link" data-translate="agrisensex">AgriSenseX</a>
-                            <a href="../graintrust/auth/index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
-                            <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="nav-link" data-translate="bio_guardian">BioGuardian</a>
-                        </div>
-                    </li>
-                    <li><a href="../index.html#contact" class="nav-link" data-translate="contact">Contact</a></li>
-                </ul>
-                
-                <div class="nav-right">
-                    <!-- Auth buttons for logged out users -->
-                    <div class="auth-buttons">
-                        <a href="../login.html" class="nav-link" data-translate="login">Login</a>
-                        <a href="../register.html" class="nav-link" data-translate="register">Register</a>
-                    </div>
-                    
-                    <!-- User menu for logged in users -->
-                    <div class="user-menu" style="display: none;">
-                        <div class="dropdown">
-                            <a href="#" class="user-dropdown-toggle nav-link">
-                                <i class="fas fa-user-circle"></i>
-                                <span class="user-name">User</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu user-dropdown-menu">
-                                <a href="../profile.html" class="nav-link" data-translate="profile">Profile</a>
-                                <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Language selector -->
-                    <div class="language-selector">
-                        <select id="languageDropdown" class="language-dropdown">
-                            <option value="en">English</option>
-                            <option value="hi">हिंदी</option>
-                            <option value="kn">ಕನ್ನಡ</option>
-                        </select>
-                    </div>
-                </div>
-            </nav>
-        </div>
+    <header id="includeHeader">
     </header>
 
     <main>
         <section id="crop-rotation-tool" class="section active">
             <div class="container">
-                <h1 class="section-title" data-translate="crop_rotation_title"><i class="fas fa-sync-alt"></i> Crop Rotation Assistant</h1>
-                <p class="text-center text-muted mb-5" data-translate="cropshift_subtitle">Smart AI-Powered Crop Rotation Assistant for Sustainable Farming</p>
+                <h1 class="section-title" data-translate="crop_rotation_title"><i class="fas fa-sync-alt"></i> Crop
+                    Rotation Assistant</h1>
+                <p class="text-center text-muted mb-5" data-translate="cropshift_subtitle">Smart AI-Powered Crop
+                    Rotation Assistant for Sustainable Farming</p>
                 <div class="tool-container">
                     <div class="input-section card">
-                        <h2 data-translate="enter_farm_details"><i class="fas fa-clipboard-list"></i> Enter Your Farm Details</h2>
+                        <h2 data-translate="enter_farm_details"><i class="fas fa-clipboard-list"></i> Enter Your Farm
+                            Details</h2>
                         <form id="crop-form">
                             <div class="form-group">
                                 <label for="previous-crop" data-translate="select_crop">Select Your Crop:</label>
@@ -94,7 +58,8 @@
                                     <option value="groundnut" data-translate="groundnut">Groundnut (Moongfali)</option>
                                     <option value="maize" data-translate="maize">Maize (Makka)</option>
                                     <option value="sorghum" data-translate="sorghum">Sorghum (Jowar)</option>
-                                    <option value="pearl-millet" data-translate="pearl_millet">Pearl Millet (Bajra)</option>
+                                    <option value="pearl-millet" data-translate="pearl_millet">Pearl Millet (Bajra)
+                                    </option>
                                     <option value="chickpea" data-translate="chickpea">Chickpea (Chana)</option>
                                     <option value="mustard" data-translate="mustard">Mustard (Sarson)</option>
                                     <option value="moong" data-translate="moong">Green Gram (Moong)</option>
@@ -110,7 +75,8 @@
                                     <option value="silty" data-translate="silty">Silty</option>
                                     <option value="peaty" data-translate="peaty">Peaty</option>
                                 </select>
-                                <small class="helper-text" data-translate="soil_helper">This will be auto-filled based on your crop selection</small>
+                                <small class="helper-text" data-translate="soil_helper">This will be auto-filled based
+                                    on your crop selection</small>
                             </div>
                             <div class="form-group">
                                 <label for="region" data-translate="region">Region/Climate:</label>
@@ -122,28 +88,34 @@
                                     <option value="arid" data-translate="arid">Arid</option>
                                     <option value="mediterranean" data-translate="mediterranean">Mediterranean</option>
                                 </select>
-                                <small class="helper-text" data-translate="region_helper">This will be auto-filled based on your crop selection</small>
+                                <small class="helper-text" data-translate="region_helper">This will be auto-filled based
+                                    on your crop selection</small>
                             </div>
                             <div class="form-group">
                                 <label for="farm-size" data-translate="farm_size">Farm Size (acres):</label>
                                 <input type="number" id="farm-size" min="1" required>
                             </div>
-                            <button type="submit" class="custom-btn" data-translate="get_recommendations"><i class="fas fa-check-circle"></i> Get Recommendations</button>
+                            <button type="submit" class="custom-btn" data-translate="get_recommendations"><i
+                                    class="fas fa-check-circle"></i> Get Recommendations</button>
                         </form>
                     </div>
 
                     <div class="results-section">
                         <div class="card recommendation-card">
-                            <h2 data-translate="your_recommendations"><i class="fas fa-lightbulb"></i> Your Recommendations</h2>
+                            <h2 data-translate="your_recommendations"><i class="fas fa-lightbulb"></i> Your
+                                Recommendations</h2>
                             <div class="results-placeholder">
                                 <i class="fas fa-seedling placeholder-icon"></i>
-                                <p data-translate="fill_form">Fill out the form to get personalized recommendations for your farm.</p>
+                                <p data-translate="fill_form">Fill out the form to get personalized recommendations for
+                                    your farm.</p>
                             </div>
                             <div class="results-content" style="display: none;">
                                 <div class="recommendation-item">
                                     <div id="next-crop-recommendation"></div>
                                 </div>
-                                <button onclick="downloadResults()" class="custom-btn" data-translate="download_report"><i class="fas fa-download"></i> Download Report</button>
+                                <button onclick="downloadResults()" class="custom-btn"
+                                    data-translate="download_report"><i class="fas fa-download"></i> Download
+                                    Report</button>
                             </div>
                         </div>
                     </div>
@@ -151,12 +123,14 @@
 
                 <!-- Move AQI Monitor to its own block -->
                 <div class="aqi-section">
-                    <h2 class="section-title" data-translate="air_quality_monitor"><i class="fas fa-wind"></i> Air Quality Monitor</h2>
+                    <h2 class="section-title" data-translate="air_quality_monitor"><i class="fas fa-wind"></i> Air
+                        Quality Monitor</h2>
                     <div class="card aqi-monitor-card">
                         <div class="location-info">
                             <h2>
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span id="location-name" data-translate="detecting_location">Detecting location...</span>
+                                <span id="location-name" data-translate="detecting_location">Detecting
+                                    location...</span>
                             </h2>
                             <button id="refresh-btn" class="refresh-btn" data-translate="refresh">
                                 <i class="fas fa-sync-alt"></i>
@@ -229,14 +203,16 @@
                                 <i class="fas fa-heart"></i>
                                 Health Advisory
                             </h3>
-                            <p id="health-message" data-translate="loading_health_advisory">Loading health advisory...</p>
+                            <p id="health-message" data-translate="loading_health_advisory">Loading health advisory...
+                            </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="chart-section">
                     <div class="chart-container">
-                        <h2 data-translate="aqi_impact_analysis"><i class="fas fa-chart-line"></i>AQI Impact Analysis</h2>
+                        <h2 data-translate="aqi_impact_analysis"><i class="fas fa-chart-line"></i>AQI Impact Analysis
+                        </h2>
                         <canvas id="aqiComparisonChart"></canvas>
                     </div>
                 </div>
@@ -248,7 +224,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="../logo.png" alt="BioBloom Logo">
+                    <img src="../assets/logo.png" alt="BioBloom Logo">
                 </div>
                 <div class="footer-links">
                     <h4 data-translate="quick_links">Quick Links</h4>
@@ -263,7 +239,7 @@
                     <p>Email: info@biobloom.com</p>
                     <p data-translate="phone_contact">Phone: +91 1234567890</p>
                     <p>Address: HSR Layout, Bengaluru</p>
-    
+
                     <!-- Social Media Icons -->
                     <div class="social-icons">
                         <a href="https://instagram.com" target="_blank" class="social-icon">
@@ -288,11 +264,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.6.1/justgage.min.js"></script>
-    <script src="../language/translations.js"></script>
-    <script src="../app.js"></script>
-    <script src="../userMenu.js"></script>
+    <script src="../assets/language/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/userMenu.js"></script>
     <script src="crop-rotation.js"></script>
     <script src="aqi-chart.js"></script>
     <script src="aqi-monitor.js"></script>
 </body>
-</html> 
+
+</html>

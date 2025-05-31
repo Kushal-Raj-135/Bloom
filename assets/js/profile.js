@@ -54,6 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let token, user;
     try {
         token = localStorage.getItem('token');
+        if (token == null){
+
+                window.location.href = '../auth/login.html';
+                return;
+
+        }
         user = JSON.parse(localStorage.getItem('user') || '{}');
     } catch (error) {
         console.error('Error reading user data:', error);
