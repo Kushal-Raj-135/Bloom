@@ -58,6 +58,7 @@
     text-decoration: none;
     transition: all 0.3s ease;
     border: 2px solid #4CAF50;
+    cursor: pointer;
 }
 
 .product-card .btn:hover {
