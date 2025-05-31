@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('readystatechange', () => {
     const authButtons = document.querySelector('.auth-buttons');
     const userMenu = document.querySelector('.user-menu');
     const userNameSpan = document.querySelector('.user-name');
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check login status on page load
     checkLoginStatus();
+    // console.log("Fuck Yeah");
 
     // Handle logout click
     if (logoutBtn) {
@@ -88,7 +89,7 @@ function handleLogout() {
     
     // Redirect to home page after a short delay
     setTimeout(() => {
-        window.location.href = 'index.html';
+        window.location.href = '../';
     }, 1000);
 }
 

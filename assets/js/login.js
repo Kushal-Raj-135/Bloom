@@ -50,14 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (token) {
         // Store token and redirect to home
         localStorage.setItem('token', token);
-        window.location.href = 'index.html';
+        window.location.href = '../';
         return;
     }
 
     // Check if user is already logged in
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
-        window.location.href = 'index.html';
+        window.location.href = '../';
         return;
     }
 
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Redirect after a short delay
             setTimeout(() => {
-                window.location.href = 'index.html';
+                window.location.href = '../';
             }, 1500);
         }, 1000);
     }
