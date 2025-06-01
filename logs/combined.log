@@ -4372,3 +4372,171 @@
   service: 'biobloom-api',
   timestamp: '2025-06-02 03:26:18'
 }
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:33:50'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:33:50'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:33:50'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:33:55'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:34:05'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:34:05'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:34:22'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:35:10'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:35:10'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:35:17'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:35:17'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:35:29'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:35:29'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:35:32'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:35:32'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:47:24'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:49:39'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:53:45'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:53:46'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:53:49'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:53:49'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:57:28'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:57:28'
+}
+{
+  message: 'GET /components/js/userMenu.js - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 03:58:25'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 04:00:12'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 04:00:12'
+}
+{
+  message: 'GET /docs - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 04:02:17'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 04:04:15'
+}
