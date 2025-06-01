@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Authentication</title>
+  </head>
+  <body>
+    <h1>Authentication Test</h1>
+    <div id="output"></div>
+
+    <button onclick="clearAuth()">Clear Auth Data</button>
+    <button onclick="setTestUser()">Set Test User</button>
+    <button onclick="checkAuth()">Check Auth Status</button>
+
+    <script>
+      function checkAuth() {
+        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
+
+        document.getElementById("output").innerHTML = `
+                <h3>Current Auth Status:</h3>
+                <p><strong>Token:</strong> ${token || "None"}</p>
+                <p><strong>User:</strong> ${user || "None"}</p>
+                <p><strong>Token exists:</strong> ${!!token}</p>
+                <p><strong>User exists:</strong> ${!!user}</p>
+            `;
+      }
+
+      function clearAuth() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        checkAuth();
+        console.log("Auth data cleared");
+      }
+
+      function setTestUser() {
+        const testUser = {
+          id: "test123",
+          name: "Test User",
+          email: "test@example.com",
+          phone: "123-456-7890",
+          location: "Test City",
+        };
+
+        localStorage.setItem("token", "test-jwt-token");
+        localStorage.setItem("user", JSON.stringify(testUser));
+        checkAuth();
+        console.log("Test user set");
+      }
+
+      // Auto-check on load
+      checkAuth();
+    </script>
+  </body>
+</html>

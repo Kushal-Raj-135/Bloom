@@ -161,7 +161,7 @@ const userSchema = new mongoose.Schema(
 );
 
 // Indexes for better performance
-// userSchema.index({ email: 1 });
+userSchema.index({ email: 1 });
 userSchema.index({ googleId: 1 });
 userSchema.index({ "location.coordinates": "2dsphere" });
 
@@ -189,6 +189,25 @@ userSchema.pre("save", async function (next) {
 userSchema.methods.comparePassword = async function (candidatePassword) {
   if (!this.password) return false;
   return await bcrypt.compare(candidatePassword, this.password);
+};
+
+// Instance method to get public profile (safe for client)
+userSchema.methods.getPublicProfile = function () {
+  return {
+    id: this._id,
+    name: this.name,
+    email: this.email,
+    phone: this.phone,
+    location: this.location,
+    bio: this.bio,
+    profilePicture: this.profilePicture,
+    role: this.role,
+    isEmailVerified: this.isEmailVerified,
+    lastLogin: this.lastLogin,
+    subscription: this.subscription,
+    createdAt: this.createdAt,
+    updatedAt: this.updatedAt,
+  };
 };
 
 // Instance method to increment login attempts

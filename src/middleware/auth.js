@@ -41,19 +41,18 @@ export const verifyToken = async (req, res, next) => {
           success: false,
           message: "User not found",
         });
-      }
-
-      // Check if user changed password after token was issued
-      if (
-        user.security.passwordChangedAt &&
-        decoded.iat <
-          Math.floor(user.security.passwordChangedAt.getTime() / 1000)
-      ) {
-        return res.status(401).json({
-          success: false,
-          message: "Password changed recently. Please login again.",
-        });
-      }
+      }      // Check if user changed password after token was issued
+      // Note: passwordChangedAt field not implemented in User model yet
+      // if (
+      //   user.security.passwordChangedAt &&
+      //   decoded.iat <
+      //     Math.floor(user.security.passwordChangedAt.getTime() / 1000)
+      // ) {
+      //   return res.status(401).json({
+      //     success: false,
+      //     message: "Password changed recently. Please login again.",
+      //   });
+      // }
 
       // Attach user ID to request
       req.userId = decoded.userId;

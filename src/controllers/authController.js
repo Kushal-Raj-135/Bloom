@@ -14,14 +14,26 @@ import User from "../models/User.js";
 import config from "../config/index.js";
 
 class AuthController {
+  constructor() {
+    // Bind methods to preserve 'this' context
+    this.register = this.register.bind(this);
+    this.login = this.login.bind(this);
+    this.getProfile = this.getProfile.bind(this);
+    this.updateProfile = this.updateProfile.bind(this);
+    this.updateProfilePicture = this.updateProfilePicture.bind(this);
+    this.forgotPassword = this.forgotPassword.bind(this);
+    this.resetPassword = this.resetPassword.bind(this);
+    this.changePassword = this.changePassword.bind(this);
+    this.googleCallback = this.googleCallback.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
   /**
    * Register a new user
    */
   async register(req, res) {
     try {
-      const { name, email, password } = req.body;
-
-      // Check if user already exists
+      const { name, email, password } = req.body;      // Check if user already exists
       const existingUser = await User.findOne({ email });
       if (existingUser) {
         return res.status(400).json({
@@ -30,18 +42,11 @@ class AuthController {
         });
       }
 
-      // Hash password
-      const salt = await bcrypt.genSalt(12);
-      const hashedPassword = await bcrypt.hash(password, salt);
-
-      // Create new user
+      // Create new user (password will be hashed by pre-save middleware)
       const user = new User({
         name,
         email,
-        password: hashedPassword,
-        profile: {
-          isComplete: false,
-        },
+        password, // Don't hash here - let the User model handle it
       });
 
       await user.save();
@@ -52,10 +57,8 @@ class AuthController {
       res.status(201).json({
         success: true,
         message: "User registered successfully",
-        data: {
-          user: user.getPublicProfile(),
-          token,
-        },
+        token,
+        user: user.getPublicProfile(),
       });
     } catch (error) {
       console.error("Registration error:", error);
@@ -69,8 +72,7 @@ class AuthController {
 
   /**
    * User login
-   */
-  async login(req, res) {
+   */ async login(req, res) {
     try {
       const { email, password } = req.body;
 
@@ -84,21 +86,19 @@ class AuthController {
       }
 
       // Check if account is locked
-      if (user.security.isLocked && user.security.lockUntil > Date.now()) {
+      if (user.isLocked && user.lockUntil > Date.now()) {
         const lockTimeRemaining = Math.ceil(
-          (user.security.lockUntil - Date.now()) / 60000
+          (user.lockUntil - Date.now()) / 60000
         );
         return res.status(423).json({
           success: false,
           message: `Account is locked. Try again in ${lockTimeRemaining} minutes.`,
         });
-      }
-
-      // Verify password
+      }      // Verify password
       const isValidPassword = await bcrypt.compare(password, user.password);
       if (!isValidPassword) {
         // Increment failed login attempts
-        await user.incrementLoginAttempts();
+        await user.incLoginAttempts();
         return res.status(401).json({
           success: false,
           message: "Invalid email or password",
@@ -106,10 +106,8 @@ class AuthController {
       }
 
       // Reset failed login attempts on successful login
-      await user.resetLoginAttempts();
-
-      // Update last login
-      user.security.lastLogin = new Date();
+      await user.resetLoginAttempts(); // Update last login
+      user.lastLogin = new Date();
       await user.save();
 
       // Generate JWT token
@@ -118,10 +116,8 @@ class AuthController {
       res.json({
         success: true,
         message: "Login successful",
-        data: {
-          user: user.getPublicProfile(),
-          token,
-        },
+        token,
+        user: user.getPublicProfile(),
       });
     } catch (error) {
       console.error("Login error:", error);
@@ -321,23 +317,15 @@ class AuthController {
       const user = await User.findOne({
         resetToken: token,
         resetTokenExpiry: { $gt: Date.now() },
-      });
-
-      if (!user) {
+      });      if (!user) {
         return res.status(400).json({
           success: false,
           message: "Password reset token is invalid or has expired",
         });
-      }
-
-      // Hash new password
-      const salt = await bcrypt.genSalt(12);
-      const hashedPassword = await bcrypt.hash(password, salt);
-
-      user.password = hashedPassword;
+      }      // Set new password (will be hashed by pre-save middleware)
+      user.password = password;
       user.resetToken = undefined;
       user.resetTokenExpiry = undefined;
-      user.security.passwordChangedAt = new Date();
       await user.save();
 
       res.json({
@@ -367,9 +355,7 @@ class AuthController {
           success: false,
           message: "User not found",
         });
-      }
-
-      // Verify current password
+      }      // Verify current password
       const isValidPassword = await bcrypt.compare(
         currentPassword,
         user.password
@@ -379,14 +365,8 @@ class AuthController {
           success: false,
           message: "Current password is incorrect",
         });
-      }
-
-      // Hash new password
-      const salt = await bcrypt.genSalt(12);
-      const hashedPassword = await bcrypt.hash(newPassword, salt);
-
-      user.password = hashedPassword;
-      user.security.passwordChangedAt = new Date();
+      }      // Set new password (will be hashed by pre-save middleware)
+      user.password = newPassword;
       await user.save();
 
       res.json({

@@ -12,6 +12,21 @@ export const validate = (schema) => {
   return (req, res, next) => {
     const { error } = schema.validate(req.body);
     if (error) {
+      // Log validation error details
+      console.error("Validation Error:", {
+        timestamp: new Date().toISOString(),
+        route: req.originalUrl,
+        method: req.method,
+        ip: req.ip,
+        userAgent: req.get("User-Agent"),
+        requestBody: req.body,
+        validationErrors: error.details.map((detail) => ({
+          field: detail.path.join("."),
+          message: detail.message,
+          value: detail.context?.value,
+        })),
+      });
+
       return res.status(400).json({
         success: false,
         message: "Validation error",
@@ -35,7 +50,7 @@ export const registerSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string()
     .min(8)
-    .pattern(new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])"))
+    // .pattern(new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])"))
     .required()
     .messages({
       "string.pattern.base":
@@ -218,6 +233,14 @@ export const aqiValidation = {
  */
 export const validateImageUpload = (req, res, next) => {
   if (!req.file) {
+    console.error("Image Upload Validation Error:", {
+      timestamp: new Date().toISOString(),
+      route: req.originalUrl,
+      method: req.method,
+      ip: req.ip,
+      error: "No image file provided",
+    });
+
     return res.status(400).json({
       success: false,
       message: "No image file provided",
@@ -226,6 +249,16 @@ export const validateImageUpload = (req, res, next) => {
 
   // Check file type
   if (!req.file.mimetype.startsWith("image/")) {
+    console.error("Image Upload Validation Error:", {
+      timestamp: new Date().toISOString(),
+      route: req.originalUrl,
+      method: req.method,
+      ip: req.ip,
+      error: "Invalid file type",
+      fileType: req.file.mimetype,
+      fileName: req.file.originalname,
+    });
+
     return res.status(400).json({
       success: false,
       message: "Only image files are allowed",
@@ -234,6 +267,16 @@ export const validateImageUpload = (req, res, next) => {
 
   // Check file size (5MB limit)
   if (req.file.size > 5 * 1024 * 1024) {
+    console.error("Image Upload Validation Error:", {
+      timestamp: new Date().toISOString(),
+      route: req.originalUrl,
+      method: req.method,
+      ip: req.ip,
+      error: "File too large",
+      fileSize: req.file.size,
+      fileName: req.file.originalname,
+    });
+
     return res.status(400).json({
       success: false,
       message: "File size must be less than 5MB",
@@ -251,9 +294,22 @@ export const validatePagination = (req, res, next) => {
     page: Joi.number().integer().min(1).default(1),
     limit: Joi.number().integer().min(1).max(100).default(10),
   });
-
   const { error, value } = schema.validate(req.query);
   if (error) {
+    // Log pagination validation error
+    console.error("Pagination Validation Error:", {
+      timestamp: new Date().toISOString(),
+      route: req.originalUrl,
+      method: req.method,
+      ip: req.ip,
+      queryParams: req.query,
+      validationErrors: error.details.map((detail) => ({
+        field: detail.path.join("."),
+        message: detail.message,
+        value: detail.context?.value,
+      })),
+    });
+
     return res.status(400).json({
       success: false,
       message: "Invalid pagination parameters",
@@ -279,10 +335,26 @@ export const validateRequest = (schema, target = "body") => {
         : target === "params"
         ? req.params
         : req.body;
-
     const { error, value } = schema.validate(data, { abortEarly: false });
 
     if (error) {
+      // Log validation error details
+      console.error("Enhanced Validation Error:", {
+        timestamp: new Date().toISOString(),
+        route: req.originalUrl,
+        method: req.method,
+        target: target,
+        ip: req.ip,
+        userAgent: req.get("User-Agent"),
+        requestData: data,
+        validationErrors: error.details.map((detail) => ({
+          field: detail.path.join("."),
+          message: detail.message,
+          value: detail.context?.value,
+          type: detail.type,
+        })),
+      });
+
       return res.status(400).json({
         success: false,
         message: "Validation error",
