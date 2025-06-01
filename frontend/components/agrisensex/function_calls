@@ -1,0 +1,47 @@
+<invoke name="edit_file">
+<parameter name="target_file">index.html</parameter>
+<parameter name="instructions">I will modify the dashboard-grid section to add the sustainability gauge and rearrange the cards.</parameter>
+<parameter name="code_edit">            <div class="dashboard-grid">
+                <!-- Sustainability Gauge Card -->
+                <div class="card sustainability-gauge">
+                    <h2><i class="fas fa-leaf"></i> Sustainability Analysis</h2>
+                    <div class="gauge-container">
+                        <div class="gauge">0</div>
+                        <div class="gauge-label">FAIR</div>
+                    </div>
+                </div>
+                <!-- AQI Card -->
+                <div class="card aqi-card">
+                    <h2><i class="fas fa-wind"></i> Projected AQI Impact</h2>
+                    <canvas id="aqiChart"></canvas>
+                </div>
+                <div class="card weather-card">
+                    <h2><i class="fas fa-cloud-sun"></i> Weather Forecast</h2>
+                    <div id="weather-data"></div>
+                </div>
+                <div class="card sensor-card">
+                    <h2><i class="fas fa-microchip"></i> Real-time Sensors</h2>
+                    <div class="sensor-grid">
+                        <div class="sensor-item">
+                            <i class="fas fa-temperature-high"></i>
+                            <span>Temperature</span>
+                            <span data-sensor="temperature">--</span>°C
+                        </div>
+                        <div class="sensor-item">
+                            <i class="fas fa-tint"></i>
+                            <span>Soil Moisture</span>
+                            <span data-sensor="soilMoisture">--</span>%
+                        </div>
+                        <div class="sensor-item">
+                            <i class="fas fa-water"></i>
+                            <span>Humidity</span>
+                            <span data-sensor="humidity">--</span>%
+                        </div>
+                    </div>
+                </div>
+                <div class="card recommendations-card">
+                    <h2><i class="fas fa-dna"></i> AI Bioengineering</h2>
+                    <div id="recommendations-list"></div>
+                </div>
+            </div></parameter>
+</invoke> 

@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js --watch server.js --watch config.js --watch src/*"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

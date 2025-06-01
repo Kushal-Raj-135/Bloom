@@ -88,9 +88,9 @@ export const cropRecommendationsSchema = Joi.object({
     .valid(
       "sandy",
       "clay",
-      "loam",
-      "silt",
-      "peat",
+      "loamy",
+      "silty",
+      "peaty",
       "chalk",
       "red",
       "black",
