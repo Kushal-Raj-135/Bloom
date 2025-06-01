@@ -82,13 +82,10 @@
           <div class="nav-right">
             <!-- Auth buttons for logged out users -->
             <div class="auth-buttons">
-              <a
-                href="login.html"
-                class="nav-link active"
-                data-translate="login"
+              <a href="/login" class="nav-link active" data-translate="login"
                 >Login</a
               >
-              <a href="register.html" class="nav-link" data-translate="register"
+              <a href="/register" class="nav-link" data-translate="register"
                 >Register</a
               >
             </div>
@@ -102,10 +99,7 @@
                   <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu user-dropdown-menu">
-                  <a
-                    href="profile.html"
-                    class="nav-link"
-                    data-translate="profile"
+                  <a href="/profile" class="nav-link" data-translate="profile"
                     >Profile</a
                   >
                   <a
@@ -119,7 +113,7 @@
             </div>
 
             <!-- Language selector -->
-            <div class="language-selector">
+            <div class="language-selector" id="language-selector">
               <select id="languageDropdown" class="language-dropdown">
                 <option value="en">English</option>
                 <option value="hi">हिंदी</option>
@@ -217,7 +211,7 @@
               </div>
               <p class="auth-link" data-translate="dont_have_account">
                 Don't have an account?
-                <a href="register.html" data-translate="register_here"
+                <a href="/register" data-translate="register_here"
                   >Register here</a
                 >
               </p>
@@ -236,16 +230,12 @@
           <div class="footer-links">
             <h4 data-translate="quick_links">Quick Links</h4>
             <ul>
-              <li><a href="index.html" data-translate="home">Home</a></li>
+              <li><a href="/" data-translate="home">Home</a></li>
               <li>
-                <a href="index.html#info-section" data-translate="about"
-                  >About</a
-                >
+                <a href="/#info-section" data-translate="about">About</a>
               </li>
               <li>
-                <a href="index.html#products" data-translate="products"
-                  >Products</a
-                >
+                <a href="/#products" data-translate="products">Products</a>
               </li>
             </ul>
           </div>
@@ -286,6 +276,7 @@
       </div>
     </footer>
     <script src="../components/language/translations.js"></script>
+    <script src="../js/api.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/login.js"></script>
     <script src="../js/userMenu.js"></script>

@@ -1,155 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Profile - BioBloom</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="nav-left">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="../assets/logo.png" alt="BioBloom Logo" class="logoo">
-                    </a>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#products">Products</a></li>
-                        <li><a href="index.html#info-section">About</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="nav-right">
-                <!-- Auth buttons for logged out users -->
-                <div class="auth-buttons">
-                    <a href="login.html" class="nav-link" data-translate="login">Login</a>
-                    <a href="register.html" class="nav-link" data-translate="register">Register</a>
-                </div>
-                
-                <!-- User menu for logged in users -->
-                <div class="user-menu" style="display: none;">
-                    <div class="dropdown">
-                        <a href="#" class="user-dropdown-toggle nav-link">
-                            <i class="fas fa-user-circle"></i>
-                            <span class="user-name">User</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-menu user-dropdown-menu">
-                            <a href="profile.html" class="nav-link" data-translate="profile">Profile</a>
-                            <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Language selector -->
-                <div class="language-selector">
-                    <select id="languageDropdown" class="language-dropdown">
-                        <option value="en">English</option>
-                        <option value="hi">हिंदी</option>
-                        <option value="kn">ಕನ್ನಡ</option>
-                    </select>
-                </div>
-            </div>
+      <div class="container">
+        <div class="nav-left">
+          <div class="logo">
+            <a href="/">
+              <img src="../assets/logo.png" alt="BioBloom Logo" class="logoo" />
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/#products">Products</a></li>
+              <li><a href="/#info-section">About</a></li>
+              <li><a href="/#contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
+        <div class="nav-right">
+          <!-- Auth buttons for logged out users -->
+          <div class="auth-buttons">
+            <a href="/login" class="nav-link" data-translate="login">Login</a>
+            <a href="/register" class="nav-link" data-translate="register"
+              >Register</a
+            >
+          </div>
+
+          <!-- User menu for logged in users -->
+          <div class="user-menu" style="display: none">
+            <div class="dropdown">
+              <a href="#" class="user-dropdown-toggle nav-link">
+                <i class="fas fa-user-circle"></i>
+                <span class="user-name">User</span>
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <div class="dropdown-menu user-dropdown-menu">
+                <a href="/profile" class="nav-link" data-translate="profile"
+                  >Profile</a
+                >
+                <a href="#" class="nav-link logout-btn" data-translate="logout"
+                  >Logout</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Language selector -->
+          <div class="language-selector" id="language-selector">
+            <select id="languageDropdown" class="language-dropdown">
+              <option value="en">English</option>
+              <option value="hi">हिंदी</option>
+              <option value="kn">ಕನ್ನಡ</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </header>
 
     <div class="edit-profile-container">
-        <h2>Edit Profile</h2>
-        <form id="edit-profile-form">
-            <div class="form-group">
-                <label for="edit-name">Name</label>
-                <input type="text" id="edit-name" required>
-            </div>
-            <div class="form-group">
-                <label for="edit-email">Email</label>
-                <input type="email" id="edit-email" required>
-            </div>
-            <div class="form-group">
-                <label for="edit-phone">Phone Number</label>
-                <input type="tel" id="edit-phone">
-            </div>
-            <div class="form-group">
-                <label for="edit-location">Location</label>
-                <div class="location-input-group">
-                    <input type="text" id="edit-location">
-                    <button type="button" class="location-btn" onclick="getCurrentLocation()">
-                        <i class="fas fa-location-dot"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="form-actions">
-                <button type="button" class="cancel-btn" onclick="window.location.href='index.html'">Cancel</button>
-                <button type="submit" class="save-btn">Save Changes</button>
-            </div>
-        </form>
+      <h2>Edit Profile</h2>
+      <form id="edit-profile-form">
+        <div class="form-group">
+          <label for="edit-name">Name</label>
+          <input type="text" id="edit-name" required />
+        </div>
+        <div class="form-group">
+          <label for="edit-email">Email</label>
+          <input type="email" id="edit-email" required />
+        </div>
+        <div class="form-group">
+          <label for="edit-phone">Phone Number</label>
+          <input type="tel" id="edit-phone" />
+        </div>
+        <div class="form-group">
+          <label for="edit-location">Location</label>
+          <div class="location-input-group">
+            <input type="text" id="edit-location" />
+            <button
+              type="button"
+              class="location-btn"
+              onclick="getCurrentLocation()"
+            >
+              <i class="fas fa-location-dot"></i>
+            </button>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button
+            type="button"
+            class="cancel-btn"
+            onclick="window.location.href='index.html'"
+          >
+            Cancel
+          </button>
+          <button type="submit" class="save-btn">Save Changes</button>
+        </div>
+      </form>
     </div>
 
     <!-- Load script.js first -->
     <script src="../js/script.js"></script>
-    
+
     <!-- Then add the page-specific script -->
     <script>
-        // Load user data when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            const user = JSON.parse(localStorage.getItem('user'));
-            if (!user) {
-                window.location.href = 'login.html';
-                return;
-            }
-            
-            document.getElementById('edit-name').value = user.name || '';
-            document.getElementById('edit-email').value = user.email || '';
-            document.getElementById('edit-phone').value = user.phone || '';
-            document.getElementById('edit-location').value = user.location || '';
-
-            // Initialize form submission handler
-            document.getElementById('edit-profile-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                window.saveProfileChanges();
-            });
-        });
-
-        // Get current location
-        function getCurrentLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    async (position) => {
-                        try {
-                            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`);
-                            const data = await response.json();
-                            const location = data.display_name;
-                            document.getElementById('edit-location').value = location;
-                        } catch (error) {
-                            console.error('Error getting location:', error);
-                            alert('Could not get location. Please enter manually.');
-                        }
-                    },
-                    (error) => {
-                        console.error('Error:', error);
-                        alert('Could not get location. Please enter manually.');
-                    }
-                );
-            } else {
-                alert('Geolocation is not supported by this browser.');
-            }
+      // Load user data when page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) {
+          window.location.href = "/login";
+          return;
         }
+
+        document.getElementById("edit-name").value = user.name || "";
+        document.getElementById("edit-email").value = user.email || "";
+        document.getElementById("edit-phone").value = user.phone || "";
+        document.getElementById("edit-location").value = user.location || "";
+
+        // Initialize form submission handler
+        document
+          .getElementById("edit-profile-form")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            window.saveProfileChanges();
+          });
+      });
+
+      // Get current location
+      function getCurrentLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            async (position) => {
+              try {
+                const response = await fetch(
+                  `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
+                );
+                const data = await response.json();
+                const location = data.display_name;
+                document.getElementById("edit-location").value = location;
+              } catch (error) {
+                console.error("Error getting location:", error);
+                alert("Could not get location. Please enter manually.");
+              }
+            },
+            (error) => {
+              console.error("Error:", error);
+              alert("Could not get location. Please enter manually.");
+            }
+          );
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
     </script>
 
     <div class="footer-contact" id="contact">
-        <h4>Contact Us</h4>
-        <p>Email: info@biobloom.com</p>
-        <p data-translate="phone_contact">Phone: +91 1234567890</p>
-        <p>Address: HSR Layout, Bengaluru</p>
+      <h4>Contact Us</h4>
+      <p>Email: info@biobloom.com</p>
+      <p data-translate="phone_contact">Phone: +91 1234567890</p>
+      <p>Address: HSR Layout, Bengaluru</p>
 
-        <div class="social-icons">
-            <!-- Add your social icons here -->
-        </div>
+      <div class="social-icons">
+        <!-- Add your social icons here -->
+      </div>
     </div>
-</body>
-</html> 
+  </body>
+</html>

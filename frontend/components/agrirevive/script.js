@@ -191,28 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Utility functions
-function showNotification(message, type = "info") {
-  const notification = document.createElement("div");
-  notification.className = `notification ${type}`;
-  notification.textContent = message;
-
-  document.body.appendChild(notification);
-  requestAnimationFrame(() => notification.classList.add("show"));
-
-  setTimeout(() => {
-    notification.classList.remove("show");
-    setTimeout(() => notification.remove(), 300);
-  }, 3000);
-}
-
-function updateAQIDisplay(aqiData) {
-  const currentAqi = document.getElementById("currentAqi");
-  if (currentAqi) {
-    currentAqi.textContent = `${aqiData.aqi} (${aqiData.health})`;
-  }
-}
-
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Get DOM elements
@@ -231,31 +209,85 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelector(".map-search-container")
     .appendChild(mapSearchSuggestions);
   const wasteForm = document.getElementById("wasteForm");
-
-  // Function to open map modal
+  // Function to open map modal with enhanced error handling
   function openMapModal() {
-    mapModal.classList.add("active");
-    // Only initialize map when modal is opened
-    if (!mapInitialized) {
-      // Show loading state
-      const mapContainer = document.getElementById("locationMap");
-      mapContainer.innerHTML = `
-                <div class="map-loading">
-                    <div class="loading-spinner"></div>
-                    <p>Loading map...</p>
+    try {
+      mapModal.classList.add("active");
+      // Only initialize map when modal is opened
+      if (!mapInitialized) {
+        // Show loading state with proper styling
+        const mapContainer = document.getElementById("locationMap");
+        mapContainer.innerHTML = `
+          <div class="map-loading" style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+          ">
+            <div class="loading-spinner" style="
+              display: inline-block;
+              width: 30px;
+              height: 30px;
+              border: 3px solid #f3f3f3;
+              border-top: 3px solid #4ade80;
+              border-radius: 50%;
+              animation: spin 1s linear infinite;
+            "></div>
+            <p style="margin: 10px 0 0 0; color: #666;">Loading map...</p>
+          </div>
+        `;
+
+        // Initialize map with a short delay to ensure DOM is ready
+        setTimeout(() => {
+          try {
+            if (initializeMap()) {
+              mapInitialized = true;
+              // Add additional map features after initial load
+              addMapFeatures();
+            } else {
+              // If initialization fails, show error message
+              const mapContainer = document.getElementById("locationMap");
+              mapContainer.innerHTML = `
+                <div style="
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  text-align: center;
+                  padding: 20px;
+                ">
+                  <p style="color: #ef4444;">Failed to load map. Please try again.</p>
+                  <button onclick="location.reload()" style="
+                    background: #4ade80;
+                    color: white;
+                    border: none;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    margin-top: 10px;
+                  ">Refresh Page</button>
                 </div>
-            `;
-
-      // Initialize map with minimal features first
-      setTimeout(() => {
-        if (initializeMap()) {
-          mapInitialized = true;
-          // Remove loading state
-
-          // Add additional map features after initial load
-          addMapFeatures();
-        }
-      }, 1000);
+              `;
+            }
+          } catch (error) {
+            console.error("Error in map initialization:", error);
+            removeLoadingSpinner();
+            showNotification(
+              "Failed to load map. Please refresh the page.",
+              "error"
+            );
+          }
+        }, 500);
+      }
+    } catch (error) {
+      console.error("Error opening map modal:", error);
+      showNotification("Error opening map. Please try again.", "error");
     }
   }
 
@@ -303,8 +335,20 @@ document.addEventListener("DOMContentLoaded", function () {
       closeMapModal();
     }
   });
+  // Helper function to safely remove loading spinner
+  function removeLoadingSpinner() {
+    try {
+      const mapContainer = document.getElementById("locationMap");
+      const loadingElement = mapContainer.querySelector(".map-loading");
+      if (loadingElement) {
+        loadingElement.remove();
+      }
+    } catch (error) {
+      console.error("Error removing loading spinner:", error);
+    }
+  }
 
-  // Function to initialize map with minimal features
+  // Function to initialize map with enhanced loading management
   function initializeMap() {
     try {
       if (map) {
@@ -319,11 +363,33 @@ document.addEventListener("DOMContentLoaded", function () {
         attributionControl: false, // Disable attribution initially
       });
 
-      // Add base tile layer with minimal options
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        subdomains: "abc", // Use multiple subdomains for better performance
-      }).addTo(map);
+      // Add base tile layer with loading event handlers
+      const tileLayer = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+          maxZoom: 19,
+          subdomains: "abc", // Use multiple subdomains for better performance
+        }
+      );
+
+      // Handle tile layer loading events
+      tileLayer.on("loading", function () {
+        console.log("Map tiles are loading...");
+      });
+
+      tileLayer.on("load", function () {
+        console.log("Map tiles loaded successfully");
+        removeLoadingSpinner();
+      });
+
+      tileLayer.on("tileerror", function (e) {
+        console.error("Tile loading error:", e);
+        // Still remove spinner even on tile errors
+        removeLoadingSpinner();
+      });
+
+      // Add tile layer to map
+      tileLayer.addTo(map);
 
       // Add basic marker
       marker = L.marker([12.9716, 77.5946], {
@@ -335,9 +401,23 @@ document.addEventListener("DOMContentLoaded", function () {
         updateSelectedLocation(position.lat, position.lng);
       });
 
+      // Add fallback mechanisms for spinner removal
+      // 1. When map is ready
+      map.whenReady(function () {
+        console.log("Map is ready");
+        setTimeout(removeLoadingSpinner, 100); // Small delay to ensure tiles are rendered
+      });
+
+      // 2. Timeout fallback (3 seconds)
+      setTimeout(function () {
+        console.log("Fallback: removing loading spinner after timeout");
+        removeLoadingSpinner();
+      }, 3000);
+
       return true;
     } catch (error) {
       console.error("Error initializing map:", error);
+      removeLoadingSpinner(); // Ensure spinner is removed even on error
       showNotification("Error loading map. Please refresh the page.", "error");
       return false;
     }

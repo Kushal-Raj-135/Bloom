@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../../css/styles.css" />
     <link rel="stylesheet" href="../language/language-styles.css" />
     <link rel="stylesheet" href="../../css/footer-styles.css" />
+    <link rel="stylesheet" href="../../css/nav-styles.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../language/language-styles.css" />
+    <link rel="stylesheet" href="../../css/footer-styles.css" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="../../css/nav-styles.css" />
     <link
@@ -55,15 +59,10 @@
         <nav>
           <ul>
             <li>
-              <a
-                href="../../pages/index.html"
-                class="nav-link"
-                data-translate="home"
-                >Home</a
-              >
+              <a href="/" class="nav-link" data-translate="home">Home</a>
             </li>
             <li>
-              <a href="#info-section" class="nav-link" data-translate="about"
+              <a href="/#info-section" class="nav-link" data-translate="about"
                 >About</a
               >
             </li>
@@ -105,7 +104,7 @@
               </div>
             </li>
             <li>
-              <a href="#contact" class="nav-link" data-translate="contact"
+              <a href="/#contact" class="nav-link" data-translate="contact"
                 >Contact</a
               >
             </li>
@@ -114,16 +113,8 @@
           <div class="nav-right">
             <!-- Auth buttons for logged out users -->
             <div class="auth-buttons">
-              <a
-                href="../../pages/login.html"
-                class="nav-link"
-                data-translate="login"
-                >Login</a
-              >
-              <a
-                href="../../pages/register.html"
-                class="nav-link"
-                data-translate="register"
+              <a href="/login" class="nav-link" data-translate="login">Login</a>
+              <a href="/register" class="nav-link" data-translate="register"
                 >Register</a
               >
             </div>
@@ -137,10 +128,7 @@
                   <i class="fas fa-chevron-down"></i>
                 </a>
                 <div class="dropdown-menu user-dropdown-menu">
-                  <a
-                    href="../profile.html"
-                    class="nav-link"
-                    data-translate="profile"
+                  <a href="/profile" class="nav-link" data-translate="profile"
                     >Profile</a
                   >
                   <a
@@ -154,7 +142,7 @@
             </div>
 
             <!-- Language selector -->
-            <div class="language-selector">
+            <div class="language-selector" id="language-selector">
               <select id="languageDropdown" class="language-dropdown">
                 <option value="en">English</option>
                 <option value="hi">हिंदी</option>
@@ -448,7 +436,7 @@
           <div class="footer-links">
             <h4 data-translate="quick_links">Quick Links</h4>
             <ul>
-              <li><a href="../index.html" data-translate="home">Home</a></li>
+              <li><a href="/" data-translate="home">Home</a></li>
               <li><a href="#info-section" data-translate="about">About</a></li>
               <li>
                 <a href="#products" data-translate="products">Products</a>

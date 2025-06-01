@@ -1,7 +1,7 @@
 // Dynamically populate the crop dropdown with unique crops and their region/climate
 window.addEventListener("DOMContentLoaded", () => {
   const cropDropdown = document.getElementById("previous-crop");
-  if (cropDropdown && typeof cropData === "object") {
+  if (cropDropdown && typeof cropData === "object" && cropData !== null) {
     const uniqueCrops = {};
     for (const [key, value] of Object.entries(cropData)) {
       if (!uniqueCrops[value.name]) {
@@ -27,12 +27,13 @@ document
       document.getElementById("soil-type").value = cropInfo.soil;
       document.getElementById("region").value = cropInfo.region;
     }
-  });
-
-document
-  .getElementById("crop-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+    const cropForm = document.getElementById("crop-form");
+    if (cropForm) {
+      cropForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        // ... rest of the function
+      });
+    }
 
     const previousCrop = document.getElementById("previous-crop").value;
     const soilType = document.getElementById("soil-type").value;

@@ -6,8 +6,14 @@ const getAuthToken = () => localStorage.getItem("token");
 // Helper function to handle API responses
 const handleResponse = async (response) => {
   if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error || "An error occurred");
+    let errorMessage = "An error occurred";
+    try {
+      const error = await response.json();
+      errorMessage = error.error || error.message || errorMessage;
+    } catch (parseError) {
+      errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+    }
+    throw new Error(errorMessage);
   }
   return response.json();
 };
@@ -16,7 +22,7 @@ const handleResponse = async (response) => {
 const api = {
   // Authentication
   login: async (email, password) => {
-    const response = await fetch(`${API_BASE_URL}/login`, {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -25,7 +31,7 @@ const api = {
   },
 
   register: async (name, email, password) => {
-    const response = await fetch(`${API_BASE_URL}/register`, {
+    const response = await fetch(`${API_BASE_URL}/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
@@ -45,10 +51,9 @@ const api = {
     });
     return handleResponse(response);
   },
-
   // User Profile
   getProfile: async () => {
-    const response = await fetch(`${API_BASE_URL}/profile`, {
+    const response = await fetch(`${API_BASE_URL}/auth/me`, {
       headers: {
         Authorization: `Bearer ${getAuthToken()}`,
       },
@@ -57,7 +62,7 @@ const api = {
   },
 
   updateProfile: async (data) => {
-    const response = await fetch(`${API_BASE_URL}/profile`, {
+    const response = await fetch(`${API_BASE_URL}/auth/profile`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -20,11 +20,8 @@ function showToast(message, type = "success") {
 }
 
 function setLoading(element, isLoading) {
-  if (isLoading) {
-    element.classList.add("loading");
-  } else {
-    element.classList.remove("loading");
-  }
+  if (!element) return;
+  element.classList.toggle("loading", isLoading);
 }
 
 // Initialize main functionality
