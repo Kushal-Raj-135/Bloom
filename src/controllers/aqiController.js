@@ -16,7 +16,7 @@ class AQIController {
       if (!city && !(lat && lon)) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -53,7 +53,7 @@ class AQIController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -84,17 +84,17 @@ class AQIController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
       const historyData = await this.aqiService.getAQIHistory(
         city || { lat, lon },
-        parseInt(days)
+        parseInt(days),
       );
 
       logger.info(
-        `AQI history fetched for ${city || `${lat},${lon}`} - ${days} days`
+        `AQI history fetched for ${city || `${lat},${lon}`} - ${days} days`,
       );
 
       res.status(200).json({
@@ -119,11 +119,11 @@ class AQIController {
       const stations = await this.aqiService.getNearbyStations(
         lat,
         lon,
-        radius
+        radius,
       );
 
       logger.info(
-        `Nearby AQI stations fetched for ${lat},${lon} within ${radius}km`
+        `Nearby AQI stations fetched for ${lat},${lon} within ${radius}km`,
       );
 
       res.status(200).json({
@@ -144,7 +144,7 @@ class AQIController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -157,13 +157,13 @@ class AQIController {
 
       const recommendations = this.generateAgriculturalRecommendations(
         aqiData,
-        cropType
+        cropType,
       );
 
       logger.info(
         `Agricultural AQI recommendations generated for ${
           city || `${lat},${lon}`
-        }`
+        }`,
       );
 
       res.status(200).json({
@@ -187,7 +187,7 @@ class AQIController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -221,7 +221,7 @@ class AQIController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -250,7 +250,7 @@ class AQIController {
       logger.info(
         `Comprehensive air quality report generated for ${
           city || `${lat},${lon}`
-        }`
+        }`,
       );
 
       res.status(200).json({
@@ -382,7 +382,7 @@ class AQIController {
     if (cropType) {
       const cropSpecific = this.getCropSpecificRecommendations(
         aqiData,
-        cropType
+        cropType,
       );
       recommendations.push(...cropSpecific);
     }

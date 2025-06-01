@@ -23,7 +23,7 @@ class GroqService {
     try {
       const response = await this.makeGroqRequest(
         prompt,
-        "agricultural advisor"
+        "agricultural advisor",
       );
       return response;
     } catch (error) {
@@ -39,7 +39,7 @@ class GroqService {
     try {
       const response = await this.makeGroqRequest(
         prompt,
-        "agricultural analysis expert"
+        "agricultural analysis expert",
       );
       return response;
     } catch (error) {
@@ -55,13 +55,13 @@ class GroqService {
     const prompt = this.buildWeatherAdvicePrompt(
       cropName,
       location,
-      weatherData
+      weatherData,
     );
 
     try {
       const response = await this.makeGroqRequest(
         prompt,
-        "agricultural meteorologist"
+        "agricultural meteorologist",
       );
       return response;
     } catch (error) {
@@ -79,7 +79,7 @@ class GroqService {
     try {
       const response = await this.makeGroqRequest(
         prompt,
-        "environmental agricultural specialist"
+        "environmental agricultural specialist",
       );
       return response;
     } catch (error) {
@@ -94,13 +94,13 @@ class GroqService {
     const prompt = this.buildWasteManagementPrompt(
       cropType,
       quantity,
-      location
+      location,
     );
 
     try {
       const response = await this.makeGroqRequest(
         prompt,
-        "agricultural waste management specialist"
+        "agricultural waste management specialist",
       );
 
       // Try multiple JSON extraction methods
@@ -111,7 +111,7 @@ class GroqService {
 
       // If JSON parsing fails, generate fallback recommendations
       console.log(
-        "Falling back to generated recommendations based on crop type and quantity"
+        "Falling back to generated recommendations based on crop type and quantity",
       );
       return this.generateFallbackRecommendations(cropType, quantity, location);
     }
@@ -205,7 +205,7 @@ class GroqService {
       if (jsonMatch) {
         console.log(
           "Method 1 succeeded, extracted JSON:",
-          jsonMatch.substring(0, 200) + "..."
+          jsonMatch.substring(0, 200) + "...",
         );
         return JSON.parse(jsonMatch);
       }
@@ -219,7 +219,7 @@ class GroqService {
       if (simpleMatch) {
         console.log(
           "Method 2 attempting with:",
-          simpleMatch[0].substring(0, 200) + "..."
+          simpleMatch[0].substring(0, 200) + "...",
         );
         return JSON.parse(simpleMatch[0]);
       }
@@ -232,7 +232,7 @@ class GroqService {
       const cleanedResponse = this.cleanJSONResponse(response);
       console.log(
         "Method 3 attempting with cleaned:",
-        cleanedResponse.substring(0, 200) + "..."
+        cleanedResponse.substring(0, 200) + "...",
       );
       return JSON.parse(cleanedResponse);
     } catch (error) {
@@ -372,7 +372,7 @@ Current Farm Details:
 
 Rules for recommendations:
 1. NEVER recommend the current crop (${this.getLocalCropName(
-      previousCrop
+      previousCrop,
     )}) in the rotation plan
 2. Each year must have a different crop
 3. Consider crop families that complement each other
@@ -421,7 +421,7 @@ Additional Recommendations:
    */
   buildWeatherAdvicePrompt(cropName, location, weatherData) {
     return `Provide immediate farming recommendations for ${this.getLocalCropName(
-      cropName
+      cropName,
     )} crop in ${location} based on current weather conditions:
 
 Current Weather:
@@ -445,7 +445,7 @@ Please provide:
    */
   buildAQIAdvicePrompt(cropName, location, aqiData) {
     return `Provide agricultural recommendations for ${this.getLocalCropName(
-      cropName
+      cropName,
     )} crop in ${location} based on current air quality:
 
 Air Quality Data:
@@ -576,8 +576,8 @@ Return ONLY the JSON object, no other text.`;
         0.6,
         Math.min(
           0.95,
-          typeof data.confidence === "number" ? data.confidence : 0.7
-        )
+          typeof data.confidence === "number" ? data.confidence : 0.7,
+        ),
       );
 
       // Validate and normalize description
@@ -613,15 +613,15 @@ Return ONLY the JSON object, no other text.`;
           5,
           Math.min(
             20,
-            typeof data.impact?.aqi === "number" ? data.impact.aqi : 10
-          )
+            typeof data.impact?.aqi === "number" ? data.impact.aqi : 10,
+          ),
         ),
         carbon: Math.max(
           1,
           Math.min(
             5,
-            typeof data.impact?.carbon === "number" ? data.impact.carbon : 2
-          )
+            typeof data.impact?.carbon === "number" ? data.impact.carbon : 2,
+          ),
         ),
         economic: Math.max(
           20000,
@@ -629,8 +629,8 @@ Return ONLY the JSON object, no other text.`;
             50000,
             typeof data.impact?.economic === "number"
               ? data.impact.economic
-              : 30000
-          )
+              : 30000,
+          ),
         ),
       };
 

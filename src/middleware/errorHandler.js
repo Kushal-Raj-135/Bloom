@@ -121,7 +121,7 @@ export const globalErrorHandler = (err, req, res, next) => {
 export const notFound = (req, res, next) => {
   const err = new AppError(
     `Can't find ${req.originalUrl} on this server!`,
-    404
+    404,
   );
   next(err);
 };

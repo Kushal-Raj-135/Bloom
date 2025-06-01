@@ -300,7 +300,7 @@ const cropSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 // Indexes for better performance
@@ -320,7 +320,7 @@ cropSchema.virtual("fullName").get(function () {
 cropSchema.statics.findByRegion = function (
   country,
   state = null,
-  district = null
+  district = null,
 ) {
   const query = { "regions.country": country };
   if (state) query["regions.states"] = state;
@@ -397,7 +397,7 @@ cropSchema.methods.isSuitableFor = function (conditions) {
 
   // Overall suitability (at least 2 out of 3 conditions should match)
   const score = [suitable.climate, suitable.soil, suitable.season].filter(
-    Boolean
+    Boolean,
   ).length;
   suitable.overall = score >= 2;
 

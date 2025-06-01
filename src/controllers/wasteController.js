@@ -15,13 +15,13 @@ export const getWasteRecommendations = async (req, res, next) => {
     // Validate input
     if (!cropType || !quantity || !location) {
       return next(
-        new AppError("Crop type, quantity, and location are required", 400)
+        new AppError("Crop type, quantity, and location are required", 400),
       );
     }
 
     if (!location.lat || !location.lng || !location.address) {
       return next(
-        new AppError("Complete location information is required", 400)
+        new AppError("Complete location information is required", 400),
       );
     }
 
@@ -35,7 +35,7 @@ export const getWasteRecommendations = async (req, res, next) => {
     const recommendations = await groqService.getWasteManagementRecommendations(
       cropType.toLowerCase(),
       wasteQuantity,
-      location
+      location,
     );
 
     res.status(200).json({

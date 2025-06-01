@@ -18,7 +18,7 @@ router.use(verifyToken);
 router.get(
   "/current",
   validateRequest(weatherValidation.locationParams, "query"),
-  weatherController.getCurrentWeather
+  weatherController.getCurrentWeather,
 );
 
 /**
@@ -30,7 +30,7 @@ router.get(
 router.get(
   "/forecast",
   validateRequest(weatherValidation.locationParams, "query"),
-  weatherController.getWeatherForecast
+  weatherController.getWeatherForecast,
 );
 
 /**
@@ -42,7 +42,7 @@ router.get(
 router.get(
   "/agriculture",
   validateRequest(weatherValidation.agricultureParams, "query"),
-  weatherController.getAgricultureWeather
+  weatherController.getAgricultureWeather,
 );
 
 /**
@@ -54,7 +54,7 @@ router.get(
 router.get(
   "/history",
   validateRequest(weatherValidation.historyParams, "query"),
-  weatherController.getWeatherHistory
+  weatherController.getWeatherHistory,
 );
 
 /**
@@ -66,7 +66,7 @@ router.get(
 router.get(
   "/alerts",
   validateRequest(weatherValidation.locationParams, "query"),
-  weatherController.getWeatherAlerts
+  weatherController.getWeatherAlerts,
 );
 
 export default router;

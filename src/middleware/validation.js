@@ -109,7 +109,7 @@ export const cropRecommendationsSchema = Joi.object({
       "chalk",
       "red",
       "black",
-      "alluvial"
+      "alluvial",
     )
     .required(),
   region: Joi.string().min(2).max(100).required(),
@@ -139,7 +139,7 @@ export const addCropSchema = Joi.object({
       "chalk",
       "red",
       "black",
-      "alluvial"
+      "alluvial",
     )
     .required(),
   region: Joi.string().min(2).max(100).required(),
@@ -333,8 +333,8 @@ export const validateRequest = (schema, target = "body") => {
       target === "query"
         ? req.query
         : target === "params"
-        ? req.params
-        : req.body;
+          ? req.params
+          : req.body;
     const { error, value } = schema.validate(data, { abortEarly: false });
 
     if (error) {
@@ -414,5 +414,5 @@ export const wasteRecommendationSchema = Joi.object({
 // Waste validation middleware
 export const validateWasteRequest = validateRequest(
   wasteRecommendationSchema,
-  "body"
+  "body",
 );

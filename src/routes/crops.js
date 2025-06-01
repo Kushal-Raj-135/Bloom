@@ -23,14 +23,14 @@ router.post(
   "/recommendations",
   optionalAuth,
   validate(cropRecommendationsSchema),
-  catchAsync(cropController.getRecommendations)
+  catchAsync(cropController.getRecommendations),
 );
 
 router.post(
   "/analysis",
   optionalAuth,
   validate(cropAnalysisSchema),
-  catchAsync(cropController.getCropAnalysis)
+  catchAsync(cropController.getCropAnalysis),
 );
 
 router.get("/varieties/:cropName", catchAsync(cropController.getCropVarieties));
@@ -43,7 +43,7 @@ router.use(verifyToken); // All routes below require authentication
 router.get(
   "/history",
   validatePagination,
-  catchAsync(cropController.getCropHistory)
+  catchAsync(cropController.getCropHistory),
 );
 
 router.post("/", validate(addCropSchema), catchAsync(cropController.addCrop));

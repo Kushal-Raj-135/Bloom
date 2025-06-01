@@ -163,7 +163,7 @@ const searchHistorySchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 // Indexes for better performance
@@ -176,7 +176,7 @@ searchHistorySchema.index({ isBookmarked: 1 });
 // TTL index to automatically delete old search history after 1 year
 searchHistorySchema.index(
   { createdAt: 1 },
-  { expireAfterSeconds: 365 * 24 * 60 * 60 }
+  { expireAfterSeconds: 365 * 24 * 60 * 60 },
 );
 
 // Virtual for search summary
@@ -250,7 +250,7 @@ searchHistorySchema.statics.getPopularSearches = function (options = {}) {
 // Static method to get search analytics
 searchHistorySchema.statics.getAnalytics = function (
   userId = null,
-  timeRange = 30
+  timeRange = 30,
 ) {
   const matchStage = {
     createdAt: { $gte: new Date(Date.now() - timeRange * 24 * 60 * 60 * 1000) },
@@ -345,7 +345,7 @@ searchHistorySchema.methods.markClicked = function (resultId = null) {
 searchHistorySchema.methods.addFeedback = function (
   rating,
   comment = "",
-  helpful = null
+  helpful = null,
 ) {
   this.interaction.feedback = {
     rating,

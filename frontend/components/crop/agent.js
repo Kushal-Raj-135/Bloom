@@ -49,7 +49,7 @@ document
       previousCrop,
       soilType,
       region,
-      farmSize
+      farmSize,
     );
     displayRecommendations(recommendations);
   });
@@ -90,7 +90,7 @@ function displayRecommendations(recommendations) {
             ${Object.entries(recommendations.benefits)
               .map(
                 ([crop, benefit]) =>
-                  `<li><strong>${crop}:</strong> ${benefit}</li>`
+                  `<li><strong>${crop}:</strong> ${benefit}</li>`,
               )
               .join("")}
         </ul>
@@ -99,7 +99,7 @@ function displayRecommendations(recommendations) {
             ${recommendations.organicFertilizers
               .map(
                 (fertilizer) =>
-                  `<li><strong>${fertilizer.name}:</strong> ${fertilizer.description}</li>`
+                  `<li><strong>${fertilizer.name}:</strong> ${fertilizer.description}</li>`,
               )
               .join("")}
         </ul>
@@ -132,7 +132,7 @@ if (typeof L !== "undefined") {
           (error) => {
             console.error("Error getting location:", error);
             alert("Failed to get your location. Please enter it manually.");
-          }
+          },
         );
       } else {
         alert("Geolocation is not supported by your browser.");

@@ -883,7 +883,7 @@ function formatRecommendations(data) {
                               .split("\n")
                               .slice(1)
                               .map((line) =>
-                                line.trim() ? `<li>${line.trim()}</li>` : ""
+                                line.trim() ? `<li>${line.trim()}</li>` : "",
                               )
                               .join("")}
                         </ul>
@@ -901,7 +901,7 @@ function formatRecommendations(data) {
                               .split("\n")
                               .slice(1)
                               .map((line) =>
-                                line.trim() ? `<li>${line.trim()}</li>` : ""
+                                line.trim() ? `<li>${line.trim()}</li>` : "",
                               )
                               .join("")}
                         </ul>
@@ -926,7 +926,7 @@ function downloadResults() {
 
   // Get the recommendations content
   const recommendationsContent = document.querySelector(
-    ".recommendations-content"
+    ".recommendations-content",
   );
   if (!recommendationsContent) return;
 
@@ -1056,7 +1056,7 @@ function downloadResults() {
         let cropLine = lines.find(
           (line) =>
             line.includes("Recommended crop") ||
-            line.includes("[Recommended crop")
+            line.includes("[Recommended crop"),
         );
 
         doc.text(yearLine, margin + 10, yPos + 8);
@@ -1072,7 +1072,7 @@ function downloadResults() {
             doc.text(
               `Recommended Crop: ${getLocalCropName(cropLine)}`,
               margin + 10,
-              yPos + 25
+              yPos + 25,
             );
           }
         }
@@ -1097,7 +1097,7 @@ function downloadResults() {
               const regex = new RegExp(`\\b${crop}\\b`, "gi");
               modifiedLine = modifiedLine.replace(
                 regex,
-                getLocalCropName(crop)
+                getLocalCropName(crop),
               );
             });
 
@@ -1240,10 +1240,13 @@ document.addEventListener("DOMContentLoaded", () => {
   updateAQI(initialAQI);
 
   // Update every 5 minutes
-  setInterval(() => {
-    const newAQI = Math.floor(Math.random() * (150 - 50 + 1)) + 50;
-    updateAQI(newAQI);
-  }, 5 * 60 * 1000);
+  setInterval(
+    () => {
+      const newAQI = Math.floor(Math.random() * (150 - 50 + 1)) + 50;
+      updateAQI(newAQI);
+    },
+    5 * 60 * 1000,
+  );
 
   // Add form submit handler
   const form = document.getElementById("crop-form");

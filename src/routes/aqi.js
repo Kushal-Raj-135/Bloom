@@ -18,7 +18,7 @@ router.use(verifyToken);
 router.get(
   "/current",
   validateRequest(aqiValidation.locationParams, "query"),
-  aqiController.getCurrentAQI
+  aqiController.getCurrentAQI,
 );
 
 /**
@@ -30,7 +30,7 @@ router.get(
 router.get(
   "/forecast",
   validateRequest(aqiValidation.locationParams, "query"),
-  aqiController.getAQIForecast
+  aqiController.getAQIForecast,
 );
 
 /**
@@ -42,7 +42,7 @@ router.get(
 router.get(
   "/history",
   validateRequest(aqiValidation.historyParams, "query"),
-  aqiController.getAQIHistory
+  aqiController.getAQIHistory,
 );
 
 /**
@@ -54,7 +54,7 @@ router.get(
 router.get(
   "/stations",
   validateRequest(aqiValidation.stationsParams, "query"),
-  aqiController.getNearbyStations
+  aqiController.getNearbyStations,
 );
 
 /**
@@ -66,7 +66,7 @@ router.get(
 router.get(
   "/agriculture",
   validateRequest(aqiValidation.agricultureParams, "query"),
-  aqiController.getAgriculturalRecommendations
+  aqiController.getAgriculturalRecommendations,
 );
 
 /**
@@ -78,7 +78,7 @@ router.get(
 router.get(
   "/alerts",
   validateRequest(aqiValidation.locationParams, "query"),
-  aqiController.getAQIAlerts
+  aqiController.getAQIAlerts,
 );
 
 /**
@@ -90,7 +90,7 @@ router.get(
 router.get(
   "/report",
   validateRequest(aqiValidation.locationParams, "query"),
-  aqiController.getAirQualityReport
+  aqiController.getAirQualityReport,
 );
 
 export default router;

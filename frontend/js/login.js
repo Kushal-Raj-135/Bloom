@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add validation event listeners
   if (emailInput) {
     emailInput.addEventListener("blur", () =>
-      validateField(emailInput, validateEmail, true)
+      validateField(emailInput, validateEmail, true),
     );
     emailInput.addEventListener("input", () =>
-      validateField(emailInput, validateEmail, true)
+      validateField(emailInput, validateEmail, true),
     );
   }
 

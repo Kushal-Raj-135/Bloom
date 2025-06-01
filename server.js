@@ -52,7 +52,7 @@ app.use(
     resave: config.session.resave,
     saveUninitialized: config.session.saveUninitialized,
     cookie: config.session.cookie,
-  })
+  }),
 );
 
 // Passport middleware

@@ -15,7 +15,7 @@ class WeatherController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -25,7 +25,7 @@ class WeatherController {
       } else {
         weatherData = await this.weatherService.getWeatherByCoordinates(
           lat,
-          lon
+          lon,
         );
       }
 
@@ -49,7 +49,7 @@ class WeatherController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -59,7 +59,7 @@ class WeatherController {
       } else {
         forecastData = await this.weatherService.getForecastByCoordinates(
           lat,
-          lon
+          lon,
         );
       }
 
@@ -83,7 +83,7 @@ class WeatherController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -96,7 +96,7 @@ class WeatherController {
       } else {
         currentWeather = await this.weatherService.getWeatherByCoordinates(
           lat,
-          lon
+          lon,
         );
         forecast = await this.weatherService.getForecastByCoordinates(lat, lon);
       }
@@ -105,13 +105,13 @@ class WeatherController {
       const recommendations = this.generateAgricultureRecommendations(
         currentWeather,
         forecast,
-        cropType
+        cropType,
       );
 
       logger.info(
         `Agricultural weather recommendations generated for ${
           city || `${lat},${lon}`
-        }`
+        }`,
       );
 
       res.status(200).json({
@@ -136,17 +136,17 @@ class WeatherController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
       const historyData = await this.weatherService.getWeatherHistory(
         city || { lat, lon },
-        parseInt(days)
+        parseInt(days),
       );
 
       logger.info(
-        `Weather history fetched for ${city || `${lat},${lon}`} - ${days} days`
+        `Weather history fetched for ${city || `${lat},${lon}`} - ${days} days`,
       );
 
       res.status(200).json({
@@ -167,7 +167,7 @@ class WeatherController {
       if (!lat && !lon && !city) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
-          400
+          400,
         );
       }
 
@@ -177,7 +177,7 @@ class WeatherController {
       } else {
         weatherData = await this.weatherService.getWeatherByCoordinates(
           lat,
-          lon
+          lon,
         );
       }
 

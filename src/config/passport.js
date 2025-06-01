@@ -46,8 +46,8 @@ passport.use(
         console.error("Google OAuth error:", error);
         return done(error, null);
       }
-    }
-  )
+    },
+  ),
 );
 
 // Passport serialization

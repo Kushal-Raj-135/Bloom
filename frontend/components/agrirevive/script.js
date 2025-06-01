@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
             removeLoadingSpinner();
             showNotification(
               "Failed to load map. Please refresh the page.",
-              "error"
+              "error",
             );
           }
         }, 500);
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentLocationBtn.disabled = false;
         currentLocationBtn.innerHTML = '<i class="fas fa-crosshairs"></i>';
       },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 },
     );
   });
 
@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           maxZoom: 19,
           subdomains: "abc", // Use multiple subdomains for better performance
-        }
+        },
       );
 
       // Handle tile layer loading events
@@ -475,7 +475,7 @@ document.addEventListener("DOMContentLoaded", function () {
   async function updateSelectedLocation(lat, lng) {
     try {
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`,
       );
       const data = await response.json();
 
@@ -487,7 +487,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       locationInput.value = data.display_name;
       locationDetails.textContent = `Latitude: ${lat.toFixed(
-        4
+        4,
       )}, Longitude: ${lng.toFixed(4)}`;
       confirmLocationBtn.disabled = false;
 
@@ -517,8 +517,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const response = await fetch(
           `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-            query
-          )}&limit=5`
+            query,
+          )}&limit=5`,
         );
         const data = await response.json();
 
@@ -532,7 +532,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <strong>${place.display_name.split(",")[0]}</strong>
                             <small>${place.display_name}</small>
                         </div>
-                    `
+                    `,
             )
             .join("");
 
@@ -572,7 +572,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Format location details with accuracy if available
       const details = [
         `${selectedLocation.lat.toFixed(6)}, ${selectedLocation.lng.toFixed(
-          6
+          6,
         )}`,
       ];
 
@@ -654,13 +654,13 @@ document.addEventListener("DOMContentLoaded", function () {
         return data.data;
       } else {
         throw new Error(
-          data.message || "Invalid response format from backend mock API"
+          data.message || "Invalid response format from backend mock API",
         );
       }
     } catch (error) {
       console.error(
         "Error getting backup recommendations from backend:",
-        error
+        error,
       );
       throw error;
     }
@@ -691,7 +691,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const { recommendations } = await getGroqRecommendations(
         cropType,
         quantity,
-        selectedLocation
+        selectedLocation,
       );
 
       // Show recommendations section
@@ -709,14 +709,13 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error:", error);
       showNotification(
         "Error getting AI recommendations. Loading backup recommendations...",
-        "error"
+        "error",
       );
 
       // Use backend mock data as fallback
       try {
-        const fallbackRecommendations = await getBackupRecommendations(
-          cropType
-        );
+        const fallbackRecommendations =
+          await getBackupRecommendations(cropType);
 
         // Show recommendations section even for fallback data
         const recommendationsSection =
@@ -775,7 +774,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxConfidence = Math.max(
       recommendations.biofuel.confidence,
       recommendations.composting.confidence,
-      recommendations.recycling.confidence
+      recommendations.recycling.confidence,
     );
 
     confidenceValue.textContent = `${(maxConfidence * 100).toFixed(0)}%`;
@@ -792,7 +791,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const card = document.querySelector(
       `.recommendation-card:nth-child(${
         type === "biofuel" ? 1 : type === "composting" ? 2 : 3
-      })`
+      })`,
     );
 
     if (!card) return;
@@ -845,27 +844,25 @@ document.addEventListener("DOMContentLoaded", function () {
       aqi: Math.max(
         recommendations.biofuel.impact.aqi,
         recommendations.composting.impact.aqi,
-        recommendations.recycling.impact.aqi
+        recommendations.recycling.impact.aqi,
       ),
       carbon: Math.max(
         recommendations.biofuel.impact.carbon,
         recommendations.composting.impact.carbon,
-        recommendations.recycling.impact.carbon
+        recommendations.recycling.impact.carbon,
       ),
       economic: Math.max(
         recommendations.biofuel.impact.economic,
         recommendations.composting.impact.economic,
-        recommendations.recycling.impact.economic
+        recommendations.recycling.impact.economic,
       ),
     };
 
     document.getElementById("aqiMetric").textContent = `${maxImpact.aqi}%`;
-    document.getElementById(
-      "carbonMetric"
-    ).textContent = `${maxImpact.carbon} tons`;
-    document.getElementById(
-      "economicMetric"
-    ).textContent = `₹${maxImpact.economic}`;
+    document.getElementById("carbonMetric").textContent =
+      `${maxImpact.carbon} tons`;
+    document.getElementById("economicMetric").textContent =
+      `₹${maxImpact.economic}`;
   }
 
   // Update AQI display
@@ -923,21 +920,21 @@ document.addEventListener("DOMContentLoaded", function () {
     let y = 54;
     methods.forEach((method, idx) => {
       const card = document.querySelector(
-        `.recommendation-card:nth-child(${idx + 1})`
+        `.recommendation-card:nth-child(${idx + 1})`,
       );
       if (!card) return;
       const description =
         card.querySelector(".description p")?.textContent || "";
       const steps = Array.from(card.querySelectorAll(".steps-list li")).map(
-        (li) => li.textContent
+        (li) => li.textContent,
       );
       const equipment = Array.from(
-        card.querySelectorAll(".equipment-list li")
+        card.querySelectorAll(".equipment-list li"),
       ).map((li) => li.textContent);
       const aqi =
         card.querySelector(".impact-metric .metric-value")?.textContent || "";
       const impactMetrics = card.querySelectorAll(
-        ".impact-metric .metric-value"
+        ".impact-metric .metric-value",
       );
       const aqiVal = impactMetrics[0]?.textContent || "";
       const carbonVal = impactMetrics[1]?.textContent || "";

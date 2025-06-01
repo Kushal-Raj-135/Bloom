@@ -90,12 +90,12 @@ const api = {
         aqiValue <= 50
           ? "Good"
           : aqiValue <= 100
-          ? "Moderate"
-          : aqiValue <= 150
-          ? "Unhealthy for Sensitive Groups"
-          : aqiValue <= 200
-          ? "Unhealthy"
-          : "Very Unhealthy",
+            ? "Moderate"
+            : aqiValue <= 150
+              ? "Unhealthy for Sensitive Groups"
+              : aqiValue <= 200
+                ? "Unhealthy"
+                : "Very Unhealthy",
       recommendations: [
         "Consider using dust reduction techniques",
         "Monitor air quality regularly",

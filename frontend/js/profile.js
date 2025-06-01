@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentPasswordInput = document.getElementById("current-password");
   const newPasswordInput = document.getElementById("new-password");
   const toggleCurrentPassword = document.getElementById(
-    "toggle-current-password"
+    "toggle-current-password",
   );
   const toggleNewPassword = document.getElementById("toggle-new-password");
   const profilePicture = document.getElementById("profile-picture");
@@ -17,55 +17,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (nameInput) {
     nameInput.addEventListener("blur", () =>
-      validateField(nameInput, validateName, true)
+      validateField(nameInput, validateName, true),
     );
     nameInput.addEventListener("input", () =>
-      validateField(nameInput, validateName, true)
+      validateField(nameInput, validateName, true),
     );
   }
 
   if (emailInput) {
     emailInput.addEventListener("blur", () =>
-      validateField(emailInput, validateEmail, true)
+      validateField(emailInput, validateEmail, true),
     );
     emailInput.addEventListener("input", () =>
-      validateField(emailInput, validateEmail, true)
+      validateField(emailInput, validateEmail, true),
     );
   }
 
   if (phoneInput) {
     phoneInput.addEventListener("blur", () =>
-      validateField(phoneInput, validatePhone)
+      validateField(phoneInput, validatePhone),
     );
     phoneInput.addEventListener("input", () =>
-      validateField(phoneInput, validatePhone)
+      validateField(phoneInput, validatePhone),
     );
   }
 
   if (locationInput) {
     locationInput.addEventListener("blur", () =>
-      validateField(locationInput, validateLocation)
+      validateField(locationInput, validateLocation),
     );
     locationInput.addEventListener("input", () =>
-      validateField(locationInput, validateLocation)
+      validateField(locationInput, validateLocation),
     );
   }
 
   if (bioInput) {
     bioInput.addEventListener("blur", () =>
-      validateField(bioInput, validateBio)
+      validateField(bioInput, validateBio),
     );
     bioInput.addEventListener("input", () =>
-      validateField(bioInput, validateBio)
+      validateField(bioInput, validateBio),
     );
   }
 
   if (newPasswordInput) {
     newPasswordInput.addEventListener("blur", () =>
-      validateField(newPasswordInput, validatePassword)
+      validateField(newPasswordInput, validatePassword),
     );
     newPasswordInput.addEventListener("input", () =>
-      validateField(newPasswordInput, validatePassword)
+      validateField(newPasswordInput, validatePassword),
     );
   }
 
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         profilePicture.src = e.target.result;
         showToast(
           "Profile picture updated for preview (not saved to server)",
-          "success"
+          "success",
         );
       };
       reader.readAsDataURL(file);
@@ -169,13 +169,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (toggleCurrentPassword && currentPasswordInput) {
     toggleCurrentPassword.addEventListener("click", () =>
-      togglePasswordVisibility(currentPasswordInput, toggleCurrentPassword)
+      togglePasswordVisibility(currentPasswordInput, toggleCurrentPassword),
     );
   }
 
   if (toggleNewPassword && newPasswordInput) {
     toggleNewPassword.addEventListener("click", () =>
-      togglePasswordVisibility(newPasswordInput, toggleNewPassword)
+      togglePasswordVisibility(newPasswordInput, toggleNewPassword),
     );
   }
 
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         showToast(
           "Profile updated successfully! (Local testing mode)",
-          "success"
+          "success",
         );
 
         /*
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch (error) {
         showToast(
           error.message || "An error occurred while updating profile",
-          "error"
+          "error",
         );
       } finally {
         if (submitButton) {

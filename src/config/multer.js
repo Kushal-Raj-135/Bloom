@@ -46,7 +46,7 @@ const cropImageStorage = multer.diskStorage({
 const imageFileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png|gif|webp/;
   const extname = allowedTypes.test(
-    path.extname(file.originalname).toLowerCase()
+    path.extname(file.originalname).toLowerCase(),
   );
   const mimetype = allowedTypes.test(file.mimetype);
 
@@ -54,7 +54,7 @@ const imageFileFilter = (req, file, cb) => {
     return cb(null, true);
   } else {
     const err = new Error(
-      "Only image files (jpeg, jpg, png, gif, webp) are allowed"
+      "Only image files (jpeg, jpg, png, gif, webp) are allowed",
     );
     err.code = "LIMIT_FILE_TYPE";
     cb(err);

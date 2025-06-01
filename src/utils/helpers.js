@@ -75,7 +75,7 @@ export const formatResponse = (
   success,
   message,
   data = null,
-  errors = null
+  errors = null,
 ) => {
   const response = {
     success,
@@ -200,7 +200,7 @@ export const sleep = (ms) => {
 export const retryWithBackoff = async (
   fn,
   maxRetries = 3,
-  baseDelay = 1000
+  baseDelay = 1000,
 ) => {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
@@ -267,7 +267,7 @@ export const maskPhone = (phone) => {
  */
 export const generateRandomString = (
   length = 10,
-  charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
 ) => {
   let result = "";
   for (let i = 0; i < length; i++) {

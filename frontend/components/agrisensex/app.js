@@ -217,7 +217,7 @@ function editField(fieldName) {
 
       showToast(
         `Field "${updatedField.name}" updated successfully!`,
-        "success"
+        "success",
       );
       closeFieldModal();
     });
@@ -247,7 +247,7 @@ function viewFieldDetails(fieldName) {
                   fieldName === "Field A" ? "Corn" : "Soybeans"
                 }</p>
                 <p><strong>Planting Date:</strong> ${new Date(
-                  Date.now() - 30 * 24 * 60 * 60 * 1000
+                  Date.now() - 30 * 24 * 60 * 60 * 1000,
                 ).toDateString()}</p>
                 <p><strong>Growth Stage:</strong> Vegetative</p>
               </div>
@@ -398,14 +398,14 @@ function initializeMap() {
       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       {
         attribution: "© OpenStreetMap contributors",
-      }
+      },
     );
 
     const satelliteLayer = L.tileLayer(
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
       {
         attribution: "© Esri",
-      }
+      },
     );
 
     // Set default layer
@@ -442,7 +442,7 @@ function initializeMap() {
       {
         color: "#2ecc71",
         fillOpacity: 0.5,
-      }
+      },
     ).addTo(map);
 
     const field2 = L.polygon(
@@ -454,7 +454,7 @@ function initializeMap() {
       {
         color: "#3498db",
         fillOpacity: 0.5,
-      }
+      },
     ).addTo(map);
 
     // Enhanced field popups
@@ -594,8 +594,8 @@ function initializeMap() {
         try {
           const response = await fetch(
             `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-              query
-            )}`
+              query,
+            )}`,
           );
           const data = await response.json();
 
@@ -605,7 +605,7 @@ function initializeMap() {
                         <div class="search-result-item" data-lat="${result.lat}" data-lon="${result.lon}">
                             ${result.display_name}
                         </div>
-                    `
+                    `,
             )
             .join("");
 
@@ -663,7 +663,7 @@ function initializeMap() {
         }).addTo(map);
 
         const area = L.GeometryUtil.geodesicArea(
-          measurePolygon.getLatLngs()[0]
+          measurePolygon.getLatLngs()[0],
         );
         const areaAcres = (area / 4046.86).toFixed(2); // Convert square meters to acres
 
@@ -800,7 +800,7 @@ async function fetchWeatherData() {
     const q = "Bangalore";
 
     const response = await fetch(
-      `${WEATHER_API_URL}?key=${WEATHER_API_KEY}&q=${q}&days=5&aqi=yes&alerts=yes`
+      `${WEATHER_API_URL}?key=${WEATHER_API_KEY}&q=${q}&days=5&aqi=yes&alerts=yes`,
     );
     const data = await response.json();
 
@@ -1077,7 +1077,7 @@ function checkAQILevel(value) {
       }
       showToast(
         `Air Quality Alert: ${level.label} (AQI: ${value.toFixed(1)})`,
-        "error"
+        "error",
       );
       break;
     }
@@ -1247,7 +1247,7 @@ function initializeBioengineering() {
         const metrics = calculateSustainabilityMetrics(
           cropType,
           soilType,
-          phLevel
+          phLevel,
         );
 
         // Update display
@@ -1317,7 +1317,7 @@ function calculateSustainabilityMetrics(cropType, soilType, phLevel) {
 
   // Calculate overall score
   const overallScore = Math.round(
-    (soilHealth + carbonImpact + waterEfficiency + biodiversity) / 4
+    (soilHealth + carbonImpact + waterEfficiency + biodiversity) / 4,
   );
 
   return {

@@ -42,9 +42,8 @@ class CropController {
 
       // Get AI recommendations from Groq
       const cropInfo = { previousCrop, soilType, region, farmSize };
-      const recommendations = await GroqService.getCropRecommendations(
-        cropInfo
-      );
+      const recommendations =
+        await GroqService.getCropRecommendations(cropInfo);
 
       // Save crop data for future reference
       // const cropData = new Crop({
@@ -110,7 +109,7 @@ class CropController {
       if (coordinates) {
         weatherData = await WeatherService.getCurrentWeather(
           coordinates.lat,
-          coordinates.lon
+          coordinates.lon,
         );
       }
 
@@ -119,7 +118,7 @@ class CropController {
       if (coordinates) {
         aqiData = await AQIService.getCurrentAQI(
           coordinates.lat,
-          coordinates.lon
+          coordinates.lon,
         );
       }
 
@@ -128,7 +127,7 @@ class CropController {
         cropName,
         location,
         weatherData,
-        aqiData
+        aqiData,
       );
       const analysis = await GroqService.getCropAnalysis(analysisPrompt);
 
@@ -276,7 +275,7 @@ class CropController {
       const crop = await Crop.findOneAndUpdate(
         { _id: cropId, userId },
         { $set: updateData },
-        { new: true, runValidators: true }
+        { new: true, runValidators: true },
       );
 
       if (!crop) {

@@ -33,7 +33,7 @@ class AuthController {
    */
   async register(req, res) {
     try {
-      const { name, email, password } = req.body;      // Check if user already exists
+      const { name, email, password } = req.body; // Check if user already exists
       const existingUser = await User.findOne({ email });
       if (existingUser) {
         return res.status(400).json({
@@ -88,13 +88,13 @@ class AuthController {
       // Check if account is locked
       if (user.isLocked && user.lockUntil > Date.now()) {
         const lockTimeRemaining = Math.ceil(
-          (user.lockUntil - Date.now()) / 60000
+          (user.lockUntil - Date.now()) / 60000,
         );
         return res.status(423).json({
           success: false,
           message: `Account is locked. Try again in ${lockTimeRemaining} minutes.`,
         });
-      }      // Verify password
+      } // Verify password
       const isValidPassword = await bcrypt.compare(password, user.password);
       if (!isValidPassword) {
         // Increment failed login attempts
@@ -188,7 +188,7 @@ class AuthController {
       const user = await User.findByIdAndUpdate(
         req.userId,
         { $set: updates },
-        { new: true, runValidators: true }
+        { new: true, runValidators: true },
       );
 
       if (!user) {
@@ -232,7 +232,7 @@ class AuthController {
       const user = await User.findByIdAndUpdate(
         req.userId,
         { profilePicture: profilePictureUrl },
-        { new: true }
+        { new: true },
       );
 
       if (!user) {
@@ -287,7 +287,7 @@ class AuthController {
       // TODO: Send email with reset link
       // For now, log the reset URL
       const resetUrl = `${req.protocol}://${req.get(
-        "host"
+        "host",
       )}/reset-password/${resetToken}`;
       console.log("Password reset URL:", resetUrl);
 
@@ -317,12 +317,13 @@ class AuthController {
       const user = await User.findOne({
         resetToken: token,
         resetTokenExpiry: { $gt: Date.now() },
-      });      if (!user) {
+      });
+      if (!user) {
         return res.status(400).json({
           success: false,
           message: "Password reset token is invalid or has expired",
         });
-      }      // Set new password (will be hashed by pre-save middleware)
+      } // Set new password (will be hashed by pre-save middleware)
       user.password = password;
       user.resetToken = undefined;
       user.resetTokenExpiry = undefined;
@@ -355,17 +356,17 @@ class AuthController {
           success: false,
           message: "User not found",
         });
-      }      // Verify current password
+      } // Verify current password
       const isValidPassword = await bcrypt.compare(
         currentPassword,
-        user.password
+        user.password,
       );
       if (!isValidPassword) {
         return res.status(400).json({
           success: false,
           message: "Current password is incorrect",
         });
-      }      // Set new password (will be hashed by pre-save middleware)
+      } // Set new password (will be hashed by pre-save middleware)
       user.password = newPassword;
       await user.save();
 

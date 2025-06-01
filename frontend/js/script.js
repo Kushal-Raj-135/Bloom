@@ -30,7 +30,7 @@ async function translateText(text, targetLanguage, toEnglish = false) {
   try {
     console.log(
       `Translating text ${toEnglish ? "to English" : "from English"}:`,
-      text.substring(0, 50) + "..."
+      text.substring(0, 50) + "...",
     );
 
     const response = await fetch("/api/translate", {
@@ -54,7 +54,7 @@ async function translateText(text, targetLanguage, toEnglish = false) {
     const data = await response.json();
     console.log(
       "Translation successful:",
-      data.translated_text.substring(0, 50) + "..."
+      data.translated_text.substring(0, 50) + "...",
     );
 
     if (data.translated_text) {
@@ -175,7 +175,7 @@ function displayRecommendations(data) {
                               .join("")}
                         </ul>
                     </div>
-                `
+                `,
                   )
                   .join("")}
             </div>
@@ -388,7 +388,7 @@ function initAQIGauge() {
   // Check if JustGage is available
   if (typeof JustGage === "undefined") {
     console.warn(
-      "JustGage library not loaded. AQI gauge will not be displayed."
+      "JustGage library not loaded. AQI gauge will not be displayed.",
     );
     return null;
   }
@@ -446,7 +446,7 @@ function updateAQI(aqiValue) {
   const aqiStatusElement = document.getElementById("aqi-status");
   const aqiValueElement = document.getElementById("aqi-value");
   const aqiRecommendationsElement = document.getElementById(
-    "aqi-recommendations"
+    "aqi-recommendations",
   );
 
   if (aqiNumberElement) {
@@ -499,10 +499,13 @@ document.addEventListener("DOMContentLoaded", () => {
   updateAQI(initialAQI);
 
   // Update AQI every 5 minutes
-  setInterval(() => {
-    const newAQI = Math.floor(Math.random() * (150 - 50 + 1)) + 50;
-    updateAQI(newAQI);
-  }, 5 * 60 * 1000);
+  setInterval(
+    () => {
+      const newAQI = Math.floor(Math.random() * (150 - 50 + 1)) + 50;
+      updateAQI(newAQI);
+    },
+    5 * 60 * 1000,
+  );
   // Update UI based on login status
   function updateUIForLoginStatus() {
     console.log("Updating UI for login status...");
@@ -768,7 +771,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     ([code, name]) =>
                       `<option value="${code}" ${
                         code === currentLanguage ? "selected" : ""
-                      }>${name}</option>`
+                      }>${name}</option>`,
                   )
                   .join("")}
             </select>

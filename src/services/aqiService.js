@@ -133,7 +133,7 @@ class AQIService {
         dominantPollutant: apiData.data.dominentpol || "unknown",
         pollutants: this.extractPollutants(apiData.data.iaqi),
         healthRecommendations: this.generateHealthRecommendations(
-          apiData.data.aqi
+          apiData.data.aqi,
         ),
         agriculturalImpact: this.assessAgriculturalImpact(apiData.data.aqi),
         timestamp: new Date(),
@@ -214,23 +214,23 @@ class AQIService {
 
     if (aqi <= 50) {
       recommendations.push(
-        "Air quality is satisfactory. Enjoy outdoor activities."
+        "Air quality is satisfactory. Enjoy outdoor activities.",
       );
     } else if (aqi <= 100) {
       recommendations.push("Air quality is acceptable for most people.");
       recommendations.push(
-        "Sensitive individuals should consider limiting prolonged outdoor exertion."
+        "Sensitive individuals should consider limiting prolonged outdoor exertion.",
       );
     } else if (aqi <= 150) {
       recommendations.push("Sensitive groups should limit outdoor activities.");
       recommendations.push(
-        "Wear masks when outdoors if sensitive to air pollution."
+        "Wear masks when outdoors if sensitive to air pollution.",
       );
     } else if (aqi <= 200) {
       recommendations.push("Everyone should limit outdoor activities.");
       recommendations.push("Wear N95 masks when outdoors.");
       recommendations.push(
-        "Keep windows closed and use air purifiers indoors."
+        "Keep windows closed and use air purifiers indoors.",
       );
     } else if (aqi <= 300) {
       recommendations.push("Avoid outdoor activities.");
@@ -289,7 +289,7 @@ class AQIService {
       safety.level = "dangerous";
       safety.recommendations.push("Avoid outdoor farm work");
       safety.recommendations.push(
-        "If work is essential, use N95 or P100 masks"
+        "If work is essential, use N95 or P100 masks",
       );
       safety.recommendations.push("Take frequent breaks indoors");
       safety.recommendations.push("Monitor health closely");
@@ -323,7 +323,7 @@ class AQIService {
       recommendations.push("Limit duration of outdoor activities");
       recommendations.push("Use protective equipment when working outdoors");
       recommendations.push(
-        "Consider early morning or evening work when air quality may be better"
+        "Consider early morning or evening work when air quality may be better",
       );
     } else {
       recommendations.push("Normal farming activities can continue");
@@ -385,8 +385,8 @@ class AQIService {
         aqi > 150
           ? "implement protective measures"
           : aqi > 100
-          ? "monitor closely"
-          : "maintain normal practices",
+            ? "monitor closely"
+            : "maintain normal practices",
     };
   }
 

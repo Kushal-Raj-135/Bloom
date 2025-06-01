@@ -41,7 +41,7 @@ export const verifyToken = async (req, res, next) => {
           success: false,
           message: "User not found",
         });
-      }      // Check if user changed password after token was issued
+      } // Check if user changed password after token was issued
       // Note: passwordChangedAt field not implemented in User model yet
       // if (
       //   user.security.passwordChangedAt &&

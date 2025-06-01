@@ -3,8 +3,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 :root {
@@ -39,7 +42,9 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Navbar Styles */
@@ -52,7 +57,9 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 1.2rem 3rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 20px rgba(74, 222, 128, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(74, 222, 128, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,13 +77,19 @@ body {
 
 @keyframes navbarGlow {
   0% {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 15px rgba(74, 222, 128, 0.15);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      0 0 15px rgba(74, 222, 128, 0.15);
   }
   50% {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 25px rgba(74, 222, 128, 0.25);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      0 0 25px rgba(74, 222, 128, 0.25);
   }
   100% {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 15px rgba(74, 222, 128, 0.15);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      0 0 15px rgba(74, 222, 128, 0.15);
   }
 }
 

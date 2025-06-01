@@ -237,7 +237,7 @@ const weatherSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 // Indexes for better performance
@@ -306,7 +306,7 @@ weatherSchema.methods.isStale = function (maxAgeMinutes = 60) {
 weatherSchema.methods.getForecastForDate = function (date) {
   const targetDate = new Date(date).toDateString();
   return this.forecast.find(
-    (f) => new Date(f.date).toDateString() === targetDate
+    (f) => new Date(f.date).toDateString() === targetDate,
   );
 };
 

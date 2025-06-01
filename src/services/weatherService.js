@@ -41,7 +41,7 @@ class WeatherService {
         lat,
         lon,
         city,
-        "current"
+        "current",
       );
 
       return this.formatWeatherData(weatherData);
@@ -98,13 +98,13 @@ class WeatherService {
         agricultural: {
           irrigationRecommendation: this.getIrrigationRecommendation(
             currentWeather,
-            forecast
+            forecast,
           ),
           pestRisk: this.assessPestRisk(currentWeather, forecast),
           plantingConditions: this.assessPlantingConditions(currentWeather),
           harvestConditions: this.assessHarvestConditions(
             currentWeather,
-            forecast
+            forecast,
           ),
           stressFactors: this.identifyStressFactors(currentWeather, forecast),
         },
@@ -114,7 +114,7 @@ class WeatherService {
         analysis.agricultural.cropSpecificAdvice = this.getCropSpecificAdvice(
           currentWeather,
           forecast,
-          cropName
+          cropName,
         );
       }
 
@@ -123,7 +123,7 @@ class WeatherService {
       console.error("Agricultural weather analysis error:", error);
       throw new AppError(
         "Failed to generate agricultural weather analysis",
-        500
+        500,
       );
     }
   }
@@ -182,12 +182,12 @@ class WeatherService {
           evapotranspiration: this.calculateEvapotranspiration(
             apiData.main.temp,
             apiData.main.humidity,
-            apiData.wind?.speed || 0
+            apiData.wind?.speed || 0,
           ),
           growingDegreeDays: this.calculateGrowingDegreeDays(apiData.main.temp),
           stressIndex: this.calculateStressIndex(
             apiData.main.temp,
-            apiData.main.humidity
+            apiData.main.humidity,
           ),
         },
         timestamp: new Date(),

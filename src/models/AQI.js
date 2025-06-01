@@ -270,7 +270,7 @@ const aqiSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 // Indexes for better performance
@@ -358,38 +358,38 @@ aqiSchema.methods.getHealthRecommendations = function (userProfile = {}) {
     recommendations.push("Air quality is good. Enjoy outdoor activities!");
   } else if (aqiValue <= 100) {
     recommendations.push(
-      "Air quality is moderate. Sensitive individuals should consider limiting prolonged outdoor exertion."
+      "Air quality is moderate. Sensitive individuals should consider limiting prolonged outdoor exertion.",
     );
     if (isSensitive) {
       recommendations.push(
-        "Consider wearing a mask during outdoor activities."
+        "Consider wearing a mask during outdoor activities.",
       );
     }
   } else if (aqiValue <= 150) {
     recommendations.push(
-      "Unhealthy for sensitive groups. Everyone should limit prolonged outdoor exertion."
+      "Unhealthy for sensitive groups. Everyone should limit prolonged outdoor exertion.",
     );
     recommendations.push("Wear N95 masks when outdoors.");
     if (isSensitive) {
       recommendations.push(
-        "Avoid outdoor activities or limit them significantly."
+        "Avoid outdoor activities or limit them significantly.",
       );
     }
   } else if (aqiValue <= 200) {
     recommendations.push(
-      "Unhealthy air quality. Everyone should limit outdoor activities."
+      "Unhealthy air quality. Everyone should limit outdoor activities.",
     );
     recommendations.push("Wear N95 or equivalent masks when outdoors.");
     recommendations.push("Keep windows closed and use air purifiers indoors.");
   } else if (aqiValue <= 300) {
     recommendations.push(
-      "Very unhealthy air quality. Avoid all outdoor activities."
+      "Very unhealthy air quality. Avoid all outdoor activities.",
     );
     recommendations.push("Stay indoors with air purifiers running.");
     recommendations.push("Wear N95 masks even for brief outdoor exposure.");
   } else {
     recommendations.push(
-      "Hazardous air quality. Emergency conditions - avoid all outdoor exposure."
+      "Hazardous air quality. Emergency conditions - avoid all outdoor exposure.",
     );
     recommendations.push("Stay indoors with air purifiers and sealed windows.");
     recommendations.push("Consider evacuation if possible.");
@@ -412,10 +412,10 @@ aqiSchema.methods.getAgriculturalImpact = function () {
     impact.effects.push("Reduced photosynthesis due to air pollution");
     impact.effects.push("Potential leaf damage from particulate matter");
     impact.recommendations.push(
-      "Increase irrigation to help plants cope with stress"
+      "Increase irrigation to help plants cope with stress",
     );
     impact.recommendations.push(
-      "Consider protective measures for sensitive crops"
+      "Consider protective measures for sensitive crops",
     );
 
     if (
@@ -434,7 +434,7 @@ aqiSchema.methods.getAgriculturalImpact = function () {
     ) {
       impact.effects.push("Ozone damage to plant leaves");
       impact.recommendations.push(
-        "Avoid working in fields during peak ozone hours (midday)"
+        "Avoid working in fields during peak ozone hours (midday)",
       );
     }
   } else if (aqiValue > 100) {

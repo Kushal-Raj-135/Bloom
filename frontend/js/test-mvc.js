@@ -79,6 +79,6 @@ try {
 
 console.log("\n🎉 MVC component test completed!");
 console.log(
-  "\n📝 Note: Some components may require environment variables to be properly configured."
+  "\n📝 Note: Some components may require environment variables to be properly configured.",
 );
 console.log("   Please ensure your .env file has all required variables set.");
