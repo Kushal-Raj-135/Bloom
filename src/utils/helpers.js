@@ -243,6 +243,9 @@ export const maskEmail = (email) => {
   if (!email || !isValidEmail(email)) return email;
 
   const [username, domain] = email.split("@");
+  if (username.length <= 2) {
+    return `${username.charAt(0)}*@${domain}`;
+  }
   const maskedUsername =
     username.charAt(0) +
     "*".repeat(username.length - 2) +

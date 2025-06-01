@@ -12,7 +12,8 @@ class AQIController {
     try {
       const { lat, lon, city } = req.query;
 
-      if (!lat && !lon && !city) {
+      // Require (lat AND lon) OR city
+      if (!city && !(lat && lon)) {
         throw new AppError(
           "Location parameters are required (lat & lon or city)",
           400

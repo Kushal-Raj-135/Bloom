@@ -60,9 +60,7 @@ const config = {
       baseUrl: "https://api.weatherapi.com/v1",
     },
     groq: {
-      key:
-        process.env.GROQ_API_KEY ||
-        "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",
+      key: process.env.GROQ_API_KEY,
       baseUrl: "https://api.groq.com/openai/v1/chat/completions",
     },
     aqi: {

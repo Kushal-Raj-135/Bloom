@@ -1,8 +1,5 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-
-dotenv.config();
-
+import config from "../config/index.js";
 class Database {
   constructor() {
     this.connection = null;
@@ -21,10 +18,7 @@ class Database {
         family: 4,
       };
 
-      this.connection = await mongoose.connect(
-        process.env.MONGODB_URI,
-        options
-      );
+      this.connection = await mongoose.connect(config.database.uri, options);
 
       console.log("✅ Connected to MongoDB successfully");
 
@@ -43,7 +37,7 @@ class Database {
       return this.connection;
     } catch (error) {
       console.error("❌ MongoDB connection failed:", error);
-      process.exit(1);
+      throw error; // let the caller decide next steps
     }
   }
 

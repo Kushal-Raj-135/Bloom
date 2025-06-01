@@ -61,7 +61,8 @@ export const getWasteRecommendations = async (req, res, next) => {
  */
 export const getMockRecommendations = async (req, res, next) => {
   try {
-    const { cropType } = req.params;
+    let { cropType } = req.params;
+    if (!cropType) cropType = "wheat"; // default
 
     // Mock data for different crops
     const mockRecommendations = {

@@ -331,7 +331,7 @@ searchHistorySchema.methods.markClicked = function (resultId = null) {
   this.interaction.clicked = true;
 
   if (resultId) {
-    const result = this.results.items.id(resultId);
+    const result = this.results.items.find((item) => item.id === resultId);
     if (result) {
       result.clicked = true;
       result.clickedAt = new Date();

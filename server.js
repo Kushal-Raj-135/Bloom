@@ -114,18 +114,17 @@ app.use("*", errorHandlers.notFound);
 app.use(errorHandlers.globalErrorHandler);
 
 // Start server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   logger.info(`🌱 BioBloom server running on port ${PORT}`);
   logger.info(`🌍 Environment: ${config.server.env}`);
   logger.info(`📍 Server URL: http://localhost:${PORT}`);
 });
 
-// Graceful shutdown
-process.on("SIGTERM", () => {
+process.on("SIGTERM", async () => {
   logger.info("SIGTERM received, shutting down gracefully");
-  process.exit(0);
+  await connectDB.disconnect();
+  server.close(() => process.exit(0));
 });
-
 process.on("SIGINT", () => {
   logger.info("SIGINT received, shutting down gracefully");
   process.exit(0);

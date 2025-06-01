@@ -639,11 +639,11 @@ Return ONLY the JSON object, no other text.`;
 
     return normalized;
   }
-
-  /**
-   * Get local crop name mapping
-   */
   getLocalCropName(cropName) {
+    if (!cropName || typeof cropName !== "string") {
+      return cropName ?? "";
+    }
+
     const cropNameMap = {
       rice: "Rice (Dhan)",
       wheat: "Wheat (Gehun)",

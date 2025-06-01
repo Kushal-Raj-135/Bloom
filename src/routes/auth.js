@@ -17,7 +17,6 @@ import {
   validateImageUpload,
 } from "../middleware/validation.js";
 import errorHandlers from "../middleware/errorHandler.js";
-import multerConfig from "../config/multer.js";
 
 const router = express.Router();
 const { catchAsync } = errorHandlers;

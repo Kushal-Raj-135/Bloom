@@ -46,7 +46,7 @@ class WeatherService {
 
       return this.formatWeatherData(weatherData);
     } catch (error) {
-      console.error("Get current weather error:", error);
+      console.error("Get current weather error:", error.message);
       throw new AppError("Failed to fetch current weather data", 500);
     }
   }
@@ -372,6 +372,17 @@ class WeatherService {
   }
 
   calculateEvapotranspiration(temp, humidity, windSpeed) {
+    // Validate inputs
+    if (
+      temp < -50 ||
+      temp > 60 ||
+      humidity < 0 ||
+      humidity > 100 ||
+      windSpeed < 0
+    ) {
+      return 0; // Return default for invalid inputs
+    }
+
     // Simplified Penman equation
     const delta =
       (4098 * (0.6108 * Math.exp((17.27 * temp) / (temp + 237.3)))) /
@@ -384,7 +395,7 @@ class WeatherService {
         ((gamma * 900) / (temp + 273)) * u2 * (0.01 * (100 - humidity))) /
       (delta + gamma * (1 + 0.34 * u2));
 
-    return Math.max(0, et0);
+    return isNaN(et0) || !isFinite(et0) ? 0 : Math.max(0, et0);
   }
 
   calculateGrowingDegreeDays(temp, baseTemp = 10) {

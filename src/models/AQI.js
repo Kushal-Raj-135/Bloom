@@ -418,12 +418,20 @@ aqiSchema.methods.getAgriculturalImpact = function () {
       "Consider protective measures for sensitive crops"
     );
 
-    if (this.pollutants.so2 && this.pollutants.so2.value > 80) {
+    if (
+      this.pollutants &&
+      this.pollutants.so2 &&
+      this.pollutants.so2.value > 80
+    ) {
       impact.effects.push("Soil acidification risk");
       impact.recommendations.push("Monitor soil pH levels regularly");
     }
 
-    if (this.pollutants.o3 && this.pollutants.o3.value > 100) {
+    if (
+      this.pollutants &&
+      this.pollutants.o3 &&
+      this.pollutants.o3.value > 100
+    ) {
       impact.effects.push("Ozone damage to plant leaves");
       impact.recommendations.push(
         "Avoid working in fields during peak ozone hours (midday)"

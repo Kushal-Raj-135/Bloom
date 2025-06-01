@@ -339,9 +339,9 @@ cropSchema.statics.findBySeason = function (season, month = null) {
 cropSchema.statics.findRotationPartners = function (cropId) {
   return this.findById(cropId).then((crop) => {
     if (!crop) return [];
-    return this.find({
-      name: { $in: crop.nutrition.cropRotation.goodSuccessors },
-    });
+    const successors = crop?.nutrition?.cropRotation?.goodSuccessors || [];
+    if (successors.length === 0) return [];
+    return this.find({ name: { $in: successors } });
   });
 };
 
