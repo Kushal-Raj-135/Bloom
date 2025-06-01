@@ -1,0 +1,2256 @@
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:08:44'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:08:44'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:08:44'
+}
+{
+  message: 'GET /favicon.ico - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:10:53'
+}
+{
+  message: 'POST /recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:11:41'
+}
+{
+  message: 'GET /docs - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:12:08'
+}
+{
+  message: 'GET /graintrust/auth/index.html - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:13:38'
+}
+{
+  message: 'GET /language/language.js - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:13:42'
+}
+{
+  message: 'GET /graintrust/auth/index.html - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:14:33'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:16:47'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:17:18'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:17:18'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:17:18'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:18:35'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:18:35'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:18:35'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:01'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:01'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:01'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:29'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:29'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:29'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:56'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:56'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:21:56'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:22:27'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:22:27'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:22:27'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:23:09'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:23:09'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:23:09'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:23:31'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:23:31'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:23:31'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:24:03'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:24:03'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:24:03'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:24:36'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:24:36'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:24:36'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:25:18'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:25:18'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:25:18'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:26:05'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:26:05'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:26:06'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:27:59'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:27:59'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:27:59'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:28:53'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:28:53'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:28:53'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:30:01'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:30:01'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:30:01'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:31:19'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:31:19'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:31:19'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:32:12'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:32:12'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:32:12'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:34:47'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:34:47'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:34:47'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:36:36'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:36:36'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:36:36'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:38:07'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:38:07'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:38:07'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:38:42'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:38:42'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:38:42'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:39:34'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:39:34'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:39:34'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:40:21'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:40:21'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:40:21'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:40:56'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:40:56'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:40:56'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:41:52'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:41:52'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:41:52'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:46:11'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:46:11'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:46:11'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:47:02'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:47:02'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:47:02'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:49:17'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:49:17'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:49:17'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:50:08'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:50:08'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:50:09'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:52:42'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:52:42'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:52:42'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:53:06'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:53:06'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 20:53:06'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:04:09'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:04:19'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:05:07'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:05:07'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:05:07'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:05:22'
+}
+{
+  message: 'POST /recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:05:32'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:06:27'
+}
+{
+  message: 'GET /recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:06:31'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:13:40'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:13:40'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:13:40'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:13:46'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:13:55'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:14:54'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:15:20'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:15:20'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:15:20'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:15:29'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:15:33'
+}
+{
+  message: 'GET /pages/plant.jpg - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:16:17'
+}
+{
+  message: 'GET /pages/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:16:17'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:16:37'
+}
+{
+  message: 'GET /pages/plant.jpg - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:17:01'
+}
+{
+  message: 'GET /pages/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:17:01'
+}
+{
+  message: 'GET /pages/plant.jpg - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:17:25'
+}
+{
+  message: 'GET /pages/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:17:25'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:17:34'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:18:09'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:18:17'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:18:17'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:18:17'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:18:24'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:19:51'
+}
+{
+  message: 'GET /components/language/language.js - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:20:00'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:20:15'
+}
+{
+  message: 'GET /components/graintrust/auth/index.html - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:21:38'
+}
+{
+  message: 'GET /components/language/language.js - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:22:14'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:22:28'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:22:28'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:22:28'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:22:37'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:22:46'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:22:59'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:27:38'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:27:38'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:27:38'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:28:38'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:28:38'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:28:38'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:28:58'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:28:58'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:28:58'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:30:40'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:30:40'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:30:40'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:31:44'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:31:44'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:31:44'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:34:36'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:34:36'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:34:36'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:35:05'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:35:05'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:35:05'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:38:03'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:38:03'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:38:03'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:38:10'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:38:28'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:38:39'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:42:04'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:42:14'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:42:19'
+}
+{
+  message: 'GET /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:44:30'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:47:15'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:48:51'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:49:09'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:49:09'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:49:09'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:49:45'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:49:45'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:49:45'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:50:39'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:50:39'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:50:39'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:51:14'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:52:53'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:52:53'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:52:53'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:53:11'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:54:48'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:54:48'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:54:48'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:54:59'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:55:44'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:55:44'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:55:44'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:56:19'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:56:19'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:56:19'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:56:30'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:57:02'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:57:02'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:57:02'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:57:23'
+}
+{
+  message: 'GET /components/language/language.js - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:57:35'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:57:49'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:58:54'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:58:54'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 21:58:54'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:01:53'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:01:53'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:01:53'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:02:22'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:02:22'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:02:22'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:03:09'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:03:09'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:03:09'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:03:52'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:03:52'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:03:52'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:04:16'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:04:16'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:04:16'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:04:36'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:04:36'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:04:36'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:05:00'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:05:00'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:05:00'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:06:19'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:06:19'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:06:19'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:06:42'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:06:42'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:06:42'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:07:02'
+}
+{
+  message: 'GET /components/language/language.js - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:07:03'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:10:22'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:10:22'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:10:22'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:10:37'
+}
+{
+  message: 'GET /components/language/language.js - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:10:37'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:20:06'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:20:35'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:20:35'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:20:35'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:20:54'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:20:54'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:20:54'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:21:12'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:22:17'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:22:17'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:22:17'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:22:42'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:22:42'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:22:42'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:24:16'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:24:16'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 22:24:16'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:32:10'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:32:10'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:32:10'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:32:17'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:32:17'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:32:17'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:42:43'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:44:13'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:44:48'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:44:49'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:44:49'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:45:37'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:45:37'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:45:37'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:46:12'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:46:12'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:46:12'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:46:18'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:46:18'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:46:18'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:47:36'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:47:36'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:47:36'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:47:50'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:47:51'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:49:53'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:49:53'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:49:53'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:50:39'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:50:39'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:50:39'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:51:05'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:51:05'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:51:05'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:51:45'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:51:45'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:51:45'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:52:19'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:52:19'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:52:19'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:54:00'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:54:00'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:54:00'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:54:15'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:54:16'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:54:54'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:54:54'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:54:54'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:55:05'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:55:05'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:55:33'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:55:33'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:55:33'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:56:11'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:56:11'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:56:11'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:56:40'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:56:40'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:56:40'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:58:33'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:58:33'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:58:33'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:59:02'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:59:02'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:59:02'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:59:25'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:59:25'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-01 23:59:25'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:00:12'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:00:12'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:00:12'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:03:43'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:03:43'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:03:43'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:03:58'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:04:49'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:04:49'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:04:49'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:04:52'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:04:52'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:05:57'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:05:57'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:07:00'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:07:00'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:07:51'
+}
+{
+  message: 'GET /components/logo.png - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:07:51'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:09:59'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:16:50'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:17:19'
+}
+{
+  message: 'GET /api/waste/mock/wheat - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:17:22'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:18:26'
+}
+{
+  message: 'GET /api/waste/mock/wheat - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:18:29'
+}
+{
+  message: '🌱 BioBloom server running on port 4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:23:38'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:23:39'
+}
+{
+  message: '📍 Server URL: http://localhost:4000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:23:39'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:25:01'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:25:01'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:25:01'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:25:13'
+}
+{
+  message: 'GET /api/waste/mock/wheat - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:25:15'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:25:15'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:26:00'
+}
+{
+  message: 'GET /favicon.ico - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:26:01'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:26:35'
+}
+{
+  message: 'GET /api/waste/mock/wheat - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:26:39'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:28:31'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:28:57'
+}
+{
+  message: 'GET /api/waste/mock/wheat - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:28:59'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:32:08'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:32:34'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-02 00:40:38'
+}
