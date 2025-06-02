@@ -107,6 +107,60 @@ biobloom/
    - Real-time data updates
    - Historical data analysis
 
+## 🚀 Getting Started with Dockerization
+
+This project is fully Dockerized for seamless setup and consistent deployment. Follow the steps below to run the application using Docker.
+
+---
+
+### 🐳 Prerequisites
+
+Make sure the following are installed on your system:
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- Git
+
+---
+
+### ▶️ Run the Application
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/<your-username>/Bloom.git
+   cd Bloom
+
+2. **Build and Start Docker Containers**
+   ```bash
+   docker-compose up --build
+
+This will:
+
+- Build the Docker image for the Node.js application using the Dockerfile
+
+- Start the Node.js app and MongoDB services using docker-compose.yml
+
+- Apply environment variables from your .env file (if configured)
+
+- Mount persistent storage for MongoDB (as configured)
+
+- Ensure consistent container-based environment across development and production
+
+3. **Access the Application**
+
+Open your browser and go to: http://localhost:3000
+
+Replace the port if configured differently in docker-compose.yml
+
+4. **Stop the Application**
+To stop the application and remove containers:
+   ```bash
+    docker-compose down
+To also remove volumes and networks:
+
+    docker-compose down -v
+  
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
