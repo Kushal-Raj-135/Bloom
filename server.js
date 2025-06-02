@@ -1,16 +1,25 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const cors = require('cors');
-const path = require('path');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const session = require('express-session');
-const { MongoClient } = require('mongodb');
-const authRoutes = require('./routes/auth');
-const crypto = require('crypto');
-require('dotenv').config();
+import express from 'express';
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import cors from 'cors';
+import path from 'path';
+import passport from 'passport';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import session from 'express-session';
+import { MongoClient } from 'mongodb';
+import crypto from 'crypto';
+
+// Import routes
+import authRoutes from './routes/auth.js'; 
+import dotenv from 'dotenv';
+dotenv.config();
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -102,6 +111,145 @@ passport.deserializeUser(async (id, done) => {
         done(error, null);
     }
 });
+
+// CropShift Content Fetching
+import fetch from 'node-fetch';
+const cropNameMap = {
+    'rice': 'Rice (Dhan)',
+    'wheat': 'Wheat (Gehun)',
+    'sugarcane': 'Sugarcane (Ganna)',
+    'pulses': 'Pulses (Dal)',
+    'cotton': 'Cotton (Kapas)',
+    'groundnut': 'Groundnut (Moongfali)',
+    'maize': 'Maize (Makka)',
+    'sorghum': 'Sorghum (Jowar)',
+    'pearl-millet': 'Pearl Millet (Bajra)',
+    'chickpea': 'Chickpea (Chana)',
+    'mustard': 'Mustard (Sarson)',
+    'moong': 'Green Gram (Moong)',
+    'soybean': 'Soybean (Soya)',
+    'potato': 'Potato (Aloo)',
+    'corn': 'Corn (Makka)',
+    'alfalfa': 'Alfalfa (Rijka)',
+    'legumes': 'Legumes (Faliyan)',
+    'jowar': 'Jowar (Sorghum)',
+    'cowpea': 'Cowpea (Lobia/Chawli)',
+    'mung bean': 'Mung Bean (Moong)',
+    'pigeonpea': 'Pigeonpea (Arhar/Tur Dal)',
+    'arhar': 'Pigeonpea (Arhar/Tur Dal)',
+    'tur': 'Pigeonpea (Arhar/Tur Dal)',
+    'lobia': 'Cowpea (Lobia/Chawli)',
+    'chawli': 'Cowpea (Lobia/Chawli)',
+    'tur dal': 'Pigeonpea (Arhar/Tur Dal)'
+};
+
+
+function getLocalCropName(cropName) {
+    return cropNameMap[cropName.toLowerCase()] || cropName;
+}
+
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+
+async function getGroqRecommendations(cropInfo) {
+    const prompt= `As an agricultural expert in India, provide a detailed 3-year crop rotation plan for the following farm, using local crop names that farmers will understand. IMPORTANT: Do NOT recommend the same crop as the current crop in the rotation plan. Each year should have a different crop to maintain soil health and prevent pest cycles.
+
+        Current Farm Details:
+        - Current Crop: ${getLocalCropName(cropInfo.previousCrop)}
+        - Soil Type: ${cropInfo.soilType}
+        - Region/Climate: ${cropInfo.region}
+        - Farm Size: ${cropInfo.farmSize} acres
+
+        Rules for recommendations:
+        1. NEVER recommend the current crop (${getLocalCropName(cropInfo.previousCrop)}) in the rotation plan
+        2. Each year must have a different crop
+        3. Consider crop families that complement each other
+        4. Focus on crops that improve soil health after the current crop
+        5. Consider local market demand and climate suitability
+
+        Please provide recommendations using common local names for crops (e.g., use "Arhar/Tur Dal" instead of just "Pigeonpea", "Lobia/Chawli" instead of just "Cowpea") in the following format:
+
+        3-YEAR ROTATION PLAN:
+
+        Year 1:
+        [Recommended crop with local name - MUST be different from current crop]
+        - Benefits: [List specific benefits of this crop]
+        - Reasoning: [Explain why this crop is recommended after the current crop]
+        - Soil Impact: [How this crop affects soil health]
+        - Management Tips: [Key cultivation practices]
+
+        Year 2:
+        [Recommended crop with local name - MUST be different from Year 1 crop]
+        - Benefits: [List specific benefits of this crop]
+        - Reasoning: [Explain why this crop follows Year 1's crop]
+        - Soil Impact: [How this crop affects soil health]
+        - Management Tips: [Key cultivation practices]
+
+        Year 3:
+        [Recommended crop with local name - MUST be different from Years 1 and 2 crops]
+        - Benefits: [List specific benefits of this crop]
+        - Reasoning: [Explain why this crop completes the rotation]
+        - Soil Impact: [How this crop affects soil health]
+        - Management Tips: [Key cultivation practices]
+
+        ORGANIC FERTILIZER RECOMMENDATIONS:
+        [List specific organic fertilizers for each crop in the rotation]
+        [Include application timing and rates]
+        [Traditional and modern organic alternatives]
+
+        Additional Recommendations:
+        1. Organic Fertilizer Strategy: [Specific recommendations]
+        2. Soil Health Management: [Detailed practices]
+        3. Climate-Specific Considerations: [Based on the region]
+        4. Expected Outcomes: [Benefits of this rotation cycle];
+        `
+    try {
+    const response = await fetch(GROQ_API_URL, {
+         method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${GROQ_API_KEY}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            model: "llama-3.3-70b-versatile",
+            messages: [
+                {
+                    role: "system",
+                    content: "You are an expert agricultural advisor specializing in crop rotation..."
+                },
+                {
+                    role: "user",
+                    content: prompt
+                }
+            ],
+            temperature: 0.7,
+            max_tokens: 2000
+        })
+    });const responseText = await response.text();
+    if (!response.ok) {
+        throw new Error(`Failed to get AI recommendations: ${response.status} ${responseText}`);
+    }
+    const data = JSON.parse(responseText);
+    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+        throw new Error('Invalid response format from Groq AI');
+    }
+    return data.choices[0].message.content;
+}catch(error){
+     console.error('Error getting AI recommendations:', error);
+    throw error;
+}}
+
+app.post('/recommendations', async (req, res) => {
+const cropInfo = req.body;
+console.log("crop "+ cropInfo);
+try {
+    const recommendations = await getGroqRecommendations(cropInfo);
+    console.log("rec: "+recommendations);
+    res.json({ "recommendation": recommendations });
+} catch (error) {
+     console.error('Error in /recommendations:', error);
+    res.status(500).json({ error: 'Unable to get AI recommendations at the moment.' });
+}});
 
 // Routes
 app.get('/', (req, res) => {

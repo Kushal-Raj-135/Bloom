@@ -95,13 +95,34 @@ function handleLogout() {
 // Show toast notification
 function showToast(message, type = 'success') {
     const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
     toast.textContent = message;
+    
+    toast.style.position = 'fixed';
+    toast.style.top = '20px';
+    toast.style.right = '20px';
+    toast.style.padding = '12px 24px';
+    toast.style.borderRadius = '4px';
+    toast.style.color = 'white';
+    toast.style.fontSize = '14px';
+    toast.style.maxWidth = '300px';
+    toast.style.zIndex = '9999';
+    toast.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    
+    if (type === 'success') {
+        toast.style.backgroundColor = '#28a745';
+    } else if (type === 'error') {
+        toast.style.backgroundColor = '#dc3545';
+    } else if (type === 'info') {
+        toast.style.backgroundColor = '#17a2b8';
+    }
+    
+    // Add to document
     document.body.appendChild(toast);
     
-    // Auto remove after 3 seconds
     setTimeout(() => {
-        toast.remove();
+        if (toast.parentNode) {
+            document.body.removeChild(toast);
+        }
     }, 3000);
 }
 

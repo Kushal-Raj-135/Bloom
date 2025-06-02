@@ -65,6 +65,10 @@ npm install
 PORT=your_port
 MONGODB_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
+SESSION_SECRET=some_secret_value
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GROQ_API_KEY=your_groq_api_key
 ```
 
 4. Start the server

@@ -376,7 +376,7 @@ input[type="text"]:valid:not(:placeholder-shown) {
 /* Recommendations Styles */
 .recommendations-container {
     padding: 2rem;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
