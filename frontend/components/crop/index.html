@@ -104,18 +104,23 @@
                 <button id="toggle-fullscreen" title="Toggle Fullscreen">
                   <i class="fas fa-expand"></i>
                 </button>
-              </div>
-              <div id="farm-map"></div>
+              </div>              <div id="farm-map"></div>
               <div class="map-legend">
                 <!-- Legend items for different field types -->
+              </div>
+              <div class="weather-info-container">
+                <h3>Local Weather</h3>
+                <div id="weather-info">
+                  <p>Click "Current Location" to view weather data</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </main>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    </main>    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="../../js/api.js"></script>
     <script src="data.js"></script>
     <script src="agent.js"></script>
     <script src="aqi-monitor.js"></script>

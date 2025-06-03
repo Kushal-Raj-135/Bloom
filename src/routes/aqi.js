@@ -6,13 +6,11 @@ import { aqiValidation } from "../middleware/validation.js";
 
 const router = express.Router();
 
-// Apply authentication middleware to all AQI routes
-router.use(verifyToken);
-
+// Set up routes that don't require auth first
 /**
  * @route   GET /api/aqi/current
  * @desc    Get current AQI data
- * @access  Private
+ * @access  Public
  * @params  lat, lon OR city (query parameters)
  */
 router.get(
@@ -20,6 +18,9 @@ router.get(
   validateRequest(aqiValidation.locationParams, "query"),
   aqiController.getCurrentAQI,
 );
+
+// Apply authentication middleware to remaining AQI routes
+router.use(verifyToken);
 
 /**
  * @route   GET /api/aqi/forecast

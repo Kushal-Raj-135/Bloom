@@ -36,12 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
 // Load weather data - wrapper function
 async function loadWeatherData() {
   try {
+    // Check if API is available
+    if (!window.api || !window.api.getWeatherForecast) {
+      console.error("API not loaded or getWeatherForecast function not available");
+      showToast("Weather service unavailable. Please try again later.", "error");
+      return;
+    }
+    
     showToast("Loading weather data...", "success");
     await fetchWeatherData();
     showToast("Weather data loaded successfully!", "success");
   } catch (error) {
     console.error("Error loading weather data:", error);
-    showToast("Failed to load weather data", "error");
+    showToast("Failed to load weather data: " + (error.message || "Unknown error"), "error");
   }
 }
 
@@ -724,9 +731,8 @@ function initializeMap() {
   }
 }
 
-// Weather API Configuration
-const WEATHER_API_KEY = "731ee3473e67416aba412740250404";
-const WEATHER_API_URL = "https://api.weatherapi.com/v1/forecast.json";
+// Weather API Configuration - using our backend API instead of direct API calls
+// No need for API keys in frontend code
 
 // Function to get weather icon based on weather code
 function getWeatherIcon(condition) {
@@ -797,24 +803,24 @@ function formatDate(dateString) {
 async function fetchWeatherData() {
   try {
     // For demo purposes, using Bangalore coordinates
-    const q = "Bangalore";
-
-    const response = await fetch(
-      `${WEATHER_API_URL}?key=${WEATHER_API_KEY}&q=${q}&days=5&aqi=yes&alerts=yes`,
-    );
-    const data = await response.json();
+    const location = "Bangalore";
+    
+    // Use the API function from frontend/js/api.js which calls our backend
+    const response = await window.api.getWeatherForecast(location, 5);
+    const data = response.data;
+    console.log("Weather data fetched:", data);
 
     // Update the weather forecast display
     const forecastContainer = document.querySelector(".weather-forecast");
     if (forecastContainer) {
-      forecastContainer.innerHTML = data.forecast.forecastday
+      forecastContainer.innerHTML = data.forecast
         .map((day) => {
           const { date, day: dayName } = formatDate(day.date);
-          const condition = day.day.condition.text;
+          const condition = day.condition;
           const weatherIcon = getWeatherIcon(condition);
-          const temp = Math.round(day.day.avgtemp_c);
-          const maxTemp = Math.round(day.day.maxtemp_c);
-          const minTemp = Math.round(day.day.mintemp_c);
+          const temp = Math.round(day.avgTemp);
+          const maxTemp = Math.round(day.maxTemp);
+          const minTemp = Math.round(day.minTemp);
 
           return `
                   <div class="forecast-day">
@@ -835,17 +841,16 @@ async function fetchWeatherData() {
               `;
         })
         .join("");
-    }
-
-    // Update current weather
+    }    // Update current weather
     const currentWeather = data.current;
-    const currentCondition = currentWeather.condition.text;
+    const currentCondition = currentWeather.description;
     const currentIcon = getWeatherIcon(currentCondition);
-    const currentTemp = Math.round(currentWeather.temp_c);
-    const feelsLike = Math.round(currentWeather.feelslike_c);
+    const currentTemp = Math.round(currentWeather.temperature);
+    const feelsLike = Math.round(currentWeather.feelsLike);
     const humidity = currentWeather.humidity;
-    const windSpeed = currentWeather.wind_kph;
-    const aqi = data.current.air_quality["us-epa-index"];
+    const windSpeed = currentWeather.windSpeed;
+    // Since we don't have AQI in our current backend response, default to moderate
+    const aqi = 2; // Default to moderate
 
     const currentWeatherHTML = `
               <div class="current-weather">
@@ -865,8 +870,7 @@ async function fetchWeatherData() {
     const weatherData = document.getElementById("weather-data");
     if (weatherData) {
       weatherData.insertAdjacentHTML("afterbegin", currentWeatherHTML);
-    }
-  } catch (error) {
+    }  } catch (error) {
     console.error("Error fetching weather data:", error);
     // Show error message in the weather card
     const weatherData = document.getElementById("weather-data");
@@ -875,9 +879,13 @@ async function fetchWeatherData() {
               <div class="weather-error">
                   <i class="fas fa-exclamation-circle"></i>
                   <p>Unable to fetch weather data. Please try again later.</p>
+                  <p class="error-details">${error.message || 'Network error'}</p>
               </div>
           `;
     }
+    
+    // Also show a toast for better visibility
+    showToast("Failed to load weather data: " + (error.message || "Network error"), "error");
   }
 }
 

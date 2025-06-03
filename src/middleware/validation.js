@@ -170,6 +170,7 @@ export const weatherValidation = {
     lat: Joi.number().min(-90).max(90),
     lon: Joi.number().min(-180).max(180),
     city: Joi.string().min(1).max(100),
+    days: Joi.number().integer().min(1).max(14).default(5),
   })
     .or("lat", "city")
     .with("lat", "lon"),

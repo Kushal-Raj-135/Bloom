@@ -12,8 +12,6 @@ const languageOptions = {
   bn: "বাংলা",
 };
 
-// Current selected language
-let currentLanguage = localStorage.getItem("selectedLanguage") || "en";
 
 // Translation cache
 const translationCache = {};

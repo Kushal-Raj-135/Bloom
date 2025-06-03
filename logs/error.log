@@ -1,0 +1,91 @@
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:167:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:36:18'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:37:25'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:37:55'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:38:28'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:39:08'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:43:08'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:43:33'
+}

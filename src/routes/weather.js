@@ -6,13 +6,22 @@ import { weatherValidation } from "../middleware/validation.js";
 
 const router = express.Router();
 
-// Apply authentication middleware to all weather routes
-router.use(verifyToken);
+/**
+ * @route   GET /api/weather/location
+ * @desc    Get location name from coordinates
+ * @access  Public
+ * @params  lat, lon (query parameters)
+ */
+router.get(
+  "/location",
+  validateRequest(weatherValidation.coordinatesParams, "query"),
+  weatherController.getLocation,
+);
 
 /**
  * @route   GET /api/weather/current
  * @desc    Get current weather data
- * @access  Private
+ * @access  Public
  * @params  lat, lon OR city (query parameters)
  */
 router.get(
@@ -27,6 +36,7 @@ router.get(
  * @access  Private
  * @params  lat, lon OR city (query parameters)
  */
+// router.use(verifyToken); // Apply authentication middleware to all routes below
 router.get(
   "/forecast",
   validateRequest(weatherValidation.locationParams, "query"),

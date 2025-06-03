@@ -15,6 +15,65 @@ class WeatherService {
   }
 
   /**
+   * Get weather data by coordinates
+   */
+  async getWeatherByCoordinates(lat, lon) {
+    try {
+      // Just use the existing method
+      return await this.getCurrentWeather(lat, lon);
+    } catch (error) {
+      console.error("Get weather by coordinates error:", error.message);
+      throw new AppError("Failed to fetch weather data by coordinates", 500);
+    }
+  }
+
+  /**
+   * Get weather data by city
+   */
+  async getWeatherByCity(city) {
+    try {
+      // Fetch from external API
+      const url = `${this.baseUrl}/current.json?key=${this.apiKey}&q=${encodeURIComponent(
+        city,
+      )}&aqi=no`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Weather API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Format the weather data
+      const weatherData = {
+        location: {
+          city: data.location.name,
+          coordinates: [data.location.lon, data.location.lat],
+          country: data.location.country,
+          region: data.location.region,
+        },
+        current: {
+          temperature: data.current.temp_c,
+          feelsLike: data.current.feelslike_c,
+          humidity: data.current.humidity,
+          pressure: data.current.pressure_mb,
+          windSpeed: data.current.wind_kph,
+          windDirection: data.current.wind_degree,
+          visibility: data.current.vis_km,
+          description: data.current.condition.text,
+          icon: data.current.condition.icon,
+        },
+        timestamp: new Date(),
+      };
+
+      return weatherData;
+    } catch (error) {
+      console.error("Get weather by city error:", error.message);
+      throw new AppError("Failed to fetch weather data by city", 500);
+    }
+  }
+
+  /**
    * Get current weather data
    */
   async getCurrentWeather(lat, lon, city = null) {
@@ -82,6 +141,94 @@ class WeatherService {
       console.error("Get weather forecast error:", error);
       throw new AppError("Failed to fetch weather forecast", 500);
     }
+  }
+
+  /**
+   * Get weather forecast by city
+   */
+  async getForecastByCity(city, days = 5) {
+    try {
+      // Fetch from external API
+      const url = `${this.baseUrl}/forecast.json?key=${this.apiKey}&q=${encodeURIComponent(
+        city,
+      )}&days=${days}&aqi=yes&alerts=yes`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Weather API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Format the forecast data
+      return this.formatAPiForecastData(data);
+    } catch (error) {
+      console.error("Get forecast by city error:", error.message);
+      throw new AppError("Failed to fetch forecast data by city", 500);
+    }
+  }
+
+  /**
+   * Get weather forecast by coordinates
+   */
+  async getForecastByCoordinates(lat, lon, days = 5) {
+    try {
+      // Fetch from external API
+      const url = `${this.baseUrl}/forecast.json?key=${this.apiKey}&q=${lat},${lon}&days=${days}&aqi=yes&alerts=yes`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Weather API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Format the forecast data
+      return this.formatAPiForecastData(data);
+    } catch (error) {
+      console.error("Get forecast by coordinates error:", error.message);
+      throw new AppError("Failed to fetch forecast data by coordinates", 500);
+    }
+  }
+
+  /**
+   * Format API forecast data
+   */
+  formatAPiForecastData(data) {
+    return {
+      location: {
+        city: data.location.name,
+        coordinates: [data.location.lon, data.location.lat],
+        country: data.location.country,
+        region: data.location.region,
+      },
+      current: {
+        temperature: data.current.temp_c,
+        feelsLike: data.current.feelslike_c,
+        humidity: data.current.humidity,
+        pressure: data.current.pressure_mb,
+        windSpeed: data.current.wind_kph,
+        windDirection: data.current.wind_degree,
+        visibility: data.current.vis_km,
+        description: data.current.condition.text,
+        icon: data.current.condition.icon,
+      },
+      forecast: data.forecast.forecastday.map((day) => {
+        return ({
+        date: day.date,
+        maxTemp: day.day.maxtemp_c,
+        minTemp: day.day.mintemp_c,
+        avgTemp: day.day.avgtemp_c,
+        condition: day.day.condition.text,
+        icon: day.day.condition.icon,
+        chanceOfRain: day.day.daily_chance_of_rain,
+        humidity: day.day.avghumidity,
+        windSpeed: day.day.maxwind_kph,
+        sunrise: day.astro.sunrise,
+        sunset: day.astro.sunset,
+      })}),
+      timestamp: new Date(),
+    };
   }
 
   /**
@@ -410,6 +557,39 @@ class WeatherService {
     if (thi < 79) return "mild";
     if (thi < 89) return "moderate";
     return "severe";
+  }
+
+  /**
+   * Get location name from coordinates
+   */
+  async getLocationName(lat, lon) {
+    try {
+      const url = `https://api.weatherapi.com/v1/search.json?key=${this.apiKey}&q=${lat},${lon}`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Weather API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      if (data && data.length > 0) {
+        return {
+          name: data[0].name,
+          region: data[0].region,
+          country: data[0].country
+        };
+      } else {
+        return {
+          name: "Unknown Location",
+          region: "",
+          country: ""
+        };
+      }
+    } catch (error) {
+      console.error("Get location name error:", error.message);
+      throw new AppError("Failed to get location name", 500);
+    }
   }
 }
 

@@ -56,7 +56,7 @@ const config = {
   // External APIs
   apis: {
     weather: {
-      key: process.env.WEATHER_API_KEY || "731ee3473e67416aba412740250404",
+      key: process.env.WEATHER_API_KEY || "demo",
       baseUrl: "https://api.weatherapi.com/v1",
     },
     groq: {

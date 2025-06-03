@@ -110,13 +110,12 @@ function displayRecommendations(recommendations) {
 
 // Defensive check for Leaflet
 if (typeof L !== "undefined") {
-  let map = L.map("map").setView([0, 0], 2);
+  let map = L.map("farm-map").setView([0, 0], 2);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "© OpenStreetMap contributors",
   }).addTo(map);
-
   document
-    .getElementById("get-current-location")
+    .getElementById("current-location")
     .addEventListener("click", () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -137,19 +136,25 @@ if (typeof L !== "undefined") {
       } else {
         alert("Geolocation is not supported by your browser.");
       }
-    });
-
-  async function fetchWeatherByCoords(lat, lon) {
-    const apiKey = "f25d3ac49c4968e364e44af7592b45c9";
-    const url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    });  async function fetchWeatherByCoords(lat, lon) {
     try {
-      const response = await fetch(url);
-      const data = await response.json();
+      // Check if API is available
+      if (!window.api || !window.api.getWeatherByCoords) {
+        console.error("API not loaded or getWeatherByCoords function not available");
+        alert("Weather service unavailable. Please try again later.");
+        return;
+      }
+      
+      // Use the API function from frontend/js/api.js which calls our backend
+      const response = await window.api.getWeatherByCoords(lat, lon);
+      
+      // Handle the response data from our backend format
+      const data = response.data;
       const weatherInfo = document.getElementById("weather-info");
       weatherInfo.innerHTML = `
-                <p>Temperature: ${data.main.temp}°C</p>
-                <p>Weather: ${data.weather[0].description}</p>
-                <p>Humidity: ${data.main.humidity}%</p>
+                <p>Temperature: ${data.current.temperature}°C</p>
+                <p>Weather: ${data.current.description}</p>
+                <p>Humidity: ${data.current.humidity}%</p>
             `;
     } catch (error) {
       console.error("Error fetching weather data:", error);

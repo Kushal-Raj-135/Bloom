@@ -1,5 +1,5 @@
 // Translation system
-let currentLanguage = "en";
+let currentLanguage = localStorage.getItem("selectedLanguage") || "en";
 
 // Translations object
 const translations = {

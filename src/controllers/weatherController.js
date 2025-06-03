@@ -40,11 +40,10 @@ class WeatherController {
       next(error);
     }
   };
-
-  // Get weather forecast (5-day)
+  // Get weather forecast 
   getWeatherForecast = async (req, res, next) => {
     try {
-      const { lat, lon, city } = req.query;
+      const { lat, lon, city, days = 5 } = req.query;
 
       if (!lat && !lon && !city) {
         throw new AppError(
@@ -55,11 +54,12 @@ class WeatherController {
 
       let forecastData;
       if (city) {
-        forecastData = await this.weatherService.getForecastByCity(city);
+        forecastData = await this.weatherService.getForecastByCity(city, parseInt(days));
       } else {
         forecastData = await this.weatherService.getForecastByCoordinates(
           lat,
           lon,
+          parseInt(days)
         );
       }
 
@@ -192,6 +192,32 @@ class WeatherController {
       });
     } catch (error) {
       logger.error("Error fetching weather alerts:", error);
+      next(error);
+    }
+  };
+
+  // Get location name from coordinates
+  getLocation = async (req, res, next) => {
+    try {
+      const { lat, lon } = req.query;
+
+      if (!lat || !lon) {
+        throw new AppError(
+          "Latitude and longitude parameters are required",
+          400
+        );
+      }
+
+      const locationData = await this.weatherService.getLocationName(lat, lon);
+
+      logger.info(`Location data fetched for ${lat},${lon}`);
+
+      res.status(200).json({
+        success: true,
+        data: locationData,
+      });
+    } catch (error) {
+      logger.error("Error fetching location data:", error);
       next(error);
     }
   };

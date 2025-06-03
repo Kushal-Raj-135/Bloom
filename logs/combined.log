@@ -4540,3 +4540,562 @@
   service: 'biobloom-api',
   timestamp: '2025-06-02 04:04:15'
 }
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:22:11'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:22:11'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:22:11'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:22:32'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:22:36'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:22:36'
+}
+{
+  message: 'GET /api/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:22:39'
+}
+{
+  message: 'POST /api/crops/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:22:49'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:26:14'
+}
+{
+  message: 'GET /favicon.ico - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:26:56'
+}
+{
+  message: 'GET /favicon.ico - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:27:14'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:29:05'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:29:05'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:29:45'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:31:18'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:32:34'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:32:34'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:32:34'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:32:39'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:33:48'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:33:52'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:35:09'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:35:09'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:36:13'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:36:13'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:36:13'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:36:17'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:36:17'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:167:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:36:18'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:21'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:21'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:21'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:24'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:24'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:37:25'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:45'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:45'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:45'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:46'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:37:54'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:37:55'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:38:19'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:38:19'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:38:19'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:38:26'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:38:27'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:38:28'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:38:56'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:39:05'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:39:05'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:39:05'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:39:07'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:39:08'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:39:08'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:43:07'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:43:08'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:43:08'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:43:18'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:43:27'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:43:27'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:43:27'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:43:32'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:43:32'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching weather forecast: Failed to fetch forecast data by city',
+  stack: 'Error: Failed to fetch forecast data by city\n' +
+    '    at WeatherService.getForecastByCity (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:168:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
+  timestamp: '2025-06-03 22:43:33'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:47:31'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:47:31'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:47:31'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:47:39'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:47:39'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:47:39'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:12'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:12'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:12'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:22'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:22'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:22'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:31'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:31'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:31'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:32'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:33'
+}
+{
+  message: 'Weather forecast fetched for Bangalore',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:34'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:54'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:54'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-03 22:49:54'
+}
