@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioBloom - AgriReVive Solutions</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../language/language-styles.css">
-    <link rel="stylesheet" href="../footer-styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/language/language-styles.css">
+    <link rel="stylesheet" href="../assets/css/footer-styles.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="../nav-styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="../assets/css/nav-styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -24,63 +29,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script>
+        $(function () {
+            $("#includeHeader").load("../components/header.html");
+            $("#includeFooter").load("../components/footer.html")
+        });
+    </script>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="../logo.png" alt="BioBloom Logo" class="logoo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="../index.html" class="nav-link " data-translate="home">Home</a></li>
-                    <li><a href="../index.html#info-section" class="nav-link" data-translate="about">About</a></li>
-                    <li class="dropdown ">
-                        <a href="#" class="nav-link active" data-translate="products ">Products</a>
-                        <div class="dropdown-menu">
-                            <a href="../crop/crop-rotation.html" class="nav-link" data-translate="crop_rotation">CropShiftX</a>
-                            <a href="biofuel.html" class="nav-link" data-translate="agrirevive">AgriReVive</a>
-                            <a href="../agrisensex/agri.html" class="nav-link" data-translate="agrisensex">AgriSenseX</a>
-                            <a href="../graintrust/auth/index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a>
-                            <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="nav-link" data-translate="bio_guardian">BioGuardian</a>
-                        </div>
-                    </li>
-                    <li><a href="../index.html#contact" class="nav-link" data-translate="contact">Contact</a></li>
-                </ul>
-                
-                <div class="nav-right">
-                    <!-- Auth buttons for logged out users -->
-                    <div class="auth-buttons">
-                        <a href="../login.html" class="nav-link" data-translate="login">Login</a>
-                        <a href="../register.html" class="nav-link" data-translate="register">Register</a>
-                    </div>
-                    
-                    <!-- User menu for logged in users -->
-                    <div class="user-menu" style="display: none;">
-                        <div class="dropdown">
-                            <a href="#" class="user-dropdown-toggle nav-link">
-                                <i class="fas fa-user-circle"></i>
-                                <span class="user-name">User</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <div class="dropdown-menu user-dropdown-menu">
-                                <a href="../profile.html" class="nav-link" data-translate="profile">Profile</a>
-                                <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Language selector -->
-                    <div class="language-selector">
-                        <select id="languageDropdown" class="language-dropdown">
-                            <option value="en">English</option>
-                            <option value="hi">हिंदी</option>
-                            <option value="kn">ಕನ್ನಡ</option>
-                        </select>
-                    </div>
-                </div>
-            </nav>
-        </div>
+    <header id="includeHeader">
+
     </header>
 
     <main>
@@ -94,14 +53,8 @@
             <form id="wasteForm" class="waste-form">
                 <div class="form-group">
                     <label for="cropType">Crop Type:</label>
-                    <input 
-                        type="text" 
-                        id="cropType" 
-                        name="cropType"
-                        class="crop-type"
-                        placeholder="Enter crop type (e.g., wheat, rice, corn)"
-                        required
-                    >
+                    <input type="text" id="cropType" name="cropType" class="crop-type"
+                        placeholder="Enter crop type (e.g., wheat, rice, corn)" required>
                     <span class="input-helper">Please enter the type of crop you're managing</span>
                 </div>
 
@@ -113,7 +66,8 @@
                 <div class="form-group">
                     <label for="location">Location</label>
                     <div class="location-input-container">
-                        <input type="text" id="location" name="location" readonly placeholder="Click to select location" required>
+                        <input type="text" id="location" name="location" readonly placeholder="Click to select location"
+                            required>
                         <button type="button" id="openMapBtn" class="map-btn">
                             <i class="fas fa-map-marker-alt"></i>
                         </button>
@@ -152,7 +106,8 @@
                         </div>
                         <div class="recommendation-content">
                             <div class="description">
-                                <p>Convert agricultural waste into clean, renewable biofuel through advanced processing techniques.</p>
+                                <p>Convert agricultural waste into clean, renewable biofuel through advanced processing
+                                    techniques.</p>
                             </div>
                             <div class="processing-section">
                                 <h4>📋 Processing Steps</h4>
@@ -324,37 +279,10 @@
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="../logo.png" alt="BioBloom Logo" class="footer-logo-img">
-                </div>
-                
-                <div class="footer-links">
-                    <h4 data-translate="quick_links">Quick Links</h4>
-                    <ul>
-                        <li><a href="../index.html" data-translate="home">Home</a></li>
-                        <li><a href="../index.html#info-section" data-translate="about">About</a></li>
-                        <li><a href="../index.html#products" data-translate="products">Products</a></li>
-                        <li><a href="../index.html#contact" data-translate="contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact" id="contact">
-                    <h4 data-translate="contact_us">Contact Us</h4>
-                    <p data-translate="email_contact">Email: info@biobloom.com</p>
-                    <p data-translate="phone_contact">Phone: +91 1234567890</p>
-                    <p>Address: HSR Layout, Bengaluru</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 BioBloom. All rights reserved.</p>
-            </div>
-        </div>
+    <footer id="includeFooter">
+
     </footer>
-    
+
     <!-- Map Modal -->
     <div id="mapModal" class="map-modal">
         <div class="map-modal-content">
@@ -407,19 +335,26 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 
     <!-- Load dependencies first -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        crossorigin="anonymous"></script>
+
     <!-- Load core functionality -->
-    <script src="../language/translations.js"></script>
-    <script src="../app.js"></script>
-    <script src="../userMenu.js"></script>
-    <script src="../api.js"></script>
+    <script src="../assets/language/translations.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/userMenu.js"></script>
+    <!-- <script src="../assets/js/api.js"></script> -->
     <script src="script.js"></script>
 </body>
-</html> 
+
+</html>
