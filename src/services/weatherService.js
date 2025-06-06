@@ -34,7 +34,7 @@ class WeatherService {
     try {
       // Fetch from external API
       const url = `${this.baseUrl}/current.json?key=${this.apiKey}&q=${encodeURIComponent(
-        city,
+        city
       )}&aqi=no`;
       const response = await fetch(url);
 
@@ -93,6 +93,7 @@ class WeatherService {
       }
 
       const data = await response.json();
+      console.log(data);
 
       // Save to database
       const weatherData = await this.saveWeatherData(
@@ -100,7 +101,7 @@ class WeatherService {
         lat,
         lon,
         city,
-        "current",
+        "current"
       );
 
       return this.formatWeatherData(weatherData);
@@ -150,7 +151,7 @@ class WeatherService {
     try {
       // Fetch from external API
       const url = `${this.baseUrl}/forecast.json?key=${this.apiKey}&q=${encodeURIComponent(
-        city,
+        city
       )}&days=${days}&aqi=yes&alerts=yes`;
       const response = await fetch(url);
 
@@ -214,19 +215,20 @@ class WeatherService {
         icon: data.current.condition.icon,
       },
       forecast: data.forecast.forecastday.map((day) => {
-        return ({
-        date: day.date,
-        maxTemp: day.day.maxtemp_c,
-        minTemp: day.day.mintemp_c,
-        avgTemp: day.day.avgtemp_c,
-        condition: day.day.condition.text,
-        icon: day.day.condition.icon,
-        chanceOfRain: day.day.daily_chance_of_rain,
-        humidity: day.day.avghumidity,
-        windSpeed: day.day.maxwind_kph,
-        sunrise: day.astro.sunrise,
-        sunset: day.astro.sunset,
-      })}),
+        return {
+          date: day.date,
+          maxTemp: day.day.maxtemp_c,
+          minTemp: day.day.mintemp_c,
+          avgTemp: day.day.avgtemp_c,
+          condition: day.day.condition.text,
+          icon: day.day.condition.icon,
+          chanceOfRain: day.day.daily_chance_of_rain,
+          humidity: day.day.avghumidity,
+          windSpeed: day.day.maxwind_kph,
+          sunrise: day.astro.sunrise,
+          sunset: day.astro.sunset,
+        };
+      }),
       timestamp: new Date(),
     };
   }
@@ -245,13 +247,13 @@ class WeatherService {
         agricultural: {
           irrigationRecommendation: this.getIrrigationRecommendation(
             currentWeather,
-            forecast,
+            forecast
           ),
           pestRisk: this.assessPestRisk(currentWeather, forecast),
           plantingConditions: this.assessPlantingConditions(currentWeather),
           harvestConditions: this.assessHarvestConditions(
             currentWeather,
-            forecast,
+            forecast
           ),
           stressFactors: this.identifyStressFactors(currentWeather, forecast),
         },
@@ -261,7 +263,7 @@ class WeatherService {
         analysis.agricultural.cropSpecificAdvice = this.getCropSpecificAdvice(
           currentWeather,
           forecast,
-          cropName,
+          cropName
         );
       }
 
@@ -270,7 +272,7 @@ class WeatherService {
       console.error("Agricultural weather analysis error:", error);
       throw new AppError(
         "Failed to generate agricultural weather analysis",
-        500,
+        500
       );
     }
   }
@@ -329,12 +331,12 @@ class WeatherService {
           evapotranspiration: this.calculateEvapotranspiration(
             apiData.main.temp,
             apiData.main.humidity,
-            apiData.wind?.speed || 0,
+            apiData.wind?.speed || 0
           ),
           growingDegreeDays: this.calculateGrowingDegreeDays(apiData.main.temp),
           stressIndex: this.calculateStressIndex(
             apiData.main.temp,
-            apiData.main.humidity,
+            apiData.main.humidity
           ),
         },
         timestamp: new Date(),
@@ -572,18 +574,18 @@ class WeatherService {
       }
 
       const data = await response.json();
-      
+
       if (data && data.length > 0) {
         return {
           name: data[0].name,
           region: data[0].region,
-          country: data[0].country
+          country: data[0].country,
         };
       } else {
         return {
           name: "Unknown Location",
           region: "",
-          country: ""
+          country: "",
         };
       }
     } catch (error) {

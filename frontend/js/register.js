@@ -15,28 +15,28 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add validation event listeners
   if (nameInput) {
     nameInput.addEventListener("blur", () =>
-      validateField(nameInput, validateName, true),
+      validateField(nameInput, validateName, true)
     );
     nameInput.addEventListener("input", () =>
-      validateField(nameInput, validateName, true),
+      validateField(nameInput, validateName, true)
     );
   }
 
   if (emailInput) {
     emailInput.addEventListener("blur", () =>
-      validateField(emailInput, validateEmail, true),
+      validateField(emailInput, validateEmail, true)
     );
     emailInput.addEventListener("input", () =>
-      validateField(emailInput, validateEmail, true),
+      validateField(emailInput, validateEmail, true)
     );
   }
 
   if (passwordInput) {
     passwordInput.addEventListener("blur", () =>
-      validateField(passwordInput, validatePassword, true),
+      validateField(passwordInput, validatePassword, true)
     );
     passwordInput.addEventListener("input", () =>
-      validateField(passwordInput, validatePassword, true),
+      validateField(passwordInput, validatePassword, true)
     );
 
     // Also revalidate confirm password when the main password changes
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         validateField(
           confirmPasswordInput,
           (value) => validatePasswordMatch(passwordInput.value, value),
-          true,
+          true
         );
       }
     });
@@ -56,15 +56,15 @@ document.addEventListener("DOMContentLoaded", () => {
       validateField(
         confirmPasswordInput,
         (value) => validatePasswordMatch(passwordInput.value, value),
-        true,
-      ),
+        true
+      )
     );
     confirmPasswordInput.addEventListener("input", () =>
       validateField(
         confirmPasswordInput,
         (value) => validatePasswordMatch(passwordInput.value, value),
-        true,
-      ),
+        true
+      )
     );
   }
 
@@ -74,12 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
         showError(
           termsCheckbox,
           document.getElementById("terms-error") || termsCheckbox,
-          "You must agree to the Terms and Conditions",
+          "You must agree to the Terms and Conditions"
         );
       } else {
         clearError(
           termsCheckbox,
-          document.getElementById("terms-error") || termsCheckbox,
+          document.getElementById("terms-error") || termsCheckbox
         );
       }
     });
@@ -115,13 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add event listeners only if elements exist
   if (togglePassword && passwordInput) {
     togglePassword.addEventListener("click", () =>
-      togglePasswordVisibility(passwordInput, togglePassword),
+      togglePasswordVisibility(passwordInput, togglePassword)
     );
   }
 
   if (toggleConfirmPassword && confirmPasswordInput) {
     toggleConfirmPassword.addEventListener("click", () =>
-      togglePasswordVisibility(confirmPasswordInput, toggleConfirmPassword),
+      togglePasswordVisibility(confirmPasswordInput, toggleConfirmPassword)
     );
   }
 
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
           validateField(
             confirmPasswordInput,
             (value) => validatePasswordMatch(passwordInput.value, value),
-            true,
+            true
           ) && isValid;
       }
 
@@ -160,13 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
         showError(
           termsCheckbox,
           document.getElementById("terms-error") || termsCheckbox,
-          "You must agree to the Terms and Conditions",
+          "You must agree to the Terms and Conditions"
         );
         isValid = false;
       } else if (termsCheckbox) {
         clearError(
           termsCheckbox,
-          document.getElementById("terms-error") || termsCheckbox,
+          document.getElementById("terms-error") || termsCheckbox
         );
       }
 
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
         '<i class="fas fa-spinner fa-spin"></i> Registering...';
 
       try {
-        const response = await fetch("/api/auth/register", {
+        const response = await fetch("/api//auth/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -212,35 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.innerHTML = "Register";
       }
     });
-  }
-
-  // Handle Google registration
+  } // Handle Google registration
   if (googleRegisterBtn) {
     googleRegisterBtn.addEventListener("click", () => {
-      try {
-        const clientId =
-          "819077799545-ajlsrnaenlg5ajbjutm02mu77rejh7v8.apps.googleusercontent.com";
-        const redirectUri = "http://localhost:3000/api/auth/google/callback";
-        const scope = "email profile";
-
-        const authUrl =
-          `https://accounts.google.com/o/oauth2/v2/auth?` +
-          `client_id=${clientId}&` +
-          `redirect_uri=${encodeURIComponent(redirectUri)}&` +
-          `response_type=code&` +
-          `scope=${encodeURIComponent(scope)}&` +
-          `access_type=offline&` +
-          `prompt=consent`;
-
-        console.log("Redirecting to Google OAuth:", authUrl);
-        window.location.href = authUrl;
-      } catch (error) {
-        console.error("Error in Google registration:", error);
-        showToast(
-          "Error initiating Google registration. Please try again.",
-          "error",
-        );
-      }
+      // Simply redirect to backend OAuth initiation endpoint
+      // Backend will handle all OAuth logic and redirect to Google
+      window.location.href = "/api/auth/google";
     });
   }
 

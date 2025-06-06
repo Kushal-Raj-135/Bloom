@@ -27,7 +27,6 @@ class AuthController {
     this.googleCallback = this.googleCallback.bind(this);
     this.logout = this.logout.bind(this);
   }
-
   /**
    * Register a new user
    */
@@ -88,7 +87,7 @@ class AuthController {
       // Check if account is locked
       if (user.isLocked && user.lockUntil > Date.now()) {
         const lockTimeRemaining = Math.ceil(
-          (user.lockUntil - Date.now()) / 60000,
+          (user.lockUntil - Date.now()) / 60000
         );
         return res.status(423).json({
           success: false,
@@ -188,7 +187,7 @@ class AuthController {
       const user = await User.findByIdAndUpdate(
         req.userId,
         { $set: updates },
-        { new: true, runValidators: true },
+        { new: true, runValidators: true }
       );
 
       if (!user) {
@@ -232,7 +231,7 @@ class AuthController {
       const user = await User.findByIdAndUpdate(
         req.userId,
         { profilePicture: profilePictureUrl },
-        { new: true },
+        { new: true }
       );
 
       if (!user) {
@@ -287,7 +286,7 @@ class AuthController {
       // TODO: Send email with reset link
       // For now, log the reset URL
       const resetUrl = `${req.protocol}://${req.get(
-        "host",
+        "host"
       )}/reset-password/${resetToken}`;
       console.log("Password reset URL:", resetUrl);
 
@@ -359,7 +358,7 @@ class AuthController {
       } // Verify current password
       const isValidPassword = await bcrypt.compare(
         currentPassword,
-        user.password,
+        user.password
       );
       if (!isValidPassword) {
         return res.status(400).json({
@@ -383,7 +382,6 @@ class AuthController {
       });
     }
   }
-
   /**
    * Handle Google OAuth callback
    */
@@ -396,10 +394,10 @@ class AuthController {
       const token = this.generateToken(user._id);
 
       // Redirect to frontend with token
-      res.redirect(`${config.frontend.url}/?token=${token}`);
+      res.redirect(`${config.cors.origin}/?token=${token}`);
     } catch (error) {
       console.error("Google OAuth callback error:", error);
-      res.redirect(`${config.frontend.url}/login?error=oauth_failed`);
+      res.redirect(`${config.cors.origin}/login?error=oauth_failed`);
     }
   }
 

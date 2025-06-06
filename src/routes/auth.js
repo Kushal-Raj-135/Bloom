@@ -25,7 +25,7 @@ const { catchAsync } = errorHandlers;
 router.post(
   "/register",
   validate(registerSchema),
-  catchAsync(authController.register),
+  catchAsync(authController.register)
 );
 
 router.post("/login", validate(loginSchema), catchAsync(authController.login));
@@ -33,25 +33,25 @@ router.post("/login", validate(loginSchema), catchAsync(authController.login));
 router.post(
   "/forgot-password",
   validate(forgotPasswordSchema),
-  catchAsync(authController.forgotPassword),
+  catchAsync(authController.forgotPassword)
 );
 
 router.post(
   "/reset-password/:token",
   validate(resetPasswordSchema),
-  catchAsync(authController.resetPassword),
+  catchAsync(authController.resetPassword)
 );
 
 // Google OAuth routes
 router.get(
   "/google",
-  passport.authenticate("google", { scope: ["profile", "email"] }),
+  passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
 router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
-  catchAsync(authController.googleCallback),
+  catchAsync(authController.googleCallback)
 );
 
 // Protected routes (require authentication)
@@ -62,7 +62,7 @@ router.get("/me", catchAsync(authController.getProfile));
 router.put(
   "/profile",
   validate(updateProfileSchema),
-  catchAsync(authController.updateProfile),
+  catchAsync(authController.updateProfile)
 );
 
 router.put("/profile/picture", catchAsync(authController.updateProfilePicture));

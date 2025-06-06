@@ -109,28 +109,36 @@ const api = {
     const response = await fetch(`${API_BASE_URL}/aqi`);
     return handleResponse(response);
   },
-  
+
   // Get weather data by coordinates
   getWeatherByCoords: async (lat, lon) => {
-    const response = await fetch(`${API_BASE_URL}/weather/current?lat=${lat}&lon=${lon}`);
+    const response = await fetch(
+      `${API_BASE_URL}/weather/current?lat=${lat}&lon=${lon}`
+    );
     return handleResponse(response);
   },
-  
+
   // Get weather forecast data by location name
   getWeatherForecast: async (location, days = 5) => {
-    const response = await fetch(`${API_BASE_URL}/weather/forecast?city=${encodeURIComponent(location)}&days=${days}`);
+    const response = await fetch(
+      `${API_BASE_URL}/weather/forecast?city=${encodeURIComponent(location)}&days=${days}`
+    );
     return handleResponse(response);
   },
-  
+
   // Get AQI data by coordinates
   getAQIByCoords: async (lat, lon) => {
-    const response = await fetch(`${API_BASE_URL}/aqi/current?lat=${lat}&lon=${lon}`);
+    const response = await fetch(
+      `${API_BASE_URL}/aqi/current?lat=${lat}&lon=${lon}`
+    );
     return handleResponse(response);
   },
-  
+
   // Get location name from coordinates
   getLocationName: async (lat, lon) => {
-    const response = await fetch(`${API_BASE_URL}/weather/location?lat=${lat}&lon=${lon}`);
+    const response = await fetch(
+      `${API_BASE_URL}/weather/location?lat=${lat}&lon=${lon}`
+    );
     return handleResponse(response);
   },
 };

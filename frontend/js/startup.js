@@ -118,7 +118,7 @@ async function checkDependencies() {
 
   try {
     const packageJson = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "package.json"), "utf8"),
+      fs.readFileSync(path.join(__dirname, "package.json"), "utf8")
     );
     const requiredDeps = [
       "express",
@@ -136,7 +136,7 @@ async function checkDependencies() {
     ];
 
     const missingDeps = requiredDeps.filter(
-      (dep) => !packageJson.dependencies[dep],
+      (dep) => !packageJson.dependencies[dep]
     );
 
     if (missingDeps.length > 0) {

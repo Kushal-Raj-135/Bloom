@@ -5099,3 +5099,1779 @@
   service: 'biobloom-api',
   timestamp: '2025-06-03 22:49:54'
 }
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:43:01'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:43:01'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:43:01'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:43:14'
+}
+{
+  message: 'GET /frontend/pages/login.html - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:43:24'
+}
+{
+  message: 'GET /frontend/pages/register.html - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:43:32'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:44:14'
+}
+{
+  message: 'GET /favicon.ico - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:44:16'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:45:19'
+}
+{
+  message: 'GET /profile - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:45:26'
+}
+{
+  message: 'GET /profile - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:45:32'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:45:36'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:45:40'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:47:49'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:47:59'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:47:59'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:47:59'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:48:06'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:48:10'
+}
+{
+  message: 'GET /api//auth/google/callback - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:48:33'
+}
+{
+  message: 'GET /api//auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:54:26'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:54:59'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:54:59'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:54:59'
+}
+{
+  message: 'GET /api//auth/google/callback - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:55:04'
+}
+{
+  message: 'GET /api//auth/google/callback - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:55:27'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:57:42'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:57:42'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:57:42'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:59:39'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:59:39'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 00:59:39'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:00:21'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:00:26'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:00:30'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:01:04'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:01:06'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:01:08'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:01:29'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:01:29'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:01:29'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:03:35'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:03:35'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:03:35'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:03:47'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:03:47'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:03:47'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:04:58'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:05:01'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:05:03'
+}
+{
+  message: 'GET /favicon.ico - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:05:04'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:05:06'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:05:42'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:06:32'
+}
+{
+  message: 'GET /api/health - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:06:42'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:07:15'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:07:15'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:07:15'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:07:19'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:08:22'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:08:34'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:08:34'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:08:34'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:08:47'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:08:49'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:09:27'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:10:29'
+}
+{
+  message: 'GET /api/auth/oauth/config - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:10:30'
+}
+{
+  message: 'GET /api/auth/google/callback - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:10:37'
+}
+{
+  message: 'GET /register - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:14:14'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:15:38'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:15:38'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:15:38'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:15:55'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:15:55'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:15:55'
+}
+{
+  message: 'GET /register - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:16:08'
+}
+{
+  message: 'GET /api/auth/google - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:16:10'
+}
+{
+  message: 'GET /api/auth/google/callback - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:16:34'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:18:13'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:18:13'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:18:13'
+}
+{
+  message: 'HEAD /api/auth/google - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:18:21'
+}
+{
+  message: 'GET /api/auth/google - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:18:37'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:21:55'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:21:55'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:21:55'
+}
+{
+  message: 'GET /register - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:22:28'
+}
+{
+  message: 'GET /api/auth/google - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:22:31'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:22:58'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:22:58'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:22:58'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:09'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:09'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:09'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:32'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:44'
+}
+{
+  message: 'GET /api/auth/google - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:46'
+}
+{
+  message: 'GET /api/auth/google/callback - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:51'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:52'
+}
+{
+  message: 'GET /api//auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:53'
+}
+{
+  message: 'GET /profile - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:24:56'
+}
+{
+  message: 'GET /profile - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:25:04'
+}
+{
+  message: 'GET /login - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:25:06'
+}
+{
+  message: 'GET /register - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:25:07'
+}
+{
+  message: 'GET /api/auth/google - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:25:10'
+}
+{
+  message: 'GET /api/auth/google/callback - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:25:13'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:25:14'
+}
+{
+  message: 'GET /api//auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:25:15'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:27:27'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:34:02'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:34:02'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:34:03'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:35:12'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:35:12'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:35:15'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:38:19'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:38:19'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:38:20'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:38:20'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:39:22'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:39:22'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:39:23'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:39:23'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:40:49'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:40:49'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:40:49'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:40:49'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:45:33'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:45:33'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:45:33'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:45:34'
+}
+{
+  message: 'GET / - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:48:04'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:48:04'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:48:05'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:48:06'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:02'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:02'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:02'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:03'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:05'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:05'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:49:05'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:05'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:49:06'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:09'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:13'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:29'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:29'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:29'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:51'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:51'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:51'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:52'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:52'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:55'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:55'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:49:55'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:55'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:49:55'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:57'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:58'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:49:58'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:50:25'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:50:41'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:50:42'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:50:42'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:50:42'
+}
+{
+  message: 'Weather forecast fetched for Bangalore',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:50:42'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:51:43'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:51:43'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:51:43'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:51:43'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:51:44'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:51:46'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:51:46'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:51:46'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:51:46'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:51:47'
+}
+{
+  message: '🌱 BioBloom server running on port 3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:00'
+}
+{
+  message: '🌍 Environment: development',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:00'
+}
+{
+  message: '📍 Server URL: http://localhost:3000',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:00'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:04'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:04'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:04'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:05'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:05'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:19'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:19'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:55:20'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:20'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:20'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:20'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:20'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:20'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:20'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:56:27'
+}
+{
+  message: 'GET /css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:56:27'
+}
+{
+  message: 'GET /css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:56:27'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:56:27'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:56:27'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:56:31'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:56:31'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:56:31'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:56:31'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:56:33'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:05'
+}
+{
+  message: 'GET /components/crop/css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:05'
+}
+{
+  message: 'GET /components/crop/css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:05'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:05'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:05'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:23'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:23'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:57:23'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:23'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:25'
+}
+{
+  message: 'GET /components/crop/css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:25'
+}
+{
+  message: 'GET /components/crop/css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:25'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:57:27'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:58:45'
+}
+{
+  message: 'GET /components/crop/crop/css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:58:45'
+}
+{
+  message: 'GET /components/crop/crop/css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:58:45'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:58:46'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:58:46'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:58:53'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:58:53'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:58:53'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:58:53'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:58:55'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:16'
+}
+{
+  message: 'GET /components/crop/css/aqi-monitor.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:16'
+}
+{
+  message: 'GET /components/crop/css/crop-rotation.css - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:16'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:26'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:26'
+}
+{
+  message: 'GET /favicon.ico - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:26'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:27'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:28'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:28'
+}
+{
+  message: 'GET /api/weather/location - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:30'
+}
+{
+  message: 'GET /api/aqi/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:30'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:59:30'
+}
+{
+  message: 'GET /api/weather/current - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 01:59:30'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:59:31'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:00'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:01'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:01'
+}
+{
+  message: 'POST /api/waste/recommendations - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:25'
+}
+{
+  message: 'GET /.well-known/appspecific/com.chrome.devtools.json - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:38'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:38'
+}
+{
+  message: 'GET /api/weather/forecast - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:38'
+}
+{
+  message: 'GET /api/auth/me - ::1',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:39'
+}
+{
+  message: 'Weather forecast fetched for Bangalore',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:39'
+}
+{
+  message: 'SIGINT received, shutting down gracefully',
+  level: 'info',
+  service: 'biobloom-api',
+  timestamp: '2025-06-07 02:00:59'
+}

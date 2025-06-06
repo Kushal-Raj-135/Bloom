@@ -153,7 +153,7 @@ async function getLocationName(lat, lon) {
       console.error("API not loaded or getLocationName function not available");
       return "Unknown Location";
     }
-    
+
     // Use the API function from frontend/js/api.js which calls our backend
     const data = await window.api.getLocationName(lat, lon);
     if (!data) {
@@ -175,10 +175,10 @@ async function getAQIData(lat, lon) {
       // Fallback to mock data
       return getMockAQIData();
     }
-    
+
     // Use the API function from frontend/js/api.js which calls our backend
     const data = await window.api.getAQIByCoords(lat, lon);
-    
+
     if (data && data.aqi) {
       return data;
     } else {
@@ -215,10 +215,12 @@ async function getWeatherData(lat, lon) {
   try {
     // Check if API is available
     if (!window.api || !window.api.getWeatherByCoords) {
-      console.error("API not loaded or getWeatherByCoords function not available");
+      console.error(
+        "API not loaded or getWeatherByCoords function not available"
+      );
       throw new Error("Weather API unavailable");
     }
-    
+
     // Use the API function from frontend/js/api.js which calls our backend
     const data = await window.api.getWeatherByCoords(lat, lon);
 

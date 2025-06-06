@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const profileForm = document.getElementById("profile-form");
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentPasswordInput = document.getElementById("current-password");
   const newPasswordInput = document.getElementById("new-password");
   const toggleCurrentPassword = document.getElementById(
-    "toggle-current-password",
+    "toggle-current-password"
   );
   const toggleNewPassword = document.getElementById("toggle-new-password");
   const profilePicture = document.getElementById("profile-picture");
@@ -17,55 +17,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (nameInput) {
     nameInput.addEventListener("blur", () =>
-      validateField(nameInput, validateName, true),
+      validateField(nameInput, validateName, true)
     );
     nameInput.addEventListener("input", () =>
-      validateField(nameInput, validateName, true),
+      validateField(nameInput, validateName, true)
     );
   }
 
   if (emailInput) {
     emailInput.addEventListener("blur", () =>
-      validateField(emailInput, validateEmail, true),
+      validateField(emailInput, validateEmail, true)
     );
     emailInput.addEventListener("input", () =>
-      validateField(emailInput, validateEmail, true),
+      validateField(emailInput, validateEmail, true)
     );
   }
 
   if (phoneInput) {
     phoneInput.addEventListener("blur", () =>
-      validateField(phoneInput, validatePhone),
+      validateField(phoneInput, validatePhone)
     );
     phoneInput.addEventListener("input", () =>
-      validateField(phoneInput, validatePhone),
+      validateField(phoneInput, validatePhone)
     );
   }
 
   if (locationInput) {
     locationInput.addEventListener("blur", () =>
-      validateField(locationInput, validateLocation),
+      validateField(locationInput, validateLocation)
     );
     locationInput.addEventListener("input", () =>
-      validateField(locationInput, validateLocation),
+      validateField(locationInput, validateLocation)
     );
   }
 
   if (bioInput) {
     bioInput.addEventListener("blur", () =>
-      validateField(bioInput, validateBio),
+      validateField(bioInput, validateBio)
     );
     bioInput.addEventListener("input", () =>
-      validateField(bioInput, validateBio),
+      validateField(bioInput, validateBio)
     );
   }
 
   if (newPasswordInput) {
     newPasswordInput.addEventListener("blur", () =>
-      validateField(newPasswordInput, validatePassword),
+      validateField(newPasswordInput, validatePassword)
     );
     newPasswordInput.addEventListener("input", () =>
-      validateField(newPasswordInput, validatePassword),
+      validateField(newPasswordInput, validatePassword)
     );
   }
 
@@ -76,15 +76,39 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
   let token, user;
   try {
     token = localStorage.getItem("token");
-    user = JSON.parse(localStorage.getItem("user") || "{}");
+    if (!token) {
+      window.location.href = "/login";
+      return;
+    }
+
+    // Fetch fresh user data from backend
+    try {
+      const response = await api.getProfile();
+      user = response.data.user;
+
+      // Update localStorage with fresh data
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+
+      // If there's an auth error, redirect to login
+      if (error.message.includes("token") || error.message.includes("401")) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.href = "/login";
+        return;
+      }
+
+      // Fallback to localStorage if API fails
+      user = JSON.parse(localStorage.getItem("user") || "{}");
+    }
   } catch (error) {
     console.error("Error reading user data:", error);
-    token = null;
-    user = {};
+    window.location.href = "/login";
+    return;
   }
 
   // // For local testing without login
@@ -99,16 +123,16 @@ document.addEventListener("DOMContentLoaded", () => {
   //         bio: ''
   //     };
   // }
-
   // Populate form with user data
   if (nameInput) nameInput.value = user.name || "";
   if (emailInput) {
     emailInput.value = user.email || "";
     emailInput.readOnly = true;
   }
-  if (phoneInput) phoneInput.value = user.phone || "";
-  if (locationInput) locationInput.value = user.location || "";
-  if (bioInput) bioInput.value = user.bio || "";
+  if (phoneInput) phoneInput.value = user.profile?.phone || "";
+  if (locationInput)
+    locationInput.value = user.profile?.location?.address || "";
+  if (bioInput) bioInput.value = user.profile?.bio || "";
   if (profilePicture && user.profilePicture) {
     profilePicture.src = user.profilePicture;
   }
@@ -148,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         profilePicture.src = e.target.result;
         showToast(
           "Profile picture updated for preview (not saved to server)",
-          "success",
+          "success"
         );
       };
       reader.readAsDataURL(file);
@@ -169,13 +193,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (toggleCurrentPassword && currentPasswordInput) {
     toggleCurrentPassword.addEventListener("click", () =>
-      togglePasswordVisibility(currentPasswordInput, toggleCurrentPassword),
+      togglePasswordVisibility(currentPasswordInput, toggleCurrentPassword)
     );
   }
 
   if (toggleNewPassword && newPasswordInput) {
     toggleNewPassword.addEventListener("click", () =>
-      togglePasswordVisibility(newPasswordInput, toggleNewPassword),
+      togglePasswordVisibility(newPasswordInput, toggleNewPassword)
     );
   }
 
@@ -236,73 +260,48 @@ document.addEventListener("DOMContentLoaded", () => {
         //     bio: bioInput ? bioInput.value : '',
         //     currentPassword: currentPasswordInput ? currentPasswordInput.value : '',
         //     newPassword: (newPasswordInput && newPasswordInput.value) || undefined
-        // });
-
-        // Update stored user data for local testing
-        const updatedUser = {
-          ...user,
-          name: nameInput ? nameInput.value : user.name,
-          phone: phoneInput ? phoneInput.value : user.phone,
-          location: locationInput ? locationInput.value : user.location,
-          bio: bioInput ? bioInput.value : user.bio,
+        // });        // Create update data object based on backend API structure
+        const updateData = {
+          name: nameInput ? nameInput.value : undefined,
+          "profile.phone": phoneInput ? phoneInput.value : undefined,
+          "profile.location.address": locationInput
+            ? locationInput.value
+            : undefined,
+          "profile.bio": bioInput ? bioInput.value : undefined,
         };
 
-        try {
-          localStorage.setItem("user", JSON.stringify(updatedUser));
-        } catch (error) {
-          console.error("Error saving user data to localStorage:", error);
+        // Add password fields if they are provided
+        if (currentPasswordInput && currentPasswordInput.value.trim()) {
+          updateData.currentPassword = currentPasswordInput.value;
+        }
+        if (newPasswordInput && newPasswordInput.value.trim()) {
+          updateData.newPassword = newPasswordInput.value;
         }
 
-        showToast(
-          "Profile updated successfully! (Local testing mode)",
-          "success",
-        );
+        // Remove undefined values
+        Object.keys(updateData).forEach((key) => {
+          if (updateData[key] === undefined || updateData[key] === "") {
+            delete updateData[key];
+          }
+        });
 
-        /*
-                // Real API call for production
-                const response = await fetch('/api/auth/update-profile', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({
-                        name: nameInput.value,
-                        phone: phoneInput.value,
-                        location: locationInput.value,
-                        bio: bioInput.value,
-                        currentPassword: currentPasswordInput.value,
-                        newPassword: newPasswordInput.value || undefined
-                    })
-                });
+        // Real API call for production
+        const response = await api.updateProfile(updateData);
 
-                const data = await response.json();
+        // Update stored user data with fresh profile data
+        const freshProfile = await api.getProfile();
+        localStorage.setItem("user", JSON.stringify(freshProfile.data.user));
 
-                if (!response.ok) {
-                    throw new Error(data.message || 'Failed to update profile');
-                }
+        showToast("Profile updated successfully!", "success");
 
-                // Update stored user data
-                const updatedUser = {
-                    ...user,
-                    name: nameInput.value,
-                    phone: phoneInput.value,
-                    location: locationInput.value,
-                    bio: bioInput.value
-                };
-                localStorage.setItem('user', JSON.stringify(updatedUser));
-
-                showToast('Profile updated successfully!', 'success');
-
-                // Redirect after a short delay
-                setTimeout(() => {
-                    window.location.href = '/';
-                }, 2000);
-                */
+        // Redirect after a short delay
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
       } catch (error) {
         showToast(
           error.message || "An error occurred while updating profile",
-          "error",
+          "error"
         );
       } finally {
         if (submitButton) {

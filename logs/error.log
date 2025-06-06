@@ -89,3 +89,303 @@
     '    at async getWeatherForecast (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:57:24)',
   timestamp: '2025-06-03 22:43:33'
 }
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:49:05'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:49:06'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:49:55'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:49:55'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:51:46'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:51:47'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:55:20'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:55:21'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:56:31'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:56:33'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:57:23'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:57:26'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:57:27'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:58:53'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:58:55'
+}
+{
+  service: 'biobloom-api',
+  level: 'error',
+  message: 'Error fetching current AQI: this.aqiService.getAQIByCoordinates is not a function',
+  stack: 'TypeError: this.aqiService.getAQIByCoordinates is not a function\n' +
+    '    at getCurrentAQI (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/aqiController.js:27:41)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/middleware/validation.js:374:5\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at next (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:149:13)\n' +
+    '    at Route.dispatch (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\route.js:119:3)\n' +
+    '    at Layer.handle [as handle_request] (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\layer.js:95:5)\n' +
+    '    at C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:284:15\n' +
+    '    at Function.process_params (C:\\Users\\jai swrup\\Desktop\\code\\Bloom\\node_modules\\express\\lib\\router\\index.js:346:12)',
+  timestamp: '2025-06-07 01:59:30'
+}
+{
+  service: 'biobloom-api',
+  statusCode: 500,
+  isOperational: true,
+  status: 'error',
+  level: 'error',
+  message: 'Error fetching current weather: Failed to fetch weather data by coordinates',
+  stack: 'Error: Failed to fetch weather data by coordinates\n' +
+    '    at WeatherService.getWeatherByCoordinates (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/services/weatherService.js:26:13)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n' +
+    '    at async getCurrentWeather (file:///C:/Users/jai%20swrup/Desktop/code/Bloom/src/controllers/weatherController.js:26:23)',
+  timestamp: '2025-06-07 01:59:31'
+}

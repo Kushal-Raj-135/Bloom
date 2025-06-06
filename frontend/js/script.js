@@ -12,7 +12,6 @@ const languageOptions = {
   bn: "বাংলা",
 };
 
-
 // Translation cache
 const translationCache = {};
 
@@ -28,10 +27,10 @@ async function translateText(text, targetLanguage, toEnglish = false) {
   try {
     console.log(
       `Translating text ${toEnglish ? "to English" : "from English"}:`,
-      text.substring(0, 50) + "...",
+      text.substring(0, 50) + "..."
     );
 
-    const response = await fetch("/api/translate", {
+    const response = await fetch("/api//translate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +51,7 @@ async function translateText(text, targetLanguage, toEnglish = false) {
     const data = await response.json();
     console.log(
       "Translation successful:",
-      data.translated_text.substring(0, 50) + "...",
+      data.translated_text.substring(0, 50) + "..."
     );
 
     if (data.translated_text) {
@@ -173,7 +172,7 @@ function displayRecommendations(data) {
                               .join("")}
                         </ul>
                     </div>
-                `,
+                `
                   )
                   .join("")}
             </div>
@@ -386,7 +385,7 @@ function initAQIGauge() {
   // Check if JustGage is available
   if (typeof JustGage === "undefined") {
     console.warn(
-      "JustGage library not loaded. AQI gauge will not be displayed.",
+      "JustGage library not loaded. AQI gauge will not be displayed."
     );
     return null;
   }
@@ -444,7 +443,7 @@ function updateAQI(aqiValue) {
   const aqiStatusElement = document.getElementById("aqi-status");
   const aqiValueElement = document.getElementById("aqi-value");
   const aqiRecommendationsElement = document.getElementById(
-    "aqi-recommendations",
+    "aqi-recommendations"
   );
 
   if (aqiNumberElement) {
@@ -502,22 +501,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const newAQI = Math.floor(Math.random() * (150 - 50 + 1)) + 50;
       updateAQI(newAQI);
     },
-    5 * 60 * 1000,
-  );
-  // Update UI based on login status
-  function updateUIForLoginStatus() {
+    5 * 60 * 1000
+  ); // Update UI based on login status
+  async function updateUIForLoginStatus() {
     console.log("Updating UI for login status...");
     const nav = document.querySelector("nav ul");
 
     if (!nav) {
       console.error("Navigation element not found");
       return;
-    }
-
-    // Clear all authentication-related elements
+    } // Clear all authentication-related elements
     Array.from(nav.children).forEach((child) => {
       if (
         child.classList.contains("user-menu") ||
+        child.classList.contains("user-dropdown") ||
         child.querySelector('a[href="/login"]') ||
         child.querySelector('a[href="/register"]') ||
         child.querySelector('a[href="/pages/login.html"]') ||
@@ -528,57 +525,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const token = localStorage.getItem("token");
-    let user = null;
 
-    try {
-      const userString = localStorage.getItem("user");
-      user = userString ? JSON.parse(userString) : null;
-    } catch (error) {
-      console.error("Error parsing user data:", error);
-      localStorage.removeItem("user");
-    }
+    if (token) {
+      try {
+        // Fetch fresh user data from backend
+        const response = await api.getProfile();
+        const user = response.data.user;
 
-    console.log("Token exists:", !!token, "User exists:", !!user);
-    if (user) {
-      console.log("User name:", user.name);
-    }
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log("User authenticated:", user.name);
 
-    if (token && user) {
-      // Add user menu with profile and logout
-      const userMenu = document.createElement("li");
-      userMenu.className = "user-menu";
-      userMenu.innerHTML = `
-                <span class="user-greeting">Welcome, ${user.name}</span>
-                <div class="dropdown-content">
-                    <a href="javascript:void(0)" onclick="showProfile()">Profile</a>
-                    <a href="javascript:void(0)" onclick="handleLogout()">Logout</a>
-                </div>
-            `;
-      nav.appendChild(userMenu);
+        // User menu dropdown is handled by userMenu.js
+        // No need to create dropdown here since userMenu.js handles it better
+      } catch (error) {
+        console.error("Error fetching user profile:", error);
 
-      // Toggle dropdown on user greeting click
-      const userGreeting = userMenu.querySelector(".user-greeting");
-      userGreeting.onclick = function (e) {
-        e.stopPropagation();
-        const dropdown = userMenu.querySelector(".dropdown-content");
-        dropdown.classList.toggle("show");
-      };
+        // If token is invalid, clear it and show login/register
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
 
-      // Close dropdown when clicking outside
-      document.addEventListener("click", function (e) {
-        const dropdowns = document.querySelectorAll(".dropdown-content");
-        dropdowns.forEach((dropdown) => {
-          if (dropdown.classList.contains("show")) {
-            dropdown.classList.remove("show");
-          }
-        });
-      }); // Prevent dropdown from closing when clicking inside
-      const dropdown = userMenu.querySelector(".dropdown-content");
-      dropdown.onclick = function (e) {
-        e.stopPropagation();
-      };
+        // Add login/register links
+        const loginLi = document.createElement("li");
+        loginLi.innerHTML =
+          '<a href="/pages/login.html" class="nav-link">Login</a>';
+        nav.appendChild(loginLi);
+
+        const registerLi = document.createElement("li");
+        registerLi.innerHTML =
+          '<a href="/pages/register.html" class="nav-link">Register</a>';
+        nav.appendChild(registerLi);
+      }
     } else {
-      // Add login/register links
+      // No token, add login/register links
       const loginLi = document.createElement("li");
       loginLi.innerHTML =
         '<a href="/pages/login.html" class="nav-link">Login</a>';
@@ -597,80 +575,158 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("user");
     window.location.href = "/";
   }
-
   // Show profile
-  function showProfile() {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
+  async function showProfile() {
+    const token = localStorage.getItem("token");
+    if (!token) {
       window.location.href = "/login";
       return;
     }
 
-    const profileModal = document.createElement("div");
-    profileModal.className = "profile-section";
-    profileModal.innerHTML = `
-            <div class="profile-header">
-                <h2>Profile</h2>
-                <div class="profile-avatar">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-            </div>
-            <div class="profile-content">
-                <div class="profile-info">
-                    <h3>Personal Information</h3>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <i class="fas fa-user"></i>
-                            <div class="info-detail">
-                                <label>Name</label>
-                                <p>${user.name || "Not set"}</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="info-detail">
-                                <label>Email</label>
-                                <p>${user.email || "Not set"}</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="info-detail">
-                                <label>Phone</label>
-                                <p>${user.phone || "Not set"}</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-location-dot"></i>
-                            <div class="info-detail">
-                                <label>Location</label>
-                                <p>${user.location || "Not set"}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-stats">
-                    <h3>Account Information</h3>
-                    <div class="info-item">
-                        <i class="fas fa-calendar"></i>
-                        <div class="info-detail">
-                            <label>Member Since</label>
-                            <p>${new Date(user.id).toLocaleDateString()}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="profile-actions">
-                <button class="edit-btn" onclick="openEditProfile()">
-                    <i class="fas fa-edit"></i> Edit Profile
-                </button>
-                <button class="cancel-btn" onclick="closeProfile()">
-                    <i class="fas fa-times"></i> Close
-                </button>
-            </div>
-        `;
+    try {
+      // Show loading state
+      const loadingModal = document.createElement("div");
+      loadingModal.className = "profile-section";
+      loadingModal.innerHTML = `
+        <div class="profile-header">
+          <h2>Profile</h2>
+          <div class="profile-avatar">
+            <i class="fas fa-spinner fa-spin"></i>
+          </div>
+        </div>
+        <div class="profile-content">
+          <p>Loading profile...</p>
+        </div>
+      `;
+      document.body.appendChild(loadingModal);
 
-    document.body.appendChild(profileModal);
+      // Fetch user profile from backend
+      const response = await api.getProfile();
+      const user = response.data.user;
+
+      // Update localStorage with fresh data
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // Remove loading modal
+      loadingModal.remove();
+
+      // Create profile modal with fresh data
+      const profileModal = document.createElement("div");
+      profileModal.className = "profile-section";
+      profileModal.innerHTML = `
+        <div class="profile-header">
+          <h2>Profile</h2>
+          <div class="profile-avatar">
+            ${
+              user.profilePicture
+                ? `<img src="${user.profilePicture}" alt="Profile Picture" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">`
+                : `<i class="fas fa-user-circle"></i>`
+            }
+          </div>
+        </div>
+        <div class="profile-content">
+          <div class="profile-info">
+            <h3>Personal Information</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <i class="fas fa-user"></i>
+                <div class="info-detail">
+                  <label>Name</label>
+                  <p>${user.name || "Not set"}</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div class="info-detail">
+                  <label>Email</label>
+                  <p>${user.email || "Not set"}</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <div class="info-detail">
+                  <label>Phone</label>
+                  <p>${user.profile?.phone || "Not set"}</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-location-dot"></i>
+                <div class="info-detail">
+                  <label>Location</label>
+                  <p>${user.profile?.location?.address || "Not set"}</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="info-detail">
+                  <label>City</label>
+                  <p>${user.profile?.location?.city || "Not set"}</p>
+                </div>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-flag"></i>
+                <div class="info-detail">
+                  <label>State</label>
+                  <p>${user.profile?.location?.state || "Not set"}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-stats">
+            <h3>Account Information</h3>
+            <div class="info-item">
+              <i class="fas fa-calendar"></i>
+              <div class="info-detail">
+                <label>Member Since</label>
+                <p>${new Date(user.createdAt).toLocaleDateString()}</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <div class="info-detail">
+                <label>Last Login</label>
+                <p>${user.lastLogin ? new Date(user.lastLogin).toLocaleDateString() : "Not available"}</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-shield-alt"></i>
+              <div class="info-detail">
+                <label>Email Verified</label>
+                <p>${user.isEmailVerified ? "Yes" : "No"}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <button class="edit-btn" onclick="openEditProfile()">
+            <i class="fas fa-edit"></i> Edit Profile
+          </button>
+          <button class="cancel-btn" onclick="closeProfile()">
+            <i class="fas fa-times"></i> Close
+          </button>
+        </div>
+      `;
+
+      document.body.appendChild(profileModal);
+    } catch (error) {
+      console.error("Error fetching profile:", error);
+
+      // Remove loading modal if it exists
+      const loadingModal = document.querySelector(".profile-section");
+      if (loadingModal) {
+        loadingModal.remove();
+      }
+
+      // Show error message
+      alert("Failed to load profile. Please try again.");
+
+      // If token is invalid, redirect to login
+      if (error.message.includes("token") || error.message.includes("401")) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.href = "/login";
+      }
+    }
   }
 
   function openEditProfile() {
@@ -769,7 +825,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     ([code, name]) =>
                       `<option value="${code}" ${
                         code === currentLanguage ? "selected" : ""
-                      }>${name}</option>`,
+                      }>${name}</option>`
                   )
                   .join("")}
             </select>

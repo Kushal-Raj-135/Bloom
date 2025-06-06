@@ -1,5 +1,4 @@
 import dotenv from "dotenv";
-
 dotenv.config();
 
 const config = {
@@ -40,9 +39,7 @@ const config = {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
     },
-  },
-
-  // OAuth Configuration
+  }, // OAuth Configuration
   oauth: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,

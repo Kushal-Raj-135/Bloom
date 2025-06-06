@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add validation event listeners
   if (emailInput) {
     emailInput.addEventListener("blur", () =>
-      validateField(emailInput, validateEmail, true),
+      validateField(emailInput, validateEmail, true)
     );
     emailInput.addEventListener("input", () =>
-      validateField(emailInput, validateEmail, true),
+      validateField(emailInput, validateEmail, true)
     );
   }
 
@@ -161,26 +161,12 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Login error:", error);
       throw error;
     }
-  }
-
-  // Google login button click handler
+  } // Google login button click handler
   if (googleLoginBtn) {
     googleLoginBtn.addEventListener("click", () => {
-      const clientId =
-        "819077799545-ajlsrnaenlg5ajbjutm02mu77rejh7v8.apps.googleusercontent.com";
-      const redirectUri = "http://localhost:3000/api/auth/google/callback";
-      const scope = "email profile";
-
-      const authUrl =
-        `https://accounts.google.com/o/oauth2/v2/auth?` +
-        `client_id=${clientId}&` +
-        `redirect_uri=${encodeURIComponent(redirectUri)}&` +
-        `response_type=code&` +
-        `scope=${encodeURIComponent(scope)}&` +
-        `access_type=offline&` +
-        `prompt=consent`;
-
-      window.location.href = authUrl;
+      // Simply redirect to backend OAuth initiation endpoint
+      // Backend will handle all OAuth logic and redirect to Google
+      window.location.href = "/api/auth/google";
     });
   }
 
