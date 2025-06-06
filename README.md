@@ -7,11 +7,13 @@ BioBloom is a comprehensive agricultural technology platform designed to help fa
 ## Features
 
 - **User Authentication System**
+
   - Secure login and registration
   - Profile management
   - Password recovery system
 
 - **Agricultural Insights**
+
   - Crop recommendations
   - Air Quality Index (AQI) monitoring
   - Weather information integration
@@ -25,12 +27,14 @@ BioBloom is a comprehensive agricultural technology platform designed to help fa
 ## Tech Stack
 
 - **Frontend:**
+
   - HTML5
   - CSS3
   - JavaScript
   - Chart.js for data visualization
 
 - **Backend:**
+
   - Node.js
   - Express.js
   - MongoDB (Database)
@@ -51,16 +55,19 @@ BioBloom is a comprehensive agricultural technology platform designed to help fa
 ### Installation
 
 1. Clone the repository
+
 ```bash
 git clone https://github.com/yourusername/biobloom.git
 ```
 
 2. Install NPM packages
+
 ```bash
 npm install
 ```
 
 3. Create a `.env` file in the root directory and add your environment variables
+
 ```env
 PORT=your_port
 MONGODB_URI=your_mongodb_uri
@@ -72,6 +79,7 @@ GROQ_API_KEY=your_groq_api_key
 ```
 
 4. Start the server
+
 ```bash
 node server.js
 ```
@@ -92,11 +100,13 @@ biobloom/
 ## Features in Detail
 
 1. **User Management**
+
    - Secure authentication
    - Profile customization
    - Password reset functionality
 
 2. **Agricultural Tools**
+
    - Crop recommendation system
    - Weather monitoring
    - AQI tracking
@@ -129,7 +139,7 @@ Project Link: [https://github.com/yourusername/biobloom](https://github.com/your
 
 ## Acknowledgments
 
-* [Node.js](https://nodejs.org/)
-* [Express.js](https://expressjs.com/)
-* [Chart.js](https://www.chartjs.org/)
-* [MongoDB](https://www.mongodb.com/) 
+- [Node.js](https://nodejs.org/)
+- [Express.js](https://expressjs.com/)
+- [Chart.js](https://www.chartjs.org/)
+- [MongoDB](https://www.mongodb.com/)
