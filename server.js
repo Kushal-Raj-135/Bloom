@@ -6,6 +6,7 @@ import cors from 'cors';
 import path from 'path';
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import { Strategy as GitHubStrategy } from 'passport-github2';
 import session from 'express-session';
 import { MongoClient } from 'mongodb';
 import crypto from 'crypto';
@@ -65,7 +66,7 @@ const User = mongoose.model('User', userSchema);
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/api/auth/google/callback"
+    callbackURL: process.env.GOOGLE_CALLBACK_URL
 },
 async function(accessToken, refreshToken, profile, done) {
     try {
@@ -98,10 +99,46 @@ async function(accessToken, refreshToken, profile, done) {
     }
 }));
 
+//Passport Github
+passport.use(new GitHubStrategy({
+    clientID: process.env.GITHUB_CLIENT_ID,
+    clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    callbackURL: process.env.GITHUB_CALLBACK_URL
+},
+async function(accessToken, refreshToken, profile, done) {
+    try {
+        let user = await User.findOne({ githubId: profile.id });
+
+        if (!user) {
+            user = await User.findOne({ email: profile.emails?.[0]?.value });
+
+            if (user) {
+                user.githubId = profile.id;
+                user.profilePicture = profile.photos?.[0]?.value;
+                await user.save();
+            } else {
+                user = await User.create({
+                    name: profile.displayName || profile.username,
+                    email: profile.emails?.[0]?.value || "",
+                    githubId: profile.id,
+                    profilePicture: profile.photos?.[0]?.value
+                });
+            }
+        }
+
+        return done(null, user);
+    } catch (error) {
+        return done(error, null);
+    }
+}));
+
+
 // Passport serialization
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
+
+
 
 passport.deserializeUser(async (id, done) => {
     try {
@@ -111,6 +148,9 @@ passport.deserializeUser(async (id, done) => {
         done(error, null);
     }
 });
+
+
+
 
 // CropShift Content Fetching
 import fetch from 'node-fetch';
@@ -256,31 +296,13 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Google OAuth routes
-app.get('/api/auth/google',
-    passport.authenticate('google', { scope: ['profile', 'email'] })
-);
-
-app.get('/api/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/login' }),
-    (req, res) => {
-        // Generate JWT token
-        const token = jwt.sign(
-            { userId: req.user._id },
-            process.env.JWT_SECRET,
-            { expiresIn: '24h' }
-        );
-
-        // Redirect to frontend with token
-        res.redirect(`/?token=${token}`);
-    }
-);
 
 // Middleware
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve uploaded files
 
 // Routes
 app.use('/api/auth', authRoutes);
+
 
 // Serve HTML files
 app.get('/login', (req, res) => {

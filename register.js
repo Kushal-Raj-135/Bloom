@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const togglePassword = document.querySelector('.toggle-password');
     const toggleConfirmPassword = document.querySelectorAll('.toggle-password')[1];
     const googleRegisterBtn = document.querySelector('.social-btn.google');
-    const githubRegisterBtn = document.getElementById('github-register');
+    const githubRegisterBtn = document.querySelector('.social-btn.github');
     const termsCheckbox = document.getElementById('terms');
     
     // Add validation event listeners
@@ -165,35 +165,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle Google registration
+    
+    // Google login button click handler
     if (googleRegisterBtn) {
         googleRegisterBtn.addEventListener('click', () => {
-            try {
-                const clientId = '819077799545-ajlsrnaenlg5ajbjutm02mu77rejh7v8.apps.googleusercontent.com';
-                const redirectUri = 'http://localhost:3000/api/auth/google/callback';
-                const scope = 'email profile';
-                
-                const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
-                    `client_id=${clientId}&` +
-                    `redirect_uri=${encodeURIComponent(redirectUri)}&` +
-                    `response_type=code&` +
-                    `scope=${encodeURIComponent(scope)}&` +
-                    `access_type=offline&` +
-                    `prompt=consent`;
-                
-                console.log('Redirecting to Google OAuth:', authUrl);
-                window.location.href = authUrl;
-            } catch (error) {
-                console.error('Error in Google registration:', error);
-                showToast('Error initiating Google registration. Please try again.', 'error');
-            }
+             window.location.href = 'http://localhost:3000/api/auth/google';
         });
     }
 
-    // Handle GitHub registration
+    // Handle GitHub login
     if (githubRegisterBtn) {
         githubRegisterBtn.addEventListener('click', () => {
-            showToast('GitHub registration coming soon!', 'info');
+            window.location.href = 'http://localhost:3000/api/auth/github';
         });
     }
 });
