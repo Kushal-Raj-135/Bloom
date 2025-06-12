@@ -142,26 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Google login button click handler
     if (googleLoginBtn) {
         googleLoginBtn.addEventListener('click', () => {
-            const clientId = '819077799545-ajlsrnaenlg5ajbjutm02mu77rejh7v8.apps.googleusercontent.com';
-            const redirectUri = 'http://localhost:3000/api/auth/google/callback';
-            const scope = 'email profile';
-            
-            const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
-                `client_id=${clientId}&` +
-                `redirect_uri=${encodeURIComponent(redirectUri)}&` +
-                `response_type=code&` +
-                `scope=${encodeURIComponent(scope)}&` +
-                `access_type=offline&` +
-                `prompt=consent`;
-            
-            window.location.href = authUrl;
+             window.location.href = 'http://localhost:3000/api/auth/google';
         });
     }
 
     // Handle GitHub login
     if (githubLoginBtn) {
         githubLoginBtn.addEventListener('click', () => {
-            showToast('GitHub login coming soon!', 'info');
+            window.location.href = 'http://localhost:3000/api/auth/github';
         });
     }
 });
