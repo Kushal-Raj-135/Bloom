@@ -5,6 +5,7 @@ import { MongoClient } from 'mongodb';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
+import passport from 'passport';
 
 const router = express.Router();
 import dotenv from 'dotenv';
@@ -140,10 +141,46 @@ router.post('/login', async (req, res) => {
 });
 
 // Google OAuth endpoint
-router.get('/google', (req, res) => {
-    // Implement Google OAuth logic here
-    res.status(501).json({ message: 'Google OAuth not implemented yet' });
-});
+// Start Google OAuth flow
+router.get('/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+// Handle callback
+router.get('/google/callback',
+  passport.authenticate('google', {
+    failureRedirect: '/login.html'
+  }),
+  (req, res) => {
+    // On success, you can redirect to dashboard or return a JWT
+    const token = jwt.sign(
+      { email: req.user.email },
+      JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+
+    
+    res.redirect(`/index.html?token=${token}`);
+    
+  }
+);
+
+
+// GitHub OAuth
+router.get('/github',
+    passport.authenticate('github', { scope: ['user:email'] })
+);
+
+// GitHub callback route
+router.get('/github/callback',
+    passport.authenticate('github', { failureRedirect: '/login' }),
+    (req, res) => {
+        // On success, redirect or respond
+        res.redirect('/index.html');
+    }
+);
+
+
 
 // Upload profile picture endpoint
 router.post('/upload-profile-picture', upload.single('profilePicture'), async (req, res) => {
