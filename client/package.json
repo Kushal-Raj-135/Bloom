@@ -1,0 +1,23 @@
+{
+  "name": "biobloom-client",
+  "version": "1.0.0",
+  "description": "BioBloom client-side application",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "echo 'No build step required for client'",
+    "test": "echo 'No tests defined'"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "agriculture",
+    "sustainable farming",
+    "crop rotation",
+    "biofuel",
+    "environmental monitoring",
+    "client"
+  ],
+  "author": "",
+  "license": "ISC"
+}
