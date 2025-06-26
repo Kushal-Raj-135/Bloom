@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - BioBloom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/nav-styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        .not-found-container {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .not-found-title {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .not-found-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .home-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="/logo.png" alt="BioBloom Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/" class="nav-link" data-translate="home">Home</a></li>
+                    <li><a href="/#info-section" class="nav-link" data-translate="about">About</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link" data-translate="products">Products</a>
+                        <div class="dropdown-menu">
+                            <a href="/crop/crop-rotation" class="nav-link" data-translate="crop_rotation">CropShiftX</a>
+                            <a href="/agrirevive/biofuel" class="nav-link" data-translate="agrirevive">AgriReVive</a>
+                            <a href="/agrisensex/agri" class="nav-link" data-translate="agrisensex">AgriSenseX</a>
+                            <!-- <a href="/graintrust/auth/index.html" class="nav-link" data-translate="grain_trust">GrainTrust</a> -->
+                            <a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" class="nav-link" data-translate="bio_guardian">BioGuardian</a>
+                        </div>
+                    </li>
+                    <li><a href="/#contact" class="nav-link" data-translate="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="not-found-container">
+        <h1 class="not-found-title">404 - Page Not Found</h1>
+        <p class="not-found-text">
+            Sorry, the page you're looking for doesn't exist or has been moved.
+        </p>
+        <a href="/" class="home-button">Return to Home</a>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - BioBloom Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+    /* Override toast styles specifically for profile page */
+    .toast {
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        padding: 12px 24px !important;
+        border-radius: 4px !important;
+        color: white !important;
+        font-size: 14px !important;
+        max-width: 300px !important;
+        z-index: 9999 !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        background-color: transparent !important;
+        width: auto !important;
+        height: auto !important;
+    }
+    
+    .toast.success {
+        background-color: #28a745 !important;
+    }
+    
+    .toast.error {
+        background-color: #dc3545 !important;
+    }
+    
+    .toast.info {
+        background-color: #17a2b8 !important;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="i/">
+                    <img src="logo.png" alt="BioBloom Logo" class="logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/" class="nav-link" data-translate="home">Home</a></li>
+                    <li><a href="/#info-section" class="nav-link" data-translate="about">About</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link" data-translate="products">Products</a>
+                        <div class="dropdown-menu">
+                            <a href="/crop/crop-rotation" class="nav-link" data-translate="crop_rotation">Crop Rotation Assistant</a>
+                            <a href="https://biofuel-one.vercel.app/" target="_blank" class="nav-link" data-translate="biofuel">Biofuel</a>
+                            <a href="#smart-farm" class="nav-link" data-translate="smart_farm">Smart Farm</a>
+                        </div>
+                    </li>
+                    <li><a href="/#contact" class="nav-link" data-translate="contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-right">
+                    <!-- Auth buttons for logged out users -->
+                    <div class="auth-buttons">
+                        <a href="/login" class="nav-link" data-translate="login">Login</a>
+                        <a href="/register" class="nav-link" data-translate="register">Register</a>
+                    </div>
+                    
+                    <!-- User menu for logged in users -->
+                    <div class="user-menu" style="display: none;">
+                        <div class="dropdown">
+                            <a href="#" class="user-dropdown-toggle nav-link">
+                                <i class="fas fa-user-circle"></i>
+                                <span class="user-name">User</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu user-dropdown-menu">
+                                <a href="/profile" class="nav-link" data-translate="profile">Profile</a>
+                                <a href="#" class="nav-link logout-btn" data-translate="logout">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Language selector -->
+                    <div class="language-selector">
+                        <select id="languageDropdown" class="language-dropdown">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                            <option value="kn">ಕನ್ನಡ</option>
+                        </select>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <div class="container">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <h2>Edit Profile</h2>
+                        <p>Update your personal information</p>
+                    </div>
+
+                    <div class="profile-picture">
+                        <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profile-picture">
+                        <div class="picture-upload">
+                            <label for="picture-input">
+                                <i class="fas fa-camera"></i> Change Picture
+                            </label>
+                            <input type="file" id="picture-input" accept="image/*">
+                        </div>
+                    </div>
+
+                    <form id="profile-form" class="profile-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <div class="input-group">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="name" name="name" required 
+                                    placeholder="Enter your full name">
+                            </div>
+                            <span class="error-message" id="name-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-group">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" required 
+                                    placeholder="Enter your email">
+                            </div>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-group">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phone" name="phone" 
+                                    placeholder="Enter your phone number">
+                            </div>
+                            <span class="error-message" id="phone-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <div class="input-group">
+                                <i class="fas fa-location-dot"></i>
+                                <input type="text" id="location" name="location" 
+                                    placeholder="Enter your location">
+                            </div>
+                            <span class="error-message" id="location-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <div class="input-group">
+                                <i class="fas fa-user-circle"></i>
+                                <textarea id="bio" name="bio" rows="3" maxlength="200" 
+                                    placeholder="Tell us about yourself"></textarea>
+                            </div>
+                            <div class="char-count">0/200</div>
+                            <span class="error-message" id="bio-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="current-password">Current Password</label>
+                            <div class="input-group">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="current-password" name="current-password" 
+                                    placeholder="Enter your current password">
+                                <button type="button" class="toggle-password" id="toggle-current-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="error-message" id="current-password-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="new-password">New Password (Optional)</label>
+                            <div class="input-group">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="new-password" name="new-password" 
+                                    placeholder="Enter new password">
+                                <button type="button" class="toggle-password" id="toggle-new-password">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <span class="error-message" id="new-password-error"></span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="custom-btn save-btn">
+                                <i class="fas fa-save"></i>
+                                <span class="btn-text">Save Changes</span>
+                                <div class="spinner"></div>
+                            </button>
+                            <a href="/" class="custom-btn cancel-btn">
+                                <i class="fas fa-times"></i>
+                                <span class="btn-text">Cancel</span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="EcoFarm Logo">
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#info-section">About</a></li>
+                        <li><a href="/#products">Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact" id="contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@biobloom.com</p>
+                    <p data-translate="phone_contact">Phone: +91 1234567890</p>
+                    <p>Address: HSR Layout, Bengaluru</p>
+    
+                    <div class="social-icons">
+                        <a href="https://instagram.com" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BioBloom Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="language/translations.js"></script>
+    <script src="app.js"></script>
+    <script src="validation.js"></script>
+    <script src="profile.js"></script>
+    <script src="userMenu.js"></script>
+</body>
+</html> 

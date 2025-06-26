@@ -1,0 +1,103 @@
+<section id="crop-rotation-tool" class="section active">
+    <div class="container">
+        <h1 class="section-title"><i class="fas fa-sync-alt"></i> Crop Rotation Assistant</h1>
+        <div class="tool-container">
+            <div class="input-section card">
+                <h2><i class="fas fa-clipboard-list"></i> Enter Your Farm Details</h2>
+                <form id="crop-form">
+                    <div class="form-group">
+                        <label for="previous-crop">Select Your Crop:</label>
+                        <select id="previous-crop" required>
+                            <option value="">Select a crop</option>
+                            <option value="rice">Rice (Dhan)</option>
+                            <option value="wheat">Wheat (Gehun)</option>
+                            <option value="sugarcane">Sugarcane (Ganna)</option>
+                            <option value="pulses">Pulses (Dal)</option>
+                            <option value="cotton">Cotton (Kapas)</option>
+                            <option value="groundnut">Groundnut (Moongfali)</option>
+                            <option value="maize">Maize (Makka)</option>
+                            <option value="sorghum">Sorghum (Jowar)</option>
+                            <option value="pearl-millet">Pearl Millet (Bajra)</option>
+                            <option value="chickpea">Chickpea (Chana)</option>
+                            <option value="mustard">Mustard (Sarson)</option>
+                            <option value="moong">Green Gram (Moong)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="soil-type">Soil Type:</label>
+                        <select id="soil-type" required>
+                            <option value="">Select soil type</option>
+                            <option value="clay">Clay</option>
+                            <option value="sandy">Sandy</option>
+                            <option value="loamy">Loamy</option>
+                            <option value="silty">Silty</option>
+                            <option value="peaty">Peaty</option>
+                        </select>
+                        <small class="helper-text">This will be auto-filled based on your crop selection</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="region">Region/Climate:</label>
+                        <select id="region" required>
+                            <option value="">Select region</option>
+                            <option value="tropical">Tropical</option>
+                            <option value="subtropical">Subtropical</option>
+                            <option value="temperate">Temperate</option>
+                            <option value="arid">Arid</option>
+                            <option value="mediterranean">Mediterranean</option>
+                        </select>
+                        <small class="helper-text">This will be auto-filled based on your crop selection</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="farm-size">Farm Size (acres):</label>
+                        <input type="number" id="farm-size" min="1" required>
+                    </div>
+                    <button type="submit" class="custom-btn"><i class="fas fa-check-circle"></i> Get Recommendations</button>
+                </form>
+            </div>
+
+            <div class="results-section">
+                <div class="card recommendation-card">
+                    <h2><i class="fas fa-lightbulb"></i> Your Recommendations</h2>
+                    <div class="results-placeholder">
+                        <i class="fas fa-seedling placeholder-icon"></i>
+                        <p>Fill out the form to get personalized recommendations for your farm.</p>
+                    </div>
+                    <div class="results-content" style="display: none;">
+                        <div class="recommendation-item">
+                            <h3><i class="fas fa-sync"></i> 3-Year Rotation Plan</h3>
+                            <div id="next-crop-recommendation"></div>
+                        </div>
+                        <button onclick="downloadResults()" class="custom-btn"><i class="fas fa-download"></i> Download Report</button>
+                    </div>
+                </div>
+
+                <div class="card aqi-monitor-card">
+                    <h2><i class="fas fa-chart-line"></i> Air Quality Monitor</h2>
+                    <div class="aqi-info">
+                        <div id="aqi-gauge" class="aqi-gauge"></div>
+                        <div class="aqi-details">
+                            <div class="aqi-value" id="aqi-value">
+                                <span id="aqi-number">--</span>
+                                <span class="aqi-label">AQI</span>
+                            </div>
+                            <div class="aqi-status" id="aqi-status">Loading air quality data...</div>
+                        </div>
+                    </div>
+                    <div class="aqi-recommendations">
+                        <h3><i class="fas fa-tasks"></i> Recommended Farm Activities</h3>
+                        <ul id="aqi-activities" class="activity-list">
+                            <!-- Activities will be populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <div class="chart-container card">
+                <h2><i class="fas fa-chart-bar"></i> AQI Impact Analysis</h2>
+                <canvas id="aqiComparisonChart"></canvas>
+            </div>
+        </div>
+    </div>
+</section> 

@@ -1,0 +1,433 @@
+.aqi-monitor {
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.aqi-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+
+/* Gauge Styles */
+.aqi-gauge {
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+/* Status text above the ring */
+.gauge-status {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2e7d32;  /* Default green color */
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.gauge-status::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.3;
+}
+
+/* Color overrides for different statuses */
+.gauge-ring[data-level="good"] ~ .gauge-status { color: #2e7d32; }
+.gauge-ring[data-level="moderate"] ~ .gauge-status { color: #f4d03f; }
+.gauge-ring[data-level="unhealthy-sensitive"] ~ .gauge-status { color: #ff9933; }
+.gauge-ring[data-level="unhealthy"] ~ .gauge-status { color: #cc0033; }
+.gauge-ring[data-level="very-unhealthy"] ~ .gauge-status { color: #660099; }
+
+.gauge-ring {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Base colored arc segments (dulled) */
+.gauge-ring::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 180deg,
+        rgba(0, 153, 102, 0.08) 0deg 72deg,
+        rgba(255, 222, 51, 0.08) 72deg 144deg,
+        rgba(255, 153, 51, 0.08) 144deg 216deg,
+        rgba(204, 0, 51, 0.08) 216deg 288deg,
+        rgba(102, 0, 153, 0.08) 288deg 360deg
+    );
+}
+
+/* Active segment highlight */
+.gauge-ring::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 180deg,
+        transparent 0deg var(--segment-start),
+        var(--highlight-color) var(--segment-start) var(--segment-end),
+        transparent var(--segment-end) 360deg
+    );
+    opacity: 0.85;
+    transition: all 0.5s ease;
+}
+
+.gauge-ring[data-level="good"] {
+    --highlight-color: rgba(0, 153, 102, 0.9);
+    --segment-start: 0deg;
+    --segment-end: 72deg;
+}
+
+.gauge-ring[data-level="moderate"] {
+    --highlight-color: rgba(255, 213, 0, 0.9);
+    --segment-start: 72deg;
+    --segment-end: 144deg;
+}
+
+.gauge-ring[data-level="unhealthy-sensitive"] {
+    --highlight-color: rgba(255, 153, 51, 0.9);
+    --segment-start: 144deg;
+    --segment-end: 216deg;
+}
+
+.gauge-ring[data-level="unhealthy"] {
+    --highlight-color: rgba(204, 0, 51, 0.95);
+    --segment-start: 216deg;
+    --segment-end: 288deg;
+}
+
+.gauge-ring[data-level="very-unhealthy"] {
+    --highlight-color: rgba(102, 0, 153, 0.9);
+    --segment-start: 288deg;
+    --segment-end: 360deg;
+}
+
+.gauge-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 2px 10px rgba(255, 255, 255, 0.5);
+    z-index: 2;
+}
+
+#aqi-number {
+    font-family: 'Inter', sans-serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    transition: color 0.3s ease;
+    margin-bottom: 0;
+    color: currentColor;
+}
+
+.gauge-ring[data-level="good"] #aqi-number { color: rgba(0, 153, 102, 1); }
+.gauge-ring[data-level="moderate"] #aqi-number { color: rgba(255, 222, 51, 1); }
+.gauge-ring[data-level="unhealthy-sensitive"] #aqi-number { color: rgba(255, 153, 51, 1); }
+.gauge-ring[data-level="unhealthy"] #aqi-number { color: rgba(204, 0, 51, 1); }
+.gauge-ring[data-level="very-unhealthy"] #aqi-number { color: rgba(102, 0, 153, 1); }
+
+.aqi-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    color: #666;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 2px;
+}
+
+.gauge-scale {
+    
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 25px;
+    padding: 0 15px;
+}
+
+.scale-item {
+    font-family: 'Inter', sans-serif;
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    text-align: left;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+}
+
+.scale-item::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.scale-item:hover {
+    transform: translateX(5px);
+    opacity: 0.9;
+}
+
+.scale-item.active {
+    opacity: 1;
+    transform: translateX(10px);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scale-item.active::before {
+    transform: scale(1.2);
+}
+
+.scale-item.good::before { 
+    background-color: #009966;
+    box-shadow: 0 0 10px rgba(0, 153, 102, 0.3);
+}
+.scale-item.moderate::before { 
+    background-color: #ffde33;
+    box-shadow: 0 0 10px rgba(255, 222, 51, 0.3);
+}
+.scale-item.unhealthy-sensitive::before { 
+    background-color: #ff9933;
+    box-shadow: 0 0 10px rgba(255, 153, 51, 0.3);
+}
+.scale-item.unhealthy::before { 
+    background-color: #cc0033;
+    box-shadow: 0 0 10px rgba(204, 0, 51, 0.3);
+}
+.scale-item.very-unhealthy::before { 
+    background-color: #660099;
+    box-shadow: 0 0 10px rgba(102, 0, 153, 0.3);
+}
+
+.scale-item.good { 
+    background: linear-gradient(to right, rgba(0, 153, 102, 0.1), transparent);
+    border-left: 3px solid #009966;
+}
+.scale-item.moderate { 
+    background: linear-gradient(to right, rgba(255, 222, 51, 0.1), transparent);
+    border-left: 3px solid #ffde33;
+}
+.scale-item.unhealthy-sensitive { 
+    background: linear-gradient(to right, rgba(255, 153, 51, 0.1), transparent);
+    border-left: 3px solid #ff9933;
+}
+.scale-item.unhealthy { 
+    background: linear-gradient(to right, rgba(204, 0, 51, 0.1), transparent);
+    border-left: 3px solid #cc0033;
+}
+.scale-item.very-unhealthy { 
+    background: linear-gradient(to right, rgba(102, 0, 153, 0.1), transparent);
+    border-left: 3px solid #660099;
+}
+
+/* Recommendations Styles */
+.aqi-info {
+    flex: 0 1 650px;
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 
+        0 6px 25px rgba(0, 0, 0, 0.06),
+        inset 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+.recommendations-container {
+    margin-top: 15px;
+}
+
+.recommendations-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px currentColor;
+}
+
+.status-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #2d3436;
+    letter-spacing: 0.3px;
+}
+
+.recommendations-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.recommendation-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px 22px;
+    border-radius: 12px;
+    background: linear-gradient(to right, #f8f9fa, white);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 12px;
+    min-height: 65px;
+    width: 100%;
+}
+
+.recommendation-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.recommendation-icon {
+    font-size: 20px;
+    min-width: 24px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 2px;
+}
+
+.recommendation-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2d3436;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+}
+
+.recommendations-note {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.recommendations-note p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    color: #666;
+    margin: 4px 0;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .aqi-container {
+        gap: 30px;
+    }
+
+    .aqi-gauge {
+        flex: 0 1 300px;
+    }
+
+    .gauge-status {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+    }
+
+    .gauge-ring {
+        width: 240px;
+        height: 240px;
+    }
+
+    .gauge-value {
+        width: 110px;
+        height: 110px;
+    }
+
+    #aqi-number {
+        font-size: 48px;
+    }
+
+    .aqi-info {
+        flex: 0 1 100%;
+        padding: 25px;
+        border-radius: 20px;
+    }
+
+    .aqi-label {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+    }
+
+    .status-text {
+        font-size: 18px;
+    }
+    
+    .recommendation-item {
+        padding: 16px 20px;
+        min-height: 60px;
+        border-radius: 10px;
+    }
+    
+    .recommendation-icon {
+        font-size: 18px;
+        min-width: 22px;
+    }
+    
+    .recommendation-text {
+        font-size: 13px;
+    }
+    
+    .recommendations-note p {
+        font-size: 10px;
+    }
+} 
