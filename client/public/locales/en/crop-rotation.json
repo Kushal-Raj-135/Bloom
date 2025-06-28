@@ -1,0 +1,51 @@
+{
+  "title": "CropShiftX - Smart Crop Rotation",
+  "description": "AI-powered crop rotation assistant that helps farmers optimize their planting schedules and improve soil health through intelligent crop rotation recommendations.",
+  "form": {
+    "enter_farm_details": "Enter your farm details",
+    "select_crop": "Select your crop:",
+    "current_crop": "Current Crop",
+    "farm_size": "Farm Size (acres)",
+    "soil_type": "Soil Type",
+    "climate_zone": "Climate Zone",
+    "previous_crops": "Previous Crops (last 2 seasons)",
+    "soil_ph": "Soil pH Level",
+    "irrigation_type": "Irrigation Type",
+    "organic_farming": "Organic Farming",
+    "get_recommendations": "Get Recommendations"
+  },
+  "crops": {
+    "rice": "Rice",
+    "wheat": "Wheat",
+    "sugarcane": "Sugarcane",
+    "pulses": "Pulses",
+    "cotton": "Cotton",
+    "groundnut": "Groundnut",
+    "maize": "Maize",
+    "sorghum": "Sorghum",
+    "pearl_millet": "Pearl Millet",
+    "chickpea": "Chickpea",
+    "tomato": "Tomato",
+    "potato": "Potato",
+    "onion": "Onion",
+    "cabbage": "Cabbage",
+    "carrot": "Carrot"
+  },
+  "soil_types": {
+    "clay": "Clay",
+    "sandy": "Sandy",
+    "loam": "Loam",
+    "silt": "Silt",
+    "peaty": "Peaty",
+    "chalky": "Chalky"
+  },
+  "results": {
+    "recommendations": "Crop Rotation Recommendations",
+    "next_season": "Next Season Recommendations",
+    "benefits": "Expected Benefits",
+    "soil_health": "Soil Health Impact",
+    "yield_prediction": "Yield Prediction",
+    "environmental_impact": "Environmental Impact",
+    "economic_benefits": "Economic Benefits"
+  }
+}

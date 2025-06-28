@@ -7,6 +7,9 @@ import passport from 'passport';
 import session from 'express-session';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import cookieParser from 'cookie-parser';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -21,7 +24,8 @@ import weatherRoutes from './server/routes/weather.js';
 import aiRoutes from './server/routes/ai.js';
 import geocodingRoutes from './server/routes/geocoding.js';
 
-// Middleware imports
+// Import middleware
+import { handleApiError } from './server/middleware/apiSecurity.js';
 
 // Initialize environment variables
 dotenv.config();
@@ -37,8 +41,37 @@ const PORT = serverConfig.port;
 // Middleware
 app.use(cors());
 app.use(morgan('dev')); // Logging middleware
+
+// Configure Helmet with CSP settings
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: [
+                "'self'",
+                "'unsafe-inline'",
+                "https://cdnjs.cloudflare.com",
+                "https://cdn.jsdelivr.net",
+                "https://fonts.googleapis.com"
+            ],
+            styleSrc: [
+                "'self'",
+                "'unsafe-inline'",
+                "https://fonts.googleapis.com",
+                "https://cdnjs.cloudflare.com"
+            ],
+            fontSrc: [
+                "'self'",
+                "https://fonts.gstatic.com",
+                "https://cdnjs.cloudflare.com"
+            ],
+            imgSrc: ["'self'", "data:", "https:"],
+            connectSrc: ["'self'"]
+        }
+    }
+}));
+
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'client'))); // Serve files from client directory
 app.use(session({
     secret: authConfig.sessionSecret,
     resave: false,
@@ -68,104 +101,8 @@ app.use('/api/geocoding', geocodingRoutes);
 
 // Serve static directories
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// Serve static HTML pages directly
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'index.html'));
-});
-
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'login.html'));
-});
-
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'register.html'));
-});
-
-app.get('/profile', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'profile.html'));
-});
-
-app.get('/forgot-password', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'forgot-password.html'));
-});
-
-app.get('/reset-password/:token', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'reset-password.html'));
-});
-
-// Direct routes for feature pages
-app.get('/crop/crop-rotation', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'modules', 'cropshift', 'html', 'crop-rotation.html'));
-});
-
-app.get('/crop', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'modules', 'cropshift', 'html', 'index.html'));
-});
-
-app.get('/crop/aqi-monitor', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'modules', 'cropshift', 'html', 'aqi-monitor.html'));
-});
-
-app.get('/agrirevive/biofuel', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'modules', 'agrirevive', 'html', 'biofuel.html'));
-});
-
-app.get('/agrirevive', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'modules', 'agrirevive', 'html', 'biofuel.html'));
-});
-
-app.get('/agrisensex/agri', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'modules', 'agrisensex', 'html', 'agri.html'));
-});
-
-app.get('/agrisensex', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'modules', 'agrisensex', 'html', 'agri.html'));
-});
-
-// Helper function to handle module-based routes
-const serveFromModule = (moduleName, originalPath, req, res, next) => {
-    const relativePath = req.path.replace(originalPath, '/');
-    
-    // Check assets first (CSS, JS, etc.)
-    const assetPath = path.join(__dirname, 'client', 'modules', moduleName, 'assets', relativePath);
-    if (fs.existsSync(assetPath) && fs.statSync(assetPath).isFile()) {
-        return res.sendFile(assetPath);
-    }
-    
-    // Check HTML files
-    const htmlPath = path.join(__dirname, 'client', 'modules', moduleName, 'html', relativePath);
-    if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).isFile()) {
-        return res.sendFile(htmlPath);
-    }
-    
-    // Check JS files
-    const jsPath = path.join(__dirname, 'client', 'modules', moduleName, 'js', relativePath);
-    if (fs.existsSync(jsPath) && fs.statSync(jsPath).isFile()) {
-        return res.sendFile(jsPath);
-    }
-    
-    // If not found, go to next handler
-    next();
-};
-
-// Serve feature module routes
-app.get('/crop/*', (req, res, next) => {
-    serveFromModule('cropshift', '/crop/', req, res, next);
-});
-
-app.get('/agrirevive/*', (req, res, next) => {
-    serveFromModule('agrirevive', '/agrirevive/', req, res, next);
-});
-
-app.get('/agrisensex/*', (req, res, next) => {
-    serveFromModule('agrisensex', '/agrisensex/', req, res, next);
-});
-
-// 404 handler - must be after all other routes
-app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'client', '404.html'));
-});
+// Global error handler
+app.use(handleApiError);
 
 // Start server
 app.listen(PORT, () => {

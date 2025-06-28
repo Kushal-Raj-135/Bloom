@@ -1,0 +1,58 @@
+{
+  "title": "AgriSenseX - Precision Agriculture",
+  "description": "Real-time monitoring and analytics for smart farming",
+  "sections": {
+    "farm_dashboard": "Farm Dashboard",
+    "real_time_sensors": "Real-time Sensors",
+    "weather_forecast": "Weather Forecast",
+    "aqi_monitoring": "Air Quality Index",
+    "ai_bioengineering": "AI Bioengineering",
+    "farm_map": "Farm Map",
+    "solution_benefits": "Our Solution Benefits",
+    "aqi_impact_analysis": "AQI Impact Analysis"
+  },
+  "sensors": {
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "soil_moisture": "Soil Moisture",
+    "light_intensity": "Light Intensity",
+    "wind_speed": "Wind Speed",
+    "rainfall": "Rainfall",
+    "soil_ph": "Soil pH",
+    "nitrogen": "Nitrogen",
+    "phosphorus": "Phosphorus",
+    "potassium": "Potassium"
+  },
+  "weather": {
+    "current_weather": "Current Weather",
+    "sunny": "Sunny",
+    "cloudy": "Cloudy",
+    "partly_cloudy": "Partly Cloudy",
+    "light_rain": "Light Rain",
+    "heavy_rain": "Heavy Rain",
+    "storm": "Storm"
+  },
+  "bioengineering": {
+    "crop_type": "Crop Type",
+    "soil_type": "Soil Type",
+    "ph_level": "pH Level",
+    "calculate_impact": "Calculate Impact",
+    "calculating": "Calculating...",
+    "sustainability_metrics": "Sustainability Metrics",
+    "carbon_sequestration": "Carbon Sequestration",
+    "water_efficiency": "Water Efficiency",
+    "biodiversity_index": "Biodiversity Index",
+    "soil_health": "Soil Health",
+    "ai_recommendations": "AI Recommendations"
+  },
+  "benefits": {
+    "smart_crop_rotation": "Smart Crop Rotation",
+    "aqi_improvement": "AQI Improvement", 
+    "water_conservation": "Water Conservation",
+    "enhanced_biodiversity": "Enhanced Biodiversity",
+    "reduced_emissions": "Reduced Emissions",
+    "carbon_sequestration": "Carbon Sequestration",
+    "dust_mitigation": "Dust Mitigation",
+    "long_term_benefits": "Long-term Benefits"
+  }
+}

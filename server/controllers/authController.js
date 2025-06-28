@@ -4,36 +4,70 @@ import crypto from 'crypto';
 import { authConfig } from '../config/config.js';
 import User from '../models/User.js';
 
+// Token blacklist for logout (in production, use Redis)
+const tokenBlacklist = new Set();
+
+/**
+ * Generate access and refresh tokens
+ */
+export const generateTokens = (user) => {
+    const payload = {
+        id: user._id,
+        email: user.email,
+        role: user.role || 'user'
+    };
+
+    const accessToken = jwt.sign(payload, authConfig.jwtSecret, { expiresIn: '15m' });
+    const refreshToken = jwt.sign(payload, authConfig.jwtSecret, { expiresIn: '7d' });
+
+    return { accessToken, refreshToken };
+};
+
 /**
  * Register a new user
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
  */
 export const register = async (req, res) => {
     const { name, email, password } = req.body;
 
     try {
+        // Validate input
+        if (!name || !email || !password) {
+            return res.status(400).json({ message: 'All fields are required' });
+        }
+
+        if (password.length < 8) {
+            return res.status(400).json({ message: 'Password must be at least 8 characters long' });
+        }
+
         // Check if user already exists
-        const existingUser = await User.findOne({ email });
+        const existingUser = await User.findOne({ email: email.toLowerCase() });
         if (existingUser) {
             return res.status(400).json({ message: 'User already exists with this email' });
         }
 
-        // Hash password
-        const salt = await bcrypt.genSalt(10);
+        // Hash password with higher salt rounds
+        const salt = await bcrypt.genSalt(12);
         const hashedPassword = await bcrypt.hash(password, salt);
 
         // Create new user
         const newUser = new User({
-            name,
-            email,
-            password: hashedPassword
+            name: name.trim(),
+            email: email.toLowerCase().trim(),
+            password: hashedPassword,
+            role: 'user'
         });
 
         // Save user to database
         await newUser.save();
 
-        res.status(201).json({ message: 'Registration successful' });
+        res.status(201).json({ 
+            message: 'Registration successful',
+            user: {
+                id: newUser._id,
+                name: newUser.name,
+                email: newUser.email
+            }
+        });
     } catch (error) {
         console.error('Registration error:', error);
         res.status(500).json({ message: 'Server error during registration' });
@@ -42,39 +76,79 @@ export const register = async (req, res) => {
 
 /**
  * Login a user
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
  */
 export const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Find user by email
-        const user = await User.findOne({ email });
+        // Validate input
+        if (!email || !password) {
+            return res.status(400).json({ message: 'Email and password are required' });
+        }
+
+        // Find user by email (case insensitive)
+        const user = await User.findOne({ email: email.toLowerCase().trim() });
         if (!user) {
             return res.status(400).json({ message: 'Invalid credentials' });
+        }
+
+        // Check if account is locked
+        if (user.lockUntil && user.lockUntil > Date.now()) {
+            return res.status(423).json({ message: 'Account temporarily locked due to too many failed login attempts' });
         }
 
         // Verify password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
+            // Increment failed login attempts
+            await User.findByIdAndUpdate(user._id, {
+                $inc: { loginAttempts: 1 },
+                $set: { 
+                    lockUntil: user.loginAttempts >= 4 ? Date.now() + 30 * 60 * 1000 : undefined // Lock for 30 minutes after 5 attempts
+                }
+            });
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        // Generate JWT token
-        const token = jwt.sign(
-            { id: user._id, email: user.email },
-            authConfig.jwtSecret,
-            { expiresIn: '1d' }
-        );
+        // Reset login attempts on successful login
+        if (user.loginAttempts > 0) {
+            await User.findByIdAndUpdate(user._id, {
+                $set: { 
+                    loginAttempts: 0,
+                    lockUntil: undefined,
+                    lastLogin: new Date()
+                }
+            });
+        }
+
+        // Generate tokens
+        const { accessToken, refreshToken } = generateTokens(user);
+
+        // Set secure cookies
+        res.cookie('auth-token', accessToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            maxAge: 15 * 60 * 1000 // 15 minutes
+        });
+
+        res.cookie('refresh-token', refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+        });
 
         res.status(200).json({
-            token,
+            message: 'Login successful',
+            token: accessToken, // For backward compatibility
+            refreshToken: refreshToken, // For backward compatibility
             user: {
                 id: user._id,
                 name: user.name,
                 email: user.email,
-                profilePicture: user.profilePicture
+                profilePicture: user.profilePicture,
+                role: user.role || 'user'
             }
         });
     } catch (error) {
@@ -84,67 +158,110 @@ export const login = async (req, res) => {
 };
 
 /**
- * Google OAuth callback handler
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
+ * Logout a user
  */
-export const googleCallback = (req, res) => {
+export const logout = async (req, res) => {
     try {
-        // Generate JWT token
-        const token = jwt.sign(
-            { id: req.user._id, email: req.user.email },
-            authConfig.jwtSecret,
-            { expiresIn: '1d' }
-        );
+        const token = req.header('Authorization')?.replace('Bearer ', '') || req.cookies['auth-token'];
         
-        // Redirect to frontend with token
-        res.redirect(`/?token=${token}`);
+        if (token) {
+            // Add token to blacklist
+            tokenBlacklist.add(token);
+        }
+
+        // Clear cookies
+        res.clearCookie('auth-token');
+        res.clearCookie('refresh-token');
+
+        res.status(200).json({ message: 'Logout successful' });
     } catch (error) {
-        console.error('Google callback error:', error);
-        res.redirect('/login?error=auth_failed');
+        console.error('Logout error:', error);
+        res.status(500).json({ message: 'Server error during logout' });
     }
 };
 
 /**
- * GitHub OAuth callback handler
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
+ * Refresh authentication token
  */
-export const githubCallback = (req, res) => {
+export const refreshToken = async (req, res) => {
     try {
-        // Generate JWT token
-        const token = jwt.sign(
-            { id: req.user._id, email: req.user.email },
-            authConfig.jwtSecret,
-            { expiresIn: '1d' }
-        );
+        const { refreshToken } = req.body;
+        const cookieRefreshToken = req.cookies['refresh-token'];
         
-        // Redirect to frontend with token
-        res.redirect(`/?token=${token}`);
+        const token = refreshToken || cookieRefreshToken;
+        
+        if (!token) {
+            return res.status(401).json({ message: 'Refresh token required' });
+        }
+
+        // Check if token is blacklisted
+        if (tokenBlacklist.has(token)) {
+            return res.status(401).json({ message: 'Token has been revoked' });
+        }
+
+        // Verify refresh token
+        const decoded = jwt.verify(token, authConfig.jwtSecret);
+        
+        // Find user
+        const user = await User.findById(decoded.id);
+        if (!user) {
+            return res.status(401).json({ message: 'User not found' });
+        }
+
+        // Generate new tokens
+        const { accessToken, refreshToken: newRefreshToken } = generateTokens(user);
+
+        // Set new cookies
+        res.cookie('auth-token', accessToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            maxAge: 15 * 60 * 1000
+        });
+
+        res.cookie('refresh-token', newRefreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'lax',
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
+
+        // Blacklist old refresh token
+        tokenBlacklist.add(token);
+
+        res.status(200).json({
+            token: accessToken,
+            refreshToken: newRefreshToken
+        });
     } catch (error) {
-        console.error('GitHub callback error:', error);
-        res.redirect('/login?error=auth_failed');
+        console.error('Token refresh error:', error);
+        res.status(401).json({ message: 'Invalid or expired refresh token' });
     }
 };
 
 /**
  * Verify JWT token
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
  */
 export const verifyToken = async (req, res) => {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
-    
-    if (!token) {
-        return res.status(401).json({ valid: false });
-    }
-    
     try {
-        const decoded = jwt.verify(token, authConfig.jwtSecret);
-        const user = await User.findById(decoded.id);
+        const token = req.header('Authorization')?.replace('Bearer ', '') || req.cookies['auth-token'];
         
+        if (!token) {
+            return res.status(401).json({ valid: false, message: 'No token provided' });
+        }
+
+        // Check if token is blacklisted
+        if (tokenBlacklist.has(token)) {
+            return res.status(401).json({ valid: false, message: 'Token has been revoked' });
+        }
+
+        // Verify token
+        const decoded = jwt.verify(token, authConfig.jwtSecret);
+        
+        // Find user
+        const user = await User.findById(decoded.id);
         if (!user) {
-            return res.status(401).json({ valid: false });
+            return res.status(401).json({ valid: false, message: 'User not found' });
         }
         
         res.json({ 
@@ -153,19 +270,18 @@ export const verifyToken = async (req, res) => {
                 id: user._id,
                 name: user.name,
                 email: user.email,
-                profilePicture: user.profilePicture
+                profilePicture: user.profilePicture,
+                role: user.role || 'user'
             }
         });
     } catch (error) {
         console.error('Token verification error:', error);
-        res.status(401).json({ valid: false });
+        res.status(401).json({ valid: false, message: 'Invalid or expired token' });
     }
 };
 
 /**
  * Update user profile
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
  */
 export const updateProfile = async (req, res) => {
     const { name, email } = req.body;
@@ -174,9 +290,20 @@ export const updateProfile = async (req, res) => {
     try {
         const updates = {
             name,
-            email,
+            email: email?.toLowerCase(),
             updatedAt: new Date()
         };
+
+        // Check if email is already taken by another user
+        if (email) {
+            const existingUser = await User.findOne({ 
+                email: email.toLowerCase(), 
+                _id: { $ne: userId } 
+            });
+            if (existingUser) {
+                return res.status(400).json({ message: 'Email is already taken by another user' });
+            }
+        }
 
         // Add profile picture if uploaded
         if (req.file) {
@@ -199,8 +326,8 @@ export const updateProfile = async (req, res) => {
             user: {
                 id: updatedUser._id,
                 name: updatedUser.name,
-                email: updatedUser.email,
-                profilePicture: updatedUser.profilePicture
+                email: updatedUser.email,                profilePicture: updatedUser.profilePicture,
+                role: updatedUser.role
             }
         });
     } catch (error) {

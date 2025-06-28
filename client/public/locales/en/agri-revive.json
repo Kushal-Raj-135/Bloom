@@ -1,0 +1,43 @@
+{
+  "title": "AgriReVive - Waste Management Solutions",
+  "description": "Transform agricultural waste into valuable resources with AI-powered recommendations",
+  "form": {
+    "waste_analysis_input": "Waste Analysis Input",
+    "crop_type": "Crop Type",
+    "waste_amount": "Waste Amount (tons)",
+    "location": "Location",
+    "select_location_on_map": "Select Location on Map",
+    "show_map": "Show Map",
+    "hide_map": "Hide Map",
+    "use_current_location": "Use Current Location",
+    "use_this_location": "Use This Location",
+    "getting_location": "Getting Location...",
+    "click_to_select": "Click on the map to select a location",
+    "helper_text": "You can type a location name or use the map to select coordinates",
+    "analyze_waste": "Analyze Waste",
+    "analyzing_waste": "Analyzing Waste..."
+  },
+  "methods": {
+    "biofuel": "Biofuel",
+    "composting": "Composting",
+    "recycling": "Recycling",
+    "biogas": "Biogas",
+    "pyrolysis": "Pyrolysis"
+  },
+  "results": {
+    "processing_recommendations": "Processing Recommendations",
+    "waste_summary": "Waste Analysis Summary",
+    "methods_found": "Methods Found",
+    "recommended_methods": "Recommended Processing Methods",
+    "confidence": "Confidence",
+    "processing_steps": "Processing Steps",
+    "required_equipment": "Required Equipment",
+    "environmental_impact": "Environmental & Economic Impact",
+    "aqi_improvement": "AQI Improvement",
+    "carbon_reduced": "Tons CO₂ Reduced",
+    "economic_benefit": "Economic Benefit",
+    "total_impact": "Total Project Impact",
+    "download_report": "Download Report",
+    "share_results": "Share Results"
+  }
+}
