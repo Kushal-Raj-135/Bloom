@@ -708,9 +708,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // header.appendChild(languageSelector);
 
         // Add language change listener
-        document.getElementById('language-select').addEventListener('change', (e) => {
-            updateLanguage(e.target.value);
-        });
+        const languageSelect = document.getElementById('language-select');
+        if (languageSelect) {
+            languageSelect.addEventListener('change', (e) => {
+                updateLanguage(e.target.value);
+            });
+        }
 
         // Add smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {

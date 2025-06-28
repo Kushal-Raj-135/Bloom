@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioBloom - Sustainable Farming Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chat.css">
     <link rel="stylesheet" href="aqi-styles.css">
     <link rel="stylesheet" href="language/language-styles.css">
     <link rel="stylesheet" href="product-cards.css">
@@ -326,6 +327,22 @@
         </div>
     </footer>
 
+    <!-- Chatbot Widget -->
+    <button id="chatbot-toggle" title="Chat with us">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+    <div id="chatbot-box" class="chatbot-box">
+        <div class="chatbot-header">
+            <span>AgriBot</span>
+            <button id="chatbot-close" title="Close"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <form id="chatbot-form" class="chatbot-form">
+            <input id="chatbot-input" type="text" placeholder="Ask about farming or agriculture..." autocomplete="off" />
+            <button type="submit" title="Send"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
     <!-- Load dependencies first -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -344,6 +361,7 @@
     <!-- <script src="chart.js"></script> -->
     <script src="aqi.js"></script>
     <script type="module" src="script.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>
 

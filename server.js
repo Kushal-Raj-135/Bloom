@@ -162,6 +162,39 @@ app.get('/agrisensex/*', (req, res, next) => {
     serveFromModule('agrisensex', '/agrisensex/', req, res, next);
 });
 
+// Gemini Chatbot API route
+import fetch from 'node-fetch';
+import { apiConfig } from './server/config/config.js';
+
+app.post('/api/chatbot', async (req, res) => {
+    try {
+        const { message } = req.body;
+        if (!message) {
+            return res.status(400).json({ reply: 'No message provided.' });
+        }
+        // Gemini API endpoint and key
+        const geminiApiKey = process.env.GEMINI_API_KEY;
+        const geminiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' + geminiApiKey;
+        const geminiBody = {
+            contents: [{ parts: [{ text: message }] }]
+        };
+        const geminiRes = await fetch(geminiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(geminiBody)
+        });
+        if (!geminiRes.ok) {
+            return res.status(500).json({ reply: 'Gemini API error.' });
+        }
+        const geminiData = await geminiRes.json();
+        const reply = geminiData.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not answer that.';
+        res.json({ reply });
+    } catch (err) {
+        console.error('Gemini chatbot error:', err);
+        res.status(500).json({ reply: 'Internal server error.' });
+    }
+});
+
 // 404 handler - must be after all other routes
 app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'client', '404.html'));
