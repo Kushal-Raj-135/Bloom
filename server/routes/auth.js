@@ -3,10 +3,30 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import passport from 'passport';
+import jwt from 'jsonwebtoken';
 import * as authController from '../controllers/authController.js';
 import { authenticate } from '../middleware/auth.js';
+import { authConfig } from '../config/config.js';
+import {
+    validateInput,
+    loginValidation,
+    registerValidation,
+    passwordResetValidation,
+    resetPasswordValidation,
+    profileUpdateValidation,
+    authRateLimit,
+    passwordResetRateLimit,
+    sanitizeInput,
+    logRequest
+} from '../middleware/apiSecurity.js';
 
 const router = express.Router();
+
+// Apply logging to all auth routes
+// router.use(logRequest);
+
+// Apply input sanitization to all routes
+router.use(sanitizeInput);
 
 // Configure multer for file upload
 const storage = multer.diskStorage({
@@ -38,25 +58,43 @@ const upload = multer({
 });
 
 // Auth routes
-router.post('/register', authController.register);
-// Login endpoint
-router.post('/login', authController.login);
+router.post('/register', authRateLimit, validateInput(registerValidation), authController.register);
+router.post('/login', authRateLimit, validateInput(loginValidation), authController.login);
+router.post('/logout', authenticate, authController.logout);
+router.post('/refresh', authController.refreshToken);
+router.get('/verify', authenticate, authController.verifyToken);
 
 // Google OAuth routes
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/google/callback', 
-    passport.authenticate('google', { failureRedirect: '/login' }),
+    passport.authenticate('google', { failureRedirect: '/login?error=oauth_failed' }),
     (req, res) => {
-        // Generate JWT token
-        const token = jwt.sign(
-            { id: req.user._id, email: req.user.email },
-            authConfig.jwtSecret,
-            { expiresIn: '1d' }
-        );
-        
-        // Redirect to frontend with token
-        res.redirect(`/?token=${token}`);
+        try {
+            // Generate secure tokens
+            const { accessToken, refreshToken } = authController.generateTokens(req.user);
+            
+            // Set secure HTTP-only cookies
+            res.cookie('auth-token', accessToken, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 15 * 60 * 1000 // 15 minutes
+            });
+            
+            res.cookie('refresh-token', refreshToken, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+            });
+            
+            // Redirect to frontend with success indicator
+            res.redirect('/?oauth=success');
+        } catch (error) {
+            console.error('Google OAuth callback error:', error);
+            res.redirect('/login?error=oauth_failed');
+        }
     }
 );
 
@@ -64,67 +102,41 @@ router.get('/google/callback',
 router.get('/github', passport.authenticate('github', { scope: ['user:email'] }));
 
 router.get('/github/callback',
-    passport.authenticate('github', { failureRedirect: '/login' }),
+    passport.authenticate('github', { failureRedirect: '/login?error=oauth_failed' }),
     (req, res) => {
-        // Generate JWT token
-        const token = jwt.sign(
-            { id: req.user._id, email: req.user.email },
-            authConfig.jwtSecret,
-            { expiresIn: '1d' }
-        );
-        
-        // Redirect to frontend with token
-        res.redirect(`/?token=${token}`);
+        try {
+            // Generate secure tokens
+            const { accessToken, refreshToken } = authController.generateTokens(req.user);
+            
+            // Set secure HTTP-only cookies
+            res.cookie('auth-token', accessToken, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 15 * 60 * 1000 // 15 minutes
+            });
+            
+            res.cookie('refresh-token', refreshToken, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'lax',
+                maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+            });
+            
+            // Redirect to frontend with success indicator
+            res.redirect('/?oauth=success');
+        } catch (error) {
+            console.error('GitHub OAuth callback error:', error);
+            res.redirect('/login?error=oauth_failed');
+        }
     }
 );
 
 // Profile update endpoint
-router.put('/profile', upload.single('profilePicture'), async (req, res) => {
-    const { name, email } = req.body;
-    const userId = req.user.id; // Assuming authentication middleware sets req.user
+router.put('/profile', authenticate, upload.single('profilePicture'), validateInput(profileUpdateValidation), authController.updateProfile);
 
-    try {
-        const updates = {
-            name,
-            email,
-            updatedAt: new Date()
-        };
-
-        // Add profile picture if uploaded
-        if (req.file) {
-            updates.profilePicture = `/uploads/profile-pictures/${req.file.filename}`;
-        }
-
-        // Update user profile
-        const updatedUser = await User.findByIdAndUpdate(
-            userId,
-            { $set: updates },
-            { new: true, runValidators: true }
-        );
-
-        if (!updatedUser) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-
-        res.status(200).json({
-            message: 'Profile updated successfully',
-            user: {
-                id: updatedUser._id,
-                name: updatedUser.name,
-                email: updatedUser.email,
-                profilePicture: updatedUser.profilePicture
-            }
-        });
-    } catch (error) {
-        console.error('Profile update error:', error);
-        res.status(500).json({ message: 'Server error during profile update' });
-    }
-});
-
-// Forgot password endpoint
-router.post('/forgot-password', authController.forgotPassword);
-
-// Reset password endpoint
-router.post('/reset-password', authController.resetPassword);
+// Password reset endpoints
+router.post('/forgot-password', passwordResetRateLimit, validateInput(passwordResetValidation), authController.forgotPassword);
+router.post('/reset-password', passwordResetRateLimit, validateInput(resetPasswordValidation), authController.resetPassword);
 
 export default router;
