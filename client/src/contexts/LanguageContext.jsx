@@ -23,163 +23,6 @@ const LanguageLoader = ({ children }) => (
   </Suspense>
 );
 
-// Legacy translation data for backward compatibility
-const legacyTranslations = {
-  en: {
-    // Navigation
-    home: 'Home',
-    about: 'About',
-    products: 'Products',
-    contact: 'Contact',
-    login: 'Login',
-    register: 'Register',
-    logout: 'Logout',
-    profile: 'Profile',
-    
-    // Products
-    crop_rotation: 'CropShiftX',
-    agrirevive: 'AgriReVive',
-    agrisensex: 'AgriSenseX',
-    bio_guardian: 'BioGuardian',
-    
-    // Home page
-    sustainable_farming: 'Sustainable Farming for Cleaner Air',
-    hero_description: 'Harness the power of AI to make farming smarter and greener. Get real-time insights to reduce pollution and boost crop yields. Optimize resources naturally while protecting the environment. Sustainable agriculture starts with smart decisions!',
-    get_started: 'Get Started',
-    our_products: 'Our Products',
-    
-    // Auth forms
-    email: 'Email',
-    password: 'Password',
-    confirm_password: 'Confirm Password',
-    name: 'Full Name',
-    phone: 'Phone Number',
-    location: 'Location',
-    bio: 'Bio',
-    current_password: 'Current Password',
-    new_password: 'New Password',
-    
-    // Buttons
-    submit: 'Submit',
-    save_changes: 'Save Changes',
-    cancel: 'Cancel',
-    
-    // Messages
-    login_success: 'Login successful!',
-    register_success: 'Registration successful!',
-    profile_updated: 'Profile updated successfully!',
-    logout_success: 'Logout successful!',
-    
-    // Errors
-    required_field: 'This field is required',
-    invalid_email: 'Please enter a valid email address',
-    password_min_length: 'Password must be at least 8 characters',
-    passwords_not_match: 'Passwords do not match',
-  },
-  hi: {
-    // Navigation
-    home: 'होम',
-    about: 'के बारे में',
-    products: 'उत्पाद',
-    contact: 'संपर्क',
-    login: 'लॉगिन',
-    register: 'रजिस्टर',
-    logout: 'लॉगआउट',
-    profile: 'प्रोफ़ाइल',
-    
-    // Products
-    crop_rotation: 'क्रॉपशिफ्टएक्स',
-    agrirevive: 'एग्रीरिवाइव',
-    agrisensex: 'एग्रीसेंसएक्स',
-    bio_guardian: 'बायोगार्डियन',
-    
-    // Home page
-    sustainable_farming: 'स्वच्छ हवा के लिए टिकाऊ खेती',
-    hero_description: 'खेती को स्मार्ट और हरित बनाने के लिए AI की शक्ति का उपयोग करें। प्रदूषण कम करने और फसल की पैदावार बढ़ाने के लिए रीयल-टाइम इनसाइट प्राप्त करें।',
-    get_started: 'शुरू करें',
-    our_products: 'हमारे उत्पाद',
-    
-    // Auth forms
-    email: 'ईमेल',
-    password: 'पासवर्ड',
-    confirm_password: 'पासवर्ड की पुष्टि करें',
-    name: 'पूरा नाम',
-    phone: 'फोन नंबर',
-    location: 'स्थान',
-    bio: 'बायो',
-    current_password: 'वर्तमान पासवर्ड',
-    new_password: 'नया पासवर्ड',
-    
-    // Buttons
-    submit: 'सबमिट',
-    save_changes: 'परिवर्तन सहेजें',
-    cancel: 'रद्द करें',
-    
-    // Messages
-    login_success: 'लॉगिन सफल!',
-    register_success: 'पंजीकरण सफल!',
-    profile_updated: 'प्रोफ़ाइल सफलतापूर्वक अपडेट की गई!',
-    logout_success: 'लॉगआउट सफल!',
-    
-    // Errors
-    required_field: 'यह फील्ड आवश्यक है',
-    invalid_email: 'कृपया एक मान्य ईमेल पता दर्ज करें',
-    password_min_length: 'पासवर्ड कम से कम 8 अक्षरों का होना चाहिए',
-    passwords_not_match: 'पासवर्ड मेल नहीं खाते',
-  },
-  kn: {
-    // Navigation
-    home: 'ಮುಖ್ಯಪುಟ',
-    about: 'ಬಗ್ಗೆ',
-    products: 'ಉತ್ಪಾದನೆಗಳು',
-    contact: 'ಸಂಪರ್ಕ',
-    login: 'ಲಾಗಿನ್',
-    register: 'ನೋಂದಣಿ',
-    logout: 'ಲಾಗೌಟ್',
-    profile: 'ಪ್ರೊಫೈಲ್',
-    
-    // Products
-    crop_rotation: 'ಕ್ರಾಪ್‌ಶಿಫ್ಟ್‌ಎಕ್ಸ್',
-    agrirevive: 'ಅಗ್ರಿರಿವೈವ್',
-    agrisensex: 'ಅಗ್ರಿಸೆನ್ಸ್‌ಎಕ್ಸ್',
-    bio_guardian: 'ಬಯೋಗಾರ್ಡಿಯನ್',
-    
-    // Home page
-    sustainable_farming: 'ಶುದ್ಧ ಗಾಳಿಗಾಗಿ ಸಮರ್ಥನೀಯ ಕೃಷಿ',
-    hero_description: 'ಕೃಷಿಯನ್ನು ಸ್ಮಾರ್ಟ್ ಮತ್ತು ಹಸಿರು ಮಾಡಲು AI ಯ ಶಕ್ತಿಯನ್ನು ಬಳಸಿ। ಮಾಲಿನ್ಯವನ್ನು ಕಡಿಮೆ ಮಾಡಲು ಮತ್ತು ಬೆಳೆಯ ಇಳುವರಿ ಹೆಚ್ಚಿಸಲು ನಿಜ-ಸಮಯದ ಒಳನೋಟಗಳನ್ನು ಪಡೆಯಿರಿ।',
-    get_started: 'ಪ್ರಾರಂಭಿಸಿ',
-    our_products: 'ನಮ್ಮ ಉತ್ಪಾದನೆಗಳು',
-    
-    // Auth forms
-    email: 'ಇಮೇಲ್',
-    password: 'ಪಾಸ್‌ವರ್ಡ್',
-    confirm_password: 'ಪಾಸ್‌ವರ್ಡ್ ಖಚಿತಪಡಿಸಿ',
-    name: 'ಪೂರ್ಣ ಹೆಸರು',
-    phone: 'ಫೋನ್ ಸಂಖ್ಯೆ',
-    location: 'ಸ್ಥಳ',
-    bio: 'ಬಯೋ',
-    current_password: 'ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್',
-    new_password: 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
-    
-    // Buttons
-    submit: 'ಸಲ್ಲಿಸಿ',
-    save_changes: 'ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ',
-    cancel: 'ರದ್ದುಮಾಡಿ',
-    
-    // Messages
-    login_success: 'ಲಾಗಿನ್ ಯಶಸ್ವಿ!',
-    register_success: 'ನೋಂದಣಿ ಯಶಸ್ವಿ!',
-    profile_updated: 'ಪ್ರೊಫೈಲ್ ಯಶಸ್ವಿಯಾಗಿ ಅಪ್‌ಡೇಟ್ ಮಾಡಲಾಗಿದೆ!',
-    logout_success: 'ಲಾಗೌಟ್ ಯಶಸ್ವಿ!',
-    
-    // Errors
-    required_field: 'ಈ ಕ್ಷೇತ್ರವು ಅಗತ್ಯವಿದೆ',
-    invalid_email: 'ದಯವಿಟ್ಟು ಮಾನ್ಯವಾದ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ',
-    password_min_length: 'ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳಾಗಿರಬೇಕು',
-    passwords_not_match: 'ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ',
-  }
-};
-
 export const LanguageProvider = ({ children }) => {
   const { t, i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
@@ -263,48 +106,23 @@ export const LanguageProvider = ({ children }) => {
       return t(`${options.ns}:${key}`, options);
     }
     
-    // Try common namespace first, then fallback to key
+    // Use react-i18next with fallback
     return t(key, { 
       ...options,
-      fallbackKey: key,
       defaultValue: options.defaultValue || key
     });
   };
 
-  // Get translation with fallback to legacy translations
+  // Get translation - simplified version
   const getTranslation = (key, options = {}) => {
     try {
-      // First try react-i18next with the key
-      let translated = t(key, { 
+      // Use react-i18next translation
+      const translated = t(key, { 
         ...options,
-        defaultValue: undefined // Don't use defaultValue in first attempt
+        defaultValue: options.defaultValue || key
       });
       
-      // If translation exists and is not the same as key, return it
-      if (translated && translated !== key) {
-        return translated;
-      }
-      
-      // Try to get nested value from legacy translations
-      const keys = key.split('.');
-      let value = legacyTranslations[i18n.language];
-      
-      for (const k of keys) {
-        if (value && typeof value === 'object' && value[k] !== undefined) {
-          value = value[k];
-        } else {
-          value = undefined;
-          break;
-        }
-      }
-      
-      // If found in legacy translations, return it
-      if (value && typeof value === 'string') {
-        return value;
-      }
-      
-      // Fallback: return the default value or the key
-      return options.defaultValue || key;
+      return translated;
     } catch (error) {
       console.warn('Translation error for key:', key, error);
       return options.defaultValue || key;
@@ -313,8 +131,7 @@ export const LanguageProvider = ({ children }) => {
 
   // Check if translation exists
   const hasTranslation = (key, options = {}) => {
-    return i18n.exists(key, options) || 
-           !!legacyTranslations[i18n.language]?.[key];
+    return i18n.exists(key, options);
   };
 
   // Get current language info
@@ -396,10 +213,7 @@ export const LanguageProvider = ({ children }) => {
     formatters,
     
     // i18n instance for advanced usage
-    i18n,
-    
-    // Legacy support
-    legacyTranslations
+    i18n
   };
 
   return (

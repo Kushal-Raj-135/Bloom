@@ -94,5 +94,11 @@
     "hours_ago_plural": "{{count}} hours ago",
     "days_ago": "{{count}} day ago",
     "days_ago_plural": "{{count}} days ago"
+  },
+  "home": {
+    "sustainable_farming": "Sustainable Farming for Cleaner Air",
+    "hero_description": "Harness the power of AI to make farming smarter and greener. Get real-time insights to reduce pollution and boost crop yields. Optimize resources naturally while protecting the environment. Sustainable agriculture starts with smart decisions!",
+    "get_started": "Get Started",
+    "our_products": "Our Products"
   }
 }

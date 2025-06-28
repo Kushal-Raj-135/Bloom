@@ -140,13 +140,13 @@ const Header = () => {
                         className="nav-link"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        {t('profile')}
+                        {t('navigation.profile')}
                       </Link>
                       <button 
                         className="nav-link logout-btn"
                         onClick={handleLogout}
                       >
-                        {t('logout')}
+                        {t('navigation.logout')}
                       </button>
                     </div>
                   )}

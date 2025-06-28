@@ -21,20 +21,20 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Products</h3>
             <ul>
-              <li><a href="/crop/crop-rotation">{t('crop_rotation')}</a></li>
-              <li><a href="/agrirevive/biofuel">{t('agrirevive')}</a></li>
-              <li><a href="/agrisensex/agri">{t('agrisensex')}</a></li>
-              <li><a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" target="_blank" rel="noopener noreferrer">{t('bio_guardian')}</a></li>
+              <li><a href="/crop/crop-rotation">{t('products.crop_rotation')}</a></li>
+              <li><a href="/agrirevive/biofuel">{t('products.biofuel')}</a></li>
+              <li><a href="/agrisensex/agri">{t('products.agri')}</a></li>
+              <li><a href="https://livestock-hyntmajauedrrdofwkde42.streamlit.app/" target="_blank" rel="noopener noreferrer">{t('products.bio_guardian')}</a></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h3>Company</h3>
             <ul>
-              <li><a href="#info-section">{t('about')}</a></li>
-              <li><a href="#contact">{t('contact')}</a></li>
-              <li><a href="/privacy">Privacy Policy</a></li>
-              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="#info-section">{t('navigation.about')}</a></li>
+              <li><a href="#contact">{t('navigation.contact')}</a></li>
+              <li><a href="/privacy">{t('navigation.privacy_policy')}</a></li>
+              <li><a href="/terms">{t('navigation.terms_of_service')}</a></li>
             </ul>
           </div>
           

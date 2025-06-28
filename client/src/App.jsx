@@ -18,6 +18,7 @@ import AgriSenseX from './pages/modules/AgriSenseX';
 import AgriDashboard from './pages/modules/AgriDashboard';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Chatbot from './components/common/Chatbot';
 import './App.css';
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
               </Routes>
             </main>
             <Footer />
+            <Chatbot />
             <Toaster 
               position="top-right"
               toastOptions={{

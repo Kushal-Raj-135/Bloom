@@ -9,25 +9,25 @@ const Home = () => {
   const products = [
     {
       icon: 'fas fa-sync-alt',
-      title: t('crop_rotation'),
+      title: t('products.crop_rotation'),
       description: 'Smart crop rotation planning using AI to maximize yields and soil health.',
       link: '/crop/crop-rotation'
     },
     {
       icon: 'fas fa-leaf',
-      title: t('agrirevive'),
+      title: t('products.agrirevive'),
       description: 'Convert agricultural waste into clean biofuel energy solutions.',
       link: '/agrirevive/biofuel'
     },
     {
       icon: 'fas fa-chart-line',
-      title: t('agrisensex'),
+      title: t('products.agrisensex'),
       description: 'Real-time monitoring and analytics for precision agriculture.',
       link: '/agrisensex/agri'
     },
     {
       icon: 'fas fa-shield-alt',
-      title: t('bio_guardian'),
+      title: t('products.bio_guardian'),
       description: 'AI-powered livestock health monitoring and protection system.',
       link: 'https://livestock-hyntmajauedrrdofwkde42.streamlit.app/',
       external: true
@@ -44,10 +44,10 @@ const Home = () => {
       <section className="hero" id="home">
         <div className="container">
           <div className="hero-content">
-            <h1>{t('sustainable_farming')}</h1>
-            <p>{t('hero_description')}</p>
+            <h1>{t('home.sustainable_farming')}</h1>
+            <p>{t('home.hero_description')}</p>
             <button className="custom-btn" onClick={scrollToFeatures}>
-              {t('get_started')}
+              {t('home.get_started')}
             </button>
           </div>
           <div className="hero-image">
@@ -72,7 +72,7 @@ const Home = () => {
       {/* Features/Products Section */}
       <section className="features" id="products">
         <div className="container">
-          <h2 className="section-title">{t('our_products')}</h2>
+          <h2 className="section-title">{t('home.our_products')}</h2>
           <div className="product-cards">
             {products.map((product, index) => (
               <ProductCard key={index} {...product} />
